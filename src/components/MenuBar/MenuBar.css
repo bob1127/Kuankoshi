@@ -1,0 +1,11 @@
+.menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
