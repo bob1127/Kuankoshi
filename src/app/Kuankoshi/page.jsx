@@ -153,7 +153,7 @@ export default function About() {
                 <div className="overlay absolute inset-0 bg-black z-10"></div>
                 <div className="image-container relative w-full h-full">
                   <Image
-                    src="https://sdmntprwestus.oaiusercontent.com/files/00000000-16d4-5230-a93e-5bfa0ab54900/raw?se=2025-04-05T12%3A22%3A44Z&sp=r&sv=2024-08-04&sr=b&scid=d64ad8a4-5b61-54d5-b2ea-3b95a3f0beab&skoid=e825dac8-9fae-4e05-9fdb-3d74e1880d5a&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-05T10%3A24%3A56Z&ske=2025-04-06T10%3A24%3A56Z&sks=b&skv=2024-08-04&sig=tpqoabsuedZNTxLwPpdp44Cz7qVcLOaVxbv9qa6rwV8%3D"
+                    src="/images/img01.webp"
                     alt="About Image 1"
                     fill
                     className="object-cover"

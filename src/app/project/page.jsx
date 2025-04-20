@@ -1,13 +1,23 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import AnimatedLink from "../../components/AnimatedLink";
+// ✅ 擷取圖庫第一張圖片
+function extractFirstGalleryImage(html) {
+  const galleryMatch = html.match(
+    /<figure class="wp-block-gallery[\s\S]*?<\/figure>/i
+  );
+  if (!galleryMatch) return null;
+
+  const firstImgMatch = galleryMatch[0].match(/<img[^>]+src="([^">]+)"/i);
+  return firstImgMatch ? firstImgMatch[1] : null;
+}
 
 async function getProjectPosts() {
-  // 先抓分類 ID
   const categoryRes = await fetch(
     "https://starislandbaby.com/test/wp-json/wp/v2/categories?slug=project",
     {
-      next: { revalidate: 60 }, // ✅ 可快取的 API
+      next: { revalidate: 60 },
     }
   );
   const categories = await categoryRes.json();
@@ -18,7 +28,7 @@ async function getProjectPosts() {
   const postsRes = await fetch(
     `https://starislandbaby.com/test/wp-json/wp/v2/posts?categories=${categoryId}&_embed&per_page=100`,
     {
-      next: { revalidate: 60 }, // ✅ 重點在這裡，每 60 秒重新抓
+      next: { revalidate: 60 },
     }
   );
   const posts = await postsRes.json();
@@ -33,19 +43,24 @@ export default async function ProjectListPage() {
       <h1 className="text-3xl font-bold mb-8">設計作品</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {posts.map((post) => {
-          const featuredImage =
+          // ✅ 改為圖庫第一張圖
+          const galleryFirstImage = extractFirstGalleryImage(
+            post.content?.rendered
+          );
+          const fallbackImage =
             post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
             "/images/fallback.jpg";
+          const previewImage = galleryFirstImage || fallbackImage;
 
           return (
-            <Link
+            <AnimatedLink
               key={post.id}
               href={`/project/${post.slug}`}
               className="group block"
             >
               <div className="aspect-[4/5] w-full overflow-hidden rounded-md bg-gray-100">
                 <Image
-                  src={featuredImage}
+                  src={previewImage}
                   alt={post.title.rendered}
                   width={400}
                   height={500}
@@ -58,7 +73,7 @@ export default async function ProjectListPage() {
               <p className="text-xs text-gray-500">
                 {new Date(post.date).toLocaleDateString("zh-TW")}
               </p>
-            </Link>
+            </AnimatedLink>
           );
         })}
       </div>

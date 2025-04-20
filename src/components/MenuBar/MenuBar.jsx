@@ -18,33 +18,27 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu, isDarkBg }) => {
   const navItems = [
     {
       label: "設計理念",
-      href: "/KuankoshiAbout",
-      icon: <Lightbulb className="w-4 h-5 p-[.6px] mb-1" />,
+      href: "/project",
     },
     {
       label: "空間案例",
-      href: "/projects",
-      icon: <LayoutDashboard className="w-4 h-5 p-[.6px] mb-1" />,
+      href: "/project",
     },
     {
       label: "聯繫我們",
-      href: "/contact",
-      icon: <CalendarCheck className="w-4 h-5 p-[.6px] mb-1" />,
+      href: "/project",
     },
     {
       label: "POLICY",
-      href: "/policy",
-      icon: <ShieldCheck className="w-4 h-5 p-[.6px] mb-1" />,
+      href: "/project",
     },
     {
       label: "客戶提問",
-      href: "/qa",
-      icon: <LifeBuoy className="w-4 h-5 p-[.6px] mb-1" />,
+      href: "/project",
     },
     {
       label: "設計誌",
-      href: "/blog",
-      icon: <BookOpenText className="w-4 h-5 p-[.6px] mb-1" />,
+      href: "/project",
     },
   ];
 
