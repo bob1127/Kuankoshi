@@ -1,18 +1,17 @@
 "use client";
 
-import ThreeDSlider from "../components/3DSlider.jsx";
+import React, { useRef, useEffect, useState, useCallback } from "react";
+import Image from "next/image";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { ReactLenis } from "@studio-freight/react-lenis";
 
+import ThreeDSlider from "../components/3DSlider.jsx";
 import InfiniteScroll from "../components/InfiniteScroll/page.jsx";
 import GsapText from "../components/RevealText/index";
 import HomeSlider from "../components/HeroSliderHome/page.jsx";
-import React, { useRef, useEffect, useState } from "react";
-import Image from "next/image";
 import AnimatedLink from "../components/AnimatedLink";
-import { ReactLenis } from "@studio-freight/react-lenis";
 import LogoLoader from "../components/Loderanimation.jsx";
-
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import Marquee from "react-fast-marquee";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -20,7 +19,57 @@ gsap.registerPlugin(ScrollTrigger);
 export default function About() {
   const imageRefs = useRef([]);
   const containerRef = useRef(null);
-  const [loading, setLoading] = useState(true); // 控制是否顯示 loader
+  const [loading, setLoading] = useState(true);
+
+  const initGSAPAnimations = useCallback(() => {
+    const ctx = gsap.context(() => {
+      const images = document.querySelectorAll(".animate-image-wrapper");
+
+      images.forEach((image, i) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: image,
+            start: "top bottom",
+            end: "top center",
+            toggleActions: "play none none none",
+            id: "imageReveal-" + i,
+          },
+        });
+
+        tl.fromTo(
+          image.querySelector(".overlay"),
+          { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" },
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 0.7,
+            ease: "power2.inOut",
+          }
+        )
+          .to(image.querySelector(".overlay"), {
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            duration: 0.7,
+            ease: "power2.inOut",
+          })
+          .fromTo(
+            image.querySelector(".image-container"),
+            {
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            },
+            {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              duration: 1.5,
+              ease: "power3.inOut",
+            },
+            "-=0.5"
+          );
+      });
+
+      ScrollTrigger.refresh();
+    }, containerRef);
+
+    return ctx;
+  }, []);
+
   useEffect(() => {
     const firstVisit = localStorage.getItem("visited");
     if (firstVisit) {
@@ -31,59 +80,13 @@ export default function About() {
   const handleLogoFinish = () => {
     localStorage.setItem("visited", "true");
     setLoading(false);
+
+    requestAnimationFrame(() => {
+      initGSAPAnimations(); // 🟢 初始化動畫
+    });
   };
+
   useEffect(() => {
-    const initGSAPAnimations = () => {
-      const ctx = gsap.context(() => {
-        const images = document.querySelectorAll(".animate-image-wrapper");
-
-        images.forEach((image, i) => {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: image,
-              start: "top bottom",
-              end: "top center",
-              toggleActions: "play none none none",
-              id: "imageReveal-" + i,
-            },
-          });
-
-          tl.fromTo(
-            image.querySelector(".overlay"),
-            {
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-            },
-            {
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-              duration: 0.7,
-              ease: "power2.inOut",
-            }
-          )
-            .to(image.querySelector(".overlay"), {
-              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-              duration: 0.7,
-              ease: "power2.inOut",
-            })
-            .fromTo(
-              image.querySelector(".image-container"),
-              {
-                clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-              },
-              {
-                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                duration: 1.5,
-                ease: "power3.inOut",
-              },
-              "-=0.5"
-            );
-        });
-
-        ScrollTrigger.refresh();
-      }, containerRef);
-
-      return ctx; // return so we can revert later
-    };
-
     let ctx;
 
     const onTransitionComplete = () => {
@@ -92,11 +95,12 @@ export default function About() {
 
     window.addEventListener("pageTransitionComplete", onTransitionComplete);
 
-    // fallback: 若不是從 transition link 進來，直接初始化
     if (!sessionStorage.getItem("transitioning")) {
-      ctx = initGSAPAnimations();
+      if (!loading) {
+        ctx = initGSAPAnimations();
+      }
     } else {
-      sessionStorage.removeItem("transitioning"); // 清除 flag
+      sessionStorage.removeItem("transitioning");
     }
 
     return () => {
@@ -106,15 +110,14 @@ export default function About() {
         onTransitionComplete
       );
     };
-
-    return () => ctx.revert(); // 👈 自動 kill 清理範圍內動畫
-  }, []);
+  }, [initGSAPAnimations, loading]);
 
   return (
     <ReactLenis root>
       {loading ? (
         <LogoLoader onFinish={handleLogoFinish} />
       ) : (
+        // 🔽 你原本的 JSX 區塊，保持不變
         <div className="overflow-hidden">
           <div className="policy  fixed z-50 left-[38%] bottom-8 bg-white rounded-lg shadow-md w-[350px] py-5">
             <div className="flex justify-center w-full items-center">
@@ -852,10 +855,6 @@ export default function About() {
           </section>
         </div>
       )}
-
-      {/* <div className="w-full h-full py-20">
-        <Carousel items={cards} />
-      </div> */}
     </ReactLenis>
   );
 }
