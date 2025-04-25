@@ -4,7 +4,7 @@ import { useLenis } from "@studio-freight/react-lenis";
 
 const lerp = (start, end, factor) => start + (end - start) * factor;
 
-const ParallaxImage = ({ src, alt }) => {
+const ParallaxImage = ({ src, alt, className = "" }) => {
   const imageRef = useRef(null);
   const bounds = useRef(null);
   const currentTranslateY = useRef(0);
@@ -58,7 +58,9 @@ const ParallaxImage = ({ src, alt }) => {
     targetTranslateY.current = relativeScroll * 0.2;
   });
 
-  return <img ref={imageRef} src={src} alt={alt} className="   md:h-auto" />;
+  return (
+    <img ref={imageRef} src={src} alt={alt} className={`w-full ${className}`} />
+  );
 };
 
 export default ParallaxImage;

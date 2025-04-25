@@ -40,7 +40,9 @@ const Section2 = () => {
   return (
     <div className="flex  flex-col">
       <Nav />
-      <h1 className="text-[4vw] text-gray-100 leading-[0.8] mt-10">YI YUAN</h1>
+      <h1 className="text-[4vw] text-gray-100 leading-[0.8] mt-10">
+        KusnKoshi
+      </h1>
       <div className="copy flex flex-col sm:flex-row justify-between border-b-1 border-white pb-4">
         <p className="text-[.9rem] text-gray-200 font-light">
           Copyright © 2023︎ Ait Design Inc.

@@ -5,10 +5,11 @@ import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
-
+import ThreeDBanner from "../components/ThreeDBanner/index";
 import ThreeDSlider from "../components/3DSlider.jsx";
 import InfiniteScroll from "../components/InfiniteScroll/page.jsx";
 import GsapText from "../components/RevealText/index";
+import Preloader from "../components/Preloader/index";
 import HomeSlider from "../components/HeroSliderHome/page.jsx";
 import AnimatedLink from "../components/AnimatedLink";
 import LogoLoader from "../components/Loderanimation.jsx";
@@ -118,8 +119,10 @@ export default function About() {
         <LogoLoader onFinish={handleLogoFinish} />
       ) : (
         // 🔽 你原本的 JSX 區塊，保持不變
+
         <div className="overflow-hidden">
-          <div className="policy  fixed z-50 left-[38%] bottom-8 bg-white rounded-lg shadow-md w-[350px] py-5">
+          <Preloader />
+          <div className="policy  fixed z-[1] left-[38%] bottom-8 bg-white rounded-lg shadow-md w-[350px] py-5">
             <div className="flex justify-center w-full items-center">
               <div className="w-3/4 pl-5">
                 <b className="text-black text-[.85rem] tracking-widest">
@@ -142,12 +145,12 @@ export default function About() {
               </div>
             </div>
           </div>
-          <section
+          {/* <section
             id="dark-section"
             className="section_hero relative overflow-hidden"
           >
             <HomeSlider />
-          </section>
+          </section> */}
 
           <section className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="text-center px-4">
@@ -591,6 +594,9 @@ export default function About() {
               </div>
             </div>
           </section>
+          {/* <section className="">
+            <ThreeDBanner />
+          </section> */}
           <section>
             <div className="img  w-[98%] mx-auto sm:mx-3 mt-[-100px]  h-auto md:h-[95vh]  overflow-hidden">
               <AnimatedLink href="/project">

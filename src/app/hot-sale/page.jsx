@@ -1,6 +1,6 @@
 "use client";
 import GsapText from "../../components/RevealText/index";
-
+import ThreeJs from "../../components/ThreeSlider/index";
 import { projects } from "../../components/ParallaxCard/data";
 import { TextGenerateEffect } from "../../components/ui/text-generate-effec-home";
 import Card from "../../components/ParallaxCard/page";
@@ -40,7 +40,7 @@ export default function Home() {
           className="text-center inline-block mb-0 h-auto "
         />
       </div>
-
+      <ThreeJs />
       <main ref={container} className=" relative">
         {projects.map((project, i) => {
           const targetScale = 1 - (projects.length - i) * 0.05;

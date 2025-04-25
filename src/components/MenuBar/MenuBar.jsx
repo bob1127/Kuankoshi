@@ -18,7 +18,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu, isDarkBg }) => {
   const navItems = [
     {
       label: "設計理念",
-      href: "/project",
+      href: "/KuankoshiAbout",
     },
     {
       label: "空間案例",
@@ -51,7 +51,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu, isDarkBg }) => {
       </div>
 
       <div className="menu-toggle-wrapper w-[55%] flex items-center justify-end">
-        <div className="flex items-center w-full justify-center font-light flex-row">
+        <div className=" hidden sm:flex items-center w-full justify-center font-light flex-row">
           {navItems.map(({ label, href, icon }) => (
             <AnimatedLink href={href} key={label}>
               <button

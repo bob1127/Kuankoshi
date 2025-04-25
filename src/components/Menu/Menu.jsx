@@ -11,7 +11,7 @@ import Link from "next/link";
 import "./Menu.css";
 import MenuBar from "../MenuBar/MenuBar";
 import { links, socials, address, contactInfo } from "./menuContent";
-
+import AnimatedLink from "../AnimatedLink";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
@@ -146,7 +146,7 @@ const Menu = ({ isDarkBg }) => {
       <div className="menu" ref={menuRef}>
         <div className="col col-1">
           <div className="socials">
-            <div className="sub-col">
+            {/* <div className="sub-col">
               {address.map((line, index) => (
                 <div className="line" key={index}>
                   <p>{line}</p>
@@ -158,12 +158,13 @@ const Menu = ({ isDarkBg }) => {
                   <p>{line}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
             <div className="sub-col">
               {socials.map((social, index) => (
                 <div className="line" key={index}>
-                  <p>
+                  <p className="text-[1.2rem]">
                     <a
+                      className="text-[1.2rem]"
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -174,20 +175,20 @@ const Menu = ({ isDarkBg }) => {
                 </div>
               ))}
               <br />
-              <div className="line">
+              <div className="line ">
                 <p>{contactInfo[2]}</p>
               </div>
             </div>
           </div>
         </div>
         <div className="col col-2">
-          <div className="links">
+          <div className="links grid grid-cols-2 gap-4">
             {links.map((link, index) => (
               <div className="link" key={index}>
                 <div className="link-wrapper">
-                  <Link href={link.path}>
-                    <h1>{link.label}</h1>
-                  </Link>
+                  <AnimatedLink href="" className="border block p-2 small-link">
+                    <h1 className="text-[1rem] text-white">{link.label}</h1>
+                  </AnimatedLink>
                 </div>
               </div>
             ))}

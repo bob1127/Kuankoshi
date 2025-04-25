@@ -46,7 +46,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <ViewTransitions>
       <html lang="en">
         <body className="">
-          <div className="w-[100vw] z-[9999999999] left-0 top-0 fixed">
+          <div
+            data-aos="fade-up"
+            className="w-[100vw] z-[999999999999999] left-0 top-0 fixed"
+          >
             {/* <Header /> */}
             {/* <Navs isDarkBg={isDarkBg} /> */}
             <Menu isDarkBg={isDarkBg} />

@@ -208,12 +208,12 @@ const Photos = () => {
         </div>
 
         <div className="slider-title">
-          <div className="slider-title-wrapper" ref={titlesRef}>
+          {/* <div className="slider-title-wrapper" ref={titlesRef}>
             <p>寬越室內設計</p>
             <p>Above The Canvas</p>
             <p>Harmony in Every Note</p>
             <p>Redefining Imagination</p>
-          </div>
+          </div> */}
         </div>
 
         {/* ✅ 原本的 bottom-info 保留不動 */}

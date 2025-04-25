@@ -12,6 +12,11 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+      transitionDuration: {
+        2000: '2000ms', // 加入 2000 毫秒
+        3000: '3000ms',
+        // 你可以加更多自定義時間
+      },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(335.885deg, rgb(52, 59, 74) 5.58677%, rgb(53, 41, 41) 84.8547%)',
       },

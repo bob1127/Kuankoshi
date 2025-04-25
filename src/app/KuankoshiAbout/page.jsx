@@ -1,19 +1,23 @@
 "use client";
 
 import ThreeDSlider from "../../components/3DSlider.jsx";
-
+import ParallaxImage from "../../components/ParallaxImage";
 import InfiniteScroll from "../../components/InfiniteScroll/page.jsx";
 import GsapText from "../../components/RevealText/index";
 import HomeSlider from "../../components/HeroSliderHome/page.jsx";
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-
+import ScrollTopCard from "../../components/ScrollTopCard/index.jsx";
+import ScrollTopCard1 from "../../components/ScrollTopCard1/index.jsx";
+import ScrollTopCard2 from "../../components/ScrollTopCard2/index.jsx";
 import { ReactLenis } from "@studio-freight/react-lenis";
-
+import styles from "./page.module.scss";
+import { projects } from "../../data.js";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Marquee from "react-fast-marquee";
+import Lenis from "@studio-freight/lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,10 +102,179 @@ export default function About() {
 
     return () => ctx.revert(); // 👈 自動 kill 清理範圍內動畫
   }, []);
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  });
 
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  });
   return (
     <ReactLenis root>
-      <TextParallaxContent
+      <div className="">
+        <section className=" border w-[100%] mx-auto section-news 2xl:aspect-[1920/800] aspect-[500/500] md:aspect-[1024/576]   lg:aspect-[1920/768]  relative overflow-hidden">
+          <div className="mask bg-[#000] absolute opacity-25 w-full h-full top-0 left-0 z-30"></div>
+          <div className="absolute flex-row inset-0 flex z-50 items-center justify-center ">
+            <div className="txt flex justify-center flex-col items-center">
+              <GsapText
+                text="KUANKOSHI"
+                id="gsap-intro"
+                fontSize="3.3rem"
+                fontWeight="500"
+                color="#fff"
+                lineHeight="60px"
+                className="text-center inline-block mb-0 h-auto "
+              />
+              <div className="news-tag mt-4 flex justify-center">
+                <div className="tag px-3 hover:bg-white hover:text-black duration-500 py-1 rounded-[20px] border border-white text-white flex justify-center items-center mx-2 text-[.8rem]">
+                  新案件賞
+                </div>
+                <div className="tag px-3 py-1 rounded-[20px] hover:bg-white hover:text-black duration-500 border border-white text-white flex justify-center items-center mx-2 text-[.8rem]">
+                  新案件賞
+                </div>
+                <div className="tag px-3 py-1 rounded-[20px] hover:bg-white hover:text-black duration-500 border border-white text-white flex justify-center items-center mx-2 text-[.8rem]">
+                  新案件賞
+                </div>
+                <div className="tag px-3 py-1 rounded-[20px] hover:bg-white hover:text-black duration-500 border border-white text-white flex justify-center items-center mx-2 text-[.8rem]">
+                  新案件賞
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="portrait-container overflow-hidden">
+            <div className="img mt-8">
+              <ParallaxImage
+                src="https://noizarchitects.com/cms/wp-content/uploads/2024/02/noe_004-scaled-2.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+        </section>
+        <section>
+          <ScrollTopCard />
+          <ScrollTopCard1 />
+        </section>
+        <section className="bg-[#f1f1f1] relative py-[110px] ">
+          <div className="top-tag border border-gray-300 text-[.8rem] bg-white absolute z-10 left-1/2 -translate-x-1/2 text-gray-500 top-[-20px] tracking-widest rounded-full px-6 py-3">
+            Project | Cooperation
+          </div>
+          <div className="flex flex-col lg:flex-row w-[90%] mx-auto max-w-[1380px]">
+            <div className="w-full lg:w-1/2 group flex px-3 justify-start flex-col items-center">
+              <Image
+                src="https://store-palette.com/assets/img/common/layout/spesial_banner_1-pc.png"
+                alt="map-section"
+                width={1000}
+                height={600}
+                className="w-full group-hover:rounded-[40px] duration-700 max-w-[600px]"
+              ></Image>
+              <div className="description mt-5 flex items-center justify-between pl-5">
+                <span className="text-[.9rem] leading-loose tracking-widest">
+                  無論是住宅規劃、商業提案或空間優化，歡迎與我們聯繫，<br></br>
+                  我們將以專業與誠意回應每一個期待。
+                </span>
+                <button class="ml-3 relative inline-flex h-12 w-12 items-center justify-center overflow-hidden group-hover:bg-black group-hover:text-white rounded-full border-black border  font-medium text-neutral-900">
+                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                    >
+                      <path
+                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                    >
+                      <path
+                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2 group flex px-3 justify-start flex-col items-center">
+              <Image
+                src="https://store-palette.com/assets/img/common/layout/spesial_banner_2-pc.png"
+                alt="map-section"
+                width={1000}
+                height={600}
+                className="w-full group-hover:rounded-[40px] duration-700 max-w-[600px]"
+              ></Image>
+              <div className="description mt-5 flex items-center justify-between pl-5">
+                <span className="text-[.9rem] leading-loose tracking-widest">
+                  寬越設計擁有跨領域合作經驗，歡迎品牌、建築師、開發商與我們洽談設計、
+                  <br></br>
+                  整合施工或空間創作項目，共同完成具備深度與美感的場域作品。
+                </span>
+                <button class="ml-3 relative inline-flex h-12 w-12 items-center justify-center overflow-hidden group-hover:bg-black group-hover:text-white rounded-full border-black border  font-medium text-neutral-900">
+                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                    >
+                      <path
+                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                    >
+                      <path
+                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      {/* <TextParallaxContent
         imgUrl="https://aitohus.com/assets/images/top/quality.avif"
         heading="關於宜園建設."
         description="宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。"
@@ -111,6 +284,11 @@ export default function About() {
         heading="關於宜園建設."
         description="宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。"
       ></TextParallaxContent>
+      <TextParallaxContent
+        imgUrl="https://aitohus.com/assets/images/top/quality.avif"
+        heading="關於宜園建設."
+        description="宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。"
+      ></TextParallaxContent> */}
 
       {/* <div className="w-full h-full py-20">
         <Carousel items={cards} />
@@ -205,7 +383,7 @@ const OverlayCopy = ({ subheading, heading, description }) => {
         <p className="text-left  w-full !font-light leading-relaxed text-white text-[2rem]">
           {heading}
         </p>
-        <p className="w-full !font-light text-[1rem] text-white leading-loose mt-5">
+        <p className="w-full !font-light text-[.9rem] text-white leading-loose mt-5">
           {description}
         </p>
       </div>

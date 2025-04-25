@@ -10,7 +10,7 @@ const EmblaCarousel = ({ slides = [], thumbnails = [], options = {} }) => {
   const [emblaMainRef, emblaMainApi] = useEmblaCarousel({
     align: "start",
     loop: false,
-    containScroll: false,
+    containScroll: "trimSnaps",
     skipSnaps: false,
     ...options,
   });
@@ -39,33 +39,24 @@ const EmblaCarousel = ({ slides = [], thumbnails = [], options = {} }) => {
     if (!emblaMainApi) return;
     onSelect();
     emblaMainApi.on("select", onSelect).on("reInit", onSelect);
-
-    // debug: 看 embla 認為的 snap 點
-    console.log("✅ snap count:", emblaMainApi.scrollSnapList().length);
   }, [emblaMainApi, onSelect]);
 
   return (
-    <div className="w-full">
-      <div className="embla bg-[#f5f5f5] w-full mx-auto px-2">
-        <div
-          className="embla__viewport overflow-hidden"
-          ref={emblaMainRef}
-          style={{ maxWidth: "1920px", margin: "0 auto" }} // ✅ 寬度足夠容納 snap
-        >
-          <div className="embla__container flex w-[100%] ">
-            {" "}
-            {/* ✅ 關鍵 */}
+    <div className="w-full mx-auto">
+      {/* 主輪播 */}
+      <div className="embla w-full px-2">
+        <div className="embla__viewport overflow-hidden" ref={emblaMainRef}>
+          <div className="embla__container 2xl:w-[450px] w-[300px] px-1 flex">
             {slides.map((url, i) => (
               <div
                 key={i}
-                className="embla__slide mr-1 ml-1 pl-1 pr-1 snap-start"
+                className="embla__slide mx-2 flex-shrink-0 snap-start px-2"
                 style={{
-                  width: "23%", // ✅ 每張佔 1/5
-                  flexShrink: 0, // ✅ 禁止壓縮
+                  width: "100%", // 每張滿版
+                  height: "500px",
                   backgroundImage: `url(${url})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  height: "400px",
                 }}
               />
             ))}
@@ -74,24 +65,26 @@ const EmblaCarousel = ({ slides = [], thumbnails = [], options = {} }) => {
       </div>
 
       {/* 縮圖 */}
-      <div className="embla-thumbs mt-4 px-2">
-        <div
-          className="embla-thumbs__viewport flex justify-center overflow-hidden"
-          ref={emblaThumbsRef}
-        >
-          <div className="embla-thumbs__container flex gap-2">
-            {thumbnails.map((thumbUrl, i) => (
-              <Thumb
-                key={i}
-                onClick={() => onThumbClick(i)}
-                selected={i === selectedIndex}
-                index={i}
-                imageUrl={thumbUrl}
-              />
-            ))}
+      {thumbnails?.length > 0 && (
+        <div className="embla-thumbs mt-4 px-2">
+          <div
+            className="embla-thumbs__viewport overflow-hidden"
+            ref={emblaThumbsRef}
+          >
+            <div className="embla-thumbs__container justify-center flex gap-2">
+              {thumbnails.map((thumbUrl, i) => (
+                <Thumb
+                  key={i}
+                  onClick={() => onThumbClick(i)}
+                  selected={i === selectedIndex}
+                  index={i}
+                  imageUrl={thumbUrl}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

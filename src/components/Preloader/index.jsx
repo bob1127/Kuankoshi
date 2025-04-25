@@ -1,97 +1,274 @@
 "use client";
 
-import styles from "./style.module.scss";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import CustomEase from "gsap/dist/CustomEase";
 import Image from "next/image";
-const words = ["宜園建設"];
-
-// 文字淡入動畫
-const opacity = {
-  initial: { opacity: 0 },
-  enter: { opacity: 0.75, transition: { duration: 1, delay: 0.2 } },
-};
-
-// 整體動畫
-const slideUp = {
-  initial: { top: 0 },
-  exit: {
-    top: "-100vh",
-    transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.2 },
-  },
-};
-
-// 進度條動畫時間
-const progressDuration = 1.2; // 與 `slideUp` transition.duration 相同
-
-export default function Index() {
-  const [index, setIndex] = useState(0);
-  const [dimension, setDimension] = useState({ width: 0, height: 0 });
-  const [progress, setProgress] = useState(0);
-
+import { BsCart, BsArrowRight } from "react-icons/bs";
+import HeroSlider from "../HeroSliderHome/page";
+export default function Home() {
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const handleLoad = () => {
-      setDimension({ width: window.innerWidth, height: window.innerHeight });
-    };
-
-    handleLoad();
-    window.addEventListener("resize", handleLoad);
-    return () => window.removeEventListener("resize", handleLoad);
+    gsap.registerPlugin(CustomEase);
+    CustomEase.create("hop", "0.9, 0, 0.1, 1");
   }, []);
 
-  useEffect(() => {
-    if (index >= words.length - 1) return;
-    const timer = setTimeout(() => setIndex((prev) => prev + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [index]);
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      delay: 0.3,
+      defaults: {
+        ease: "hop",
+      },
+    });
 
-  // 進度條同步動畫時間
-  useEffect(() => {
-    let progressInterval;
-    if (progress < 100) {
-      progressInterval = setInterval(() => {
-        setProgress((prev) => Math.min(prev + 5, 100));
-      }, (progressDuration * 1000) / 45); // 讓進度條在 `progressDuration` 秒內完成
-    }
-    return () => clearInterval(progressInterval);
-  }, [progress]);
+    const counts = document.querySelectorAll(".count");
 
-  if (dimension.width === 0) return null;
+    counts.forEach((count, index) => {
+      const digits = count.querySelectorAll(".digit h1");
+
+      tl.to(
+        digits,
+        {
+          y: "0%",
+          duration: 1,
+          stagger: 0.075,
+        },
+        index * 1
+      );
+
+      if (index < counts.length) {
+        tl.to(
+          digits,
+          {
+            y: "-100%",
+            duration: 1,
+            stagger: 0.075,
+          },
+          index * 1 + 1
+        );
+      }
+    });
+
+    tl.to(".spinner", {
+      opacity: 0,
+      duration: 0.3,
+    });
+
+    tl.to(
+      ".word h1",
+      {
+        y: "0%",
+        duration: 1,
+      },
+      "<"
+    );
+
+    tl.to(".divider", {
+      scaleY: "100%",
+      duration: 1,
+      onComplete: () =>
+        gsap.to(".divider", { opacity: 0, duration: 0.3, delay: 0.3 }),
+    });
+
+    tl.to("#word-1 h1", {
+      y: "100%",
+      duration: 1,
+      delay: 0.3,
+    });
+
+    tl.to(
+      "#word-2 h1",
+      {
+        y: "-100%",
+        duration: 1,
+      },
+      "<"
+    );
+
+    tl.to(
+      ".block",
+      {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        duration: 1,
+        stagger: 0.1,
+        delay: 0.75,
+        onStart: () =>
+          gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" }),
+      },
+      "<"
+    );
+
+    tl.to(
+      [".nav", ".line h1", ".line p"],
+      {
+        y: "0%",
+        duration: 1.5,
+        stagger: 0.2,
+      },
+      "<"
+    );
+
+    tl.to(
+      [".cta", ".cta-icon"],
+      {
+        scale: 1,
+        duration: 1.5,
+        stagger: 0.75,
+        delay: 0.75,
+      },
+      "<"
+    );
+
+    tl.to(
+      ".cta-label p",
+      {
+        y: "0%",
+        duration: 1.5,
+        delay: 0.5,
+      },
+      "<"
+    );
+    tl.to(".loader", {
+      opacity: 0,
+      duration: 0.1,
+      pointerEvents: "none",
+      onComplete: () => {
+        const loader = document.querySelector(".loader");
+        if (loader) loader.style.display = "none";
+      },
+    });
+  });
 
   return (
-    <motion.div
-      variants={slideUp}
-      initial="initial"
-      animate="enter"
-      exit="exit"
-      className={styles.introduction}
-    >
-      {/* 文字動畫 */}
+    <>
+      <div className="loader ">
+        <div className="overlay">
+          <div className="block"></div>
+          <div className="block"></div>
+        </div>
 
-      <motion.p variants={opacity} initial="initial" animate="enter">
-        <Image
-          src="/images/yiyuan-logo-white.png"
-          alt="Yiyuan Logo"
-          width={200}
-          height={100}
-          layout="intrinsic"
-          priority={true}
-        />
+        <div className="intro-logo">
+          <div className="word" id="word-1">
+            <h1>
+              <span>寬越</span>
+            </h1>
+          </div>
+          <div className="word" id="word-2">
+            <h1>設計</h1>
+          </div>
+        </div>
 
-        {/* {words[index]} */}
-      </motion.p>
+        <div className="divider"></div>
 
-      {/* 進度條 */}
-      <div className={styles.progressBarContainer}>
-        <motion.div
-          className={styles.progressBar}
-          initial={{ width: "0%" }}
-          animate={{ width: `${progress}%` }}
-          transition={{ duration: progressDuration, ease: "linear" }}
-        />
+        <div className="spinner-container">
+          <div className="spinner"></div>
+        </div>
+
+        <div className="counter">
+          <div className="count">
+            <div className="digit">
+              <h1>0</h1>
+            </div>
+            <div className="digit">
+              <h1>0</h1>
+            </div>
+          </div>
+          <div className="count">
+            <div className="digit">
+              <h1>2</h1>
+            </div>
+            <div className="digit">
+              <h1>7</h1>
+            </div>
+          </div>
+          <div className="count">
+            <div className="digit">
+              <h1>6</h1>
+            </div>
+            <div className="digit">
+              <h1>5</h1>
+            </div>
+          </div>
+          <div className="count">
+            <div className="digit">
+              <h1>9</h1>
+            </div>
+            <div className="digit">
+              <h1>8</h1>
+            </div>
+          </div>
+          <div className="count">
+            <div className="digit">
+              <h1>9</h1>
+            </div>
+            <div className="digit">
+              <h1>9</h1>
+            </div>
+          </div>
+        </div>
       </div>
-    </motion.div>
+
+      <div className="container">
+        <div className="hero-img">
+          <Image src="/hero-img.jpg" alt="KindRoot Hero Image" fill priority />
+        </div>
+
+        <div className="nav">
+          {/* <div className="logo">
+            <a href="#">KindRoot</a>
+          </div>
+          <div className="nav-links">
+            <a href="#">Rituals</a>
+            <a href="#">Our Roots</a>
+            <a href="#">Lookbook</a>
+            <a href="#">Stories</a>
+          </div>
+          <div className="btn">
+            <a href="#">
+              <BsCart size={20} />
+            </a>
+          </div> */}
+        </div>
+
+        <div className="header">
+          <div className="hero-copy">
+            <div
+              id="dark-section"
+              className="absolute w-full h-[100vh] top-0 left-0 z-[1]"
+            >
+              {" "}
+              <HeroSlider />
+            </div>
+            <div className="absolute top-[40%] -translate-x-1/2 -translate-y-1/2 left-1/2 z-50">
+              <div className="line flex flex-col justify-center items-center">
+                <h1 className="text-white text-center text-[2.5rem]">
+                  <span className="text-white">kuankoshi</span>{" "}
+                  <span className="text-white font-normal">
+                    Interior Design,
+                  </span>
+                </h1>
+              </div>
+              {/* <div className="line flex flex-col justify-center items-center">
+                <h1 className="text-white text-[1.2rem] font-light">
+                  帶著愉悅的心 <span>圓滿您的居家生活</span>
+                </h1>
+              </div> */}
+            </div>
+          </div>
+          <div className="line">
+            <p>Skincare that stays true to nature and to you</p>
+          </div>
+        </div>
+        {/* 
+        <div className="cta">
+          <div className="cta-label">
+            <p>View all products</p>
+          </div>
+          <div className="cta-icon">
+            <BsArrowRight size={20} />
+          </div>
+        </div> */}
+      </div>
+    </>
   );
 }
