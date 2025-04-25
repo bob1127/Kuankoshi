@@ -41,8 +41,8 @@ export default async function ProjectListPage() {
   const posts = await getProjectPosts();
 
   return (
-    <div className="relative z-0 pt-[20vh] ">
-      <div className=" pt-[20vh] ">
+    <div className="relative z-0 pt-[10vh] " id="root">
+      <div className=" pt-[10vh] ">
         <div className="title w-[75%] mx-auto flex flex-col">
           <h1 className="text-[5rem] font-bold ">
             WORKS.
@@ -55,7 +55,7 @@ export default async function ProjectListPage() {
         <div className="w-[90%] mx-auto">
           <Swiper />
         </div>
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mt-[10vh] mx-auto">
           <h1 className="text-3xl font-bold mb-8">設計作品</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {posts.map((post) => {
@@ -71,10 +71,10 @@ export default async function ProjectListPage() {
               return (
                 <AnimatedLink
                   key={post.id}
-                  href={`/project/${post.slug}`}
+                  href="KuankoshiProjectInner"
                   className="group block"
                 >
-                  <div className="aspect-[4/5] w-full overflow-hidden rounded-md bg-gray-100">
+                  <div className="aspect-[4/5] w-full overflow-hidden rounded-md !bg-gray-100">
                     <Image
                       src={previewImage}
                       alt={post.title.rendered}
@@ -84,10 +84,10 @@ export default async function ProjectListPage() {
                     />
                   </div>
 
-                  <h2 className="mt-4 font-bold text-sm group-hover:text-neutral-700 transition">
+                  <h2 className="mt-4 font-bold bg-none text-sm group-hover:text-neutral-700 transition">
                     {post.title.rendered.replace(/<[^>]+>/g, "")}
                   </h2>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-500 bg-none">
                     {new Date(post.date).toLocaleDateString("zh-TW")}
                   </p>
                 </AnimatedLink>

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import "./MenuBar.css";
+import Image from "next/image";
 import MenuBtn from "../MenuBtn/MenuBtn";
 import AnimatedLink from "../AnimatedLink";
 import {
@@ -29,8 +30,8 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu, isDarkBg }) => {
       href: "/project",
     },
     {
-      label: "POLICY",
-      href: "/project",
+      label: "服務流程",
+      href: "/hot-sale-01",
     },
     {
       label: "客戶提問",
@@ -38,15 +39,29 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu, isDarkBg }) => {
     },
     {
       label: "設計誌",
-      href: "/project",
+      href: "/news",
     },
   ];
 
   return (
     <div className="menu-bar flex flex-row fixed top-0 left-0 w-full px-4 py-2 z-50">
-      <div className="logo w-[45%]" onClick={closeMenu}>
-        <Link href="/portfolio" className={`font-light ${textColor}`}>
-          寬越設計
+      <div className="logo pl-10 w-[45%]" onClick={closeMenu}>
+        <Link
+          href="/portfolio"
+          className={`font-light items-enter h-12 ${textColor} flex`}
+        >
+          <div>
+            <Image
+              src="/images/logo/company-logo.jpg"
+              alt="logo"
+              placeholder="empty"
+              loading="eager"
+              width={180}
+              height={60}
+              className="w-[50px]"
+            />{" "}
+            <span> 寬越設計</span>
+          </div>
         </Link>
       </div>
 

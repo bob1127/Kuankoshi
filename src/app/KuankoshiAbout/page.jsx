@@ -7,6 +7,7 @@ import GsapText from "../../components/RevealText/index";
 import HomeSlider from "../../components/HeroSliderHome/page.jsx";
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import ScrollTopCard from "../../components/ScrollTopCard/index.jsx";
 import ScrollTopCard1 from "../../components/ScrollTopCard1/index.jsx";

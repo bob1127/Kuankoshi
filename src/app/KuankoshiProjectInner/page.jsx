@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link.js";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import HoverItem from "../../components/HoverItem.jsx";
-
+import AnimatedLink from "../../components/AnimatedLink";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Marquee from "react-fast-marquee";
@@ -116,16 +116,16 @@ export default function About() {
                   height={15}
                   placeholder="empty"
                   loading="lazy"
-                ></Image>
+                />
               </span>
             </div>
           </div>
         </div>
         <HomeSlider />
 
-        <section className="py-[150px] flex flex-col lg:flex-row pt-8 mt-20 pb-[80px]  border-t-1 border-gray-300 w-full ">
+        <section className="py-[150px] flex flex-col lg:flex-row pt-8 mt-20 pb-[80px]  border-t-1 border-gray-300 max-w-[1920px] mx-auto w-full ">
           <div className=" w-full lg:w-[15%]">
-            <div className="sticky pl-5 top-24 border border-black">
+            <div className="sticky pl-5 top-24  ">
               <b>categories</b>
               <p className="text-[.95rem] mt-3 font-bold tracking-wider">All</p>
               <p className="text-[.95rem] mt-3 font-bold tracking-wider">
@@ -146,7 +146,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="flex w-full lg:w-[60%] border border-gray-800 flex-col">
+          <div className="flex w-full lg:w-[60%] flex-col">
             <div className="title flex justify-between pl-8"></div>
             <div className="  mx-auto  px-10">
               <Image
@@ -157,7 +157,7 @@ export default function About() {
                 width={1500}
                 height={800}
                 className="w-screen"
-              ></Image>
+              />
               <div className="text text-[.95rem] leading-loose mt-5">
                 以瑞典為基地的TUF設計了可供所有年齡層日常使用的系列。這款設計關注於尺寸與用途的關係，讓孩子的大盤子可以成為成年人的小菜盤，並不拘泥於單一的使用方式，而是通過使用者的想像力來適應各種功能。這是一系列源於融化冰淇淋主題和印章等充滿趣味的創意。以瑞典為基地的TUF設計了可供所有年齡層日常使用的系列。這款設計關注於尺寸與用途的關係，讓孩子的大盤子可以成為成年人的小菜盤，並不拘泥於單一的使用方式，而是通過使用者的想像力來適應各種功能。這是一系列源於融化冰淇淋主題和印章等充滿趣味的創意。以瑞典為基地的TUF設計了可供所有年齡層日常使用的系列。這款設計關注於尺寸與用途的關係，讓孩子的大盤子可以成為成年人的小菜盤，並不拘泥於單一的使用方式，而是通過使用者的想像力來適應各種功能。這是一系列源於融化冰淇淋主題和印章等充滿趣味的創意。
                 <br></br>
@@ -173,7 +173,7 @@ export default function About() {
                 width={1500}
                 height={800}
                 className="w-screen mt-8"
-              ></Image>
+              />
               <div className="text text-[.95rem] leading-loose mt-5">
                 以瑞典為基地的TUF設計了可供所有年齡層日常使用的系列。這款設計關注於尺寸與用途的關係，讓孩子的大盤子可以成為成年人的小菜盤，並不拘泥於單一的使用方式，而是通過使用者的想像力來適應各種功能。這是一系列源於融化冰淇淋主題和印章等充滿趣味的創意。以瑞典為基地的TUF設計了可供所有年齡層日常使用的系列。這款設計關注於尺寸與用途的關係，讓孩子的大盤子可以成為成年人的小菜盤，並不拘泥於單一的使用方式，而是通過使用者的想像力來適應各種功能。這是一系列源於融化冰淇淋主題和印章等充滿趣味的創意。以瑞典為基地的TUF設計了可供所有年齡層日常使用的系列。這款設計關注於尺寸與用途的關係，讓孩子的大盤子可以成為成年人的小菜盤，並不拘泥於單一的使用方式，而是通過使用者的想像力來適應各種功能。這是一系列源於融化冰淇淋主題和印章等充滿趣味的創意。
                 <br></br>
@@ -234,7 +234,7 @@ export default function About() {
                       width={400}
                       height={30}
                       className="w-full"
-                    ></Image>
+                    />
                   </div>
 
                   <div className="arrow w-1/2 flex flex-col justify-between p-4">
@@ -258,7 +258,7 @@ export default function About() {
                       width={400}
                       height={30}
                       className="w-full"
-                    ></Image>
+                    />
                   </div>
 
                   <div className="arrow w-1/2 flex flex-col justify-between p-4">
@@ -282,7 +282,7 @@ export default function About() {
                       width={400}
                       height={30}
                       className="w-full"
-                    ></Image>
+                    />
                   </div>
 
                   <div className="arrow w-1/2 flex flex-col justify-between p-4">
@@ -401,6 +401,84 @@ export default function About() {
             </div>
           </div>
         </section>
+        <section className="section-page-navgation w-[65%] mx-auto">
+          <div className="flex py-6  justify-between">
+            <div className="tag border rounded-full px-3 py-1 text-[.85rem]">
+              Categories
+            </div>
+            <span className="text-gray-600">Look More</span>
+          </div>
+          <div className="border-t-1 flex justify-between border-gray-600 py-5">
+            <span>
+              考え抜かれたセラミックタイルのデザインでシューズショップに個性と実用性を
+            </span>
+            <button class="group rotate-[-90deg] relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
+              <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                >
+                  <path
+                    d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+              <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                >
+                  <path
+                    d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+          </div>
+          <div className="flex justify-center">
+            <AnimatedLink href="" className="group">
+              <div className="prev  mx-2 bg-white rounded-full py-8 px-[80px] group-hover:bg-black duration-1000">
+                <span className="tracking-widest text-[.9rem] group-hover:text-white duration-700">
+                  ← PREV
+                </span>
+              </div>
+            </AnimatedLink>
+            <AnimatedLink
+              href=""
+              className="group flex flex-col justify-center items-center"
+            >
+              <div className="next mx-2 bg-white rounded-full py-8 px-[80px] group-hover:bg-black duration-1000">
+                <span className="tracking-widest text-[.9rem] group-hover:text-white duration-700">
+                  MENU
+                </span>
+              </div>
+              <span className="text-[.9rem] text-gray-700 mt-4">
+                30+ | 案例
+              </span>
+            </AnimatedLink>
+            <AnimatedLink href="" className="group">
+              <div className="next mx-2 bg-white rounded-full py-8 px-[80px] group-hover:bg-black duration-1000">
+                <span className="tracking-widest text-[.9rem] group-hover:text-white duration-700">
+                  NEXT →
+                </span>
+              </div>
+            </AnimatedLink>
+          </div>
+        </section>
         <section className="py-[150px] bg-[linear-gradient(to_bottom,white_50%,#36454f_50%)]">
           <div className="title py-20">
             <h2 className="text-center text-[4rem] font-bold">#unevensnap</h2>
@@ -416,7 +494,7 @@ export default function About() {
           <Marquee>
             <div className="flex items-center">
               <HoverItem
-                imageUrl="https://scontent.frmq7-1.fna.fbcdn.net/v/t39.30808-6/484998795_122244445484031935_2425130562929710773_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=OiFqhslMemgQ7kNvwEkcG9B&_nc_oc=Adnfxsr0DIao3NHRzP8FmCgT6v7LPZMCCKg8kbXnr_7dFiutR2Adr7DMTF2fPgmndJM&_nc_zt=23&_nc_ht=scontent.frmq7-1.fna&_nc_gid=rNM79x4aGbYij46UWcsneg&oh=00_AfGffcIOQ3BrMS_47kPAwUJqAcljzRFzYJHMiYhco-vJGg&oe=67FD39FF"
+                imageUrl="hhttps://10per-komatsu.com/wp/wp-content/uploads/2024/09/house-in-miiri000-1.jpg"
                 text="Built for Living."
                 fontSize="2rem"
                 fontWeight="300"
@@ -425,7 +503,7 @@ export default function About() {
               />
 
               <HoverItem
-                imageUrl="https://scontent.frmq7-1.fna.fbcdn.net/v/t39.30808-6/486824855_122245695716031935_3372241001376026295_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=FV3ny9KMdEIQ7kNvwFrX63k&_nc_oc=AdnZpwA1MHZFWrPzBRK_gXqlflr8fZwNPcm3nqzTlubjmS1ijh7pNC0RaWEj3YObkm0&_nc_zt=23&_nc_ht=scontent.frmq7-1.fna&_nc_gid=qtbrRO4eIPcLtoMHumsqoA&oh=00_AfEmBpLBntpirpGa5aq8qplmD46w9N_hhOIYw-BZ13hH1g&oe=67FD1572"
+                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2025/02/futabayama0000.jpg"
                 text="LIMITED DROP"
                 fontSize="1.6rem"
                 fontWeight="600"
@@ -433,7 +511,7 @@ export default function About() {
                 lineHeight="40px"
               />
               <HoverItem
-                imageUrl="https://scontent.frmq7-1.fna.fbcdn.net/v/t39.30808-6/485146224_122244233498031935_8273150089111007875_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Wt_EWOjKlt8Q7kNvwHa4yT8&_nc_oc=AdlpTqa69T7cL940i7mH9FflU7nSCibN3EjcCE5wN7hp4cSuLgYeYXBG6X3UYwcQs1A&_nc_zt=23&_nc_ht=scontent.frmq7-1.fna&_nc_gid=Nx_FPSH-jdQbGZgMsCw1cQ&oh=00_AfGJgpxaG2U_wZ1ZsHpQTt5o5NnqlW157zHcNFyTCxQ8SQ&oe=67FD221D"
+                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/08/house-in-mochida_00-1.jpg"
                 text="Built for Living."
                 fontSize="2rem"
                 fontWeight="300"
@@ -442,7 +520,7 @@ export default function About() {
               />
 
               <HoverItem
-                imageUrl="https://scontent.frmq7-1.fna.fbcdn.net/v/t39.30808-6/485059714_122244233276031935_4983623517156943623_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=eUgXFHuavPIQ7kNvwFZV766&_nc_oc=AdkOMbV2qXEbxhGN6iDiVdbwJ5vnYTiwkW3RdPS-g9OPlyrLBq91oLwTebkFTx6TmSE&_nc_zt=23&_nc_ht=scontent.frmq7-1.fna&_nc_gid=vuAhcpquSB-klaqME8rb2A&oh=00_AfHP4w8BXjHL8yNkfmNRQugB0Bc_BiRfXe7RSy38EewJkQ&oe=67FD0C5B"
+                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/07/house-s_000-1.jpg"
                 text="LIMITED DROP"
                 fontSize="1.6rem"
                 fontWeight="600"
@@ -450,7 +528,7 @@ export default function About() {
                 lineHeight="40px"
               />
               <HoverItem
-                imageUrl="https://scontent.frmq7-1.fna.fbcdn.net/v/t39.30808-6/481764862_122241462854031935_2469569084975822180_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=pXdyfboWx8IQ7kNvwEZPt9c&_nc_oc=AdmLIi2BSEcrjft-VRsXPEQ1WxKnfFqubeJP8xVa7LoxKBZI7mCY9kgOHuo5gLeLvTM&_nc_zt=23&_nc_ht=scontent.frmq7-1.fna&_nc_gid=YhlYNgGLdqFOajk9j2ZfxA&oh=00_AfEKf88HEUdU2d4Ps3zlzRwn4SD-5JaKvuZ52cEqgpY_-Q&oe=67FD0E59"
+                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/06/house-in-mitaki000-2.jpg"
                 text="Built for Living."
                 fontSize="2rem"
                 fontWeight="300"
@@ -459,12 +537,46 @@ export default function About() {
               />
 
               <HoverItem
-                imageUrl="https://www.uneven.jp/images/about/shop_7.jpg"
+                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/02/houseY0000.jpg"
                 text="LIMITED DROP"
                 fontSize="1.6rem"
                 fontWeight="600"
                 color="#e6e6e6"
                 lineHeight="40px"
+              />
+
+              <HoverItem
+                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2025/02/futabayama0000.jpg"
+                text="LIMITED DROP"
+                fontSize="1.6rem"
+                fontWeight="600"
+                color="#e6e6e6"
+                lineHeight="40px"
+              />
+              <HoverItem
+                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/08/house-in-mochida_00-1.jpg"
+                text="Built for Living."
+                fontSize="2rem"
+                fontWeight="300"
+                color="#ffffff"
+                lineHeight="50px"
+              />
+
+              <HoverItem
+                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/07/house-s_000-1.jpg"
+                text="LIMITED DROP"
+                fontSize="1.6rem"
+                fontWeight="600"
+                color="#e6e6e6"
+                lineHeight="40px"
+              />
+              <HoverItem
+                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/06/house-in-mitaki000-2.jpg"
+                text="Built for Living."
+                fontSize="2rem"
+                fontWeight="300"
+                color="#ffffff"
+                lineHeight="50px"
               />
             </div>
           </Marquee>

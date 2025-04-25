@@ -41,7 +41,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <div className="title  flex justify-center flex-col items-center mx-auto w-[85%] sm:w-full">
           <TextGenerateEffect
-            words="工程進度
+            words="服務流程
 
 "
           />

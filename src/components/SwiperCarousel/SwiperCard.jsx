@@ -118,7 +118,7 @@ export default () => {
                 </div>
               </button>
             </div>
-            <AnimatedLink href="/">
+            <AnimatedLink href="/KuankoshiProjectInner">
               {" "}
               <div className="absolute z-50 w-full  h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
               <Card className=" border-white rounded-[50px]  pb-4 w-full h-[250px] md:h-[280px] lg:h-[300px] 2xl:h-[320px] max-h-[450px] border  bg-[url('https://store-palette.com/wp/wp-content/uploads/2021/07/3076.jpg')] relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110">
@@ -178,7 +178,7 @@ export default () => {
                 </div>
               </button>
             </div>
-            <AnimatedLink href="/">
+            <AnimatedLink href="/KuankoshiProjectInner">
               {" "}
               <div className="absolute z-50 w-full  h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
               <Card className=" border-white rounded-[50px]  pb-4 w-full h-[250px] md:h-[280px] lg:h-[300px] 2xl:h-[320px] max-h-[450px] border  bg-[url('https://store-palette.com/wp/wp-content/uploads/2021/07/3076.jpg')] relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110">
@@ -238,7 +238,7 @@ export default () => {
                 </div>
               </button>
             </div>
-            <AnimatedLink href="/">
+            <AnimatedLink href="/KuankoshiProjectInner">
               {" "}
               <div className="absolute z-50 w-full  h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
               <Card className=" border-white rounded-[50px]  pb-4 w-full h-[250px] md:h-[280px] lg:h-[300px] 2xl:h-[320px] max-h-[450px] border  bg-[url('https://store-palette.com/wp/wp-content/uploads/2021/07/3076.jpg')] relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110">
@@ -298,7 +298,7 @@ export default () => {
                 </div>
               </button>
             </div>
-            <AnimatedLink href="/">
+            <AnimatedLink href="/KuankoshiProjectInner">
               {" "}
               <div className="absolute z-50 w-full  h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
               <Card className=" border-white rounded-[50px]  pb-4 w-full h-[250px] md:h-[280px] lg:h-[300px] 2xl:h-[320px] max-h-[450px] border  bg-[url('https://store-palette.com/wp/wp-content/uploads/2021/07/3076.jpg')] relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110">
@@ -358,7 +358,7 @@ export default () => {
                 </div>
               </button>
             </div>
-            <AnimatedLink href="/">
+            <AnimatedLink href="/KuankoshiProjectInner">
               {" "}
               <div className="absolute z-50 w-full  h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
               <Card className=" border-white rounded-[50px]  pb-4 w-full h-[250px] md:h-[280px] lg:h-[300px] 2xl:h-[320px] max-h-[450px] border  bg-[url('https://store-palette.com/wp/wp-content/uploads/2021/07/3076.jpg')] relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110">
@@ -418,7 +418,7 @@ export default () => {
                 </div>
               </button>
             </div>
-            <AnimatedLink href="/">
+            <AnimatedLink href="/KuankoshiProjectInner">
               {" "}
               <div className="absolute z-50 w-full  h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
               <Card className=" border-white rounded-[50px]  pb-4 w-full h-[250px] md:h-[280px] lg:h-[300px] 2xl:h-[320px] max-h-[450px] border  bg-[url('https://store-palette.com/wp/wp-content/uploads/2021/07/3076.jpg')] relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110">
@@ -478,7 +478,7 @@ export default () => {
                 </div>
               </button>
             </div>
-            <AnimatedLink href="/">
+            <AnimatedLink href="/KuankoshiProjectInner">
               {" "}
               <div className="absolute z-50 w-full  h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
               <Card className=" border-white rounded-[50px]  pb-4 w-full h-[250px] md:h-[280px] lg:h-[300px] 2xl:h-[320px] max-h-[450px] border  bg-[url('https://store-palette.com/wp/wp-content/uploads/2021/07/3076.jpg')] relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110">

@@ -99,7 +99,7 @@ const Photos = () => {
           </div>
         </section>
         <section className="flex">
-          <div className="w-[30%] border flex items-center justify-end">
+          <div className="w-[30%]  flex items-center justify-end">
             <div className="card-text flex flex-col justify-center items-center">
               <h2 className="text-[5rem] rotate-[90deg] tracking-wide">IDEA</h2>
               <div className="project-amount text-white my-5 bg-black flex justify-center items-center rounded-full w-8 h-8">
@@ -116,7 +116,7 @@ const Photos = () => {
               </span>
             </div>
           </div>
-          <div className="w-[70%] border overflow-hidden">
+          <div className="w-[70%]  overflow-hidden">
             <Carousel items={cards} />
             <div className="pt-8">
               <span className="text-[.85rem] ">
@@ -126,184 +126,189 @@ const Photos = () => {
             </div>
           </div>
         </section>
-        <section className="section-grid-item border-3 border-green-500 px-4 py-8">
+        <section className="section-grid-item mt-[10vh]  px-4 py-8">
           <div className="max-w-7xl w-[75%] mx-auto grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-6 items-stretch">
             {/* LEFT */}
             <div className="h-full">
-              <div className="card-item group hover:shadow-xl h-full w-full border rounded-[40px] relative overflow-hidden">
-                <div className="absolute bottom-5 right-5 z-20 button-icon">
-                  <button class=" relative opacity-100 sm:opacity-0 group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden  font-medium text-neutral-200 border border-white rounded-full px-4 py-2">
-                    <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                  </button>
+              <AnimatedLink href="/KuankoshiNews">
+                <div className="card-item group hover:shadow-xl h-full w-full border rounded-[40px] relative overflow-hidden">
+                  <div className="absolute bottom-5 right-5 z-20 button-icon">
+                    <button class=" relative opacity-100 sm:opacity-0 group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden  font-medium text-neutral-200 border border-white rounded-full px-4 py-2">
+                      <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                  <div className="mask z-10 opacity-20 absolute w-full h-full left-0 top-0 bg-black group-hover:opacity-50 duration-500" />
+                  <div className="card-content duration-700 group-hover:opacity-100 opacity-100 sm:opacity-0 absolute z-20 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center">
+                    <h3 className="text-white text-[1.5rem] font-bold">
+                      Blog-001
+                    </h3>
+                    <span className="text-xs font-light mt-2 text-white">
+                      ショップの名前を建物のモチーフに美しく使ったベーカリーの店舗デザイン
+                    </span>
+                  </div>
+                  <div className="relative w-full h-full min-h-[600px]">
+                    <Image
+                      src="https://kiiro-d.com/asset/uploads/2024/10/DSC6499-scaled.jpg"
+                      alt="card-img"
+                      fill
+                      className="object-cover group-hover:scale-125 duration-3000"
+                    />
+                  </div>
                 </div>
-                <div className="mask z-10 opacity-20 absolute w-full h-full left-0 top-0 bg-black group-hover:opacity-50 duration-500" />
-                <div className="card-content duration-700 group-hover:opacity-100 opacity-100 sm:opacity-0 absolute z-20 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center">
-                  <h3 className="text-white text-[1.5rem] font-bold">
-                    Blog-001
-                  </h3>
-                  <span className="text-xs font-light mt-2 text-white">
-                    ショップの名前を建物のモチーフに美しく使ったベーカリーの店舗デザイン
-                  </span>
-                </div>
-                <div className="relative w-full h-full min-h-[600px]">
-                  <Image
-                    src="https://kiiro-d.com/asset/uploads/2024/10/DSC6499-scaled.jpg"
-                    alt="card-img"
-                    fill
-                    className="object-cover group-hover:scale-125 duration-3000"
-                  />
-                </div>
-              </div>
+              </AnimatedLink>
             </div>
 
             {/* RIGHT */}
             <div className="flex flex-col gap-6 justify-between">
               {/* 第一張右卡片 */}
-              <div className="card-item group hover:shadow-xl aspect-square w-full border rounded-[40px] relative overflow-hidden">
-                <div className="absolute bottom-5 right-5 z-20 button-icon">
-                  <button class=" relative opacity-100 sm:opacity-0 group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden  font-medium text-neutral-200 border border-white rounded-full px-4 py-2">
-                    <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                  </button>
+              <AnimatedLink href="/KuankoshiNews">
+                <div className="card-item group hover:shadow-xl aspect-square w-full border rounded-[40px] relative overflow-hidden">
+                  <div className="absolute bottom-5 right-5 z-20 button-icon">
+                    <button class=" relative opacity-100 sm:opacity-0 group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden  font-medium text-neutral-200 border border-white rounded-full px-4 py-2">
+                      <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                  <div className="mask z-10 opacity-20 absolute w-full h-full left-0 top-0 bg-black group-hover:opacity-50 duration-500" />
+                  <div className="card-content duration-700 group-hover:opacity-100 opacity-100 sm:opacity-0 absolute z-20 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center">
+                    <h3 className="text-white text-[1.5rem] font-bold">
+                      Blog-002
+                    </h3>
+                    <span className="text-xs font-light mt-2 text-white">
+                      和風の木格子を使ったカフェ空間のブランディング
+                    </span>
+                  </div>
+                  <Image
+                    src="https://kiiro-d.com/asset/uploads/2024/08/f1200ec2f253107006ed6ef9bd16a14f.png"
+                    alt="card-img-2"
+                    fill
+                    className="object-cover group-hover:scale-125 duration-3000"
+                  />
                 </div>
-                <div className="mask z-10 opacity-20 absolute w-full h-full left-0 top-0 bg-black group-hover:opacity-50 duration-500" />
-                <div className="card-content duration-700 group-hover:opacity-100 opacity-100 sm:opacity-0 absolute z-20 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center">
-                  <h3 className="text-white text-[1.5rem] font-bold">
-                    Blog-002
-                  </h3>
-                  <span className="text-xs font-light mt-2 text-white">
-                    和風の木格子を使ったカフェ空間のブランディング
-                  </span>
-                </div>
-                <Image
-                  src="https://kiiro-d.com/asset/uploads/2024/08/f1200ec2f253107006ed6ef9bd16a14f.png"
-                  alt="card-img-2"
-                  fill
-                  className="object-cover group-hover:scale-125 duration-3000"
-                />
-              </div>
-
+              </AnimatedLink>
               {/* 第二張右卡片 */}
-              <div className="card-item group hover:shadow-xl aspect-square w-full border rounded-[40px] relative overflow-hidden">
-                <div className="absolute bottom-5 right-5 z-20 button-icon">
-                  <button class=" relative opacity-100 sm:opacity-0 group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden  font-medium text-neutral-200 border border-white rounded-full px-4 py-2">
-                    <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                  </button>
+              <AnimatedLink href="/KuankoshiNews">
+                <div className="card-item group hover:shadow-xl aspect-square w-full border rounded-[40px] relative overflow-hidden">
+                  <div className="absolute bottom-5 right-5 z-20 button-icon">
+                    <button class=" relative opacity-100 sm:opacity-0 group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden  font-medium text-neutral-200 border border-white rounded-full px-4 py-2">
+                      <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                  <div className="mask z-10 opacity-20 absolute w-full h-full left-0 top-0 bg-black group-hover:opacity-50 duration-500" />
+                  <div className="card-content duration-700 group-hover:opacity-100 opacity-100 sm:opacity-0 absolute z-20 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center">
+                    <h3 className="text-white text-[1.5rem] font-bold">
+                      Blog-003
+                    </h3>
+                    <span className="text-xs font-light mt-2 text-white">
+                      都會小巧面積內打造極簡與光感共存的甜點店
+                    </span>
+                  </div>
+                  <Image
+                    src="https://kiiro-d.com/asset/uploads/2025/02/78ae4d9aaf549047b58f3b5bf1896236.jpg"
+                    alt="card-img-3"
+                    fill
+                    className="object-cover group-hover:scale-125 duration-3000"
+                  />
                 </div>
-                <div className="mask z-10 opacity-20 absolute w-full h-full left-0 top-0 bg-black group-hover:opacity-50 duration-500" />
-                <div className="card-content duration-700 group-hover:opacity-100 opacity-100 sm:opacity-0 absolute z-20 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center">
-                  <h3 className="text-white text-[1.5rem] font-bold">
-                    Blog-003
-                  </h3>
-                  <span className="text-xs font-light mt-2 text-white">
-                    都會小巧面積內打造極簡與光感共存的甜點店
-                  </span>
-                </div>
-                <Image
-                  src="https://kiiro-d.com/asset/uploads/2025/02/78ae4d9aaf549047b58f3b5bf1896236.jpg"
-                  alt="card-img-3"
-                  fill
-                  className="object-cover group-hover:scale-125 duration-3000"
-                />
-              </div>
+              </AnimatedLink>
             </div>
           </div>
 
@@ -313,177 +318,182 @@ const Photos = () => {
             {/* RIGHT */}
             <div className="flex flex-col gap-6 justify-between">
               {/* 第一張右卡片 */}
-              <div className="card-item group hover:shadow-xl aspect-square w-full border rounded-[40px] relative overflow-hidden">
-                <div className="absolute bottom-5 right-5 z-20 button-icon">
-                  <button class=" relative opacity-100 sm:opacity-0 group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden  font-medium text-neutral-200 border border-white rounded-full px-4 py-2">
-                    <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                  </button>
-                </div>
-                <div className="mask z-10 opacity-20 absolute w-full h-full left-0 top-0 bg-black group-hover:opacity-50 duration-500" />
-                <div className="card-content duration-700 group-hover:opacity-100 opacity-100 sm:opacity-0 absolute z-20 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center">
-                  <h3 className="text-white text-[1.5rem] font-bold">
-                    Blog-002
-                  </h3>
-                  <span className="text-xs font-light mt-2 text-white">
-                    和風の木格子を使ったカフェ空間のブランディング
-                  </span>
-                </div>
-                <Image
-                  src="https://kiiro-d.com/asset/uploads/2024/08/f1200ec2f253107006ed6ef9bd16a14f.png"
-                  alt="card-img-2"
-                  fill
-                  className="object-cover group-hover:scale-125 duration-3000"
-                />
-              </div>
-
-              {/* 第二張右卡片 */}
-              <div className="card-item group hover:shadow-xl aspect-square w-full border rounded-[40px] relative overflow-hidden">
-                <div className="absolute bottom-5 right-5 z-20 button-icon">
-                  <button class=" relative opacity-100 sm:opacity-0 group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden  font-medium text-neutral-200 border border-white rounded-full px-4 py-2">
-                    <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                  </button>
-                </div>
-                <div className="mask z-10 opacity-20 absolute w-full h-full left-0 top-0 bg-black group-hover:opacity-50 duration-500" />
-                <div className="card-content duration-700 group-hover:opacity-100 opacity-100 sm:opacity-0 absolute z-20 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center">
-                  <h3 className="text-white text-[1.5rem] font-bold">
-                    Blog-003
-                  </h3>
-                  <span className="text-xs font-light mt-2 text-white">
-                    都會小巧面積內打造極簡與光感共存的甜點店
-                  </span>
-                </div>
-                <Image
-                  src="https://kiiro-d.com/asset/uploads/2025/02/78ae4d9aaf549047b58f3b5bf1896236.jpg"
-                  alt="card-img-3"
-                  fill
-                  className="object-cover group-hover:scale-125 duration-3000"
-                />
-              </div>
-            </div>
-            <div className="h-full">
-              <div className="card-item group hover:shadow-xl h-full w-full border rounded-[40px] relative overflow-hidden">
-                <div className="absolute bottom-5 right-5 z-20 button-icon">
-                  <button class=" relative opacity-100 sm:opacity-0 group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden  font-medium text-neutral-200 border border-white rounded-full px-4 py-2">
-                    <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                      >
-                        <path
-                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                  </button>
-                </div>
-                <div className="mask z-10 opacity-20 absolute w-full h-full left-0 top-0 bg-black group-hover:opacity-50 duration-500" />
-                <div className="card-content duration-700 group-hover:opacity-100 opacity-100 sm:opacity-0 absolute z-20 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center">
-                  <h3 className="text-white text-[1.5rem] font-bold">
-                    Blog-001
-                  </h3>
-                  <span className="text-xs font-light mt-2 text-white">
-                    ショップの名前を建物のモチーフに美しく使ったベーカリーの店舗デザイン
-                  </span>
-                </div>
-                <div className="relative w-full h-full min-h-[600px]">
+              <AnimatedLink href="/KuankoshiNews">
+                <div className="card-item group hover:shadow-xl aspect-square w-full border rounded-[40px] relative overflow-hidden">
+                  <div className="absolute bottom-5 right-5 z-20 button-icon">
+                    <button class=" relative opacity-100 sm:opacity-0 group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden  font-medium text-neutral-200 border border-white rounded-full px-4 py-2">
+                      <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                  <div className="mask z-10 opacity-20 absolute w-full h-full left-0 top-0 bg-black group-hover:opacity-50 duration-500" />
+                  <div className="card-content duration-700 group-hover:opacity-100 opacity-100 sm:opacity-0 absolute z-20 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center">
+                    <h3 className="text-white text-[1.5rem] font-bold">
+                      Blog-002
+                    </h3>
+                    <span className="text-xs font-light mt-2 text-white">
+                      和風の木格子を使ったカフェ空間のブランディング
+                    </span>
+                  </div>
                   <Image
-                    src="https://kiiro-d.com/asset/uploads/2024/10/DSC6499-scaled.jpg"
-                    alt="card-img"
+                    src="https://kiiro-d.com/asset/uploads/2024/08/f1200ec2f253107006ed6ef9bd16a14f.png"
+                    alt="card-img-2"
                     fill
                     className="object-cover group-hover:scale-125 duration-3000"
                   />
                 </div>
-              </div>
+              </AnimatedLink>
+              <AnimatedLink href="/KuankoshiNews">
+                {/* 第二張右卡片 */}
+                <div className="card-item group hover:shadow-xl aspect-square w-full border rounded-[40px] relative overflow-hidden">
+                  <div className="absolute bottom-5 right-5 z-20 button-icon">
+                    <button class=" relative opacity-100 sm:opacity-0 group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden  font-medium text-neutral-200 border border-white rounded-full px-4 py-2">
+                      <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                  <div className="mask z-10 opacity-20 absolute w-full h-full left-0 top-0 bg-black group-hover:opacity-50 duration-500" />
+                  <div className="card-content duration-700 group-hover:opacity-100 opacity-100 sm:opacity-0 absolute z-20 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center">
+                    <h3 className="text-white text-[1.5rem] font-bold">
+                      Blog-003
+                    </h3>
+                    <span className="text-xs font-light mt-2 text-white">
+                      都會小巧面積內打造極簡與光感共存的甜點店
+                    </span>
+                  </div>
+                  <Image
+                    src="https://kiiro-d.com/asset/uploads/2025/02/78ae4d9aaf549047b58f3b5bf1896236.jpg"
+                    alt="card-img-3"
+                    fill
+                    className="object-cover group-hover:scale-125 duration-3000"
+                  />
+                </div>
+              </AnimatedLink>
+            </div>
+            <div className="h-full">
+              <AnimatedLink href="/KuankoshiNews">
+                <div className="card-item group hover:shadow-xl h-full w-full border rounded-[40px] relative overflow-hidden">
+                  <div className="absolute bottom-5 right-5 z-20 button-icon">
+                    <button class=" relative opacity-100 sm:opacity-0 group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden  font-medium text-neutral-200 border border-white rounded-full px-4 py-2">
+                      <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                  <div className="mask z-10 opacity-20 absolute w-full h-full left-0 top-0 bg-black group-hover:opacity-50 duration-500" />
+                  <div className="card-content duration-700 group-hover:opacity-100 opacity-100 sm:opacity-0 absolute z-20 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center">
+                    <h3 className="text-white text-[1.5rem] font-bold">
+                      Blog-001
+                    </h3>
+                    <span className="text-xs font-light mt-2 text-white">
+                      ショップの名前を建物のモチーフに美しく使ったベーカリーの店舗デザイン
+                    </span>
+                  </div>
+                  <div className="relative w-full h-full min-h-[600px]">
+                    <Image
+                      src="https://kiiro-d.com/asset/uploads/2024/10/DSC6499-scaled.jpg"
+                      alt="card-img"
+                      fill
+                      className="object-cover group-hover:scale-125 duration-3000"
+                    />
+                  </div>
+                </div>
+              </AnimatedLink>
             </div>
           </div>
         </section>

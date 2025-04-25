@@ -174,14 +174,16 @@ export default function About() {
                 <ParallaxImage
                   src="https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/service-10-pc.webp"
                   alt=""
+                  fill
+                  className="aspect-[1920/900] object"
                 />
               </div>
             </div>
           </section>
-          <section className="mt-[18vh]">
+          <section className="mt-[18vh] ">
             <div className="flex flex-row w-[80%]   mx-auto">
-              <div className="stick-section flex justify-end relative  pt-[80px] w-[30%] h-200vh border border-black">
-                <div className="square sticky flex   pr-4 right-4 top-[90px] h-[100px]  border">
+              <div className="stick-section flex justify-end relative  pt-[80px] w-[30%] h-200vh ">
+                <div className="square sticky flex   pr-4 right-4 top-[90px] h-[100px]  ">
                   <span>IDEA PHOTO</span>
                 </div>
               </div>
@@ -189,7 +191,7 @@ export default function About() {
                 <div className="">
                   <div className="content">
                     <br></br>
-                    <div className="w-[80%] border">
+                    <div className="w-[80%] ">
                       <div className="top-title flex justify-end">
                         <div className="w-1/2 flex flex-col">
                           <p className="tracking-widest content-normal">
@@ -371,60 +373,60 @@ export default function About() {
               <Carousel items={cards} />
             </div>
             {/* <Marquee>
-            <div className="flex items-center">
-              <HoverItem
-                imageUrl="https://www.uneven.jp/images/about/gallery_2.jpg?data=20241008"
-                text="Built for Living."
-                fontSize="2rem"
-                fontWeight="300"
-                color="#ffffff"
-                lineHeight="50px"
-              />
+              <div className="flex items-center">
+                <HoverItem
+                  imageUrl="hhttps://10per-komatsu.com/wp/wp-content/uploads/2024/09/house-in-miiri000-1.jpg"
+                  text="Built for Living."
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
 
-              <HoverItem
-                imageUrl="https://www.uneven.jp/images/about/shop_7.jpg"
-                text="LIMITED DROP"
-                fontSize="1.6rem"
-                fontWeight="600"
-                color="#e6e6e6"
-                lineHeight="40px"
-              />
-              <HoverItem
-                imageUrl="https://www.uneven.jp/images/about/gallery_2.jpg?data=20241008"
-                text="Built for Living."
-                fontSize="2rem"
-                fontWeight="300"
-                color="#ffffff"
-                lineHeight="50px"
-              />
+                <HoverItem
+                  imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2025/02/futabayama0000.jpg"
+                  text="LIMITED DROP"
+                  fontSize="1.6rem"
+                  fontWeight="600"
+                  color="#e6e6e6"
+                  lineHeight="40px"
+                />
+                <HoverItem
+                  imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/08/house-in-mochida_00-1.jpg"
+                  text="Built for Living."
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
 
-              <HoverItem
-                imageUrl="https://www.uneven.jp/images/about/shop_7.jpg"
-                text="LIMITED DROP"
-                fontSize="1.6rem"
-                fontWeight="600"
-                color="#e6e6e6"
-                lineHeight="40px"
-              />
-              <HoverItem
-                imageUrl="https://www.uneven.jp/images/about/gallery_2.jpg?data=20241008"
-                text="Built for Living."
-                fontSize="2rem"
-                fontWeight="300"
-                color="#ffffff"
-                lineHeight="50px"
-              />
+                <HoverItem
+                  imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/07/house-s_000-1.jpg"
+                  text="LIMITED DROP"
+                  fontSize="1.6rem"
+                  fontWeight="600"
+                  color="#e6e6e6"
+                  lineHeight="40px"
+                />
+                <HoverItem
+                  imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/06/house-in-mitaki000-2.jpg"
+                  text="Built for Living."
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
 
-              <HoverItem
-                imageUrl="https://www.uneven.jp/images/about/shop_7.jpg"
-                text="LIMITED DROP"
-                fontSize="1.6rem"
-                fontWeight="600"
-                color="#e6e6e6"
-                lineHeight="40px"
-              />
-            </div>
-          </Marquee> */}
+                <HoverItem
+                  imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/02/houseY0000.jpg"
+                  text="LIMITED DROP"
+                  fontSize="1.6rem"
+                  fontWeight="600"
+                  color="#e6e6e6"
+                  lineHeight="40px"
+                />
+              </div>
+            </Marquee> */}
             {/* <div className="flex flex-col items-center py-20">
               <p className="text-white tracking-wide !font-light ">
                 徵求你的UNEVEN時尚風格📸！！
@@ -478,9 +480,10 @@ export default function About() {
             <div className="w-1/2 flex flex-col  justify-center items-start">
               <div className="w-[100%] flex flex-col px-20 max-w-[800px] mx-auto">
                 <Character
-                  className="text-[2.3vmin] text-[#131313] leading-[1.4] tracking-wide  mx-auto"
+                  className="text-[clamp(16px,2.3vmin,24px)] text-[#131313] leading-relaxed tracking-wide w-full max-w-[700px] mx-auto break-words text-center"
                   paragraph="下週4月9日(三)起將舉辦〈TENDER PERSON〉的25AW “SOMETHING JUST LIKE THIS”預訂會。"
                 />
+
                 <GsapText
                   text="2025年3月21日"
                   id="gsap-intro"
@@ -537,9 +540,10 @@ export default function About() {
             <div className="w-1/2 flex flex-col  justify-center items-start">
               <div className="w-[100%] flex flex-col px-20 max-w-[800px] mx-auto">
                 <Character
-                  className="text-[2.3vmin] text-[#131313] leading-[1.4] tracking-wide  mx-auto"
+                  className="text-[clamp(16px,2.3vmin,24px)] text-[#131313] leading-relaxed tracking-wide w-full max-w-[700px] mx-auto break-words text-center"
                   paragraph="下週4月9日(三)起將舉辦〈TENDER PERSON〉的25AW “SOMETHING JUST LIKE THIS”預訂會。"
                 />
+
                 <GsapText
                   text="2025年3月21日"
                   id="gsap-intro"

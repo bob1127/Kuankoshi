@@ -11,18 +11,28 @@ const ParallaxImage = ({ src, alt, className = "" }) => {
   const targetTranslateY = useRef(0);
   const rafId = useRef(null);
 
+  const updateBounds = () => {
+    if (!imageRef.current || !imageRef.current.complete) return;
+    const rect = imageRef.current.getBoundingClientRect();
+    bounds.current = {
+      top: rect.top + window.scrollY,
+      bottom: rect.bottom + window.scrollY,
+    };
+  };
+
   useEffect(() => {
-    const updateBounds = () => {
-      if (imageRef.current) {
-        const rect = imageRef.current.getBoundingClientRect();
-        bounds.current = {
-          top: rect.top + window.scrollY,
-          bottom: rect.bottom + window.scrollY,
-        };
-      }
+    const handleImageLoad = () => {
+      updateBounds();
     };
 
-    updateBounds();
+    if (imageRef.current) {
+      if (imageRef.current.complete) {
+        updateBounds();
+      } else {
+        imageRef.current.addEventListener("load", handleImageLoad);
+      }
+    }
+
     window.addEventListener("resize", updateBounds);
 
     const animate = () => {
@@ -32,12 +42,7 @@ const ParallaxImage = ({ src, alt, className = "" }) => {
           targetTranslateY.current,
           0.1
         );
-
-        if (
-          Math.abs(currentTranslateY.current - targetTranslateY.current) > 0.01
-        ) {
-          imageRef.current.style.transform = `translateY(${currentTranslateY.current}px) scale(1.5)`;
-        }
+        imageRef.current.style.transform = `translateY(${currentTranslateY.current}px) scale(1.5)`;
       }
       rafId.current = requestAnimationFrame(animate);
     };
@@ -46,9 +51,8 @@ const ParallaxImage = ({ src, alt, className = "" }) => {
 
     return () => {
       window.removeEventListener("resize", updateBounds);
-      if (rafId.current) {
-        cancelAnimationFrame(rafId.current);
-      }
+      imageRef.current?.removeEventListener("load", handleImageLoad);
+      cancelAnimationFrame(rafId.current);
     };
   }, []);
 

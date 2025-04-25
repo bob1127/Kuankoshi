@@ -20,7 +20,7 @@ import Marquee from "react-fast-marquee";
 export default function About() {
   const data01 = [
     {
-      title: "2024 年 3 月｜最新工程進度",
+      title: "STEP1 會談˙溝通",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -60,7 +60,7 @@ export default function About() {
       ),
     },
     {
-      title: "2024 年 3 月｜最新工程進度",
+      title: "STEP2 現勘˙丈量",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -100,7 +100,7 @@ export default function About() {
       ),
     },
     {
-      title: "2024 年 3 月｜最新工程進度",
+      title: "STEP3 平面配置˙初步估價",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -276,29 +276,7 @@ export default function About() {
   }, []);
   return (
     <ReactLenis root className="">
-      {/* <InfiniteScroll /> */}
-      <motion.div
-        initial={{ y: 0 }}
-        animate={{ y: showNav ? 0 : 100 }} // 向下移出
-        transition={{ duration: 0.6, ease: [0.77, 0, 0.175, 1] }}
-        className="fixed bottom-10 left-[35%] z-50 w-[410px] h-[64px] bg-[rgba(0,0,0,0.2)] shadow-[0_0_16px_4px_#00000008] rounded-lg backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)]"
-      >
-        <div className="flex px-6 justify-start items-center h-full mx-auto">
-          <div className="w-[30%]">
-            <b className="text-white text-[1.2rem] font-bold">YI YUAN</b>
-          </div>
-          <div className="w-[45%]">
-            <span className="text-gray-500 text-[.9rem]">Project - </span>
-            <span className="text-[1rem] tracking-widest text-white">
-              宜園大院
-            </span>
-          </div>
-          <div className="w-[25%]">
-            <span className="text-[.8rem] text-white">2025.05.23</span>
-          </div>
-        </div>
-      </motion.div>
-      <section className="section-hero w-full min-h-[100vh] relative">
+      <section className="section-hero w-full aspect-[500/500] md:aspect-[1024/576] xl:aspect-[1920/700] overflow-hidden relative">
         {/* 背景圖片群組 */}
         {backgroundImages.map((bg, i) => (
           <motion.div
@@ -312,7 +290,7 @@ export default function About() {
               opacity: { duration: 1.5, ease: "easeInOut" }, // 切換用淡入淡出
               scale: { duration: 20, ease: "linear" }, // 放大效果持續 20 秒
             }}
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+            className="absolute inset-0 bg-cover  bg-center bg-no-repeat z-0"
             style={{
               backgroundImage: `url(${bg})`,
             }}
@@ -326,20 +304,20 @@ export default function About() {
         <div className="hero-title  w-1/2 absolute left-[4%] top-[90%] z-20">
           <div className="text-center px-4">
             <GsapText
-              text="宜園大院."
+              text="寬越設計."
               id="gsap-intro"
-              fontSize="4rem"
+              fontSize="2.8rem"
               fontWeight="200"
               color="#fff"
               lineHeight="60px"
-              className="text-center tracking-widest !text-white tracking-widest inline-block mb-0 h-auto"
+              className="text-center tracking-widest !text-white  inline-block mb-0 h-auto"
             />
           </div>
           <div className="text-center px-4">
             <GsapText
-              text="Yi Yuan"
+              text="KuanKshi"
               id="gsap-intro"
-              fontSize="1.5rem"
+              fontSize="1.2rem"
               fontWeight="200"
               color="#fff"
               lineHeight="30px"
@@ -367,7 +345,7 @@ export default function About() {
               ></Image>
               <div className="txt flex pt-2 flex-row">
                 <div className="w-1/3">
-                  <span className="text-[#333] text-[.9rem]">宜園建設</span>
+                  <span className="text-[#333] text-[.9rem]">寬越室內設計</span>
                 </div>
                 <div className="w-1/3 flex items-end flex-col">
                   <b className="text-[#333] text-[.9rem]">實在的構築</b>
@@ -382,6 +360,9 @@ export default function About() {
             </div>
           </div>
         </div>
+      </section>
+      <section>
+        <Timeline data={data01} />
       </section>
       <section className="py-[100px]">
         <div className="flex max-w-[1920px] mx-auto p-20 w-[95%] flex-col">
@@ -468,9 +449,7 @@ export default function About() {
         <section className="section-footer p-3 lg:p-10 2xl:p-20">
           <div className="mx-auto w-[80%] 2xl:w-[70%] py-20">
             <div className="top flex justify-between flex-row">
-              <h3 className="text-white text-[1.8rem] font-bold">
-                YI YUAN BUILDING
-              </h3>
+              <h3 className="text-white text-[1.8rem] font-bold">KuanKshi</h3>
               <button class="group relative inline-flex text-[1rem] 2xl:text-[1.2rem] h-12 items-center justify-center  border-b-1 border-white px-6 font-medium text-neutral-100">
                 <span>Hover me</span>
                 <div class="relative ml-1 h-5 w-5 overflow-hidden">
@@ -516,19 +495,19 @@ export default function About() {
                     <div className="flex flex-col">
                       <b className="text-gray-400 text-[.8rem]">新案件賞</b>
                       <span className="text-[.8rem] text-white mt-1">
-                        一青隱
+                        新屋裝修
                       </span>
                       <span className="text-[.8rem] text-white mt-1">
-                        宜園大院
+                        老屋翻新
                       </span>
                     </div>
                     <div className="flex mt-8 flex-col">
                       <b className="text-gray-400 text-[.8rem]">NEWS</b>
                       <span className="text-[.8rem] text-white mt-1">
-                        宜園大院開工典禮
+                        寬越設計案例
                       </span>
                       <span className="text-[.8rem] text-white mt-1">
-                        宜園大院
+                        預售屋
                       </span>
                     </div>
                   </div>
@@ -536,19 +515,19 @@ export default function About() {
                     <div className="flex flex-col">
                       <b className="text-gray-400 text-[.8rem]">新案件賞</b>
                       <span className="text-[.8rem] text-white mt-1">
-                        一青隱
+                        辦公空間
                       </span>
                       <span className="text-[.8rem] text-white mt-1">
-                        宜園大院
+                        商業空間
                       </span>
                     </div>
                     <div className="flex mt-8 flex-col">
                       <b className="text-gray-400 text-[.8rem]">NEWS</b>
                       <span className="text-[.8rem] text-white mt-1">
-                        宜園大院開工典禮
+                        寬越設計案例
                       </span>
                       <span className="text-[.8rem] text-white mt-1">
-                        宜園大院
+                        商務空間
                       </span>
                     </div>
                   </div>
@@ -561,7 +540,7 @@ export default function About() {
                       Public 2024 Building By
                     </span>
                     <span className="text-[.8rem]  text-white mt-1">
-                      宜園大院開工典禮
+                      寬越設計案例
                     </span>
                   </div>
                   <div className="flex flex-row items-center mt-1">
@@ -569,7 +548,7 @@ export default function About() {
                       Public 2024 Building By
                     </span>
                     <span className="text-[.8rem]  text-white mt-1">
-                      宜園大院開工典禮
+                      寬越設計案例
                     </span>
                   </div>
                   <div className="flex flex-row items-center mt-1">
@@ -577,7 +556,7 @@ export default function About() {
                       Public 2024 Building By
                     </span>
                     <span className="text-[.8rem] hover:border-b-1 border-white duration-500  text-white mt-1">
-                      宜園大院開工典禮
+                      寬越設計案例
                     </span>
                   </div>
                   <div className="flex flex-row items-center mt-1">
@@ -777,7 +756,7 @@ export default function About() {
           <div className="bg-white mx-auto   max-w-[1400px] pt-10 w-[90%] lg:w-[78%] flex md:flex-row flex-col justify-center items-center">
             <div className="title w-full md:w-1/2 px-4 md:px-[9%] xl:px-[15%] h-full flex flex-col justify-between">
               <GsapText
-                text="Project - 一青隱"
+                text="Project - 商務空間"
                 id="gsap-intro"
                 fontSize="1.3rem"
                 fontWeight="200"
@@ -803,9 +782,7 @@ export default function About() {
           </div>
         </section>
       </section>
-      <section>
-        <Timeline data={data01} />
-      </section>
+
       <div className="flex lg:flex-row px-0 2xl:px-[200px] flex-col pt-[100px] bg-white ">
         {/* <div className=" w-full  flex-col justify-center items-center flex ">
           <EmblaCarousel
@@ -814,14 +791,14 @@ export default function About() {
             options={OPTIONS}
           />
           <div className="title py-[40px] md:py-[50px] px-[30px] sm:px-[40px] lg:px-[80px]">
-            <h1 className="!text-[2rem]">宜園建設【一青隱】</h1>
+            <h1 className="!text-[2rem]">寬越室內設計【一青隱】</h1>
           </div>
           <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
             <p className="leading-relaxed">
               不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
               致邀，職住共生的青創企業家 成家滿意，創業更旺，2-3房共居新浪潮
               <br></br> <br></br>
-              宜園建設【一青隱】 神隱青海│2-3房│含精裝修
+              寬越室內設計【一青隱】 神隱青海│2-3房│含精裝修
               接待會館：漢口路一段69號（漢口國中正對面） 預約專線：04-2314-9066
             </p>
           </div>
@@ -842,7 +819,7 @@ export default function About() {
               不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
               致邀，職住共生的青創企業家 成家滿意，創業更旺，2-3房共居新浪潮
               <br></br> <br></br>
-              宜園建設【一青隱】 神隱青海│2-3房│含精裝修
+              寬越室內設計【一青隱】 神隱青海│2-3房│含精裝修
               接待會館：漢口路一段69號（漢口國中正對面） 預約專線：04-2314-9066
             </p>
           </div>
@@ -858,7 +835,7 @@ export default function About() {
           </div>
         </div> */}
       </div>
-      <section className="section-contact">
+      {/* <section className="section-contact">
         <div className="flex flex-col lg:flex-row bg-[#222] mx-auto w-[90%] p-5 sm:p-10  lg:p-20 px-auto rounded-md">
           <div className=" w-full lg:w-1/2 ">
             <span className="contact-tag px-3 text-[1.4rem] tracking-widest bg-gray-700  rounded-full text-white">
@@ -928,7 +905,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <div className="bg-white z-[99999999] py-10 bottom-section flex flex-col justify-center items-center">
         <Marquee>
           <div className="flex flex-row py-10 justify-center items-center">

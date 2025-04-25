@@ -150,11 +150,11 @@ export default function Home() {
         <div className="intro-logo">
           <div className="word" id="word-1">
             <h1>
-              <span>寬越</span>
+              <span className="text-white">寬越</span>
             </h1>
           </div>
           <div className="word" id="word-2">
-            <h1>設計</h1>
+            <h1 className="text-white">設計</h1>
           </div>
         </div>
 
@@ -167,42 +167,42 @@ export default function Home() {
         <div className="counter">
           <div className="count">
             <div className="digit">
-              <h1>0</h1>
+              <h1 className="text-white">0</h1>
             </div>
             <div className="digit">
-              <h1>0</h1>
-            </div>
-          </div>
-          <div className="count">
-            <div className="digit">
-              <h1>2</h1>
-            </div>
-            <div className="digit">
-              <h1>7</h1>
+              <h1 className="text-white">0</h1>
             </div>
           </div>
           <div className="count">
             <div className="digit">
-              <h1>6</h1>
+              <h1 className="text-white">2</h1>
             </div>
             <div className="digit">
-              <h1>5</h1>
-            </div>
-          </div>
-          <div className="count">
-            <div className="digit">
-              <h1>9</h1>
-            </div>
-            <div className="digit">
-              <h1>8</h1>
+              <h1 className="text-white">7</h1>
             </div>
           </div>
           <div className="count">
             <div className="digit">
-              <h1>9</h1>
+              <h1 className="text-white">6</h1>
             </div>
             <div className="digit">
-              <h1>9</h1>
+              <h1 className="text-white">5</h1>
+            </div>
+          </div>
+          <div className="count">
+            <div className="digit">
+              <h1 className="text-white">9</h1>
+            </div>
+            <div className="digit">
+              <h1 className="text-white">8</h1>
+            </div>
+          </div>
+          <div className="count">
+            <div className="digit">
+              <h1 className="text-white">9</h1>
+            </div>
+            <div className="digit">
+              <h1 className="text-white">9</h1>
             </div>
           </div>
         </div>

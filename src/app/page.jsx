@@ -270,7 +270,7 @@ export default function About() {
                   </div>
                 </div>
               </div>
-              <div className="flex md:flex-row flex-col border w-full md:w-[70%]  justify-center items-center md:items-start mx-auto  mt-4">
+              <div className="flex md:flex-row flex-col  w-full md:w-[70%]  justify-center items-center md:items-start mx-auto  mt-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3">
                   <div className="img w-ful  md:mt-0  md:max-w-[380px] mx-auto sm:mx-3 h-[450px] md:h-[500px] xl:h-[600px] flex flex-col mt-4 justify-end items-end  overflow-hidden">
                     <div className="animate-image-wrapper group h-[100%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
@@ -286,7 +286,7 @@ export default function About() {
                               </div>
                             </button>
                             <h3 className="text-[1rem] text-white font-normal">
-                              My Home Project-Yi Yuan
+                              My Home Project
                             </h3>
                           </div>
                         </AnimatedLink>
@@ -336,7 +336,7 @@ export default function About() {
                               </div>
                             </button>
                             <h3 className="text-[1rem] text-white font-normal">
-                              My Home Project-Yi Yuan
+                              My Home Project
                             </h3>
                           </div>
                         </AnimatedLink>
@@ -386,7 +386,7 @@ export default function About() {
                               </div>
                             </button>
                             <h3 className="text-[1rem] text-white font-normal">
-                              My Home Project-Yi Yuan
+                              My Home Project
                             </h3>
                           </div>
                         </AnimatedLink>
@@ -436,7 +436,7 @@ export default function About() {
                               </div>
                             </button>
                             <h3 className="text-[1rem] text-white font-normal">
-                              My Home Project-Yi Yuan
+                              My Home Project
                             </h3>
                           </div>
                         </AnimatedLink>
