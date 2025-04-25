@@ -3,6 +3,7 @@
   width: 100vw;
   height: 85vh; /* 預設為全螢幕高度 */
   overflow: hidden;
+
 }
 
 @media (max-width: 1200px) {
@@ -19,13 +20,13 @@
 
 @media (max-width: 768px) {
   .slider {
-    height: 75vh; /* 手機 */
+    height: 65vh; /* 手機 */
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
   .slider {
-    height: 70vh; /* 更小的手機 */
+    height: 50vh; /* 更小的手機 */
   }
 }
 

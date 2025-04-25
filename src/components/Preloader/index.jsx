@@ -234,7 +234,7 @@ export default function Home() {
           <div className="hero-copy">
             <div
               id="dark-section"
-              className="absolute w-full h-[100vh] top-0 left-0 z-[1]"
+              className="absolute w-full  top-0 left-0 z-[1]"
             >
               {" "}
               <HeroSlider />

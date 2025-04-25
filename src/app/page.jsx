@@ -120,8 +120,11 @@ export default function About() {
       ) : (
         // 🔽 你原本的 JSX 區塊，保持不變
 
-        <div className="overflow-hidden">
-          <Preloader />
+        <div className="overflow-hidden ">
+          <div className="relative xl:aspect-[1920/768] md:aspect-[1024/576] aspect-[500/500]">
+            {" "}
+            <Preloader />
+          </div>
           <div className="policy  fixed z-[1] left-[38%] bottom-8 bg-white rounded-lg shadow-md w-[350px] py-5">
             <div className="flex justify-center w-full items-center">
               <div className="w-3/4 pl-5">
@@ -152,7 +155,7 @@ export default function About() {
             <HomeSlider />
           </section> */}
 
-          <section className="min-h-screen flex items-center justify-center bg-gray-100">
+          <section className="h-[50vh] flex items-center justify-center bg-gray-100">
             <div className="text-center px-4">
               <GsapText text="DISCOVER THE BRAND" id="headline" />
             </div>
