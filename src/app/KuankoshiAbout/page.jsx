@@ -157,9 +157,10 @@ export default function About() {
             </div>
           </div>
         </section>
-        <section>
-          <ScrollTopCard />
+        <section className="">
           <ScrollTopCard1 />
+          <ScrollTopCard />
+          <ScrollTopCard2 />
         </section>
         <section className="bg-[#f1f1f1] relative py-[110px] ">
           <div className="top-tag border border-gray-300 text-[.8rem] bg-white absolute z-10 left-1/2 -translate-x-1/2 text-gray-500 top-[-20px] tracking-widest rounded-full px-6 py-3">

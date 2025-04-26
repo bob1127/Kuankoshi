@@ -9,7 +9,7 @@
     "a10 a10 a10 a10 a21 a21 a21 a21 a22 a22 a23 a23 . . . . . . . . . . . ."
     "a28 a28 a29 a29 a30 a30 a30 a30 . . . . . . . . . . . . . . . ."
     " . . . . . . . . . . . . . . . . . . . . . . . .";
-  grid-template-columns: repeat(24, 1fr);
+  grid-template-columns: repeat(20, 1fr);
   grid-template-rows: 2fr 2fr 2fr 1fr 1fr 1fr;
   width:1200px;
   left: 50%;

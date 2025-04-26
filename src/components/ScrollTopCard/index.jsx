@@ -34,6 +34,15 @@ const Card = () => {
           在每一次設計提案前，我們花時間聆聽、理解您的需求與偏好，透過多次溝通與空間模擬，為您打造專屬生活提案。從前期丈量、3D
           模型、施工圖繪製，到完工後的細節優化，我們陪您走過每一段空間蛻變的旅程。
         </div>
+        <Image
+          src="/images/hero-img/footer.png"
+          placeholder="empty"
+          loading="lazy"
+          alt="company-img"
+          width={600}
+          height={1000}
+          className="w-[360px] mx-auto"
+        ></Image>
       </motion.div>
     </div>
   );
