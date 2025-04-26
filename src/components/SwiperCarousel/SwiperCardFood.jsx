@@ -1,82 +1,79 @@
 "use client";
-// import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import { Card, CardHeader, CardBody } from "@nextui-org/react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Link from "next/link";
-import Image from "next/image";
-import { useEffect, useRef } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { gsap } from "gsap";
-import Draggable from "gsap/Draggable";
 
-// Import Swiper styles
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Card, CardBody } from "@nextui-org/react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import AnimatedLink from "../AnimatedLink";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 
-const myLoader01 = ({ src, width, quality, placeholder }) => {
-  return `https://cdn1.beams.co.jp/special/kids_summer_2024/assets/images/chapter_1/${src}?w=${width}?p=${placeholder}`;
-};
+const images = [
+  "0208-05.jpg",
+  "0208-02.jpg",
+  "0208-06.jpg",
+  "0317_アートボード-1.jpg",
+  "アセット-9-100.jpg",
+].map((img) => `https://www.clasishome.jp/wp-content/uploads/2025/03/${img}`);
 
-const MySwiperComponent = () => {
-  const swiperRef = useRef(null);
-
-  useEffect(() => {
-    const swiper = swiperRef.current.swiper;
-    gsap.registerPlugin(Draggable);
-
-    const draggable = Draggable.create(swiper.wrapperEl, {
-      type: "x",
-      bounds: swiper.wrapperEl,
-      onDrag: () => {
-        const progress = swiper.progress;
-        gsap.to(swiper.wrapperEl, {
-          x: `-${progress * swiper.width}px`,
-          duration: 0.3,
-        });
-      },
-      onDragEnd: () => {
-        swiper.slideToClosest();
-      },
-    });
-
-    return () => {
-      draggable.forEach((d) => d.kill());
-    };
-  }, []);
-
+export default function ProjectSwiper() {
   return (
-    <>
-      <div className="e-full m-0 p-0">
-        <Swiper
-          ref={swiperRef}
-          breakpoints={{
-            0: { slidesPerView: 2 },
-            500: { slidesPerView: 2 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 2 },
-          }}
-          modules={[Navigation, Pagination, A11y]}
-          spaceBetween={1}
-          className="m-0 p-0"
-          navigation
-          pagination={{ clickable: false }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
-        >
-          {/* Add SwiperSlide components here */}
-        </Swiper>
-        <div className="bg-white w-full min-h-[200px] flex items-center justify-center">
-          <button className="px-6 py-2 font-medium bg-buy-dark text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]">
-            選購更多商品！！！
-          </button>
-        </div>
-      </div>
-    </>
+    <div className="py-[100px] m-0 p-0">
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={16}
+        centeredSlides={true}
+        loop={true}
+        autoplay={{ delay: 3500, disableOnInteraction: false }}
+        breakpoints={{
+          0: { slidesPerView: 1.2 },
+          480: { slidesPerView: 2 },
+          640: { slidesPerView: 2.5 },
+          768: { slidesPerView: 2.5 },
+          1024: { slidesPerView: 2.5 },
+          1280: { slidesPerView: 2.5 },
+        }}
+        navigation
+        pagination={{ clickable: false }}
+        className="pl-[8vw]"
+      >
+        {images.map((imgUrl, idx) => (
+          <SwiperSlide
+            key={idx}
+            className="mx-2 overflow-hidden group relative duration-1000"
+          >
+            <div className="title absolute top-5 left-5 z-[999]">
+              <span className="text-white text-[.9rem]">
+                Project-0{idx + 1}
+              </span>
+            </div>
+            <div className="title absolute bottom-5 flex right-5 z-[999]">
+              <button className="relative h-12 rounded-full bg-transparent px-4 group-hover:text-white text-neutral-950">
+                <span className="relative inline-flex overflow-hidden">
+                  <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
+                    View More
+                  </div>
+                  <div className="absolute translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                    View More
+                  </div>
+                </span>
+              </button>
+            </div>
+            <AnimatedLink href="/KuankoshiProjectInner">
+              <div className="absolute z-50 w-full h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
+              <Card
+                className="!rounded-none border-white pb-4 w-full h-[300px] md:h-[320px] lg:h-[370px] 2xl:h-[550px] max-h-[550px] border bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110"
+                style={{
+                  backgroundImage: `url('${imgUrl}')`,
+                }}
+              >
+                <CardBody className="flex relative flex-col h-full w-full px-0" />
+              </Card>
+            </AnimatedLink>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
-};
-
-export default MySwiperComponent;
+}

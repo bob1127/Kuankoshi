@@ -1,146 +1,187 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Lenis from "lenis";
-import "./page.css";
+import styles from "./ScrollAnimation.module.css";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const servicesData = [
-  {
-    title: "實在的構築",
-    description:
-      "宜園建設，承襲匠心工藝，以細膩的規劃與人本設計，打造兼具美感與實用的居住空間。我們不只建造房屋，更締造理想的生活場域，讓每一位住戶都能在此找到家的溫度。",
-    imgSrc:
-      "https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/service-01-pc.webp",
-    alt: "Web Development",
-  },
-  {
-    title: "實在的構築",
-    description:
-      "宜園建設，承襲匠心工藝，以細膩的規劃與人本設計，打造兼具美感與實用的居住空間。我們不只建造房屋，更締造理想的生活場域，讓每一位住戶都能在此找到家的溫度。",
-    imgSrc:
-      "https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/service-02-pc.webp",
-    alt: "App Development",
-  },
-  {
-    title: "實在的構築",
-    description:
-      "宜園建設，承襲匠心工藝，以細膩的規劃與人本設計，打造兼具美感與實用的居住空間。我們不只建造房屋，更締造理想的生活場域，讓每一位住戶都能在此找到家的溫度。",
-    imgSrc:
-      "https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/service-03-pc.webp",
-    alt: "Digital Marketing",
-  },
-];
+const InfiniteScroll = () => {
+  const scrollerRef = useRef(null);
+  const borderRef = useRef(null);
 
-export default function ServicesSection() {
   useEffect(() => {
-    const lenis = new Lenis();
+    if (!scrollerRef.current || !borderRef.current) return;
 
-    lenis.on("scroll", (e) => {
-      console.log(e);
-    });
-
-    lenis.on("scroll", ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-
-    gsap.ticker.lagSmoothing(0);
-
-    const services = document.querySelectorAll(".service");
-
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.1,
-    };
-
-    const observerCallback = (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const service = entry.target;
-          const imgContainer = service.querySelector(".img");
-
-          ScrollTrigger.create({
-            trigger: service,
-            start: "bottom bottom",
-            end: "top top",
-            scrub: true,
-            onUpdate: (self) => {
-              let progress = self.progress;
-              let newWidth = 30 + 70 * progress;
-              gsap.to(imgContainer, {
-                width: `${newWidth}%`,
-                duration: 0.1,
-                ease: "none",
-              });
-            },
-          });
-
-          ScrollTrigger.create({
-            trigger: service,
-            start: "top bottom",
-            end: "top top",
-            scrub: true,
-            onUpdate: (self) => {
-              let progress = self.progress;
-              let newHeight = 150 + 300 * progress;
-              gsap.to(service, {
-                height: `${newHeight}px`,
-                duration: 0.1,
-                ease: "none",
-              });
-            },
-          });
-
-          observer.unobserve(service);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
+    const scroller = scrollerRef.current;
+    const sections = scroller.querySelectorAll(`.${styles.section}`);
+    const totalWidth = Array.from(sections).reduce(
+      (acc, section) => acc + section.offsetWidth,
+      0
     );
 
-    services.forEach((service) => {
-      observer.observe(service);
+    // 水平滾動動畫
+    gsap.to(scroller, {
+      x: () => `-${totalWidth - window.innerWidth}px`,
+      ease: "none",
+      scrollTrigger: {
+        trigger: scroller,
+        start: "top top",
+        end: () => `+=${totalWidth}`,
+        pin: true,
+        scrub: 1,
+        onEnter: () => {
+          // 第一次進入水平滾動
+          gsap.to(borderRef.current, {
+            opacity: 1,
+            borderWidth: "23px",
+            duration: 0.3,
+          });
+        },
+        onLeave: () => {
+          // 滾到水平滾動結束（往下）
+          gsap.to(borderRef.current, { opacity: 0, duration: 0.5 });
+        },
+        onEnterBack: () => {
+          // 往回滾回水平滾動
+          gsap.to(borderRef.current, {
+            opacity: 1,
+            borderWidth: "23px",
+            duration: 0.3,
+          });
+        },
+        onLeaveBack: () => {
+          // 滾回直向區（上方）
+          gsap.to(borderRef.current, { opacity: 0, duration: 0.5 });
+        },
+      },
     });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (
-    <div className="container ">
-      <section className="hero" />
-      <section className="services">
-        <div className="services-header flex justify-between items-center">
-          <div className="col"></div>
+    <div className={styles.container}>
+      {/* 黑色邊框＋四邊跑馬燈文字 */}
+      <div ref={borderRef} className={styles.borderFrame}>
+        {/* 上方文字 */}
+        <div className={`${styles.marquee} ${styles.top}`}>
+          <span>WELCOME TO THE FUTURE • WELCOME TO THE FUTURE • </span>
         </div>
-        {servicesData.map((service, index) => (
-          <div key={index} className="service flex items-center">
-            <div className="service-info">
-              <h1 className="text-2xl font-semibold">{service.title}</h1>
-              <p className="mt-2 text-gray-800 text-[.8rem] tracking-widest">
-                {service.description}
-              </p>
-            </div>
-            <div className="service-img relative">
-              <div className="img w-30">
+        {/* 右側文字（垂直） */}
+        <div className={`${styles.marquee} ${styles.right}`}>
+          <span>WELCOME TO THE FUTURE • WELCOME TO THE FUTURE • </span>
+        </div>
+        {/* 下方文字 */}
+        <div className={`${styles.marquee} ${styles.bottom}`}>
+          <span>WELCOME TO THE FUTURE • WELCOME TO THE FUTURE • </span>
+        </div>
+        {/* 左側文字（垂直） */}
+        <div className={`${styles.marquee} ${styles.left}`}>
+          <span>WELCOME TO THE FUTURE • WELCOME TO THE FUTURE • </span>
+        </div>
+      </div>
+
+      {/* 上方直向滾動 */}
+      {/* <section className="h-screen flex items-center justify-center bg-[#e7e7e7]">
+        <h1 className="text-4xl">這裡是上方直向滾動內容</h1>
+      </section> */}
+
+      {/* 水平滾動 */}
+      <div className={styles.horizontalScroller} ref={scrollerRef}>
+        <section className={styles.section}>
+          <div className="w-full h-full flex relative items-center justify-center">
+            <div className="center-title border border-black relative flex flex-col items-center justify-center">
+              <h1 className="text-6xl font-extrabold">It Our Style !</h1>
+              <h2 className="text-2xl font-extrabold mt-4">探索無限的可能性</h2>
+              <div className="absolute top-[-20%] rotate-6 left-[-60%] z-10">
                 <Image
-                  src={service.imgSrc}
-                  alt={service.alt}
+                  src="/images/material/02外觀二黎-(1).png"
+                  placeholder="empty"
+                  loading="lazy"
                   width={500}
-                  height={220}
+                  alt=""
+                  height={500}
+                  className="w-[240px] alt='scroll-img"
+                />
+              </div>
+              <div className="absolute bottom-[-20%]  right-[-60%] z-10">
+                <Image
+                  alt=""
+                  src="/images/material/Growth-4.png"
+                  placeholder="empty"
+                  loading="lazy"
+                  width={500}
+                  height={500}
+                  className="w-[200px] alt='scroll-img"
+                />
+              </div>
+              <div className="absolute top-[-60%] rotate-[5deg]  right-[-60%] z-10">
+                <Image
+                  alt=""
+                  src="https://oneit.co.jp/cms/wp-content/uploads/2024/03/7-sunline-moriumi.jpg.webp"
+                  placeholder="empty"
+                  loading="lazy"
+                  width={500}
+                  height={500}
+                  className="w-[200px] alt='scroll-img border-4 border-[#c4885d] rounded-[35px]"
                 />
               </div>
             </div>
           </div>
-        ))}
-      </section>
+        </section>
+        <section className={styles.section}>
+          <div>
+            <h1 className="text-6xl">未來已來</h1>
+            <h2 className="text-2xl mt-4">探索無限的可能性</h2>
+          </div>
+          <Image
+            src="https://mr-standard.lifelabel.jp/mr_standard/img/scroll_bg.webp"
+            alt=""
+            placeholder="empty"
+            loading="lazy"
+            width={2000}
+            height={1000}
+          />
+        </section>
+        <section className={styles.section}>
+          <div>
+            <h1 className="text-6xl">未來已來</h1>
+            <h2 className="text-2xl mt-4">探索無限的可能性</h2>
+          </div>
+          <Image
+            src="https://mr-standard.lifelabel.jp/mr_standard/img/scroll_bg.webp"
+            alt=""
+            placeholder="empty"
+            loading="lazy"
+            width={2000}
+            height={1000}
+          />
+        </section>
+        <section className={styles.section}>
+          <div>
+            <h1 className="text-6xl">未來已來</h1>
+            <h2 className="text-2xl mt-4">探索無限的可能性</h2>
+          </div>
+          <Image
+            src="https://mr-standard.lifelabel.jp/mr_standard/img/scroll_bg.webp"
+            alt=""
+            placeholder="empty"
+            loading="lazy"
+            width={2000}
+            height={1000}
+          />
+        </section>
+        {/* 你可以繼續加更多 sections */}
+      </div>
+
+      {/* 下方直向滾動 */}
     </div>
   );
-}
+};
+
+export default InfiniteScroll;

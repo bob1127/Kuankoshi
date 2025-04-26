@@ -4,7 +4,7 @@ export default function Content() {
   return (
     <div
       id="dark-section"
-      className="pb-2  pt-20 sm:pt-[340px] xl:pt-[350px] 2xl:pt-[20vh] bg-[url('https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/common/bg-footer.jpg')] bg-left bg-no-repeat bg-cover py-8 px-12 h-full w-full flex flex-col justify-between"
+      className="pb-2  pt-20 sm:pt-[340px] xl:pt-[350px] 2xl:pt-[20vh] bg-[url('/images/hero-img/footer03.png')] bg-left bg-no-repeat bg-cover py-8 px-12 h-full w-full flex flex-col justify-between"
     >
       <Section2 />
       <Marquee className="mb-12">

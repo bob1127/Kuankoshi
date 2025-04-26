@@ -197,7 +197,7 @@ const Photos = () => {
         <div>
           <div>
             <video
-              src="https://aitohus.com/app/wp-content/uploads/2025/01/kv.mp4"
+              src="https://www.clasishome.jp/wp-content/themes/clasishome/assets/movie/front_firstview-movie.mp4?ver2.0"
               autoPlay
               loop
               muted
@@ -217,61 +217,16 @@ const Photos = () => {
         </div>
 
         {/* ✅ 原本的 bottom-info 保留不動 */}
-        <div className="bottom-info absolute w-screen z-50 bottom-8">
-          <div className="flex w-full ">
-            <div className="w-1/4  flex justify-center items-center">
-              <b className="text-white font-bold ">+SHIFT NOGIZAKA</b>
-            </div>
-            <div className="w-1/4 flex flex-col items-center">
-              <span className="text-gray-400 text-[.75rem]">Category</span>
-              <span className="text-white mt-2 text-[.75rem]">Category</span>
-              <span className="text-white  text-[.75rem]">Category</span>
-              <span className="text-white  text-[.75rem]">Category</span>
-            </div>
-            <div className="w-1/4 flex flex-col justify-center items-center">
-              <div className="flex flex-col ">
-                <span className="text-gray-300 text-[.75rem]">Location</span>
-                <span className="text-white text-[.75rem]">
-                  Taiwan,Taichung
-                </span>
-                <span className="text-white text-[.75rem] ">2025.03.24 </span>
-              </div>
-            </div>
-            <div className="w-1/4 flex justify-center items-center">
-              <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden font-medium">
-                <div className="inline-flex h-12 translate-y-0 items-center justify-center  px-6 text-neutral-50 transition group-hover:-translate-y-[150%]">
-                  Hover me
-                </div>
-                <div className="absolute inline-flex h-12 w-full translate-y-[100%] items-center justify-center bg-white px-6 text-black transition duration-300 group-hover:translate-y-0">
-                  Hover me
-                </div>
-              </button>
-            </div>
+        <div className="msak left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 absolute bg-black opacity-40 z-10  w-full h-full"></div>
+        <div className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 absolute w-screen z-20 ">
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="text-white text-[5rem] font-extrabold">
+              關於設計的大小事
+            </h1>
+            <p className="text-white text-center text-[1.2rem] w-[80%] mx-auto max-w-[1000px]">
+              無論是裝修預算、設計流程、施工工期或售後服務，這裡彙整了最常見的客戶疑問，幫助你更安心踏出第一步。
+            </p>
           </div>
-        </div>
-
-        <div className="slider-counter">
-          <div
-            className="counter"
-            ref={counterRef}
-            style={{ overflow: "hidden", height: "20px" }}
-          >
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-          </div>
-          <div>
-            <p>&mdash;</p>
-          </div>
-          <div>
-            <p>{slides.length}</p>
-          </div>
-        </div>
-
-        <div className="slider-indicators" ref={indicatorsRef}>
-          <p>+</p>
-          <p>+</p>
         </div>
       </div>
     </>

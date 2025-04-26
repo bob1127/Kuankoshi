@@ -35,7 +35,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu, isDarkBg }) => {
     },
     {
       label: "客戶提問",
-      href: "/project",
+      href: "/qa",
     },
     {
       label: "設計誌",

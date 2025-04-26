@@ -153,10 +153,7 @@ export default function About() {
           </div>
           <div className="portrait-container overflow-hidden">
             <div className="img mt-8">
-              <ParallaxImage
-                src="https://noizarchitects.com/cms/wp-content/uploads/2024/02/noe_004-scaled-2.jpg"
-                alt=""
-              />
+              <ParallaxImage src="/images/hero-img/img04.png" alt="" />
             </div>
           </div>
         </section>

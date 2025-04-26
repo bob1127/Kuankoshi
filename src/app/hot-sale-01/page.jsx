@@ -143,9 +143,9 @@ export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(null);
   const backgroundImages = [
-    "https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_01.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1",
-    "https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_02.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1",
-    "https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_04.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1",
+    "/images/hero-img/img05.png",
+    "/images/hero-img/img06.png",
+    "/images/hero-img/img07.png",
   ];
   useEffect(() => {
     const timer = setInterval(() => {
@@ -161,8 +161,7 @@ export default function About() {
       designation: "業務人員",
       qrCodeImage:
         "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
-      image:
-        "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
+      image: "/images/hero-img/img01.png",
     },
     {
       id: 2,
@@ -170,8 +169,7 @@ export default function About() {
       designation: "買屋看房",
       qrCodeImage:
         "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
-      image:
-        "https://blogimg.goo.ne.jp/user_image/1c/fe/9641ac44fee5bb8525f467bac86d0fb9.jpg",
+      image: "/images/hero-img/img05.png",
     },
     {
       id: 3,
@@ -179,8 +177,15 @@ export default function About() {
       designation: "詢問價格",
       qrCodeImage:
         "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
-      image:
-        "https://thumb.ac-illust.com/56/56a7c15a78437570e11a8252b729f35f_t.jpeg",
+      image: "/images/hero-img/img06.png",
+    },
+    {
+      id: 4,
+      name: "John Doe",
+      designation: "詢問價格",
+      qrCodeImage:
+        "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
+      image: "/images/hero-img/img07.png",
     },
   ];
   const initGSAPAnimations = () => {
@@ -238,7 +243,7 @@ export default function About() {
 
   // 這裡定義你的背景圖片
   const SLIDES = [
-    "/images/ph_esperanza.jpg",
+    "/images/hero-img/img05.png",
     "/images/ph_takahiradai-no-ie.jpg",
     "/images/ph_esperanza.jpg",
     "/images/ph_minna-no-ie.jpg",
@@ -246,7 +251,7 @@ export default function About() {
     "/images/hadashinoie016-2048x1365.jpg.webp",
   ];
   const THUMBNAILS = [
-    "/images/ph_esperanza.jpg",
+    "/images/hero-img/img05.png",
     "/images/ph_takahiradai-no-ie.jpg",
     "/images/ph_esperanza.jpg",
     "/images/ph_minna-no-ie.jpg",
