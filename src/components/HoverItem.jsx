@@ -5,7 +5,7 @@ import GsapText from "../components/RevealText";
 function HoverItem({
   imageUrl,
   text = "Built for Living.",
-  fontSize = "2rem",
+  fontSize = "3vmin",
   fontWeight = "200",
   color = "#fff",
   lineHeight = "60px",
@@ -15,7 +15,7 @@ function HoverItem({
 
   return (
     <div
-      className={`w-[330px] hover:scale-95  hover:shadow-md duration-400 mx-4 group overflow-hidden relative bg-center bg-cover bg-no-repeat h-[480px] rounded-full ${className}`}
+      className={` w-[180px] sm:w-[220px]  lg:w-[330px] hover:scale-95  hover:shadow-md duration-400 mx-4 group overflow-hidden relative bg-center bg-cover bg-no-repeat sm:h-[300px] h-[240px] lg:h-[480px] rounded-full ${className}`}
       style={{ backgroundImage: `url('${imageUrl}')` }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

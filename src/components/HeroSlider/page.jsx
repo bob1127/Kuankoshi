@@ -191,7 +191,7 @@ const Photos = () => {
 
   return (
     <>
-      <div className="slider  " ref={sliderRef}>
+      <div className="slider " id="dark-section" ref={sliderRef}>
         <div className="absolute z-10 top-0  left-0 w-full h-full bg-[#000] opacity-25"></div>
 
         <div>

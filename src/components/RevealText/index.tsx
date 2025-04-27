@@ -19,10 +19,10 @@ interface GsapTextProps {
 const GsapText: React.FC<GsapTextProps> = ({
   text,
   id = "gsap-text",
-  fontSize = "50px",
+  fontSize = "5.5vmin",
   fontWeight = "normal",
   color = "#000",
-  lineHeight = "80px",
+  lineHeight = "45px",
   className = "",
 }) => {
   const textRef = useRef<HTMLParagraphElement>(null);

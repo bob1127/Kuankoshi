@@ -220,11 +220,12 @@ const Photos = () => {
         <div className="msak left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 absolute bg-black opacity-40 z-10  w-full h-full"></div>
         <div className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 absolute w-screen z-20 ">
           <div className="flex flex-col items-center justify-center">
-            <h1 className="text-white text-[5rem] font-extrabold">
+            <h1 className="text-white text-[5.5vmin] font-extrabold">
               關於設計的大小事
             </h1>
-            <p className="text-white text-center text-[1.2rem] w-[80%] mx-auto max-w-[1000px]">
-              無論是裝修預算、設計流程、施工工期或售後服務，這裡彙整了最常見的客戶疑問，幫助你更安心踏出第一步。
+            <p className="text-white text-xs  text-center text-[1.2rem] w-[80%] mx-auto max-w-[1000px]">
+              無論是裝修預算、設計流程、施工工期或售後服務，<br></br>
+              這裡彙整了最常見的客戶疑問，幫助你更安心踏出第一步。
             </p>
           </div>
         </div>

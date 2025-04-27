@@ -292,7 +292,8 @@ export default function About() {
             </div>
             <div className="border-t-1 flex justify-between border-gray-600 py-5">
               <span>
-                考え抜かれたセラミックタイルのデザインでシューズショップに個性と実用性を
+                結合品牌精神與市場洞察，量身打造具吸引力與記憶點的商業空間，
+                <br></br>助力品牌形象升級與業績成長。
               </span>
               <button class="group rotate-[-90deg] relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
                 <div class="translate-x-0 transition group-hover:translate-x-[300%]">

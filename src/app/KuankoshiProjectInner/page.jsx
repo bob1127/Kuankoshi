@@ -97,7 +97,7 @@ export default function About() {
 
   return (
     <ReactLenis root>
-      <div className="">
+      <div className="bg-[#E1E3D9]">
         <div className="policy  fixed z-50 left-[38%] bottom-8 bg-white rounded-lg shadow-md w-[350px] py-5">
           <div className="flex justify-center w-full items-center">
             <div className="w-3/4 pl-5">
@@ -123,7 +123,7 @@ export default function About() {
         </div>
         <HomeSlider />
 
-        <section className="py-[150px] flex flex-col lg:flex-row pt-8 mt-20 pb-[80px]  border-t-1 border-gray-300 max-w-[1920px] mx-auto w-full ">
+        <section className="py-[150px] flex flex-col lg:flex-row pt-8 mt-20 pb-[80px]  border-t-1 border-gray-300 max-w-[1920px] mx-auto w-full px-4 sn:px-0  sm:w-[95%] 2xl::w-[88%] ">
           <div className=" w-full lg:w-[15%]">
             <div className="sticky pl-5 top-24  ">
               <b>categories</b>
@@ -302,7 +302,7 @@ export default function About() {
         </section>
         <section className="section_navgation flex flex-row">
           <div className="flex w-[80%] mx-auto">
-            <div className="Navgation_Prev group hover:scale-[1.02] duration-400 w-1/2 px-8">
+            {/* <div className="Navgation_Prev group hover:scale-[1.02] duration-400 w-1/2 px-8">
               <div className="flex flex-col justify-start items-start">
                 <b className="text-[.9rem] tracking-wide w-3/4 text-left font-bold">
                   〈COGNOMEN〉 25AW “WORKER-MAN
@@ -350,8 +350,8 @@ export default function About() {
                   </div>
                 </button>
               </div>
-            </div>
-            <div className="Navgation_Next hover:scale-[1.02] duration-400 w-1/2 group px-8">
+            </div> */}
+            {/* <div className="Navgation_Next hover:scale-[1.02] duration-400 w-1/2 group px-8">
               <div className="flex flex-col justify-end items-end">
                 <b className="text-[.9rem]  w-3/4 text-right tracking-wide font-bold">
                   〈COGNOMEN〉 25AW “WORKER-MAN
@@ -398,80 +398,87 @@ export default function About() {
                   </div>
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
-        <section className="section-page-navgation w-[65%] mx-auto">
-          <div className="flex py-6  justify-between">
-            <div className="tag border rounded-full px-3 py-1 text-[.85rem]">
+        <section className="section-page-navgation w-full max-w-[1100px] mx-auto px-4">
+          <div className="flex flex-col md:flex-row py-6 justify-between items-center">
+            <div className="tag border rounded-full px-4 py-1 text-[.85rem] mb-4 md:mb-0">
               Categories
             </div>
             <span className="text-gray-600">Look More</span>
           </div>
-          <div className="border-t-1 flex justify-between border-gray-600 py-5">
-            <span>
-              考え抜かれたセラミックタイルのデザインでシューズショップに個性と実用性を
+
+          <div className="border-t border-gray-600 flex flex-col md:flex-row justify-between py-5 items-start md:items-center gap-6">
+            <span className="text-[.9rem] text-gray-800 leading-relaxed">
+              結合品牌精神與市場洞察，量身打造具吸引力與記憶點的商業空間，
+              <br className="hidden md:block" />
+              助力品牌形象升級與業績成長。
             </span>
-            <button class="group rotate-[-90deg] relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-              <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+
+            <button className="group rotate-[-90deg] relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 shrink-0">
+              <div className="translate-x-0 transition group-hover:translate-x-[300%]">
                 <svg
                   width="15"
                   height="15"
                   viewBox="0 0 15 15"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
+                  className="h-5 w-5"
                 >
                   <path
                     d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
                     fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                  ></path>
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
-              <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+              <div className="absolute -translate-x-[300%] transition group-hover:translate-x-0">
                 <svg
                   width="15"
                   height="15"
                   viewBox="0 0 15 15"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
+                  className="h-5 w-5"
                 >
                   <path
                     d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
                     fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                  ></path>
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
             </button>
           </div>
-          <div className="flex justify-center">
-            <AnimatedLink href="" className="group">
-              <div className="prev  mx-2 bg-white rounded-full py-8 px-[80px] group-hover:bg-black duration-1000">
+
+          <div className="flex flex-col md:flex-row justify-center items-center py-10 gap-4">
+            <AnimatedLink href="" className="group w-full md:w-auto">
+              <div className="prev mx-2 bg-white group-hover:bg-[#35453F] rounded-full py-6 px-10 text-center duration-700">
                 <span className="tracking-widest text-[.9rem] group-hover:text-white duration-700">
                   ← PREV
                 </span>
               </div>
             </AnimatedLink>
+
             <AnimatedLink
               href=""
-              className="group flex flex-col justify-center items-center"
+              className="group w-full md:w-auto flex flex-col items-center"
             >
-              <div className="next mx-2 bg-white rounded-full py-8 px-[80px] group-hover:bg-black duration-1000">
+              <div className="next mx-2 bg-white rounded-full py-6 px-10 group-hover:bg-[#35453F] duration-700 text-center">
                 <span className="tracking-widest text-[.9rem] group-hover:text-white duration-700">
                   MENU
                 </span>
               </div>
-              <span className="text-[.9rem] text-gray-700 mt-4">
+              <span className="text-[.9rem] text-gray-700 mt-2 md:mt-4">
                 30+ | 案例
               </span>
             </AnimatedLink>
-            <AnimatedLink href="" className="group">
-              <div className="next mx-2 bg-white rounded-full py-8 px-[80px] group-hover:bg-black duration-1000">
+
+            <AnimatedLink href="" className="group w-full md:w-auto">
+              <div className="next mx-2 bg-white rounded-full py-6 px-10 group-hover:bg-[#35453F] duration-700 text-center">
                 <span className="tracking-widest text-[.9rem] group-hover:text-white duration-700">
                   NEXT →
                 </span>
@@ -479,8 +486,9 @@ export default function About() {
             </AnimatedLink>
           </div>
         </section>
-        <section className="py-[150px] bg-[linear-gradient(to_bottom,white_50%,#36454f_50%)]">
-          <div className="title py-20">
+
+        <section className="pb-[100px] bg-[linear-gradient(to_bottom,white_50%,#36454f_50%)]">
+          <div className="title p-10">
             <h2 className="text-center text-[4rem] font-bold">#unevensnap</h2>
             <Link
               target="_blank"

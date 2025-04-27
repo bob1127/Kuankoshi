@@ -141,7 +141,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="loader ">
+      <div className="loader " id="dark-section">
         <div className="overlay">
           <div className="block"></div>
           <div className="block"></div>

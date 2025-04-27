@@ -121,7 +121,10 @@ export default function About() {
         // 🔽 你原本的 JSX 區塊，保持不變
 
         <div className="overflow-hidden ">
-          <div className="relative xl:aspect-[1920/768] md:aspect-[1024/576] aspect-[500/500]">
+          <div
+            id="dark-section"
+            className="relative xl:aspect-[1920/768] md:aspect-[1024/576] aspect-[500/500]"
+          >
             {" "}
             <Preloader />
           </div>
@@ -167,7 +170,7 @@ export default function About() {
               {/* <h2 className="text-[7vmin] leading-snug text-center !font-extralight">
             從小資日常到質感夢想宅 <br></br>
           </h2> */}
-              <span className="leading-loose font-light text-center text-gray-500">
+              <span className="leading-loose font-light mt-5 text-[16px] text-center text-gray-500">
                 寬越設計專注於小資族、小家庭、小坪數的室內設計，主打 50
                 萬左右輕裝潢方案
                 <br></br>
@@ -243,7 +246,10 @@ export default function About() {
             <ThreeDSlider />
           </section>
           <section id="dark-section" className="py-[100px]   bg-[#222]">
-            <div className="flex flex-col md:flex-row max-w-[1920px] mx-auto">
+            <div
+              id="dark-section"
+              className="flex flex-col md:flex-row max-w-[1920px] mx-auto"
+            >
               <div className=" w-full md:w-[30%] flex flex-col justify-between pl-5 sm:pl-10 md:pl-0 items-start md:items-center pt-20">
                 <div className="txt">
                   <h2 className="font-extralight text-white text-[1.7rem]">
@@ -483,7 +489,7 @@ export default function About() {
           </section>
           <section>
             <div className="flex flex-row py-[150px] items-end">
-              <div className="img  w-[32.5%] mx-auto sm:mx-3  h-auto md:h-[75vh]   overflow-hidden">
+              <div className="img group  w-[32.5%] mx-auto sm:mx-3  h-auto md:h-[75vh]   overflow-hidden">
                 <AnimatedLink href="/project">
                   <div className="flex flex-col pl-4 py-4">
                     <div className="inline-block pb-4">
@@ -495,10 +501,7 @@ export default function About() {
                           role="link"
                           class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
                         >
-                          <b className="text-[.9rem] font-bold">
-                            {" "}
-                            Pointillisme
-                          </b>
+                          <b className="text-[.9rem] font-bold"> 建築老屋</b>
                         </button>
                       </button>
                     </div>
@@ -507,13 +510,24 @@ export default function About() {
                   </div>
 
                   <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                    <div className="mask-up p-4 md:p-10 absolute h-0 opacity-0 group-hover:h-[30%] md:group-hover:h-[55%] group-hover:opacity-100 duration-500 z-40 bottom-0 left-0 w-full  bg-white ">
+                      <div className="txt">
+                        <b className="text-xs xl:text-normal">
+                          房屋改造｜外觀拉皮｜自地自建｜舊屋翻修
+                        </b>
+                        <p className="xl:text-normal text-xs md:block hidden">
+                          我們以尊重歷史為出發，結合現代工藝與美感，賦予老屋新的生命力，讓空間在歲月中持續發光。
+                        </p>
+                      </div>
+                    </div>
                     <div className="overlay absolute inset-0 bg-black z-10"></div>
-                    <div className="image-container relative w-full h-full">
+
+                    <div className="image-container overflow-hidden relative w-full h-full">
                       <Image
-                        src="/images/img01.webp"
+                        src="/images/hero-img/img05.png"
                         alt="About Image 1"
                         fill
-                        className="object-cover"
+                        className="object-cover group-hover:scale-110 duration-2000"
                         sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                       />
                       xs
@@ -521,7 +535,7 @@ export default function About() {
                   </div>
                 </AnimatedLink>
               </div>
-              <div className="img  w-[35%] mx-auto sm:mx-3  h-auto md:h-[53vh]  overflow-hidden">
+              <div className="img group w-[35%] mx-auto sm:mx-3  h-auto md:h-[53vh]  overflow-hidden">
                 <AnimatedLink href="/project">
                   <div className="flex flex-col pl-4 py-4">
                     <div className="inline-block pb-4">
@@ -533,10 +547,7 @@ export default function About() {
                           role="link"
                           class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
                         >
-                          <b className="text-[.9rem] font-bold">
-                            {" "}
-                            Pointillisme
-                          </b>
+                          <b className="text-[.9rem] font-bold"> 辦公空間</b>
                         </button>
                       </button>
                     </div>
@@ -544,13 +555,23 @@ export default function About() {
                     <span className="text-[.75rem]">Taichung - 2025.03.23</span>
                   </div>
                   <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                    <div className="mask-up p-4 md:p-10 absolute h-0 opacity-0 group-hover:h-[30%] md:group-hover:h-[50%] group-hover:opacity-100 duration-500 z-40 bottom-0 left-0 w-full  bg-white ">
+                      <div className="txt">
+                        <b className="text-xs xl:text-normal">
+                          商辦展示｜科技商辦
+                        </b>
+                        <p className="xl:text-normal text-xs md:block hidden">
+                          以人為本，從動線、光線到材質細節，縝密規劃每一寸辦公空間，提升團隊凝聚力與工作效率
+                        </p>
+                      </div>
+                    </div>
                     <div className="overlay absolute inset-0 bg-black z-10"></div>
-                    <div className="image-container relative w-full h-full">
+                    <div className="image-container overflow-hidden relative w-full h-full">
                       <Image
-                        src="/images/img01.webp"
+                        src="/images/hero-img/img03.png"
                         alt="About Image 1"
                         fill
-                        className="object-cover"
+                        className="object-cover group-hover:scale-110 duration-2000"
                         sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                       />
                       xs
@@ -558,7 +579,7 @@ export default function About() {
                   </div>
                 </AnimatedLink>
               </div>
-              <div className="img  w-[32.5%] mx-auto sm:mx-3  h-auto md:h-[85vh]  overflow-hidden">
+              <div className="img group w-[32.5%] mx-auto sm:mx-3  h-auto md:h-[85vh]  overflow-hidden">
                 <AnimatedLink href="/project">
                   <div className="flex flex-col pl-4 py-4">
                     <div className="inline-block pb-4">
@@ -570,10 +591,7 @@ export default function About() {
                           role="link"
                           class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
                         >
-                          <b className="text-[.9rem] font-bold">
-                            {" "}
-                            Pointillisme
-                          </b>
+                          <b className="text-[.9rem] font-bold"> 住家豪宅</b>
                         </button>
                       </button>
                     </div>
@@ -581,13 +599,23 @@ export default function About() {
                     <span className="text-[.75rem]">Taichung - 2025.03.23</span>
                   </div>
                   <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                    <div className="mask-up p-4 md:p-10 absolute h-0 opacity-0 group-hover:h-[30%] md:group-hover:h-[45%] group-hover:opacity-100 duration-500 z-40 bottom-0 left-0 w-full  bg-white ">
+                      <div className="txt">
+                        <b className="text-xs xl:text-normal">
+                          大器豪墅｜現代時尚｜精緻官邸｜七期豪宅
+                        </b>
+                        <p className="xl:text-normal text-xs md:block hidden">
+                          以優雅與機能並重為設計主軸，融合居者性格，打造兼具舒適感與獨特風格的理想豪宅
+                        </p>
+                      </div>
+                    </div>
                     <div className="overlay absolute inset-0 bg-black z-10"></div>
-                    <div className="image-container relative w-full h-full">
+                    <div className="image-container overflow-hidden relative w-full h-full">
                       <Image
-                        src="/images/img01.webp"
+                        src="/images/hero-img/img07.png"
                         alt="About Image 1"
                         fill
-                        className="object-cover"
+                        className="object-cover group-hover:scale-110 duration-2000"
                         sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                       />
                       xs
@@ -601,7 +629,7 @@ export default function About() {
             <ThreeDBanner />
           </section> */}
           <section>
-            <div className="img  w-[98%] mx-auto sm:mx-3 mt-[-100px]  h-auto md:h-[95vh]  overflow-hidden">
+            <div className="img group w-[98%] mx-auto sm:mx-3 mt-[-100px]  h-auto md:h-[95vh]  overflow-hidden">
               <AnimatedLink href="/project">
                 <div className="flex flex-col pl-4 py-4">
                   <div className="inline-block pb-4">
@@ -613,7 +641,7 @@ export default function About() {
                         role="link"
                         class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
                       >
-                        <b className="text-[.9rem] font-bold"> Pointillisme</b>
+                        <b className="text-[.9rem] font-bold"> 商業空間</b>
                       </button>
                     </button>
                   </div>
@@ -621,13 +649,23 @@ export default function About() {
                   <span className="text-[.75rem]">Taichung - 2025.03.23</span>
                 </div>
                 <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                  <div className="mask-up p-4 md:p-10 absolute h-0 opacity-0 group-hover:h-[30%] md:group-hover:h-[35%] group-hover:opacity-100 duration-500 z-40 bottom-0 left-0 w-full  bg-white ">
+                    <div className="txt">
+                      <b className="text-xs xl:text-normal">
+                        健身中心｜汽車旅館｜手作美學
+                      </b>
+                      <p className="xl:text-normal text-xs md:block hidden">
+                        結合品牌精神與市場洞察，量身打造具吸引力與記憶點的商業空間，助力品牌形象升級與業績成長
+                      </p>
+                    </div>
+                  </div>
                   <div className="overlay absolute inset-0 bg-black z-10"></div>
-                  <div className="image-container relative w-full h-full">
+                  <div className="image-container overflow-hidden relative w-full h-full">
                     <Image
-                      src="/images/img01.webp"
+                      src="/images/hero-img/img01.png"
                       alt="About Image 1"
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-110 duration-2000"
                       sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                     />
                     xs
@@ -678,14 +716,13 @@ export default function About() {
                         >
                           <b className="text-[.9rem] font-bold">
                             {" "}
-                            「A&D Awards 2024」受賞
+                            住宅空間設計
                           </b>
                         </button>
                       </button>
                     </div>
                     <span className="text-[.75rem]">
-                      太陽印刷製造 InnoValley
-                      在最佳工作場所類別中獲得了最高獎項。
+                      打造專屬於您的理想居所，從格局配置到材質選用，細膩呈現生活美學。
                     </span>
                     <span className="text-[.75rem]">Taichung - 2025.03.23</span>
                   </div>
@@ -721,14 +758,13 @@ export default function About() {
                         >
                           <b className="text-[.9rem] font-bold">
                             {" "}
-                            「A&D Awards 2024」受賞
+                            商業空間設計
                           </b>
                         </button>
                       </button>
                     </div>
                     <span className="text-[.75rem]">
-                      太陽印刷製造 InnoValley
-                      在最佳工作場所類別中獲得了最高獎項。
+                      從品牌精神出發，創造兼具美感與功能的商業場域，提升品牌形象與消費體驗。
                     </span>
                     <span className="text-[.75rem]">Taichung - 2025.03.23</span>
                   </div>
@@ -763,14 +799,13 @@ export default function About() {
                         >
                           <b className="text-[.9rem] font-bold">
                             {" "}
-                            「A&D Awards 2024」受賞
+                            辦公室與共享空間設計
                           </b>
                         </button>
                       </button>
                     </div>
                     <span className="text-[.75rem]">
-                      太陽印刷製造 InnoValley
-                      在最佳工作場所類別中獲得了最高獎項。
+                      打造靈活高效的工作場域，提升團隊協作力與品牌文化感知。
                     </span>
                     <span className="text-[.75rem]">Taichung - 2025.03.23</span>
                   </div>
@@ -805,14 +840,13 @@ export default function About() {
                         >
                           <b className="text-[.9rem] font-bold">
                             {" "}
-                            「A&D Awards 2024」受賞
+                            空間美學顧問
                           </b>
                         </button>
                       </button>
                     </div>
                     <span className="text-[.75rem]">
-                      太陽印刷製造 InnoValley
-                      在最佳工作場所類別中獲得了最高獎項。
+                      從色彩搭配、家具配置到照明設計，全面提升空間細節質感。
                     </span>
                     <span className="text-[.75rem]">Taichung - 2025.03.23</span>
                   </div>
@@ -847,14 +881,14 @@ export default function About() {
                         >
                           <b className="text-[.9rem] font-bold">
                             {" "}
-                            「A&D Awards 2024」受賞
+                            3D 模型與虛擬實境提案
                           </b>
                         </button>
                       </button>
                     </div>
                     <span className="text-[.75rem]">
-                      太陽印刷製造 InnoValley
-                      在最佳工作場所類別中獲得了最高獎項。
+                      以擬真 3D 模型與 VR
+                      技術，讓設計想像提前落地，打造沉浸式體驗。
                     </span>
                     <span className="text-[.75rem]">Taichung - 2025.03.23</span>
                   </div>
