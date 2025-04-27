@@ -420,7 +420,7 @@ export default function About() {
       <section className="w-full pt-20 bg-custom-gradient section-content">
         <section className="mx-auto  max-w-[1920px]">
           <div className="flex w-[80%] flex-col md:flex-row h-full justify-center items-center mx-auto">
-            <div className=" w-full md:w-1/2 p-5  border">
+            <div className=" w-full md:w-1/2 p-5  ">
               <GsapText
                 text="持續進化的設計"
                 id="gsap-intro"

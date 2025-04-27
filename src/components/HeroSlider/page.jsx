@@ -207,17 +207,8 @@ const Photos = () => {
           </div>
         </div>
 
-        <div className="slider-title">
-          {/* <div className="slider-title-wrapper" ref={titlesRef}>
-            <p>寬越室內設計</p>
-            <p>Above The Canvas</p>
-            <p>Harmony in Every Note</p>
-            <p>Redefining Imagination</p>
-          </div> */}
-        </div>
-
         {/* ✅ 原本的 bottom-info 保留不動 */}
-        <div className="bottom-info absolute w-screen z-50 bottom-8">
+        <div className="bottom-info hidden sm:block absolute w-screen z-50 bottom-8">
           <div className="flex w-full ">
             <div className="w-1/4  flex justify-center items-center">
               <b className="text-white font-bold ">+SHIFT NOGIZAKA</b>
@@ -250,7 +241,7 @@ const Photos = () => {
           </div>
         </div>
 
-        <div className="slider-counter">
+        <div className="slider-counter ">
           <div
             className="counter"
             ref={counterRef}

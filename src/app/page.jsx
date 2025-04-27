@@ -123,12 +123,12 @@ export default function About() {
         <div className="overflow-hidden ">
           <div
             id="dark-section"
-            className="relative xl:aspect-[1920/768] md:aspect-[1024/576] aspect-[500/500]"
+            className="relative xl:aspect-[1920/768] md:aspect-[1024/576] aspect-[560/500]"
           >
             {" "}
             <Preloader />
           </div>
-          <div className="policy  fixed z-[1] left-[38%] bottom-8 bg-white rounded-lg shadow-md w-[350px] py-5">
+          {/* <div className="policy  fixed z-[1] left-[38%] bottom-8 bg-white rounded-lg shadow-md w-[350px] py-5">
             <div className="flex justify-center w-full items-center">
               <div className="w-3/4 pl-5">
                 <b className="text-black text-[.85rem] tracking-widest">
@@ -150,7 +150,7 @@ export default function About() {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* <section
             id="dark-section"
             className="section_hero relative overflow-hidden"
@@ -158,13 +158,13 @@ export default function About() {
             <HomeSlider />
           </section> */}
 
-          <section className="h-[50vh] flex items-center justify-center bg-gray-100">
+          <section className="h-auto mt-[20vh] sm:h-[50vh] flex items-center justify-center bg-gray-100">
             <div className="text-center px-4">
               <GsapText text="DISCOVER THE BRAND" id="headline" />
             </div>
           </section>
           <section className="section_features w-full mx-auto  mt-[5vh]">
-            <div className="flex py-[150px] flex-col justify-center items-center ">
+            <div className="flex py-4 sm:py-[150px] flex-col justify-center items-center ">
               <GsapText text=" 從小資日常到質感夢想宅" id="headline" />
               <GsapText text=" 一起打造家的每一種可能" id="headline" />
               {/* <h2 className="text-[7vmin] leading-snug text-center !font-extralight">
