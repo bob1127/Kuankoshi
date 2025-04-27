@@ -39,7 +39,7 @@
 /* 每一個橫向滾動的頁面 */
 .section {
   min-width: 100vw;
-  
+  position: relative;
   display: flex;
   flex-direction: column; /* 預設縱向排版 */
   justify-content: center;

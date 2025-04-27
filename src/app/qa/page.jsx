@@ -43,7 +43,7 @@ const Photos = () => {
         <Swiper />
       </section>
       <section>
-        <div className="relative ">
+        <div className=" ">
           <ScrollAnimate />
         </div>
       </section>

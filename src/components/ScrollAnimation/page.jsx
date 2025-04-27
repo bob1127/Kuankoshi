@@ -94,88 +94,123 @@ const InfiniteScroll = () => {
       {/* 水平滾動 */}
       <div className={styles.horizontalScroller} ref={scrollerRef}>
         <section className={styles.section}>
-          <div className="w-full h-full flex relative items-center justify-center">
-            <div className="center-title border border-black relative flex flex-col items-center justify-center">
-              <h1 className="text-6xl font-extrabold">It Our Style !</h1>
-              <h2 className="text-2xl font-extrabold mt-4">探索無限的可能性</h2>
-              <div className="absolute top-[-20%] rotate-6 left-[-60%] z-10">
+          <div className="man-02 absolute w-screen sm:w-auto  top-1/2 h-auto left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 ">
+            <div className="relative  group">
+              <div className=" ">
                 <Image
-                  src="/images/material/02外觀二黎-(1).png"
+                  src="/images/qa/full-frame-title.png"
                   placeholder="empty"
-                  loading="lazy"
-                  width={500}
-                  alt=""
-                  height={500}
-                  className="w-[240px] alt='scroll-img"
-                />
-              </div>
-              <div className="absolute bottom-[-20%]  right-[-60%] z-10">
-                <Image
-                  alt=""
-                  src="/images/material/Growth-4.png"
-                  placeholder="empty"
-                  loading="lazy"
-                  width={500}
-                  height={500}
-                  className="w-[200px] alt='scroll-img"
-                />
-              </div>
-              <div className="absolute top-[-60%] rotate-[5deg]  right-[-60%] z-10">
-                <Image
-                  alt=""
-                  src="https://oneit.co.jp/cms/wp-content/uploads/2024/03/7-sunline-moriumi.jpg.webp"
-                  placeholder="empty"
-                  loading="lazy"
-                  width={500}
-                  height={500}
-                  className="w-[200px] alt='scroll-img border-4 border-[#c4885d] rounded-[35px]"
-                />
+                  alt="women-01"
+                  width={400}
+                  height={550}
+                  className="max-w-[830px] "
+                ></Image>
               </div>
             </div>
           </div>
         </section>
         <section className={styles.section}>
-          <div>
-            <h1 className="text-6xl">未來已來</h1>
-            <h2 className="text-2xl mt-4">探索無限的可能性</h2>
+          <div className="man-01 absolute left-[10%] z-10 bottom-0">
+            <div className="relative  group">
+              <div className="img">
+                <Image
+                  src="/images/qa/man-01.png"
+                  placeholder="empty"
+                  alt="man-01"
+                  width={400}
+                  height={550}
+                  className="w-[210px] group-hover:scale-105 duration-500 group-hover:shadow-xl"
+                ></Image>
+              </div>
+              <div className="chat-box absolute z-10 top-[-5%] right-[-10%]">
+                <Image
+                  src="/images/qa/qa-icon-01.png"
+                  placeholder="empty"
+                  alt="man-01"
+                  width={400}
+                  height={550}
+                  className="w-[110px] group-hover:scale-105 duration-500 "
+                ></Image>
+              </div>
+            </div>
+            <div></div>
+          </div>
+          <div className="man-02 absolute left-[34%] z-10 bottom-0">
+            <div className="relative  group">
+              <div className="img">
+                <Image
+                  src="/images/qa/man-02.png"
+                  placeholder="empty"
+                  alt="man-01"
+                  width={400}
+                  height={550}
+                  className="w-[140px] group-hover:scale-105 duration-500 group-hover:shadow-xl"
+                ></Image>
+              </div>
+              <div className="chat-box absolute z-10 top-[-15%] right-[-20%]">
+                <Image
+                  src="/images/qa/qa-icon-02.png"
+                  placeholder="empty"
+                  alt="man-01"
+                  width={400}
+                  height={550}
+                  className="w-[110px] group-hover:scale-105 duration-500 "
+                ></Image>
+              </div>
+            </div>
+            <div></div>
+          </div>
+          <div className="man-02 absolute right-[31%] z-10 bottom-0">
+            <div className="relative  group">
+              <div className="img">
+                <Image
+                  src="/images/qa/women-01.png"
+                  placeholder="empty"
+                  alt="women-01"
+                  width={400}
+                  height={550}
+                  className="w-[230px] group-hover:scale-105 duration-500 group-hover:shadow-xl"
+                ></Image>
+              </div>
+              <div className="chat-box absolute z-10 top-[-15%] right-[-20%]">
+                <Image
+                  src="/images/qa/qa-icon-02.png"
+                  placeholder="empty"
+                  alt="man-01"
+                  width={400}
+                  height={550}
+                  className="w-[110px] group-hover:scale-105 duration-500 "
+                ></Image>
+              </div>
+            </div>
+            <div></div>
+          </div>
+          <div className="man-02 absolute top-[9%] left-[8%] z-10 ">
+            <div className="relative  group">
+              <div className="img">
+                <Image
+                  src="/images/qa/Growth-9.png"
+                  placeholder="empty"
+                  alt="women-01"
+                  width={400}
+                  height={550}
+                  className="w-[330px] group-hover:scale-105 duration-500 group-hover:shadow-xl"
+                ></Image>
+              </div>
+            </div>
+            <div></div>
           </div>
           <Image
-            src="https://mr-standard.lifelabel.jp/mr_standard/img/scroll_bg.webp"
+            src="/images/qa/full-frame-interior.png"
             alt=""
             placeholder="empty"
             loading="lazy"
-            width={2000}
+            width={4500}
             height={1000}
+            className="w-full h-full"
           />
         </section>
-        <section className={styles.section}>
-          <div>
-            <h1 className="text-6xl">未來已來</h1>
-            <h2 className="text-2xl mt-4">探索無限的可能性</h2>
-          </div>
-          <Image
-            src="https://mr-standard.lifelabel.jp/mr_standard/img/scroll_bg.webp"
-            alt=""
-            placeholder="empty"
-            loading="lazy"
-            width={2000}
-            height={1000}
-          />
-        </section>
-        <section className={styles.section}>
-          <div>
-            <h1 className="text-6xl">未來已來</h1>
-            <h2 className="text-2xl mt-4">探索無限的可能性</h2>
-          </div>
-          <Image
-            src="https://mr-standard.lifelabel.jp/mr_standard/img/scroll_bg.webp"
-            alt=""
-            placeholder="empty"
-            loading="lazy"
-            width={2000}
-            height={1000}
-          />
-        </section>
+
         {/* 你可以繼續加更多 sections */}
       </div>
 
