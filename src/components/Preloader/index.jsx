@@ -6,7 +6,7 @@ import gsap from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
 import Image from "next/image";
 import { BsCart, BsArrowRight } from "react-icons/bs";
-import HeroSlider from "../HeroSliderHome/page";
+import HeroSlider from "../HeroSlider/page";
 export default function Home() {
   useEffect(() => {
     gsap.registerPlugin(CustomEase);
