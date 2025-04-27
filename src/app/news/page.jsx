@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import "./photos.css";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { useEffect, useState } from "react";
 
 // import { Card, CardHeader, CardBody } from "@heroui/react";
 import HoverCard from "../../components/HoverCard/index.jsx";
@@ -29,12 +30,117 @@ const Photos = () => {
   const cards = data.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
   ));
+  const initGSAPAnimations = () => {
+    const ctx = gsap.context(() => {
+      const images = document.querySelectorAll(".animate-image-wrapper");
+
+      images.forEach((image, i) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: image,
+            start: "top bottom",
+            end: "top center",
+            toggleActions: "play none none none",
+            id: "imageReveal-" + i,
+          },
+        });
+
+        tl.fromTo(
+          image.querySelector(".overlay"),
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+          },
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 0.7,
+            ease: "power2.inOut",
+          }
+        )
+          .to(image.querySelector(".overlay"), {
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            duration: 0.7,
+            ease: "power2.inOut",
+          })
+          .fromTo(
+            image.querySelector(".image-container"),
+            {
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            },
+            {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              duration: 1.5,
+              ease: "power3.inOut",
+            },
+            "-=0.5"
+          );
+      });
+
+      ScrollTrigger.refresh();
+    }, containerRef);
+
+    return ctx; // return so we can revert later
+  };
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(null);
+  const backgroundImages = [
+    "/images/hero-img/img05.png",
+    "/images/hero-img/img06.png",
+    "/images/hero-img/img07.png",
+  ];
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPrevIndex(currentIndex); // 保留上一張索引
+      setCurrentIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [currentIndex]);
+
   return (
     <ReactLenis root className="">
       <div className="!bg-[#F1F1F1]">
-        <section className="section-hero relative mt-[20vh] h-[70vh]">
+        <section className="section-hero relative mt-[28vh] h-[70vh]">
           <div className="white-section border rounded-tr-[60px] bg-[#F1F1F1] absolute top-[-90px] left-0 w-[88%] h-full z-10"></div>
-          <div className="color-section bg-[#30b5c7] relative z-30 h-full">
+
+          <section className="section-hero w-full aspect-[500/500] relative z-30 h-full md:aspect-[1024/576] xl:aspect-[1920/700]  color-section">
+            <div className="absolute left-1/2 bottom-[-110px] z-50 w-[200px] h-[200px] flex items-center justify-center transform -translate-x-1/2">
+              {/* 旋轉的 SVG */}
+              <div className="absolute inset-0 animate-spin-slow flex items-center justify-center">
+                <svg className="w-full h-full" viewBox="0 0 200 200">
+                  <defs>
+                    <path
+                      id="circlePath"
+                      d="M 100, 100 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
+                    />
+                  </defs>
+                  <text fill="#EEFF1D" fontSize="12" fontWeight="bold">
+                    <textPath href="#circlePath" startOffset="0">
+                      設計靈感 • 美好生活 • 空間美學 • 設計靈感 • 美好生活 •
+                      空間美學 •
+                    </textPath>
+                  </text>
+                </svg>
+              </div>
+
+              {/* 中間白色圓圈 */}
+              <div className="circle bg-[#F1F1F1] w-[100px] h-[100px] flex justify-center items-center text-[1.2rem] font-bold rounded-full z-10">
+                Blog
+              </div>
+            </div>
+
+            <style jsx>{`
+              .animate-spin-slow {
+                animation: spin 20s linear infinite;
+              }
+              @keyframes spin {
+                0% {
+                  transform: rotate(0deg);
+                }
+                100% {
+                  transform: rotate(360deg);
+                }
+              }
+            `}</style>
+
             <div className="absolute img-hero left-1/2 z-50 top-[-150px] -translate-x-1/2">
               <Image
                 src="https://store-palette.com/assets/img/home/color_title.svg"
@@ -84,29 +190,67 @@ const Photos = () => {
                 ></Image>
               </div>
             </div>
-            <div className="content flex">
-              <div className="left w-1/2">
-                <div className="description flex flex-col">
-                  <h1></h1>
-                  <p className="text-[#e7e7e7]">
-                    我們將與活躍於多樣領域的創作者和藝術家攜手合作，共同創造出只有在這裡才能找到的世界觀。
-                    懷著「打造長久受愛戴的店（場）」的目標，我們將全心投入於單一品牌的發展。
-                  </p>
-                </div>
+            {/* 背景圖片群組 */}
+            {backgroundImages.map((bg, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 1 }}
+                animate={{
+                  opacity: i === currentIndex ? 1 : 0,
+                  scale: i === currentIndex ? 1.15 : 1, // 放大範圍加大
+                }}
+                transition={{
+                  opacity: { duration: 1.5, ease: "easeInOut" }, // 切換用淡入淡出
+                  scale: { duration: 20, ease: "linear" }, // 放大效果持續 20 秒
+                }}
+                className="absolute inset-0 bg-cover  bg-center bg-no-repeat z-0"
+                style={{
+                  backgroundImage: `url(${bg})`,
+                }}
+              />
+            ))}
+
+            {/* 黑色遮罩 */}
+            <div className="bg-black opacity-40 w-full h-full absolute top-0 left-0 z-10" />
+
+            {/* 文字區塊 */}
+            <div className="hero-title  w-1/2 absolute left-[4%] top-[90%] z-20">
+              <div className="text-center px-4">
+                <GsapText
+                  text="寬越設計."
+                  id="gsap-intro"
+                  fontSize="2.8rem"
+                  fontWeight="200"
+                  color="#fff"
+                  lineHeight="60px"
+                  className="text-center tracking-widest !text-white  inline-block mb-0 h-auto"
+                />
               </div>
-              <div className="right w-1/2"></div>
+              <div className="text-center px-4">
+                <GsapText
+                  text="KuanKshi"
+                  id="gsap-intro"
+                  fontSize="1.2rem"
+                  fontWeight="200"
+                  color="#fff"
+                  lineHeight="30px"
+                  className="text-center !text-white tracking-widest inline-block mb-0 h-auto"
+                />
+              </div>
             </div>
-          </div>
+          </section>
         </section>
-        <section className="flex">
+        <section className="flex py-[140px] bg-[#35453F]">
           <div className="w-[30%]  flex items-center justify-end">
             <div className="card-text flex flex-col justify-center items-center">
-              <h2 className="text-[5rem] rotate-[90deg] tracking-wide">IDEA</h2>
+              <h2 className="text-[9.5vmin] text-[#F1F1F1] rotate-[90deg] tracking-wide">
+                IDEA
+              </h2>
               <div className="project-amount text-white my-5 bg-black flex justify-center items-center rounded-full w-8 h-8">
                 23
               </div>
               <span
-                className="text-[1.4rem] mt-10"
+                className="text-[1.4rem] text-[#F1F1F1] mt-10"
                 style={{
                   writingMode: "vertical-rl",
                   textOrientation: "upright",
@@ -119,7 +263,7 @@ const Photos = () => {
           <div className="w-[70%]  overflow-hidden">
             <Carousel items={cards} />
             <div className="pt-8">
-              <span className="text-[.85rem] ">
+              <span className="text-[.85rem] text-gray-400">
                 界裡還有許多充滿趣味的店舗設計想法。使用海外材料和個性化的色彩設計的空間中，充滿了商店設計的靈感。
                 <br></br>我們可以以輕鬆旅行的心情，去發現新的設計。
               </span>
@@ -503,40 +647,50 @@ const Photos = () => {
 };
 
 export default Photos;
-const DummyContent = () => {
+const DummyContent = ({ title, description, imageUrl }) => {
   return (
-    <>
-      {[...new Array(3).fill(1)].map((_, index) => {
-        return (
-          <div
-            key={"dummy-content" + index}
-            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14  mb-4"
-          >
-            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-medium font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-[20px] text-neutral-700 dark:text-neutral-200">
-                臨近繁華，與自然共生
-              </span>{" "}
-              周邊環境方面，宜園建設為您精心選擇了理想的生活圈。社區周邊生活機能豐富，無論是超市、學校還是醫療機構，應有盡有。交通便捷，讓您無論是通勤還是外出，都能輕鬆迅速。
-            </p>
-            <Image
-              src="https://hadashinoie.co.jp/app/wp-content/uploads/2024/05/2B3A0382-2048x1365.jpg"
-              alt="Macbook mockup from Aceternity UI"
-              height="500"
-              width="500"
-              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-            />
-          </div>
-        );
-      })}
-    </>
+    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 mb-4">
+      <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-medium font-sans max-w-3xl mx-auto">
+        <span className="font-bold text-[20px] text-neutral-700 dark:text-neutral-200">
+          {title}
+        </span>{" "}
+        {description}
+      </p>
+      {imageUrl && (
+        <Image
+          src={imageUrl}
+          alt={title}
+          height={500}
+          width={500}
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
+      )}
+    </div>
   );
 };
+
 const data = [
   {
-    category: "Artificial Intelligence",
-    title: "You can do more with AI.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/06/ho4.jpg",
-    content: <DummyContent />,
+    category: "建築老屋",
+    title: "老屋翻新-外觀拉皮",
+    src: "/images/blog/建築老屋/img01.png",
+    content: (
+      <div className="">
+        <div className="p-8">
+          <h2 className="text-2xl font-bold mb-4">
+            翻新35年老透天，打造現代俐落街景
+          </h2>
+          <p>從老舊磁磚屋到質感現代建築，一場建築的重生旅程。</p>
+          <Image
+            src="/images/blog/建築老屋/img01.png"
+            alt="AI Example"
+            width={500}
+            height={300}
+            className="mt-4 rounded-lg"
+          />
+        </div>
+      </div>
+    ),
   },
   {
     category: "Productivity",
