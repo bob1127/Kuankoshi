@@ -23,37 +23,21 @@ export default function About() {
       title: "STEP1 會談˙溝通",
       content: (
         <div>
+          <div className="tag bg-rose-500 mb-4 rounded-full text-white font-bold w-[200px] flex justify-center items-center px-4 py-2">
+            FREE
+          </div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            第一階段：地下室工程完成（基礎結構已完工，進入地上層施作）
+            了解屋況，裝修需求、想法，預算考量，風格喜好等…
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="w-full">
             <Image
-              src="https://kakumagumi.com/cms/wp-content/uploads/2025/01/siozakisousuikan1.jpg"
-              alt="startup template"
+              src="/images/服務流程/服務流程-STEP1會談_溝通|寬越設計.png"
+              alt="STEP1 會談_溝通"
               width={500}
               height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://kakumagumi.com/cms/wp-content/uploads/2025/01/siozakisousuikan2.jpg"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://kakumagumi.com/cms/wp-content/uploads/2024/12/inasato71.jpg"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://kakumagumi.com/cms/wp-content/uploads/2024/12/RIMG6747.jpg"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+              placeholder="empty"
+              loading="lazy"
+              className="rounded-lg object-cover h-[450px] w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
           </div>
         </div>
@@ -63,37 +47,21 @@ export default function About() {
       title: "STEP2 現勘˙丈量",
       content: (
         <div>
+          <div className="tag bg-rose-500 mb-4 rounded-full text-white font-bold w-[200px] flex justify-center items-center px-4 py-2">
+            FREE
+          </div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            第一階段：地下室工程完成（基礎結構已完工，進入地上層施作）
+            環境勘查，丈量拍照，初步規劃想法討論。
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="w-full">
             <Image
-              src="https://kakumagumi.com/cms/wp-content/uploads/2025/01/siozakisousuikan1.jpg"
-              alt="startup template"
+              src="/images/服務流程/服務流程-STEP2現勘_丈量|寬越設計.png"
+              alt="STEP1 會談_溝通"
               width={500}
               height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://kakumagumi.com/cms/wp-content/uploads/2025/01/siozakisousuikan2.jpg"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://kakumagumi.com/cms/wp-content/uploads/2024/12/inasato71.jpg"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://kakumagumi.com/cms/wp-content/uploads/2024/12/RIMG6747.jpg"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+              placeholder="empty"
+              loading="lazy"
+              className="rounded-lg object-cover h-[450px] w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
           </div>
         </div>
@@ -103,37 +71,63 @@ export default function About() {
       title: "STEP3 平面配置˙初步估價",
       content: (
         <div>
+          <div className="tag bg-rose-500 mb-4 rounded-full text-white font-bold w-[200px] flex justify-center items-center px-4 py-2">
+            FREE
+          </div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            第一階段：地下室工程完成（基礎結構已完工dd，進入地上層施作）
+            平面空間動線規劃，設計風格簡報， 初步估價， 規劃預算。
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="w-full">
             <Image
-              src="https://kakumagumi.com/cms/wp-content/uploads/2025/01/siozakisousuikan1.jpg"
-              alt="startup template"
+              src="/images/服務流程/服務流程-STEP3平面配置＿初步估價|寬越設計.png"
+              alt="STEP1 會談_溝通"
               width={500}
               height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+              placeholder="empty"
+              loading="lazy"
+              className="rounded-lg object-cover h-[450px] w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "STEP4 設計合約",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            確認配置及風格，進行設計合約之簽訂 繪製平面系統施工圖及3D模擬彩圖。
+          </p>
+          <div className="w-full">
             <Image
-              src="https://kakumagumi.com/cms/wp-content/uploads/2025/01/siozakisousuikan2.jpg"
-              alt="startup template"
+              src="/images/服務流程/服務流程-STEP4設計合約|寬越設計.png"
+              alt="STEP1 會談_溝通"
               width={500}
               height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+              placeholder="empty"
+              loading="lazy"
+              className="rounded-lg object-cover h-[450px] w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "STEP4 設計合約",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            確認配置及風格，進行設計合約之簽訂 繪製平面系統施工圖及3D模擬彩圖。
+          </p>
+          <div className="w-full">
             <Image
-              src="https://kakumagumi.com/cms/wp-content/uploads/2024/12/inasato71.jpg"
-              alt="startup template"
+              src="/images/服務流程/服務流程-STEP4設計合約|寬越設計.png"
+              alt="STEP1 會談_溝通"
               width={500}
               height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://kakumagumi.com/cms/wp-content/uploads/2024/12/RIMG6747.jpg"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+              placeholder="empty"
+              loading="lazy"
+              className="rounded-lg object-cover h-[450px] w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
           </div>
         </div>
@@ -314,7 +308,6 @@ export default function About() {
               fontSize="2.8rem"
               fontWeight="200"
               color="#fff"
-              lineHeight="60px"
               className="text-center tracking-widest !text-white  inline-block mb-0 h-auto"
             />
           </div>
@@ -374,26 +367,26 @@ export default function About() {
           <div className="title  sm:w-2/3 w-full lg:w-1/2">
             <div className="text-left px-4">
               <GsapText
-                text="[設施摘要]"
+                text="[專業詮釋空間可能：寬越室內設計 平面規劃]"
                 id="gsap-intro"
                 fontSize="1.8rem"
                 fontWeight="200"
                 color="#000"
-                lineHeight="60px"
                 className="text-center  tracking-widest inline-block mb-0 h-auto"
               />
             </div>
 
             <p className="text-[.9rem] leading-loose tracking-widest">
-              每天可供一組人（最多5人）使用。可用 8
-              小時。桑拿房配有芬蘭爐（HARVIA）。享受您自己的百葉窗。男士和女士均可租用桑拿服。
-              預約於2025年3月7日開始。除預約、採訪等以外的諮詢，請透過此處聯絡我們info[at]motherhaus-sauna.com請聯絡我們
+              在寬越室內設計，我們始終相信，空間的價值始於格局的思考。
+              從場域分析、動線規劃到細部機能配置，我們以多年的實戰經驗與設計美學，為每一位客戶量身打造最符合需求的空間藍圖。
+              我們不僅重視動線的合理性與使用的便利性，更關注空間氛圍、光線流動與材質搭配的整體平衡。
+              每一張平面設計圖，都是寬越對專業、細節與未來生活想像的深度詮釋。
             </p>
           </div>
           <div className="flex flex-col lg:flex-row">
             <div className="m-8 w-full lg:w-1/2">
               <Image
-                src="https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/madori.webp"
+                src="/images/服務流程/平面設計圖-寬越室內設計.jpg"
                 alt=""
                 placeholder="empty"
                 loading="lazy"
@@ -404,7 +397,7 @@ export default function About() {
             </div>
             <div className="m-8 w-full  lg:w-1/2">
               <Image
-                src="https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/madori.webp"
+                src="/images/服務流程/平面設計圖-2-寬越室內設計.jpg"
                 alt=""
                 placeholder="empty"
                 loading="lazy"
@@ -422,18 +415,17 @@ export default function About() {
           <div className="flex w-[80%] flex-col md:flex-row h-full justify-center items-center mx-auto">
             <div className=" w-full md:w-1/2  pr-5 ">
               <GsapText
-                text="持續進化的設計"
+                text="持續進化的空間設計"
                 id="gsap-intro"
                 fontSize="1.3rem"
                 fontWeight="800"
                 color="#fff"
-                lineHeight="60px"
                 className="text-left  tracking-widest inline-block mb-0 h-auto"
               />
 
               <p className="text-[.85rem]   tracking-widest leading-loose text-gray-100 ">
-                從入口連接高架下的通道採用了工業風吊燈。結合異國情調的商店排列和霓虹招牌，
-                <br></br>營造出混沌又富有活力的氛圍。
+                從玄關延伸至室內動線，以工業風吊燈串聯，搭配異材質元素與層次光源，
+                <br></br>營造出個性鮮明又富有活力的居家氛圍。
               </p>
             </div>
             <div className=" w-full md:w-1/2 flex mt-8 lg:mt-0  justify-center lg:justify-end items-center">
@@ -458,43 +450,45 @@ export default function About() {
               <h3 className="text-white text-center sm:text-left text-[1.8rem] font-bold">
                 KuanKshi
               </h3>
-              <button class="group relative inline-flex text-[1rem] 2xl:text-[1.2rem] h-12 items-center justify-center  border-b-1 border-white px-6 font-medium text-neutral-100">
-                <span>Hover me</span>
-                <div class="relative ml-1 h-5 w-5 overflow-hidden">
-                  <div class="absolute transition-all duration-200 sm:group-hover:-translate-y-5 sm:group-hover:translate-x-4">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 -translate-x-4"
-                    >
-                      <path
-                        d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
+              <AnimatedLink href="/project">
+                <button class="group relative inline-flex text-[1rem] 2xl:text-[1.2rem] h-12 items-center justify-center  border-b-1 border-white px-6 font-medium text-neutral-100">
+                  <span>More</span>
+                  <div class="relative ml-1 h-5 w-5 overflow-hidden">
+                    <div class="absolute transition-all duration-200 sm:group-hover:-translate-y-5 sm:group-hover:translate-x-4">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                      >
+                        <path
+                          d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5 -translate-x-4"
+                      >
+                        <path
+                          d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
                   </div>
-                </div>
-              </button>
+                </button>
+              </AnimatedLink>
             </div>
             <div className="middle flex  flex-col lg:flex-row">
               <div className=" w-full lg:w-[40%]">
@@ -763,17 +757,13 @@ export default function About() {
         <section className="relative ">
           <div className="bg-white mx-auto   max-w-[1400px] pt-10 w-[90%] lg:w-[78%] flex md:flex-row flex-col justify-center items-center">
             <div className="title w-full md:w-1/2 px-4 md:px-[9%] xl:px-[15%] h-full flex flex-col justify-between">
-              <GsapText
-                text="Project - 商務空間"
-                id="gsap-intro"
-                fontSize="1.3rem"
-                fontWeight="200"
-                color="#000"
-                lineHeight="60px"
-                className="text-left  tracking-widest inline-block mb-0 h-auto"
-              />
+              <b className="text-bold tracking-widest text-[1.4rem]">
+                打造理想居所
+              </b>
               <div>
-                <b className="text-[1/3rem] font-normal">實在的構築</b>
+                <b className="text-[.9rem] tracking-widest leading-loose font-normal">
+                  對於新婚小家庭或小資族，我們以聰明布局與細緻機能，讓有限空間也能兼顧舒適與收納。從溫馨客廳到未來育兒彈性規劃，寬越以專業設計，陪伴你們築起幸福起點。
+                </b>
               </div>
             </div>
             <div className=" w-full md:w-1/2 p-4 flex  justify-center items-center">

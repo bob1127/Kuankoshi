@@ -20,7 +20,6 @@ export default function About() {
               fontSize="2.3rem"
               fontWeight="500"
               color="#000"
-              lineHeight="60px"
               className="text-center inline-block mb-0 h-auto "
             />
           </div>
@@ -34,7 +33,6 @@ export default function About() {
                     fontSize="1.8rem"
                     fontWeight="500"
                     color="#000"
-                    lineHeight="60px"
                     className="text-center inline-block mb-0 h-auto "
                   />{" "}
                   <span className="mx-3">/</span>
@@ -44,7 +42,6 @@ export default function About() {
                     fontSize="1.8rem"
                     fontWeight="500"
                     color="#333"
-                    lineHeight="60px"
                     className="text-center inline-block mb-0 h-auto "
                   />
                 </div>
@@ -76,7 +73,6 @@ export default function About() {
                 fontSize="2.3rem"
                 fontWeight="500"
                 color="#000"
-                lineHeight="60px"
                 className="text-center inline-block mb-0 h-auto "
               />
             </div>
@@ -126,7 +122,6 @@ export default function About() {
               fontSize="2.3rem"
               fontWeight="500"
               color="#000"
-              lineHeight="60px"
               className="text-center inline-block mb-0 h-auto "
             />
             <div className="flex flex-col sm:flex-row gap-5">
@@ -161,7 +156,6 @@ export default function About() {
               fontSize="2.3rem"
               fontWeight="500"
               color="#000"
-              lineHeight="60px"
               className="text-center inline-block mb-0 h-auto "
             />
             <div>
