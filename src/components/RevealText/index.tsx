@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import SplitType from "split-type";
@@ -12,17 +13,15 @@ interface GsapTextProps {
   fontSize?: string;
   fontWeight?: string;
   color?: string;
-  lineHeight?: string;
   className?: string;
 }
 
 const GsapText: React.FC<GsapTextProps> = ({
   text,
   id = "gsap-text",
-  fontSize = "5.5vmin",
+  fontSize, // 由內部決定，不從 props 傳入
   fontWeight = "normal",
   color = "#000",
-  lineHeight = "45px",
   className = "",
 }) => {
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -30,16 +29,14 @@ const GsapText: React.FC<GsapTextProps> = ({
   useEffect(() => {
     if (!textRef.current) return;
 
-    // 先做 split
     const split = new SplitType(textRef.current, { types: "chars" });
 
-    // 進場動畫
-    gsap.set(split.chars, { y: 150 }); // 初始位置
+    gsap.set(split.chars, { y: 150 });
 
     gsap.to(split.chars, {
       scrollTrigger: {
         trigger: textRef.current,
-        start: "top 80%", // 進入視窗底部時才觸發
+        start: "top 80%",
         toggleActions: "play none none none",
       },
       y: 0,
@@ -49,7 +46,6 @@ const GsapText: React.FC<GsapTextProps> = ({
     });
 
     return () => {
-      // 清除 split 結構
       split.revert();
     };
   }, [text, id]);
@@ -58,12 +54,12 @@ const GsapText: React.FC<GsapTextProps> = ({
     <p
       ref={textRef}
       id={id}
-      className={className}
+      className={`leading-tight tracking-wide ${className}`}
       style={{
-        fontSize,
+        fontSize: "clamp(1.5rem, 5vw, 3rem)", // ⭐ 新增 clamp 自適應大小
         fontWeight,
         color,
-        lineHeight,
+        lineHeight: "1.2em",
         textTransform: "uppercase",
         fontFamily: "'ResourceHanRoundedCN-Heavy', sans-serif",
         overflow: "hidden",

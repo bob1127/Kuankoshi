@@ -5,15 +5,15 @@ import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import ThreeDBanner from "../components/ThreeDBanner/index";
+// import ThreeDBanner from "../components/ThreeDBanner/index";
 import ThreeDSlider from "../components/3DSlider.jsx";
-import InfiniteScroll from "../components/InfiniteScroll/page.jsx";
+// import InfiniteScroll from "../components/InfiniteScroll/page.jsx";
 import GsapText from "../components/RevealText/index";
 import Preloader from "../components/Preloader/index";
-import HomeSlider from "../components/HeroSliderHome/page.jsx";
+// import HomeSlider from "../components/HeroSliderHome/page.jsx";
 import AnimatedLink from "../components/AnimatedLink";
 import LogoLoader from "../components/Loderanimation.jsx";
-import Marquee from "react-fast-marquee";
+// import Marquee from "react-fast-marquee";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -123,129 +123,78 @@ export default function About() {
         <div className="overflow-hidden ">
           <div
             id="dark-section"
-            className="relative xl:aspect-[1920/768] md:aspect-[1024/576] aspect-[560/500]"
+            className="relative w-full aspect-[16/9] min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] lg:min-h-[85vh] xl:min-h-[85vh]  lg:min-h-screen "
           >
-            {" "}
             <Preloader />
           </div>
-          {/* <div className="policy  fixed z-[1] left-[38%] bottom-8 bg-white rounded-lg shadow-md w-[350px] py-5">
-            <div className="flex justify-center w-full items-center">
-              <div className="w-3/4 pl-5">
-                <b className="text-black text-[.85rem] tracking-widest">
-                  This website uses cookies.
-                </b>
-              </div>
-              <div className="flex w-1/4 items-center">
-                <b className="border-b-1 text-[.9rem] border-black">OK</b>
-                <span className="font-extrabold px-5">
-                  <Image
-                    className="w-[10px]"
-                    src="/images/icon/close.png"
-                    alt=" "
-                    width={15}
-                    height={15}
-                    placeholder="empty"
-                    loading="lazy"
-                  ></Image>
-                </span>
-              </div>
-            </div>
-          </div> */}
-          {/* <section
-            id="dark-section"
-            className="section_hero relative overflow-hidden"
-          >
-            <HomeSlider />
-          </section> */}
-
-          <section className="h-auto mt-[20vh] sm:h-[50vh] flex items-center justify-center bg-gray-100">
-            <div className="text-center px-4">
-              <GsapText text="DISCOVER THE BRAND" id="headline" />
-            </div>
-          </section>
-          <section className="section_features w-full mx-auto  mt-[5vh]">
-            <div className="flex py-4 sm:py-[150px] flex-col justify-center items-center ">
-              <GsapText text=" 從小資日常到質感夢想宅" id="headline" />
-              <GsapText text=" 一起打造家的每一種可能" id="headline" />
-              {/* <h2 className="text-[7vmin] leading-snug text-center !font-extralight">
-            從小資日常到質感夢想宅 <br></br>
-          </h2> */}
-              <span className="leading-loose font-light mt-5 text-[16px] text-center text-gray-500">
-                寬越設計專注於小資族、小家庭、小坪數的室內設計，主打 50
-                萬左右輕裝潢方案
-                <br></br>
-                打造兼具質感與機能的生活空間。我們也提供中高階全室設計，{" "}
-                <br></br>
-                涵蓋老屋翻新、預售屋客變、新成屋裝潢與系統櫃配置
-                依據預算與需求量身打造理想居所。
+          <section className="section_features w-full mx-auto mt-[5vh]">
+            <div className="flex flex-col justify-center items-center py-10 sm:py-[150px] px-4 sm:px-8">
+              <GsapText text="從小資日常到質感夢想宅" id="headline" />
+              <GsapText text="一起打造家的每一種可能" id="headline" />
+              <span className="mt-6 leading-loose font-light text-sm sm:text-base text-center text-gray-500 max-w-3xl">
+                寬越設計專注於小資族、小家庭、小坪數的室內設計，主打50萬左右輕裝潢方案，打造兼具質感與機能的生活空間。
+                <br />
+                我們也提供中高階全室設計，涵蓋老屋翻新、預售屋客變、新成屋裝潢與系統櫃配置，依據預算與需求量身打造理想居所。
               </span>
             </div>
-            <div className="flex max-w-[1920px] mx-auto  md:flex-row flex-col w-[90%] ">
+
+            <div className="flex flex-col md:flex-row max-w-[1400px] mx-auto w-[90%] gap-10 mt-10">
+              {/* 左圖區塊 */}
               <div className="flex flex-col w-full">
-                <div className="img  w-[100%] mx-auto sm:mx-3  h-auto md:h-[80vh] xl:h-[90vh] overflow-hidden">
-                  <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-                    <div className="overlay absolute inset-0 bg-black z-10"></div>
-                    <div className="image-container relative w-full h-full">
-                      <Image
-                        src="/images/img01.webp"
-                        alt="About Image 1"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                      />
-                      xs
-                    </div>
+                <div className="w-full h-auto md:h-[80vh] overflow-hidden">
+                  <div className="relative w-full h-full">
+                    <div className="absolute inset-0 bg-black opacity-40 z-10" />
+                    <Image
+                      src="/images/img01.webp"
+                      alt="About Image 1"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                    />
                   </div>
                 </div>
-                <div className="flex justify-between">
-                  <div className="w-1/2">
-                    <div className="flex justify-start items-start flex-col pl-3 pb-10">
-                      <GsapText
-                        text="建築と環境の「間」を考える"
-                        id="gsap-intro"
-                        fontSize="1.3rem"
-                        fontWeight="500"
-                        color="#333"
-                        lineHeight="60px"
-                        className="text-center inline-block mb-0 h-auto "
-                      />
 
-                      <span className="mt-0 leading-snug text-gray-500 font-light w-[70%] text-[.9rem]">
-                        Having the architecture as black and the environment as
-                        white, we consider that human being’s comfort zone lies
-                        within the ranges of gray.
-                      </span>
-                    </div>
+                {/* 下面兩側文字按鈕 */}
+                <div className="flex flex-col md:flex-row justify-between mt-8 gap-8 px-3">
+                  {/* 左側文字 */}
+                  <div className="w-full md:w-1/2">
+                    <GsapText
+                      text="建築と環境の「間」を考える"
+                      id="gsap-intro"
+                      fontSize="1.3rem"
+                      fontWeight="500"
+                      color="#333"
+                      className="text-left mb-4"
+                    />
+                    <span className="text-sm text-gray-500 font-light">
+                      Having the architecture as black and the environment as
+                      white, we consider that human being’s comfort zone lies
+                      within the ranges of gray.
+                    </span>
                   </div>
-                  <div className="w-1/2 ">
-                    <div className="flex items-end justify-end  flex-col">
-                      <span className="mt-5 text-right leading-snug text-gray-500  font-light w-[70%] text-[.9rem]">
-                        Please find our concept, <br></br>philosophy, and
-                        information here.
+
+                  {/* 右側文字與按鈕 */}
+                  <div className="w-full md:w-1/2 flex flex-col justify-end items-end text-right">
+                    <span className="text-sm text-gray-500 font-light mb-5">
+                      Please find our concept, <br /> philosophy, and
+                      information here.
+                    </span>
+                    <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 bg-neutral-800 text-white hover:bg-neutral-900 duration-300">
+                      <span className="relative inline-block">
+                        Go PROJECTS →
                       </span>
-                      <button class="group mt-10 relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full  px-4 text-neutral-950">
-                        <span class="relative inline-flex overflow-hidden">
-                          <div class="absolute origin-bottom transition duration-500 [transform:translateX(-150%)_skewX(33deg)] group-hover:[transform:translateX(0)_skewX(0deg)]">
-                            Go PROJECTS →
-                          </div>
-                          <div class="transition duration-500 [transform:translateX(0%)_skewX(0deg)] group-hover:[transform:translateX(150%)_skewX(33deg)]">
-                            Go PROJECTS →
-                          </div>
-                        </span>
-                      </button>
-                    </div>
+                    </button>
                   </div>
                 </div>
               </div>
-
-              {/* <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
-            <TextGenerateEffect words="宜居" />
-            <p>不與人同的作為</p>
-          </div> */}
             </div>
+
+            {/* 下方 ThreeDSlider 保持 */}
+          </section>
+          <section className="section-ThreeD-carousel my-[60px]">
             <ThreeDSlider />
           </section>
-          <section id="dark-section" className="py-[100px]   bg-[#222]">
+          <section id="dark-section" className="py-[50px]  mt-[90px] bg-[#222]">
             <div
               id="dark-section"
               className="flex flex-col md:flex-row max-w-[1920px] mx-auto"
@@ -488,8 +437,8 @@ export default function About() {
             </div>
           </section>
           <section>
-            <div className="flex flex-row py-[150px] items-end">
-              <div className="img group  w-[32.5%] mx-auto sm:mx-3  h-auto md:h-[75vh]   overflow-hidden">
+            <div className="flex flex-col  sm:flex-row py-[150px] items-end">
+              <div className="img group  w-[95%] sm:w-[32.5%] mx-auto sm:mx-3  h-auto md:h-[75vh]   overflow-hidden">
                 <AnimatedLink href="/project">
                   <div className="flex flex-col pl-4 py-4">
                     <div className="inline-block pb-4">
@@ -535,7 +484,7 @@ export default function About() {
                   </div>
                 </AnimatedLink>
               </div>
-              <div className="img group w-[35%] mx-auto sm:mx-3  h-auto md:h-[53vh]  overflow-hidden">
+              <div className="img group w-[95%] sm:w-[32.5%] mx-auto sm:mx-3  h-auto md:h-[53vh]  overflow-hidden">
                 <AnimatedLink href="/project">
                   <div className="flex flex-col pl-4 py-4">
                     <div className="inline-block pb-4">
@@ -579,7 +528,7 @@ export default function About() {
                   </div>
                 </AnimatedLink>
               </div>
-              <div className="img group w-[32.5%] mx-auto sm:mx-3  h-auto md:h-[85vh]  overflow-hidden">
+              <div className="img group w-[95%] sm:w-[32.5%] mx-auto sm:mx-3  h-auto md:h-[85vh]  overflow-hidden">
                 <AnimatedLink href="/project">
                   <div className="flex flex-col pl-4 py-4">
                     <div className="inline-block pb-4">
@@ -675,225 +624,104 @@ export default function About() {
             </div>
           </section>
 
-          <section className="py-[150px] pt-8 mt-20 pb-[80px]  border-t-1 border-gray-300 w-full ">
-            <div className="flex justify-between">
-              <div className="w-1/2 flex pl-6 pb-8">
-                <b className="text-[1rem] font-bold mr-2">Featured </b>
-                <span className="text-[1rem]">Journal</span>
+          <section className="py-20 border-t border-gray-300 w-full">
+            <div className="flex justify-between items-center px-4 md:px-8 pb-8">
+              <div className="flex items-center gap-2">
+                <b className="text-lg font-bold">Featured</b>
+                <span className="text-lg">Journal</span>
               </div>
-              <div className="w-1/2 flex justify-end pr-6 pb-8">
-                <b className="text-[1rem] font-bold mr-2">See All Journal</b>
+              <div>
+                <b className="text-lg font-bold">See All Journal</b>
               </div>
             </div>
-            <div className="flex  mx-auto   lg:w-full  w-[1300px] !overflow-scroll flex-row">
-              <div className="w-[20%]  group">
-                <AnimatedLink href="/project">
-                  <div className="img   mx-auto  group-hover:h-[40vh] delay-75 duration-500  h-auto md:h-[33vh]  overflow-hidden">
-                    <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-                      <div className="overlay absolute inset-0 bg-black z-10"></div>
-                      <div className="image-container relative w-full h-full">
-                        <Image
-                          src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2025/02/AD-Awards_2024_list.jpg?fit=1280%2C1280&quality=85&strip=all&ssl=1"
-                          alt="About Image 1"
-                          fill
-                          className="object-cover group-hover:scale-[1.05] duration-700"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
-                        xs
-                      </div>
-                    </div>
-                  </div>
 
-                  <div className="flex flex-col pl-4 py-4">
-                    <div className="inline-block pb-4">
-                      <button
-                        role="link"
-                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+            {/* 滑動容器 */}
+            <div className="flex flex-nowrap overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide w-full">
+              {[
+                {
+                  title: "住宅空間設計",
+                  desc: "打造專屬於您的理想居所，從格局配置到材質選用，細膩呈現生活美學。",
+                  date: "Taichung - 2025.03.23",
+                  img: "https://i0.wp.com/draft.co.jp/wp-content/uploads/2025/02/AD-Awards_2024_list.jpg?fit=1280%2C1280&quality=85&strip=all&ssl=1",
+                  baseHeight: "h-[320px]",
+                  hoverHeight: "group-hover:h-[400px]",
+                },
+                {
+                  title: "商業空間設計",
+                  desc: "從品牌精神出發，創造兼具美感與功能的商業場域，提升品牌形象與消費體驗。",
+                  date: "Taichung - 2025.03.23",
+                  img: "https://i0.wp.com/draft.co.jp/wp-content/uploads/2025/01/08cda1286e0f3c4616fbf38cf569aa71.jpg?fit=1920%2C1152&quality=85&strip=all&ssl=1",
+                  baseHeight: "h-[360px]",
+                  hoverHeight: "group-hover:h-[450px]",
+                },
+                {
+                  title: "辦公室與共享空間設計",
+                  desc: "打造靈活高效的工作場域，提升團隊協作力與品牌文化感知。",
+                  date: "Taichung - 2025.03.23",
+                  img: "https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/10/2024_tjda-site_open_top_s.jpg?fit=1920%2C1046&quality=85&strip=all&ssl=1",
+                  baseHeight: "h-[300px]",
+                  hoverHeight: "group-hover:h-[380px]",
+                },
+                {
+                  title: "空間美學顧問",
+                  desc: "從色彩搭配、家具配置到照明設計，全面提升空間細節質感。",
+                  date: "Taichung - 2025.03.23",
+                  img: "https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/11/ELLE-DECOR_2412_PCichiran.jpg?fit=1920%2C1280&quality=85&strip=all&ssl=1",
+                  baseHeight: "h-[340px]",
+                  hoverHeight: "group-hover:h-[420px]",
+                },
+                {
+                  title: "3D 模型與虛擬實境提案",
+                  desc: "以擬真 3D 模型與 VR 技術，讓設計想像提前落地，打造沉浸式體驗。",
+                  date: "Taichung - 2025.03.23",
+                  img: "https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/09/241018_oliver-exhibition_top.jpg?fit=1706%2C900&quality=85&strip=all&ssl=1",
+                  baseHeight: "h-[380px]",
+                  hoverHeight: "group-hover:h-[480px]",
+                },
+              ].map((item, index) => (
+                <AnimatedLink
+                  href="/project"
+                  key={index}
+                  className="group snap-start inline-block min-w-[80%] sm:min-w-[45%] md:min-w-[30%] lg:min-w-[20%]"
+                >
+                  <div className="flex flex-col transition-all duration-500 ease-in-out">
+                    {/* 圖片 */}
+                    <div className="relative w-full overflow-hidden bg-gray-100">
+                      <div
+                        className={`animate-image-wrapper relative w-full ${item.baseHeight} overflow-hidden transition-all duration-500 ${item.hoverHeight}`}
                       >
-                        <button
-                          role="link"
-                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
-                        >
-                          <b className="text-[.9rem] font-bold">
-                            {" "}
-                            住宅空間設計
-                          </b>
-                        </button>
-                      </button>
+                        <div className="overlay absolute inset-0 bg-black opacity-20 group-hover:opacity-30 z-10 transition"></div>
+                        <div className="image-container relative w-full h-full">
+                          <Image
+                            src={item.img}
+                            alt={item.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <span className="text-[.75rem]">
-                      打造專屬於您的理想居所，從格局配置到材質選用，細膩呈現生活美學。
-                    </span>
-                    <span className="text-[.75rem]">Taichung - 2025.03.23</span>
-                  </div>
-                </AnimatedLink>
-              </div>
 
-              <div className="w-[20%]  group">
-                <AnimatedLink href="/project">
-                  <div className="img   mx-auto    h-auto md:h-[36vh] group-hover:h-[44vh] delay-75 duration-500 overflow-hidden">
-                    <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-                      <div className="overlay absolute inset-0 bg-black z-10"></div>
-                      <div className="image-container relative w-full h-full">
-                        <Image
-                          src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2025/01/08cda1286e0f3c4616fbf38cf569aa71.jpg?fit=1920%2C1152&quality=85&strip=all&ssl=1"
-                          alt="About Image 1"
-                          fill
-                          className="object-cover group-hover:scale-[1.05] duration-700"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
-                        xs
+                    {/* 文字 */}
+                    <div className="flex flex-col py-4 pl-4 pr-4 bg-white w-full overflow-hidden break-words">
+                      <div className="relative inline-block pb-2">
+                        <span className="relative font-bold text-base group-hover:text-black">
+                          {item.title}
+                        </span>
+                        <div className="absolute bottom-0 left-0 h-[2px] w-full origin-bottom-right scale-x-0 bg-neutral-800 transition-transform duration-300 ease-[cubic-bezier(0.65,0.05,0.36,1)] group-hover:origin-bottom-left group-hover:scale-x-100"></div>
                       </div>
+
+                      <span className="text-sm text-gray-500 leading-relaxed mt-2">
+                        {item.desc}
+                      </span>
+                      <span className="text-xs text-gray-400 mt-2">
+                        {item.date}
+                      </span>
                     </div>
-                  </div>
-                  <div className="flex flex-col pl-4 py-4">
-                    <div className="inline-block pb-4">
-                      <button
-                        role="link"
-                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
-                      >
-                        <button
-                          role="link"
-                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
-                        >
-                          <b className="text-[.9rem] font-bold">
-                            {" "}
-                            商業空間設計
-                          </b>
-                        </button>
-                      </button>
-                    </div>
-                    <span className="text-[.75rem]">
-                      從品牌精神出發，創造兼具美感與功能的商業場域，提升品牌形象與消費體驗。
-                    </span>
-                    <span className="text-[.75rem]">Taichung - 2025.03.23</span>
                   </div>
                 </AnimatedLink>
-              </div>
-              <div className="w-[20%]  group">
-                <AnimatedLink href="/project">
-                  <div className="img   mx-auto    h-auto md:h-[26vh] group-hover:h-[33vh] delay-75 duration-500 overflow-hidden">
-                    <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-                      <div className="overlay absolute inset-0 bg-black z-10"></div>
-                      <div className="image-container relative w-full h-full">
-                        <Image
-                          src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/10/2024_tjda-site_open_top_s.jpg?fit=1920%2C1046&quality=85&strip=all&ssl=1"
-                          alt="About Image 1"
-                          fill
-                          className="object-cover group-hover:scale-[1.05] duration-700"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
-                        xs
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col pl-4 py-4">
-                    <div className="inline-block pb-4">
-                      <button
-                        role="link"
-                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
-                      >
-                        <button
-                          role="link"
-                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
-                        >
-                          <b className="text-[.9rem] font-bold">
-                            {" "}
-                            辦公室與共享空間設計
-                          </b>
-                        </button>
-                      </button>
-                    </div>
-                    <span className="text-[.75rem]">
-                      打造靈活高效的工作場域，提升團隊協作力與品牌文化感知。
-                    </span>
-                    <span className="text-[.75rem]">Taichung - 2025.03.23</span>
-                  </div>
-                </AnimatedLink>
-              </div>
-              <div className="w-[20%]  group">
-                <AnimatedLink href="/project">
-                  <div className="img   mx-auto    h-auto md:h-[30vh] group-hover:h-[35vh] delay-75 duration-500 overflow-hidden">
-                    <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-                      <div className="overlay absolute inset-0 bg-black z-10"></div>
-                      <div className="image-container relative w-full h-full">
-                        <Image
-                          src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/11/ELLE-DECOR_2412_PCichiran.jpg?fit=1920%2C1280&quality=85&strip=all&ssl=1"
-                          alt="About Image 1"
-                          fill
-                          className="object-cover group-hover:scale-[1.05] duration-700"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
-                        xs
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col pl-4 py-4">
-                    <div className="inline-block pb-4">
-                      <button
-                        role="link"
-                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
-                      >
-                        <button
-                          role="link"
-                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
-                        >
-                          <b className="text-[.9rem] font-bold">
-                            {" "}
-                            空間美學顧問
-                          </b>
-                        </button>
-                      </button>
-                    </div>
-                    <span className="text-[.75rem]">
-                      從色彩搭配、家具配置到照明設計，全面提升空間細節質感。
-                    </span>
-                    <span className="text-[.75rem]">Taichung - 2025.03.23</span>
-                  </div>
-                </AnimatedLink>
-              </div>
-              <div className="w-[20%]  group">
-                <AnimatedLink href="/project">
-                  <div className="img   mx-auto    h-auto md:h-[43vh] group-hover:h-[50vh] delay-75 duration-500 overflow-hidden">
-                    <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-                      <div className="overlay absolute inset-0 bg-black z-10"></div>
-                      <div className="image-container relative w-full h-full">
-                        <Image
-                          src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/09/241018_oliver-exhibition_top.jpg?fit=1706%2C900&quality=85&strip=all&ssl=1"
-                          alt="About Image 1"
-                          fill
-                          className="object-cover group-hover:scale-[1.05] duration-700"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
-                        xs
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col pl-4 py-4">
-                    <div className="inline-block pb-4">
-                      <button
-                        role="link"
-                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
-                      >
-                        <button
-                          role="link"
-                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
-                        >
-                          <b className="text-[.9rem] font-bold">
-                            {" "}
-                            3D 模型與虛擬實境提案
-                          </b>
-                        </button>
-                      </button>
-                    </div>
-                    <span className="text-[.75rem]">
-                      以擬真 3D 模型與 VR
-                      技術，讓設計想像提前落地，打造沉浸式體驗。
-                    </span>
-                    <span className="text-[.75rem]">Taichung - 2025.03.23</span>
-                  </div>
-                </AnimatedLink>
-              </div>
+              ))}
             </div>
           </section>
         </div>

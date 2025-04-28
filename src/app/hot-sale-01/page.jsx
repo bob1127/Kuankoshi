@@ -420,22 +420,23 @@ export default function About() {
       <section className="w-full pt-20 bg-custom-gradient section-content">
         <section className="mx-auto  max-w-[1920px]">
           <div className="flex w-[80%] flex-col md:flex-row h-full justify-center items-center mx-auto">
-            <div className=" w-full md:w-1/2 p-5  ">
+            <div className=" w-full md:w-1/2  pr-5 ">
               <GsapText
                 text="持續進化的設計"
                 id="gsap-intro"
                 fontSize="1.3rem"
-                fontWeight="200"
+                fontWeight="800"
                 color="#fff"
                 lineHeight="60px"
                 className="text-left  tracking-widest inline-block mb-0 h-auto"
               />
 
               <p className="text-[.85rem]   tracking-widest leading-loose text-gray-100 ">
-                從入口連接高架下的通道採用了工業風吊燈。結合異國情調的商店排列和霓虹招牌，營造出混沌又富有活力的氛圍。
+                從入口連接高架下的通道採用了工業風吊燈。結合異國情調的商店排列和霓虹招牌，
+                <br></br>營造出混沌又富有活力的氛圍。
               </p>
             </div>
-            <div className=" w-full md:w-1/2 flex justify-center items-center">
+            <div className=" w-full md:w-1/2 flex mt-8 lg:mt-0  justify-center lg:justify-end items-center">
               <div className="max-w-[580px] ">
                 <Image
                   src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_09.jpg?fit=800%2C864&quality=85&strip=all&ssl=1"
@@ -451,10 +452,12 @@ export default function About() {
           </div>
         </section>
 
-        <section className="section-footer p-3 lg:p-10 2xl:p-20">
-          <div className="mx-auto w-[80%] 2xl:w-[70%] py-20">
-            <div className="top flex justify-between flex-row">
-              <h3 className="text-white text-[1.8rem] font-bold">KuanKshi</h3>
+        <section className="section-footer mx-auto max-w-[1920px] ">
+          <div className="mx-auto w-[80%] 2xl:w-[80%] py-20">
+            <div className="top flex justify-between flex-col sm:flex-row">
+              <h3 className="text-white text-center sm:text-left text-[1.8rem] font-bold">
+                KuanKshi
+              </h3>
               <button class="group relative inline-flex text-[1rem] 2xl:text-[1.2rem] h-12 items-center justify-center  border-b-1 border-white px-6 font-medium text-neutral-100">
                 <span>Hover me</span>
                 <div class="relative ml-1 h-5 w-5 overflow-hidden">
@@ -493,8 +496,8 @@ export default function About() {
                 </div>
               </button>
             </div>
-            <div className="middle flex  flex-row">
-              <div className="w-[40%]">
+            <div className="middle flex  flex-col lg:flex-row">
+              <div className=" w-full lg:w-[40%]">
                 <div className="grid grid-cols-2">
                   <div className="flex py-8 flex-col">
                     <div className="flex flex-col">
@@ -538,7 +541,7 @@ export default function About() {
                   </div>
                 </div>
               </div>
-              <div className="w-[60%] pb-5 flex justify-end">
+              <div className=" w-full lg:w-[60%] pb-5 flex justify-start lg:justify-end">
                 <div className=" flex flex-col items-end justify-end">
                   <div className="flex flex-row items-center">
                     <span className="text-[.8rem] mr-2 mt-1 text-gray-400">
@@ -575,7 +578,7 @@ export default function About() {
                 </div>
               </div>
             </div>
-            <div className="bottom mt-[15vh] pb-10 border-b-1 border-[#6f6f6f]">
+            <div className="bottom mt-10 sm:mt-[10vh] pb-10 border-b-1 border-[#6f6f6f]">
               <div className="flex flex-row items-center mt-1">
                 <span className="text-[.8rem] mr-2 mt-1 text-gray-400">
                   Website Sesign
@@ -788,129 +791,6 @@ export default function About() {
         </section>
       </section>
 
-      <div className="flex lg:flex-row px-0 2xl:px-[200px] flex-col pt-[100px] bg-white ">
-        {/* <div className=" w-full  flex-col justify-center items-center flex ">
-          <EmblaCarousel
-            slides={SLIDES}
-            thumbnails={THUMBNAILS}
-            options={OPTIONS}
-          />
-          <div className="title py-[40px] md:py-[50px] px-[30px] sm:px-[40px] lg:px-[80px]">
-            <h1 className="!text-[2rem]">寬越室內設計【一青隱】</h1>
-          </div>
-          <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
-            <p className="leading-relaxed">
-              不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
-              致邀，職住共生的青創企業家 成家滿意，創業更旺，2-3房共居新浪潮
-              <br></br> <br></br>
-              寬越室內設計【一青隱】 神隱青海│2-3房│含精裝修
-              接待會館：漢口路一段69號（漢口國中正對面） 預約專線：04-2314-9066
-            </p>
-          </div>
-          <div className="img p-[80px]">
-            {" "}
-            <img
-              src="https://cdn.shopify.com/s/files/1/0779/4674/9246/files/240705Karimoku_LAVOT28889.jpg?v=1724405193"
-              alt=""
-              className="w-full"
-            />
-          </div>
-          <div className="title py-[40px] md:py-[50px] px-[30px] sm:px-[40px] lg:px-[80px]">
-            <TextGenerateEffect words="向自然習作，美好新始，健康新序" />
-            <h1 className="!text-[2rem]"></h1>
-          </div>
-          <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
-            <p className="leading-relaxed">
-              不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
-              致邀，職住共生的青創企業家 成家滿意，創業更旺，2-3房共居新浪潮
-              <br></br> <br></br>
-              寬越室內設計【一青隱】 神隱青海│2-3房│含精裝修
-              接待會館：漢口路一段69號（漢口國中正對面） 預約專線：04-2314-9066
-            </p>
-          </div>
-          <div className="h-[40rem] flex flex-col justify-center  items-center px-4">
-            <h2 className="mb-10 sm:mb-20 text-[2.5rem] text-center  dark:text-white text-black">
-              立即詢價 專人為您服務
-            </h2>
-            <PlaceholdersAndVanishInput
-              placeholders={placeholders}
-              onChange={handleChange}
-              onSubmit={onSubmit}
-            />
-          </div>
-        </div> */}
-      </div>
-      {/* <section className="section-contact">
-        <div className="flex flex-col lg:flex-row bg-[#222] mx-auto w-[90%] p-5 sm:p-10  lg:p-20 px-auto rounded-md">
-          <div className=" w-full lg:w-1/2 ">
-            <span className="contact-tag px-3 text-[1.4rem] tracking-widest bg-gray-700  rounded-full text-white">
-              Contact
-            </span>
-            <div className="py-5">
-              <p className="text-[2.2rem] text-light text-white">
-                跟我們聯繫！
-              </p>
-            </div>
-            <span className="text-[1rem] text-light leading-loose text-white">
-              了解更多社區規劃、戶型格局，還是實際感受一下生活氛圍？<br></br>
-              我們邀請您親臨現場看房，親眼見證您未來的理想生活。
-            </span>
-
-            <ul className="mt-5">
-              <b className="text-[1rem] text-light text-white mt-5">
-                馬上與我們聯繫，立即預約賞屋時段
-              </b>
-              <li className="flex items-center mt-2">
-                <b className="text-[.9rem] text-white">LINE:</b>
-                <p className="text-[.9rem] text-white">XXXXXXXXXXXXXXXX</p>
-              </li>
-              <li className="flex items-center mt-2">
-                <b className="text-[.9rem] text-white">PHONE:</b>
-                <p className="text-[.9rem] text-white">XXXXXXXXXXXXXXXX</p>
-              </li>
-            </ul>
-          </div>
-          <div className="w-full lg:w-1/2">
-            <div className="contact-form mt-5 lg:mt-0 bg-white rounded-md p-10 w-full">
-              <Form
-                className="w-full  max-w-[450px] 2xl:max-w-[600px] mx-auto flex flex-col gap-4"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  let data = Object.fromEntries(new FormData(e.currentTarget));
-                }}
-              >
-                <Input
-                  isRequired
-                  errorMessage="Please enter a valid username"
-                  label="Username"
-                  labelPlacement="outside"
-                  name="username"
-                  placeholder="輸入您的姓名"
-                  type="text"
-                />
-
-                <Input
-                  isRequired
-                  errorMessage="Please enter a valid email"
-                  label="Email"
-                  labelPlacement="outside"
-                  name="email"
-                  placeholder="您的信箱"
-                  type="email"
-                />
-                <div className="flex gap-2">
-                  <Button color="primary" type="submit">
-                    送出
-                  </Button>
-                  <Button type="reset" variant="flat">
-                    清除
-                  </Button>
-                </div>
-              </Form>
-            </div>
-          </div>
-        </div>
-      </section> */}
       <div className="bg-white z-[99999999] py-10 bottom-section flex flex-col justify-center items-center">
         <Marquee>
           <div className="flex flex-row py-10 justify-center items-center">

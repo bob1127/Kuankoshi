@@ -16,27 +16,27 @@ import "swiper/css/pagination";
 
 const slides = [
   {
-    src: "	https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top06.jpg",
+    src: "https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top06.jpg",
     alt: "日常生活新站點",
   },
   {
-    src: "	https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top02.jpg",
+    src: "https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top02.jpg",
     alt: "每天散步逛街都是樂趣",
   },
   {
-    src: "	https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top07.jpg",
+    src: "https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top07.jpg",
     alt: "我們將創建一個城鎮中的每個人都能享受的廣場。",
   },
   {
-    src: "	https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top06.jpg",
+    src: "https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top06.jpg",
     alt: "日常生活新站點",
   },
   {
-    src: "	https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top02.jpg",
+    src: "https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top02.jpg",
     alt: "每天散步逛街都是樂趣",
   },
   {
-    src: "	https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top07.jpg",
+    src: "https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top07.jpg",
     alt: "我們將創建一個城鎮中的每個人都能享受的廣場。",
   },
 ];
@@ -46,15 +46,15 @@ export default function Swiper3DComponent() {
   const nextRef = useRef(null);
 
   return (
-    <div className="w-full relative">
+    <div className="w-full relative py-10">
       {/* Navigation buttons */}
       <div
         ref={prevRef}
-        className="swiper-button-prev !text-black !left-0 z-10"
+        className="swiper-button-prev !text-black !left-2 md:!left-8 z-10"
       ></div>
       <div
         ref={nextRef}
-        className="swiper-button-next !text-black !right-0 z-10"
+        className="swiper-button-next !text-black !right-2 md:!right-8 z-10"
       ></div>
 
       <Swiper
@@ -62,9 +62,8 @@ export default function Swiper3DComponent() {
         effect="coverflow"
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={3}
         loop={true}
-        speed={3000}
+        speed={1000}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         coverflowEffect={{
           rotate: 50,
@@ -79,21 +78,34 @@ export default function Swiper3DComponent() {
           nextEl: nextRef.current,
         }}
         onBeforeInit={(swiper) => {
-          // 這段是關鍵：讓 Swiper 在初始化前認得按鈕
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
         }}
-        className="w-full "
+        breakpoints={{
+          0: {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+        }}
+        className="w-full"
       >
         {slides.map((slide, index) => (
           <SwiperSlide
             key={index}
-            className="w-[300px] h-[400px] my-10 bg-white rounded-lg shadow-xl overflow-hidden "
+            className="group relative rounded-lg overflow-hidden shadow-xl"
           >
             <img
               src={slide.src}
               alt={slide.alt}
-              className="w-full h-full object-cover"
+              className="w-full h-[50vh] md:h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </SwiperSlide>
         ))}

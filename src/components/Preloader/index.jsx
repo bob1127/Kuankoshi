@@ -170,8 +170,9 @@ export default function Home() {
             <div className="absolute top-[40%] -translate-x-1/2 -translate-y-1/2 left-1/2 z-50">
               <div className="line flex flex-col justify-center items-center">
                 <h1 className="text-white text-center text-[2rem] sm:text-[2.5rem]">
-                  <span className="text-white">kuankoshi</span>{" "}
-                  <span className="text-white font-normal text-nowrap text-[.9rem]">
+                  <span className="text-white">kuankoshi</span>
+                  <br></br>
+                  <span className="text-white  font-normal text-nowrap text-[.9rem]">
                     Interior Design,
                   </span>
                 </h1>

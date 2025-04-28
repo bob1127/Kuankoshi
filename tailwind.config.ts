@@ -127,7 +127,7 @@ const config: Config = {
   	}
   },
  darkMode: ["class", "class"],
-  plugins: [heroui(), require("tailwindcss-animate")],
+  plugins: [heroui(), require("tailwindcss-animate")  ],
 };
 export default config;
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).

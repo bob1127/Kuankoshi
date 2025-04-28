@@ -191,20 +191,22 @@ const Photos = () => {
 
   return (
     <>
-      <div className="slider " id="dark-section" ref={sliderRef}>
-        <div className="absolute z-10 top-0  left-0 w-full h-full bg-[#000] opacity-25"></div>
+      <div
+        id="dark-section"
+        ref={sliderRef}
+        className="relative w-full aspect-[16/9] min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] lg:min-h-[85vh] xl:min-h-[85vh] overflow-hidden"
+      >
+        <div className="absolute z-10 top-0 left-0 w-full h-full bg-black opacity-25"></div>
 
-        <div>
-          <div>
-            <video
-              src="https://www.clasishome.jp/wp-content/themes/clasishome/assets/movie/front_firstview-movie.mp4?ver2.0"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-[100vw] h-screen object-cover"
-            ></video>
-          </div>
+        <div className="absolute inset-0">
+          <video
+            src="https://www.clasishome.jp/wp-content/themes/clasishome/assets/movie/front_firstview-movie.mp4?ver2.0"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          ></video>
         </div>
 
         {/* ✅ 原本的 bottom-info 保留不動 */}

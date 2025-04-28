@@ -191,40 +191,48 @@ export default function About() {
               </span>
             </div>
             <div className="sticky  my-4 top-24 ">
-              <div className="flex  px-4 flex-col border border-[#d7d7d7] bg-[#fffdfa]">
-                <h2 className="article-side-project-title text-[1rem] font-normal tracking-widest">
+              <div className="flex  px-4 flex-col border border-[#d7d7d7] bg-[#35453F]">
+                <h2 className="article-side-project-title text-white text-[1rem] font-normal tracking-widest">
                   326新成屋兩房57萬裝潢成家專案
                 </h2>
                 <div className="feature">
                   <div className="border-t-1 py-4 px-1 flex justify-between items-center border-gray-400">
-                    <b className="text-[.9rem] font-normal">裝潢價格：</b>
-                    <span className="text-[.85rem] font-normal text-gray-700">
+                    <b className="text-[.9rem] font-normal text-white">
+                      裝潢價格：
+                    </b>
+                    <span className="text-[.85rem]  font-normal text-white">
                       約新台幣 180 萬元​
                     </span>
                   </div>
                   <div className="border-t-1 py-4 px-1 flex justify-between items-center border-gray-400">
-                    <b className="text-[.9rem] font-normal">裝潢坪數：</b>
-                    <span className="text-[.85rem] font-normal text-gray-700">
+                    <b className="text-[.9rem] font-normal text-white">
+                      裝潢坪數：
+                    </b>
+                    <span className="text-[.85rem] text-white font-normal text-white">
                       25 坪​
                     </span>
                   </div>
                   <div className="border-t-1 py-4 px-1 flex justify-between items-center border-gray-400">
-                    <b className="text-[.9rem] font-normal">施工日期：</b>
-                    <span className="text-[.85rem] font-normal text-gray-700">
+                    <b className="text-[.9rem] font-normal text-white">
+                      施工日期：
+                    </b>
+                    <span className="text-[.85rem] font-normal text-white">
                       2024.05.04
                     </span>
                   </div>
                   <div className="border-t-1 py-4 px-1 flex justify-between items-center border-gray-400">
-                    <b className="text-[.9rem] font-normal">特色：</b>
+                    <b className="text-[.9rem] font-normal text-white">
+                      特色：
+                    </b>
                     <br></br>
-                    <span className="text-[.85rem] w-3/4  font-normal text-gray-700">
+                    <span className="text-[.85rem] w-3/4 text-white font-normal text-white">
                       ​以白色與灰色為主色調，搭配木質地板，營造出簡約且溫馨的居家氛圍。​
                     </span>
                   </div>
                 </div>
               </div>
               <div className="small-viewer-project p-5">
-                <div className="flex flex-row justify-between ">
+                <div className="flex flex-row justify-between my-3 ">
                   <div className="img w-1/2">
                     <Image
                       src="/images/481977410_122241519506031935_5824784297779272863_n.jpg"
@@ -248,7 +256,7 @@ export default function About() {
                     <b className="text-[.95rem] ">Go Project</b>
                   </div>
                 </div>
-                <div className="flex flex-row justify-between ">
+                <div className="flex flex-row justify-between my-3 ">
                   <div className="img w-1/2">
                     <Image
                       src="/images/481977410_122241519506031935_5824784297779272863_n.jpg"
@@ -272,7 +280,7 @@ export default function About() {
                     <b className="text-[.95rem] ">Go Project</b>
                   </div>
                 </div>
-                <div className="flex flex-row justify-between ">
+                <div className="flex flex-row justify-between my-3 ">
                   <div className="img w-1/2">
                     <Image
                       src="/images/481977410_122241519506031935_5824784297779272863_n.jpg"
@@ -472,7 +480,7 @@ export default function About() {
                   MENU
                 </span>
               </div>
-              <span className="text-[.9rem] text-gray-700 mt-2 md:mt-4">
+              <span className="text-[.9rem] text-white mt-2 md:mt-4">
                 30+ | 案例
               </span>
             </AnimatedLink>
@@ -487,7 +495,7 @@ export default function About() {
           </div>
         </section>
 
-        <section className="pb-[100px] bg-[linear-gradient(to_bottom,white_50%,#36454f_50%)]">
+        <section className="pb-[100px] ">
           <div className="title p-10">
             <h2 className="text-center text-[4rem] font-bold">#unevensnap</h2>
             <Link
