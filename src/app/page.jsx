@@ -157,27 +157,28 @@ export default function About() {
                 {/* 下面兩側文字按鈕 */}
                 <div className="flex flex-col md:flex-row justify-between mt-8 gap-8 px-3">
                   {/* 左側文字 */}
-                  <div className="w-full md:w-1/2">
+                  <div className="w-full flex flex-col md:w-1/2">
                     <GsapText
-                      text="建築と環境の「間」を考える"
+                      text="從日常到夢想，專屬你的理想宅"
                       id="gsap-intro"
-                      fontSize="1.3rem"
                       fontWeight="500"
                       color="#333"
-                      className="text-left mb-4"
+                      className="text-left !text-[2.4rem] !leading-normal  font-normal mb-4"
                     />
-                    <span className="text-sm text-gray-500 font-light">
-                      Having the architecture as black and the environment as
-                      white, we consider that human being’s comfort zone lies
-                      within the ranges of gray.
+                    <b className="text-[1.2rem] font-normal ">
+                      想用50萬左右就打造出屬於自己的高質感小宅嗎？
+                    </b>
+                    <span className="text-sm tracking-wide leading-relaxed text-gray-500 mt-4 font-normal">
+                      我們專注於小資族、小家庭、小坪數室內設計，提供輕裝潢、系統櫃設計到完整空間規劃，
+                      讓每一個剛起步的新家庭，也能擁有舒適、實用又充滿溫度的生活空間。
                     </span>
                   </div>
 
                   {/* 右側文字與按鈕 */}
                   <div className="w-full md:w-1/2 flex flex-col justify-end items-end text-right">
-                    <span className="text-sm text-gray-500 font-light mb-5">
-                      Please find our concept, <br /> philosophy, and
-                      information here.
+                    <span className="text-sm tracking-wide leading-relaxed text-gray-500 mb-5">
+                      我們提供從新成屋裝潢、老屋翻新、預售屋客變到<br></br>
+                      系統家具配置的多元方案
                     </span>
                     <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 bg-neutral-800 text-white hover:bg-neutral-900 duration-300">
                       <span className="relative inline-block">
@@ -194,34 +195,50 @@ export default function About() {
           <section className="section-ThreeD-carousel my-[60px]">
             <ThreeDSlider />
           </section>
-          <section id="dark-section" className="py-[50px]  mt-[90px] bg-[#222]">
+          <section
+            id="dark-section"
+            className="py-[50px]  mt-[90px] bg-[#35453F]"
+          >
             <div
               id="dark-section"
-              className="flex flex-col md:flex-row max-w-[1920px] mx-auto"
+              className="flex flex-col justify-center  w-[90%] xl:w-[80%]  md:flex-row max-w-[1920px] mx-auto"
             >
-              <div className=" w-full md:w-[30%] flex flex-col justify-between pl-5 sm:pl-10 md:pl-0 items-start md:items-center pt-20">
-                <div className="txt">
+              <div className=" w-full  md:w-[30%] flex flex-col justify-between pl-5 sm:pl-10 md:pl-0 items-start md:items-start pt-20">
+                <div className="txt pr-5">
                   <h2 className="font-extralight text-white text-[1.7rem]">
                     小資族。小家庭
                   </h2>
-                  <p className="text-[1rem] text-gray-400">Recent Project</p>
+                  <p className="text-sm tracking-wide leading-relaxed text-gray-300  font-normal">
+                    不論是小資夫妻、小家庭成員增加的未來規劃，還是希望在有限預算內兼顧收納與美感，，
+                    寬越設計都能根據您的預算、需求，量身打造最適合的居所。
+                  </p>
                 </div>
                 <div className="txt">
                   <div className="flex items-start flex-col">
                     <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden   px-60 md:px-4 text-neutral-50">
                       <span class="relative inline-flex overflow-hidden">
                         <div class="absolute origin-bottom transition duration-500 !font-light !text-[1.2rem] [transform:translateX(-150%)_skewX(33deg)] group-hover:[transform:translateX(0)_skewX(0deg)]">
-                          More Projects →
+                          看更多案例 →
                         </div>
                         <div class="transition !font-light !text-[1.2rem] duration-500 [transform:translateX(0%)_skewX(0deg)] group-hover:[transform:translateX(150%)_skewX(33deg)]">
-                          More Projects →
+                          看更多案例 →
                         </div>
                       </span>
                     </button>
-                    <p className="text-[1rem] ml-0 md:ml-3  mt-4 text-gray-400">
-                      Please explore our diverse range of <br></br>architectural
-                      creations.
-                    </p>
+                    <div className="flex flex-wrap">
+                      <div className="tag m-2 bg-white hover:bg-[#E1E3D9] duration-400 px-4 py-1 rounded-full text-[.85rem]">
+                        商辦展示
+                      </div>
+                      <div className="tag m-2 bg-white hover:bg-[#E1E3D9] duration-400 px-4 py-1 rounded-full text-[.85rem]">
+                        房屋改造
+                      </div>
+                      <div className="tag m-2 bg-white hover:bg-[#E1E3D9] duration-400 px-4 py-1 rounded-full text-[.85rem]">
+                        自地自建
+                      </div>
+                      <div className="tag m-2 bg-white hover:bg-[#E1E3D9] duration-400 px-4 py-1 rounded-full text-[.85rem]">
+                        舊屋翻新
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
