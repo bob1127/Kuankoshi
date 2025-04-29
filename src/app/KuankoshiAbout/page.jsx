@@ -220,7 +220,7 @@ export default function About() {
             </div>
             <div className="w-full lg:w-1/2 group flex px-3 justify-start flex-col items-center">
               <Image
-                src="https://store-palette.com/assets/img/common/layout/spesial_banner_2-pc.png"
+                src="/images/about/spesial_banner_2-pc.png"
                 alt="map-section"
                 width={1000}
                 height={600}

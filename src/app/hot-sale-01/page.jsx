@@ -137,9 +137,11 @@ export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(null);
   const backgroundImages = [
-    "/images/hero-img/img05.png",
-    "/images/hero-img/img06.png",
     "/images/hero-img/img07.png",
+    "/images/小資專案/468762259_122223978674031935_6019549633708583470_n.jpg",
+    "/images/hero-img/img06.png",
+    "/images/小資專案/469720578_122225453222031935_8767653310245579018_n.jpg",
+    "/images/小資專案/469120903_122223965966031935_3027154932930762522_n.jpg",
   ];
   useEffect(() => {
     const timer = setInterval(() => {
@@ -275,7 +277,7 @@ export default function About() {
   }, []);
   return (
     <ReactLenis root className="">
-      <section className="section-hero w-full aspect-[500/500] md:aspect-[1024/576] xl:aspect-[1920/700] overflow-hidden relative">
+      <section className="section-hero w-full aspect-[500/500] md:aspect-[1024/576] xl:aspect-[1920/1000] overflow-hidden relative">
         {/* 背景圖片群組 */}
         {backgroundImages.map((bg, i) => (
           <motion.div

@@ -16,27 +16,27 @@ import "swiper/css/pagination";
 
 const slides = [
   {
-    src: "https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top06.jpg",
+    src: "/images/小資專案/469076948_122223966266031935_4434481575489001954_n.jpg",
     alt: "日常生活新站點",
   },
   {
-    src: "https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top02.jpg",
+    src: "/images/小資專案/407454_0.jpg",
     alt: "每天散步逛街都是樂趣",
   },
   {
-    src: "https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top07.jpg",
+    src: "/images/小資專案/469720578_122225453222031935_8767653310245579018_n.jpg",
     alt: "我們將創建一個城鎮中的每個人都能享受的廣場。",
   },
   {
-    src: "https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top06.jpg",
+    src: "/images/小資專案/469120903_122223965966031935_3027154932930762522_n.jpg",
     alt: "日常生活新站點",
   },
   {
-    src: "https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top02.jpg",
+    src: "/images/小資專案/006-20250224-109.jpg",
     alt: "每天散步逛街都是樂趣",
   },
   {
-    src: "https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top07.jpg",
+    src: "/images/小資專案/006-20250317寬越設計-12.jpg",
     alt: "我們將創建一個城鎮中的每個人都能享受的廣場。",
   },
 ];

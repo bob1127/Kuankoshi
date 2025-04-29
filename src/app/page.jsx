@@ -143,9 +143,9 @@ export default function About() {
               <div className="flex flex-col w-full">
                 <div className="w-full h-auto md:h-[80vh] overflow-hidden">
                   <div className="relative w-full h-full">
-                    <div className="absolute inset-0 bg-black opacity-40 z-10" />
+                    <div className="absolute inset-0 bg-black opacity-0 z-10" />
                     <Image
-                      src="/images/img01.webp"
+                      src="/images/小資專案/468661269_122223979160031935_3338016445612834353_n.jpg"
                       alt="About Image 1"
                       fill
                       className="object-cover"
@@ -659,7 +659,7 @@ export default function About() {
                   title: "住宅空間設計",
                   desc: "打造專屬於您的理想居所，從格局配置到材質選用，細膩呈現生活美學。",
                   date: "Taichung - 2025.03.23",
-                  img: "https://i0.wp.com/draft.co.jp/wp-content/uploads/2025/02/AD-Awards_2024_list.jpg?fit=1280%2C1280&quality=85&strip=all&ssl=1",
+                  img: "/images/487012960_122246363780031935_1478276959405077203_n (1).jpg",
                   baseHeight: "h-[320px]",
                   hoverHeight: "group-hover:h-[400px]",
                 },
@@ -675,7 +675,7 @@ export default function About() {
                   title: "辦公室與共享空間設計",
                   desc: "打造靈活高效的工作場域，提升團隊協作力與品牌文化感知。",
                   date: "Taichung - 2025.03.23",
-                  img: "https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/10/2024_tjda-site_open_top_s.jpg?fit=1920%2C1046&quality=85&strip=all&ssl=1",
+                  img: "/images/001_瑞其科技_250305_9.jpg",
                   baseHeight: "h-[300px]",
                   hoverHeight: "group-hover:h-[380px]",
                 },
@@ -683,7 +683,7 @@ export default function About() {
                   title: "空間美學顧問",
                   desc: "從色彩搭配、家具配置到照明設計，全面提升空間細節質感。",
                   date: "Taichung - 2025.03.23",
-                  img: "https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/11/ELLE-DECOR_2412_PCichiran.jpg?fit=1920%2C1280&quality=85&strip=all&ssl=1",
+                  img: "/images/03-ADDＢ.jpg",
                   baseHeight: "h-[340px]",
                   hoverHeight: "group-hover:h-[420px]",
                 },
@@ -691,7 +691,7 @@ export default function About() {
                   title: "3D 模型與虛擬實境提案",
                   desc: "以擬真 3D 模型與 VR 技術，讓設計想像提前落地，打造沉浸式體驗。",
                   date: "Taichung - 2025.03.23",
-                  img: "https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/09/241018_oliver-exhibition_top.jpg?fit=1706%2C900&quality=85&strip=all&ssl=1",
+                  img: "/images/小資專案/469076948_122223966266031935_4434481575489001954_n.jpg",
                   baseHeight: "h-[380px]",
                   hoverHeight: "group-hover:h-[480px]",
                 },

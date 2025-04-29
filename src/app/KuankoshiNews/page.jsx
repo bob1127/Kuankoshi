@@ -172,7 +172,7 @@ export default function About() {
             <div className="portrait-container overflow-hidden">
               <div className="img mt-8">
                 <ParallaxImage
-                  src="https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/service-10-pc.webp"
+                  src="/images/小資專案/468661269_122223979160031935_3338016445612834353_n.jpg"
                   alt=""
                   fill
                   className="aspect-[1920/900] object"

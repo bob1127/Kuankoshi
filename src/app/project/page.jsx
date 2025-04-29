@@ -52,9 +52,27 @@ export default async function ProjectListPage() {
         <div className="mb-[100px]">
           <SwiperSingle />
         </div>
-        <div className="w-[90%] mx-auto">
-          <Swiper />
-        </div>
+        <section className="categories-01 flex w-[90%] mx-auto">
+          <div className="w-[35%]">
+            <div className="txt flex flex-col">
+              <span className="text-[.9rem] text-gray-800">
+                用50萬左右就打造出屬於自己的高質感小宅
+              </span>
+              <h2 className="text-[4rem] mt-4 text-[#243629] font-normal border-b border-dashed border-black w-fit">
+                小資專案
+              </h2>
+              <p className="text-[1rem] text-[#333]">
+                我們專注於小資族、小家庭、小坪數室內設計，提供輕裝潢、系統櫃設計到完整空間規劃，
+                <br></br>
+                讓每一個剛起步的新家庭，也能擁有舒適、實用又充滿溫度的生活空間。
+              </p>
+            </div>
+          </div>
+          <div className="w-[65%] mx-auto">
+            <Swiper />
+          </div>
+        </section>
+
         <div className="max-w-7xl mt-[10vh] mx-auto">
           <h1 className="text-3xl font-bold mb-8">設計作品</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
