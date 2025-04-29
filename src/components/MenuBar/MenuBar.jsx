@@ -20,7 +20,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu, isDarkBg }) => {
   ];
 
   return (
-    <div className="menu-bar flex items-center justify-between fixed top-0 left-0 w-full px-4 md:px-8 2xl:px-10 py-3 z-50">
+    <div className="menu-bar bg-white flex items-center justify-between fixed top-0 left-0 w-full px-4 md:px-8 2xl:px-10  z-50">
       {/* Logo區 */}
       <div className="flex items-center cursor-pointer" onClick={closeMenu}>
         <AnimatedLink href="/" className={`flex items-center ${textColor}`}>

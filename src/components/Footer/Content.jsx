@@ -40,8 +40,8 @@ const Section2 = () => {
   return (
     <div className="flex  flex-col">
       <Nav />
-      <h1 className="text-[4vw] text-gray-100 leading-[0.8] mt-10">
-        KusnKoshi
+      <h1 className="text-[3vw] text-gray-100 leading-[0.8] mt-10">
+        Kuankoshi
       </h1>
       <div className="copy flex flex-col sm:flex-row justify-between border-b-1 border-white pb-4">
         <p className="text-[.9rem] text-gray-200 font-light">
