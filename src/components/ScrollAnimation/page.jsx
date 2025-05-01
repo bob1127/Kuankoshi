@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "./ScrollAnimation.module.css";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-
+import AnimatedLink from "../AnimatedLink";
 gsap.registerPlugin(ScrollTrigger);
 
 const InfiniteScroll = () => {
@@ -127,28 +127,30 @@ const InfiniteScroll = () => {
           </div>
 
           <div className="man-02 absolute left-[34%] z-10 bottom-0">
-            <div className="relative group">
-              <div className="img">
-                <Image
-                  src="/images/qa/man-02.png"
-                  placeholder="empty"
-                  alt="man-02"
-                  width={400}
-                  height={550}
-                  className="w-[140px] group-hover:scale-105 duration-500 group-hover:shadow-xl"
-                />
+            <AnimatedLink href="project">
+              <div className="relative group">
+                <div className="img">
+                  <Image
+                    src="/images/qa/man-02.png"
+                    placeholder="empty"
+                    alt="man-02"
+                    width={400}
+                    height={550}
+                    className="w-[140px] group-hover:scale-105 duration-500 group-hover:shadow-xl"
+                  />
+                </div>
+                <div className="chat-box absolute z-10 top-[-15%] right-[-20%]">
+                  <Image
+                    src="/images/qa/qa-icon-02.png"
+                    placeholder="empty"
+                    alt="qa-icon-02"
+                    width={400}
+                    height={550}
+                    className="w-[110px] group-hover:scale-105 duration-500"
+                  />
+                </div>
               </div>
-              <div className="chat-box absolute z-10 top-[-15%] right-[-20%]">
-                <Image
-                  src="/images/qa/qa-icon-02.png"
-                  placeholder="empty"
-                  alt="qa-icon-02"
-                  width={400}
-                  height={550}
-                  className="w-[110px] group-hover:scale-105 duration-500"
-                />
-              </div>
-            </div>
+            </AnimatedLink>
           </div>
 
           <div className="man-02 absolute right-[31%] z-10 bottom-0">

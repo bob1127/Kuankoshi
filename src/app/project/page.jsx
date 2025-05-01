@@ -1,4 +1,5 @@
 import ProjectListClient from "./ProjectListClient";
+import { Suspense } from "react";
 
 async function getProjectData() {
   // 1. 直接抓全部分類
@@ -35,7 +36,9 @@ export default async function ProjectListPage() {
 
   return (
     <div>
-      <ProjectListClient posts={posts} categories={categories} />
+      <Suspense fallback={<div></div>}>
+        <ProjectListClient posts={posts} categories={categories} />
+      </Suspense>
     </div>
   );
 }

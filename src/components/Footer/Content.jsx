@@ -1,13 +1,43 @@
 import React from "react";
+import { useEffect } from "react";
 import Marquee from "react-fast-marquee";
+import AnimatedLink from "../AnimatedLink";
+import { PlaceholdersAndVanishInput } from "../ui/placeholders-and-vanish-input";
 export default function Content() {
+  // ✅ 修正卡住滾動的 bug：每次進入頁面都清除 .page-transition
+  useEffect(() => {
+    document.body.classList.remove("page-transition");
+    sessionStorage.removeItem("transitioning"); // 順便清除狀態
+  }, []);
+  const placeholders = [
+    "理想的家，該具備哪些元素？",
+    "選擇房子時，你最在意什麼？",
+    "如何找到兼具品質與舒適的住宅？",
+    "買房是投資還是生活選擇？",
+    "未來的家，會是什麼模樣？",
+  ];
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log("submitted");
+  };
   return (
     <div
       id="dark-section"
-      className="pb-2  pt-20 sm:pt-[340px] xl:pt-[350px] 2xl:pt-[20vh] bg-[url('/images/hero-img/footer03.png')] bg-left bg-no-repeat bg-cover py-8 px-12 h-full w-full flex flex-col justify-between"
+      className="pb-2  pt-20 sm:pt-[340px] xl:pt-[350px] 2xl:pt-[20vh] bg-[url('/images/hero-img/footer03.png')] bg-left bg-no-repeat bg-cover py-8 px-12 h-full w-full flex flex-col justify-center"
     >
       <Section2 />
-      <Marquee className="mb-12">
+      <div className=" md:w-1/2 max-w-[900px] flex justify-start">
+        <PlaceholdersAndVanishInput
+          placeholders={placeholders}
+          onChange={handleChange}
+          onSubmit={onSubmit}
+        />
+      </div>
+      {/* <Marquee className="mb-12">
         <div className="flex justify-center items-center">
           <b className="text-[4.3vmin] mr-3 font-normal text-gray-50">
             YI YUAN BUILDING DESIGN
@@ -31,7 +61,7 @@ export default function Content() {
             YI YUAN BUILDING DESIGN
           </b>
         </div>
-      </Marquee>
+      </Marquee> */}
     </div>
   );
 }
@@ -59,34 +89,50 @@ const Nav = () => {
   return (
     <div className="flex shrink-0 gap-20">
       <div className="flex flex-col gap-2">
-        <h3 className="mb-2 uppercase text-gray-200">About</h3>
-        <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 ">
-          Home
-        </p>
-        <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 ">
-          Projects
-        </p>
-        <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 ">
-          Our Mission
-        </p>
-        <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 ">
-          Contact Us
-        </p>
+        <h3 className="mb-2 uppercase text-gray-200">ABOUT</h3>
+        <AnimatedLink href="/KuankoshiAbout">
+          <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
+            設計理念
+          </p>
+        </AnimatedLink>
+        <AnimatedLink href="/hot-sale-01">
+          <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
+            服務流程
+          </p>
+        </AnimatedLink>
+        <AnimatedLink href="/qa">
+          <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
+            客戶提問
+          </p>
+        </AnimatedLink>
+        <AnimatedLink href="/news">
+          <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
+            設計誌
+          </p>
+        </AnimatedLink>
       </div>
       <div className="flex flex-col gap-2">
-        <h3 className="mb-2 uppercase text-gray-200">Education</h3>
-        <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 ">
-          News
-        </p>
-        <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 ">
-          Learn
-        </p>
-        <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 ">
-          Certification
-        </p>
-        <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 ">
-          Publications
-        </p>
+        <h3 className="mb-2 uppercase text-gray-200">PROJECT</h3>
+        <AnimatedLink href="/KuankoshiAbout">
+          <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
+            老屋翻新
+          </p>
+        </AnimatedLink>
+        <AnimatedLink href="/hot-sale-01">
+          <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
+            小資專案
+          </p>
+        </AnimatedLink>
+        <AnimatedLink href="/qa">
+          <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
+            商業空間
+          </p>
+        </AnimatedLink>
+        <AnimatedLink href="/news">
+          <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
+            設計誌
+          </p>
+        </AnimatedLink>
       </div>
     </div>
   );

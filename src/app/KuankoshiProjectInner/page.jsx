@@ -1,4 +1,5 @@
 "use client";
+import { Suspense } from "react";
 
 import HomeSlider from "../../components/HeroSliderHome/page.jsx";
 import React, { useRef, useEffect } from "react";
@@ -8,6 +9,7 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import HoverItem from "../../components/HoverItem.jsx";
 import AnimatedLink from "../../components/AnimatedLink";
 import gsap from "gsap";
+import Categories from "../../components/categories.jsx";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Marquee from "react-fast-marquee";
 
@@ -126,29 +128,15 @@ export default function About() {
         <section className="py-[150px] flex flex-col lg:flex-row pt-8 mt-20 pb-[80px]  border-t-1 border-gray-300 max-w-[1920px] mx-auto w-full px-4 sn:px-0  sm:w-[95%] 2xl::w-[88%] ">
           <div className=" w-full lg:w-[15%]">
             <div className="sticky pl-5 top-24  ">
-              <b>categories</b>
-              <p className="text-[.95rem] mt-3 font-bold tracking-wider">All</p>
-              <p className="text-[.95rem] mt-3 font-bold tracking-wider">
-                Project
-              </p>
-              <p className="text-[.95rem] mt-3 font-bold tracking-wider">
-                Project
-              </p>
-              <p className="text-[.95rem] mt-3 font-bold tracking-wider">
-                Project
-              </p>
-              <p className="text-[.95rem] mt-3 font-bold tracking-wider">
-                Project
-              </p>
-              <p className="text-[.95rem] mt-3 font-bold tracking-wider">
-                Project
-              </p>
+              <Suspense fallback={<div></div>}>
+                <Categories />
+              </Suspense>
             </div>
           </div>
 
           <div className="flex w-full lg:w-[60%] flex-col">
             <div className="title flex justify-between pl-8"></div>
-            <div className="  mx-auto  px-10">
+            <div className="  mx-auto px-4 md:px-10">
               <Image
                 src="/images/474790076_122233773494031935_6963865975193128560_n.jpg"
                 alt=""
@@ -309,8 +297,8 @@ export default function About() {
           </div>
         </section>
         <section className="section_navgation flex flex-row">
-          <div className="flex w-[80%] mx-auto">
-            {/* <div className="Navgation_Prev group hover:scale-[1.02] duration-400 w-1/2 px-8">
+          <div className="flex w-full md:w-[80%] mx-auto">
+            <div className="Navgation_Prev group hover:scale-[1.02] duration-400 w-1/2 px-8">
               <div className="flex flex-col justify-start items-start">
                 <b className="text-[.9rem] tracking-wide w-3/4 text-left font-bold">
                   〈COGNOMEN〉 25AW “WORKER-MAN
@@ -358,8 +346,8 @@ export default function About() {
                   </div>
                 </button>
               </div>
-            </div> */}
-            {/* <div className="Navgation_Next hover:scale-[1.02] duration-400 w-1/2 group px-8">
+            </div>
+            <div className="Navgation_Next hover:scale-[1.02] duration-400 w-1/2 group px-8">
               <div className="flex flex-col justify-end items-end">
                 <b className="text-[.9rem]  w-3/4 text-right tracking-wide font-bold">
                   〈COGNOMEN〉 25AW “WORKER-MAN
@@ -406,7 +394,7 @@ export default function About() {
                   </div>
                 </button>
               </div>
-            </div> */}
+            </div>
           </div>
         </section>
         <section className="section-page-navgation w-full max-w-[1100px] mx-auto px-4">
@@ -461,43 +449,11 @@ export default function About() {
               </div>
             </button>
           </div>
-
-          <div className="flex flex-col md:flex-row justify-center items-center py-10 gap-4">
-            <AnimatedLink href="" className="group w-full md:w-auto">
-              <div className="prev mx-2 bg-white group-hover:bg-[#35453F] rounded-full py-6 px-10 text-center duration-700">
-                <span className="tracking-widest text-[.9rem] group-hover:text-white duration-700">
-                  ← PREV
-                </span>
-              </div>
-            </AnimatedLink>
-
-            <AnimatedLink
-              href=""
-              className="group w-full md:w-auto flex flex-col items-center"
-            >
-              <div className="next mx-2 bg-white rounded-full py-6 px-10 group-hover:bg-[#35453F] duration-700 text-center">
-                <span className="tracking-widest text-[.9rem] group-hover:text-white duration-700">
-                  MENU
-                </span>
-              </div>
-              <span className="text-[.9rem] text-white mt-2 md:mt-4">
-                30+ | 案例
-              </span>
-            </AnimatedLink>
-
-            <AnimatedLink href="" className="group w-full md:w-auto">
-              <div className="next mx-2 bg-white rounded-full py-6 px-10 group-hover:bg-[#35453F] duration-700 text-center">
-                <span className="tracking-widest text-[.9rem] group-hover:text-white duration-700">
-                  NEXT →
-                </span>
-              </div>
-            </AnimatedLink>
-          </div>
         </section>
 
         <section className="pb-[100px] ">
           <div className="title p-10">
-            <h2 className="text-center text-[4rem] font-bold">#unevensnap</h2>
+            <h2 className="text-center text-[4vmin] font-bold">#unevensnap</h2>
             <Link
               target="_blank"
               href="https://www.facebook.com/profile.php?id=61550958051323&sk=photos"
