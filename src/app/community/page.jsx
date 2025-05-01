@@ -263,7 +263,7 @@ const Photos = () => {
                   </div>
                   <div className="relative w-full h-full min-h-[600px]">
                     <Image
-                      src="https://kiiro-d.com/asset/uploads/2024/10/DSC6499-scaled.jpg"
+                      src="/images/hero-img/img06.png"
                       alt="card-img"
                       fill
                       className="object-cover group-hover:scale-125 duration-3000"

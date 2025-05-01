@@ -1,17 +1,17 @@
 export const links = [
-  { label: "Home", path: "/" },
-  { label: "新案件賞", path: "/portfolio" },
-  { label: "經典選粹", path: "/photos" },
-  { label: "新聞中心", path: "/news" },
-  { label: "工程進度", path: "/contact" },
-   
+  { label: "• 設計理念", path: "/KuankoshiAbout", subtext: "首頁" },
+  { label: "• 空間案例", path: "/project", subtext: "最新作品" },
+  { label: "• 聯繫我們", path: "/project", subtext: "過往案例" },
+  { label: "• 服務流程", path: "/hot-sale-01", subtext: "最新消息" },
+  { label: "• 客戶提問", path: "/qa", subtext: "進度查詢" },
+   { label: "• 設計誌", path: "/news", subtext: "進度查詢" },
 ];
 
 export const socials = [
-  { label: "Instagram", url: "https://instagram.com/codegridweb" },
-  { label: "LinkedIn", url: "https://linkedin.com/codegridweb" },
-  { label: "Twitter", url: "https://twitter.com/codegridweb" },
-  { label: "Facebook", url: "https://facebook.com/codegridweb" },
+  { label: "INSTAGRAM", url: "https://instagram.com/codegridweb" },
+  { label: "100設計", url: "https://linkedin.com/codegridweb" },
+ 
+  { label: "FACEBOOK", url: "https://facebook.com/codegridweb" },
 ];
 
 export const address = [

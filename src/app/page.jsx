@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import ThreedSlider from "../components/ThreeDSlider/ThreeSlider";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
 // import ThreeDBanner from "../components/ThreeDBanner/index";
@@ -137,7 +138,7 @@ export default function About() {
                 我們也提供中高階全室設計，涵蓋老屋翻新、預售屋客變、新成屋裝潢與系統櫃配置，依據預算與需求量身打造理想居所。
               </span>
             </div>
-
+            <ThreedSlider />
             <div className="flex flex-col md:flex-row max-w-[1400px] mx-auto w-[90%] gap-10 mt-10">
               {/* 左圖區塊 */}
               <div className="flex flex-col w-full">

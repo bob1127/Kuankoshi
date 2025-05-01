@@ -60,14 +60,16 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu, isDarkBg }) => {
       {/* Menu 按鈕 */}
       {/* Menu 按鈕 */}
       <div className="flex">
-        <Link href="https://www.instagram.com/kk0927886699" target="_blank">
+        <Link
+          className="hidden sm:block"
+          href="https://www.instagram.com/kk0927886699"
+          target="_blank"
+        >
           <svg
-            className="mx-2"
+            className="mx-2 w-[35px] h-[35px]  2xl:w-[45px] 2xl:h-[45px]"
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
-            width="45"
-            height="45"
             viewBox="0 0 48 48"
           >
             <path d="M17,43h14c5.523,0,10-4.477,10-10v-2H7v2C7,38.523,11.477,43,17,43z"></path>
@@ -83,14 +85,13 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu, isDarkBg }) => {
         <Link
           href="https://www.facebook.com/profile.php?id=61550958051323"
           target="_blank"
+          className="hidden sm:block"
         >
           <svg
-            className="mx-2"
+            className="mx-2 w-[35px] h-[35px]  2xl:w-[45px] 2xl:h-[45px]"
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
-            width="45"
-            height="45"
             viewBox="0 0 48 48"
           >
             <path d="M44,24H4c0,0.338,0,1.662,0,2c0,11.028,8.972,20,20,20s20-8.972,20-20C44,25.662,44,24.338,44,24z"></path>
@@ -99,13 +100,17 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu, isDarkBg }) => {
             <path d="M26.573,29.038h4.921l0.765-4.993h-5.686V21.31c0-2.078,0.675-3.913,2.618-3.913h3.122v-4.363	c-0.549-0.072-1.709-0.234-3.895-0.234c-4.579,0-7.26,2.411-7.26,7.917v3.329h-4.696v4.993h4.696v13.728	C22.093,42.901,23.028,43,24,43c0.873,0,1.727-0.081,2.573-0.198V29.038z"></path>
           </svg>
         </Link>
-        <Link href="https://www.100.com.tw/11283" target="_blank">
+        <Link
+          href="https://www.100.com.tw/11283"
+          target="_blank"
+          className="hidden sm:block"
+        >
           <Image
             src="https://visualpharm.com/assets/861/100-595b40b75ba036ed117d4e17.svg"
             alt="icon"
             width={100}
             height={100}
-            className="w-[45px] h-[45px] mx-2"
+            className="w-[35px] h-[35px]  2xl:w-[45px] 2xl:h-[45px] mx-2"
           />
         </Link>
         <MenuBtn isOpen={isOpen} toggleMenu={toggleMenu} />

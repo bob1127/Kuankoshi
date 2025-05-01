@@ -263,7 +263,7 @@ const Photos = () => {
                   </div>
                   <div className="relative w-full h-full min-h-[600px]">
                     <Image
-                      src="https://kiiro-d.com/asset/uploads/2024/10/DSC6499-scaled.jpg"
+                      src="/images/taiwan.png"
                       alt="card-img"
                       fill
                       className="object-cover group-hover:scale-125 duration-3000"
@@ -326,7 +326,7 @@ const Photos = () => {
                     </span>
                   </div>
                   <Image
-                    src="https://kiiro-d.com/asset/uploads/2024/08/f1200ec2f253107006ed6ef9bd16a14f.png"
+                    src="/images/hero-img/img05.png"
                     alt="card-img-2"
                     fill
                     className="object-cover group-hover:scale-125 duration-3000"
@@ -384,7 +384,7 @@ const Photos = () => {
                     </span>
                   </div>
                   <Image
-                    src="https://kiiro-d.com/asset/uploads/2025/02/78ae4d9aaf549047b58f3b5bf1896236.jpg"
+                    src="/images/hero-img/img06.png"
                     alt="card-img-3"
                     fill
                     className="object-cover group-hover:scale-125 duration-3000"
