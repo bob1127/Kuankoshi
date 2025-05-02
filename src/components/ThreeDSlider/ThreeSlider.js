@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { vertexShader, fragmentShader } from "./shaders";
 import { slides } from "./slides";
@@ -8,11 +8,16 @@ import GsapText from "../../components/RevealText/index";
 
 export default function ThreeSlider() {
   const containerRef = useRef(null);
-  const projectTitleRef = useRef(null);
   const projectLinkRef = useRef(null);
+  const [titleText, setTitleText] = useState(slides[0].title);
+  const [currentUrl, setCurrentUrl] = useState(slides[0].url);
+  const [titleVisible, setTitleVisible] = useState(true);
 
   useEffect(() => {
     if (!containerRef.current) return;
+
+    const container = containerRef.current;
+    const { clientWidth, clientHeight } = container;
 
     let scrollIntensity = 0;
     let targetScrollIntensity = 0;
@@ -30,35 +35,29 @@ export default function ThreeSlider() {
     let stableCurrentIndex = 0;
     let stableNextIndex = 1;
     let isStable = false;
-
-    let titleHidden = false;
-    let titleAnimating = false;
     let currentProjectIndex = 0;
-
-    projectTitleRef.current.textContent = slides[0].title;
-    projectLinkRef.current.href = slides[0].url;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
-      window.innerWidth / window.innerHeight,
+      clientWidth / clientHeight,
       0.1,
       1000
     );
-    camera.position.z = 5;
+    camera.position.z = 3;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(clientWidth, clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0xffffff, 0);
-    containerRef.current.appendChild(renderer.domElement);
+    container.appendChild(renderer.domElement);
 
     const calculatePlaneDimensions = () => {
       const fov = camera.fov * (Math.PI / 180);
       const viewportHeight = 2 * Math.tan(fov / 2) * camera.position.z;
       const viewportWidth = viewportHeight * camera.aspect;
 
-      const widthFactor = window.innerWidth < 900 ? 0.9 : 0.5;
+      const widthFactor = 0.8;
       const planeWidth = viewportWidth * widthFactor;
       const planeHeight = planeWidth * (9 / 16);
 
@@ -67,33 +66,13 @@ export default function ThreeSlider() {
 
     const dimensions = calculatePlaneDimensions();
 
-    const loadTextures = () => {
-      const textureLoader = new THREE.TextureLoader();
-
-      return slides.map((slide) => {
-        const texture = textureLoader.load(
-          slide.image,
-          undefined,
-          undefined,
-          () => {
-            console.log(`Using fallback for ${slide.image}`);
-          }
-        );
-        texture.minFilter = THREE.LinearFilter;
-        texture.magFilter = THREE.LinearFilter;
-        return texture;
-      });
-    };
-
-    const textures = loadTextures();
-
-    function preloadAllTextures() {
-      textures.forEach((texture) => {
-        texture.needsUpdate = true;
-      });
-    }
-
-    preloadAllTextures();
+    const textureLoader = new THREE.TextureLoader();
+    const textures = slides.map((slide) => {
+      const texture = textureLoader.load(slide.image);
+      texture.minFilter = THREE.LinearFilter;
+      texture.magFilter = THREE.LinearFilter;
+      return texture;
+    });
 
     const geometry = new THREE.PlaneGeometry(
       dimensions.width,
@@ -119,11 +98,9 @@ export default function ThreeSlider() {
 
     function determineTextureIndices(position) {
       const totalImages = slides.length;
-
       const baseIndex = Math.floor(position % totalImages);
       const positiveBaseIndex =
         baseIndex >= 0 ? baseIndex : (totalImages + baseIndex) % totalImages;
-
       const nextIndex = (positiveBaseIndex + 1) % totalImages;
 
       let normalizedPosition = position % 1;
@@ -132,7 +109,7 @@ export default function ThreeSlider() {
       return {
         currentIndex: positiveBaseIndex,
         nextIndex: nextIndex,
-        normalizedPosition: normalizedPosition,
+        normalizedPosition,
       };
     }
 
@@ -144,7 +121,6 @@ export default function ThreeSlider() {
       }
 
       const indices = determineTextureIndices(scrollPosition);
-
       material.uniforms.uCurrentTexture.value = textures[indices.currentIndex];
       material.uniforms.uNextTexture.value = textures[indices.nextIndex];
     }
@@ -158,46 +134,27 @@ export default function ThreeSlider() {
         const indices = determineTextureIndices(roundedPosition);
         stableCurrentIndex = indices.currentIndex;
         stableNextIndex = indices.nextIndex;
-
         currentProjectIndex = indices.currentIndex;
 
-        showTitle();
-      }
-    }
-
-    function hideTitle() {
-      if (!titleHidden && !titleAnimating && projectTitleRef.current) {
-        titleAnimating = true;
-        projectTitleRef.current.style.transform = "translateY(20px)";
+        setTitleVisible(false);
         setTimeout(() => {
-          titleAnimating = false;
-          titleHidden = true;
-        }, 500);
-      }
-    }
-
-    function showTitle() {
-      if (
-        titleHidden &&
-        !titleAnimating &&
-        projectTitleRef.current &&
-        projectLinkRef.current
-      ) {
-        projectTitleRef.current.textContent = slides[currentProjectIndex].title;
-        projectLinkRef.current.href = slides[currentProjectIndex].url;
-        titleAnimating = true;
-        projectTitleRef.current.style.transform = "translateY(0px)";
-        setTimeout(() => {
-          titleAnimating = false;
-          titleHidden = false;
-        }, 500);
+          setTitleText(slides[currentProjectIndex].title);
+          setCurrentUrl(slides[currentProjectIndex].url);
+          setTitleVisible(true);
+        }, 400);
       }
     }
 
     const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
+      const container = containerRef.current;
+      if (!container) return;
+
+      const { clientWidth, clientHeight } = container;
+
+      camera.aspect = clientWidth / clientHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      renderer.setSize(clientWidth, clientHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
       const newDimensions = calculatePlaneDimensions();
@@ -212,10 +169,8 @@ export default function ThreeSlider() {
 
     const handleWheel = (event) => {
       event.preventDefault();
-
       isSnapping = false;
       isStable = false;
-      hideTitle();
 
       targetScrollIntensity += event.deltaY * 0.001;
       targetScrollIntensity = Math.max(
@@ -230,16 +185,14 @@ export default function ThreeSlider() {
     window.addEventListener("resize", handleResize);
     window.addEventListener("wheel", handleWheel, { passive: false });
 
-    // ✅ 自動輪播：每 2 秒切換一次
     const autoSlideInterval = setInterval(() => {
       if (!isMoving && !isSnapping) {
         isStable = false;
         isSnapping = false;
-        hideTitle();
         targetScrollPosition += 1;
         isMoving = true;
       }
-    }, 2000);
+    }, 8000);
 
     function animate() {
       requestAnimationFrame(animate);
@@ -254,11 +207,7 @@ export default function ThreeSlider() {
       let normalizedPosition = scrollPosition % 1;
       if (normalizedPosition < 0) normalizedPosition += 1;
 
-      if (isStable) {
-        material.uniforms.uScrollPosition.value = 0;
-      } else {
-        material.uniforms.uScrollPosition.value = normalizedPosition;
-      }
+      material.uniforms.uScrollPosition.value = isStable ? 0 : normalizedPosition;
 
       updateTextureIndices();
 
@@ -275,9 +224,7 @@ export default function ThreeSlider() {
       const scrollDelta = Math.abs(targetScrollPosition - scrollPosition);
 
       if (scrollDelta < movementThreshold) {
-        if (isMoving && !isSnapping) {
-          snapToNearestImage();
-        }
+        if (isMoving && !isSnapping) snapToNearestImage();
 
         if (scrollDelta < 0.0001) {
           if (!isStable) {
@@ -306,33 +253,31 @@ export default function ThreeSlider() {
       textures.forEach((texture) => texture.dispose());
       renderer.dispose();
 
-      if (
-        containerRef.current &&
-        containerRef.current.contains(renderer.domElement)
-      ) {
-        containerRef.current.removeChild(renderer.domElement);
+      if (container && container.contains(renderer.domElement)) {
+        container.removeChild(renderer.domElement);
       }
     };
   }, []);
 
   return (
-    <div className="container" ref={containerRef}>
-      <div className="flex flex-col justify-center items-center py-10 sm:py-[150px] px-4 sm:px-8">
-              <GsapText text="從小資日常到質感夢想宅" id="headline" />
-              <GsapText text="一起打造家的每一種可能" id="headline" />
-              <span className="mt-6 leading-loose font-light text-sm sm:text-base text-center text-gray-500 max-w-3xl">
-                寬越設計專注於小資族、小家庭、小坪數的室內設計，主打50萬左右輕裝潢方案，打造兼具質感與機能的生活空間。
-                <br />
-                我們也提供中高階全室設計，涵蓋老屋翻新、預售屋客變、新成屋裝潢與系統櫃配置，依據預算與需求量身打造理想居所。
-              </span>
-            </div>
-      <div className="project-title-container">
-        <a href="#" id="project-link" ref={projectLinkRef}>
-          <div className="project-title-mask">
-            <p id="project-title" ref={projectTitleRef}>
-              Title 1
-            </p>
-          </div>
+    <div
+      ref={containerRef}
+      className="relative w-full overflow-hidden
+                 h-[56.25vw] sm:h-screen max-h-[100vh]"
+    >
+      <div
+        className={`absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 text-center transition-opacity duration-500 ease-in-out ${
+          titleVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <a href={currentUrl} className="hidden sm:block" ref={projectLinkRef}>
+          <GsapText
+            key={titleText}
+            id="project-title"
+            text={titleText}
+            fontSize="1rem"
+            className="!text-white !text-[22px] font-normal drop-shadow-lg"
+          />
         </a>
       </div>
     </div>

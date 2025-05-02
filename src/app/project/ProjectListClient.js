@@ -52,7 +52,7 @@ export default function ProjectListClient({ posts, categories }) {
         </div>
       </section>
 
-      <div className="max-w-7xl mt-[10vh] mx-auto">
+      <div className="max-w-7xl mt-[10vh] px-6 lg:px-0 mx-auto">
         <h1 className="text-3xl font-bold mb-8">設計作品</h1>
 
         <div className="App">

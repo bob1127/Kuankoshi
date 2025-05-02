@@ -179,7 +179,7 @@ const Menu = ({ isDarkBg }) => {
       >
         <div className="w-[90%] max-w-[1400px] mx-auto flex flex-col justify-center items-center menu-content">
           {/* Logo */}
-          <div className="flex flex-col sm:flex-row sm:mt-[500px] mt-[300px] lg:mt-[130px] items-start md:items-center mb-0 sm:mb-12 px-6 w-full justify-start">
+          <div className="flex flex-col sm:flex-row sm:mt-[100px] mt-[20px] lg:mt-[130px] items-start md:items-center mb-0 sm:mb-12 px-6 w-full justify-start">
             <div className="flex items-center">
               <Image
                 src="/images/logo/company-logo.jpg"
@@ -222,7 +222,7 @@ const Menu = ({ isDarkBg }) => {
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-x-6 gap-y-6">
                 {links.map((link, index) => (
                   <div className="link group text-left" key={index}>
                     <div className="link-wrapper h-[80px]  overflow-hidden relative">

@@ -128,10 +128,19 @@ export default function About() {
           >
             <Preloader />
           </div>
-          <section className="section_features w-full mx-auto mt-[5vh]">
-            <div className="flex flex-col justify-center items-center py-10 sm:py-[150px] px-4 sm:px-8">
-              <GsapText text="從小資日常到質感夢想宅" id="headline" />
-              <GsapText text="一起打造家的每一種可能" id="headline" />
+          <section className="section_features w-full mx-auto mt-[100px] md:mt-[150px]">
+            <div className="flex flex-col justify-center items-center  px-4 sm:px-8">
+              <GsapText
+                text="從小資日常到質感夢想宅"
+                id="headline"
+                className="text-[5vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] leading-snug font-medium text-white text-center"
+              />
+              <GsapText
+                text="一起打造家的每一種可能"
+                id="headline"
+                className="text-[4.5vw] sm:text-[2.3vw] md:text-[1.8vw] lg:text-[1.6vw] leading-snug font-light text-white text-center"
+              />
+
               <span className="mt-6 leading-loose font-light text-sm sm:text-base text-center text-gray-500 max-w-3xl">
                 寬越設計專注於小資族、小家庭、小坪數的室內設計，主打50萬左右輕裝潢方案，打造兼具質感與機能的生活空間。
                 <br />
@@ -139,7 +148,7 @@ export default function About() {
               </span>
             </div>
             <ThreedSlider />
-            <div className="flex flex-col md:flex-row max-w-[1400px] mx-auto w-[90%] gap-10 mt-10">
+            <div className="flex  flex-col md:flex-row max-w-[1400px] mx-auto w-[90%] gap-10 mt-10 md:mt-[150px]">
               {/* 左圖區塊 */}
               <div className="flex flex-col w-full">
                 <div className="w-full h-auto md:h-[80vh] overflow-hidden">
@@ -164,8 +173,9 @@ export default function About() {
                       id="gsap-intro"
                       fontWeight="500"
                       color="#333"
-                      className="text-left !text-[2.4rem] !leading-normal  font-normal mb-4"
+                      className="text-left text-[5.5vw] sm:text-[2.8vw] md:text-[2.2vw] lg:text-[2rem] leading-snug font-normal mb-4"
                     />
+
                     <b className="text-[1.2rem] font-normal ">
                       想用50萬左右就打造出屬於自己的高質感小宅嗎？
                     </b>

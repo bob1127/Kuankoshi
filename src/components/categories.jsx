@@ -125,15 +125,15 @@ export default function About() {
           </div>
 
           {/* 桌機：側邊分類欄位 */}
-          <div className="hidden lg:block w-full lg:w-[15%]">
+          <div className="hidden lg:block w-full lg:w-[100%]">
             <div className="sticky pl-5 top-24">
-              <b className="text-[clamp(0.9rem,2vw,1.1rem)]">categories</b>
+              <b className="text-[clamp(0.9rem,2vw,1.1rem)]">設計類型</b>
               {categoriesData.map((cat) => (
                 <AnimatedLink
                   key={cat.slug}
                   href={`/project?cat=${cat.slug}`}
-                  className={`block text-[clamp(0.85rem,1.8vw,1rem)] mt-3 font-bold tracking-wider ${
-                    currentSlug === cat.slug ? "text-black" : "text-gray-600"
+                  className={`block text-[clamp(0.85rem,1.8vw,1rem)] mt-3 font-normal hover:text-gray-900 duration-400 tracking-wider ${
+                    currentSlug === cat.slug ? "text-black" : "text-gray-500"
                   }`}
                 >
                   {cat.name}

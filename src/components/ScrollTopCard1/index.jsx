@@ -25,13 +25,13 @@ const Card = () => {
         }}
         className={styles.card}
       >
-        <div className="title flex flex-col   w-[60%] mx-auto">
+        <div className="title flex items-center justify-center flex-col  w-[90%]  md:w-[60%] mx-auto">
           <p className="text-[.8rem]">Project Name</p>
           <p className="text-[1.3rem] tracking-widest text-left font-bold">
             寬越室內設計-KUANKOSHI DESIGN
           </p>
         </div>
-        <div className="text-[.9rem] tracking-widest  w-[60%] mx-auto py-6 mt-6 border-gray-800 leading-loose text-gray-800 font-normal">
+        <div className="text-[.9rem] tracking-widest  w-[90%] md:w-[60%] mx-auto py-6 mt-6 border-gray-800 leading-loose text-gray-800 font-normal">
           <ul>
             <li className=" border-b-[.5px] border-gray-400 py-3">
               <div className="flex justify-between">

@@ -25,7 +25,7 @@ export default function SwiperCardAbout() {
   }, []);
 
   return (
-    <div className="w-[90%] mx-auto m-0 p-0">
+    <div className="w-[98%] mx-auto m-0 p-0">
       <Swiper
         ref={swiperRef}
         modules={[Pagination, Scrollbar, A11y, Autoplay]}
@@ -56,7 +56,7 @@ export default function SwiperCardAbout() {
           >
             <AnimatedLink href="/KuankoshiProjectInner">
               <div className="absolute z-50 w-full h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
-              <Card className="border-white pb-4 w-full h-[500px] md:h-[580px] lg:h-[600px] 2xl:h-[600px] max-h-[650px] border bg-[url('https://store-palette.com/wp/wp-content/uploads/2020/01/3505-.jpg')] relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110">
+              <Card className="border-white pb-4 w-full h-[500px] md:h-[580px] lg:h-[600px] 2xl:h-[600px] max-h-[850px] border bg-[url('https://store-palette.com/wp/wp-content/uploads/2020/01/3505-.jpg')] relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110">
                 <CardBody className="flex relative flex-col h-full w-full px-0">
                   <div className="title absolute top-5 left-5 z-[999]">
                     <span className="text-white text-[.9rem]">

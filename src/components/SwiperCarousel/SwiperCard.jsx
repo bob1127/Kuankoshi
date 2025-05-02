@@ -36,8 +36,8 @@ export default function SwiperCardAbout() {
 
         {/* 數字顯示在文字下方 */}
         <div className="count-project mt-4 items-center flex">
-          <span className="mr-4 text-[1.2rem]">PROJECT</span>
-          <div className="flex items-center gap-1  text-black text-[1.2rem]">
+          <span className="mr-4 text-gray-600 text-[1.2rem]">PROJECT</span>
+          <div className="flex items-center gap-1  text-gray-600 text-[1.2rem]">
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentIndex}
@@ -78,7 +78,7 @@ export default function SwiperCardAbout() {
             1024: { slidesPerView: 2.5 },
             1280: { slidesPerView: 3.5 },
           }}
-          className="m-0 p-0"
+          className="m-0 p-0 !overflow-visible sm:!overflow-hidden"
         >
           {Array.from({ length: totalSlides }).map((_, idx) => (
             <SwiperSlide

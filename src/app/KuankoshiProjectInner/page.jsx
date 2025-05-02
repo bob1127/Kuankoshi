@@ -125,7 +125,7 @@ export default function About() {
         </div>
         <HomeSlider />
 
-        <section className="py-[150px] flex flex-col lg:flex-row pt-8 mt-20 pb-[80px]  border-t-1 border-gray-300 max-w-[1920px] mx-auto w-full px-4 sn:px-0  sm:w-[95%] 2xl::w-[88%] ">
+        <section className=" py-5 sm:py-[150px] flex flex-col lg:flex-row pt-8 mt-20  sm:pb-[80px]  border-t-1 border-gray-300 max-w-[1920px] mx-auto w-full px-4 sn:px-0  sm:w-[95%] 2xl::w-[88%] ">
           <div className=" w-full lg:w-[15%]">
             <div className="sticky pl-5 top-24  ">
               <Suspense fallback={<div></div>}>

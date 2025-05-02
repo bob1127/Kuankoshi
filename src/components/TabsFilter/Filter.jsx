@@ -25,7 +25,7 @@ const Filter = ({
         whileTap={{ scale: 0.9 }}
         className={`px-4 py-2 border rounded-full ${
           activeCategory === "all"
-            ? "bg-black text-white"
+            ? "bg-[#35453F] text-white"
             : "bg-white text-black"
         }`}
         onClick={() => setActiveCategory("all")}
@@ -39,7 +39,7 @@ const Filter = ({
           key={cat.slug}
           className={`px-4 py-2 border rounded-full ${
             activeCategory === cat.slug
-              ? "bg-black text-white"
+              ? "bg-[#35453F] text-white"
               : "bg-white text-black"
           }`}
           onClick={() => setActiveCategory(cat.slug)}
