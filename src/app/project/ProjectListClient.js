@@ -1,6 +1,7 @@
+// ProjectListClient.js
 "use client";
-
-import { useState, useMemo, useEffect } from "react";
+import { Form, Input, Select, SelectItem, Checkbox, Button } from "@heroui/react";
+import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import Filter from "../../components/TabsFilter/Filter";
@@ -13,25 +14,72 @@ export default function ProjectListClient({ posts, categories }) {
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams.get("cat");
 
-  const postsWithSlug = useMemo(() => {
-    return posts.map((post) => {
+  const [postsWithSlug, setPostsWithSlug] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [sortOption, setSortOption] = useState("default");
+  const [minSize, setMinSize] = useState("");
+  const [maxSize, setMaxSize] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+
+  useEffect(() => {
+    const transformed = posts.map((post) => {
       const categorySlugs = (post._embedded?.["wp:term"]?.[0] || []).map((cat) => cat.slug);
       return { ...post, categories_slug: categorySlugs };
     });
+    setPostsWithSlug(transformed);
   }, [posts]);
-
-  const [filtered, setFiltered] = useState(postsWithSlug);
-  const [activeCategory, setActiveCategory] = useState("all");
 
   useEffect(() => {
     if (categoryFromUrl && activeCategory === "all") {
       setActiveCategory(categoryFromUrl);
-      const matched = postsWithSlug.filter((post) =>
-        post.categories_slug.includes(categoryFromUrl)
-      );
-      setFiltered(matched);
     }
-  }, [categoryFromUrl, postsWithSlug, activeCategory]);
+  }, [categoryFromUrl, activeCategory]);
+
+  const handleClearFilters = () => {
+    setActiveCategory("all");
+    setMinSize("");
+    setMaxSize("");
+    setMinPrice("");
+    setMaxPrice("");
+    setSortOption("default");
+  };
+
+  const sortedPosts = useMemo(() => {
+    let result = [...postsWithSlug];
+
+    if (activeCategory !== "all") {
+      result = result.filter((post) => post.categories_slug.includes(activeCategory));
+    }
+
+    if (minSize || maxSize) {
+      result = result.filter((post) => {
+        const size = Number(post.acf?.size || 0);
+        return (!minSize || size >= Number(minSize)) && (!maxSize || size <= Number(maxSize));
+      });
+    }
+
+    if (minPrice || maxPrice) {
+      result = result.filter((post) => {
+        const price = Number(post.acf?.price || 0);
+        return (!minPrice || price >= Number(minPrice)) && (!maxPrice || price <= Number(maxPrice));
+      });
+    }
+
+    if (sortOption === "size-asc") {
+      result.sort((a, b) => Number(a.acf?.size || 0) - Number(b.acf?.size || 0));
+    } else if (sortOption === "size-desc") {
+      result.sort((a, b) => Number(b.acf?.size || 0) - Number(a.acf?.size || 0));
+    } else if (sortOption === "price-asc") {
+      result.sort((a, b) => Number(a.acf?.price || 0) - Number(b.acf?.price || 0));
+    } else if (sortOption === "price-desc") {
+      result.sort((a, b) => Number(b.acf?.price || 0) - Number(a.acf?.price || 0));
+    }
+
+    return result;
+  }, [postsWithSlug, activeCategory, minSize, maxSize, minPrice, maxPrice, sortOption]);
+
+  if (!postsWithSlug.length) return <div className="text-center py-20">載入中...</div>;
 
   return (
     <div className="pt-[10vh]">
@@ -46,33 +94,76 @@ export default function ProjectListClient({ posts, categories }) {
         <SwiperSingle />
       </div>
 
-      <section className="categories-01 w-[90%] mx-auto">
-        <div className="w-full">
+      <section className="categories-01  mx-auto">
+        <div className="w-full px-0 mx-0 overflow-hidden">
           <Swiper />
         </div>
       </section>
 
-      <div className="max-w-7xl mt-[10vh] px-6 lg:px-0 mx-auto">
+      <div className="max-w-[1920px] w-full md:w-[85%] mt-[10vh] px-6 lg:px-0 mx-auto">
         <h1 className="text-3xl font-bold mb-8">設計作品</h1>
 
         <div className="App">
           <Filter
-            posts={postsWithSlug}
-            setFiltered={setFiltered}
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
             categories={categories}
+            onClearFilters={handleClearFilters}
           />
+
+        <div className="w-full max-w-6xl  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 mb-6 text-sm">
+  <div className="flex flex-col gap-2 w-full max-w-full sm:max-w-[300px]">
+    <label className="text-sm font-medium text-gray-700">坪數區間</label>
+    <div className="flex gap-2">
+      <Input value={minSize} onChange={(e) => setMinSize(e.target.value)} placeholder="最小" size="sm" />
+      <Input value={maxSize} onChange={(e) => setMaxSize(e.target.value)} placeholder="最大" size="sm" />
+    </div>
+  </div>
+
+  <div className="flex flex-col gap-2 w-full max-w-full sm:max-w-[300px]">
+    <label className="text-sm font-medium text-gray-700">價格區間</label>
+    <div className="flex gap-2">
+      <Input value={minPrice} onChange={(e) => setMinPrice(e.target.value)} placeholder="最小" size="sm" />
+      <Input value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} placeholder="最大" size="sm" />
+    </div>
+  </div>
+
+  <div className="flex flex-col gap-2 w-full max-w-full sm:max-w-[300px]">
+    <label className="text-sm font-medium text-gray-700">排序</label>
+    <Select
+      aria-label="排序"
+      placeholder="請選擇排序方式"
+      variant="flat"
+      selectedKeys={[sortOption]}
+      onSelectionChange={(keySet) => {
+        const selected = Array.from(keySet)[0];
+        setSortOption(selected);
+      }}
+    >
+      <SelectItem key="default">預設</SelectItem>
+      <SelectItem key="size-asc">坪數：小 → 大</SelectItem>
+      <SelectItem key="size-desc">坪數：大 → 小</SelectItem>
+      <SelectItem key="price-asc">價格：低 → 高</SelectItem>
+      <SelectItem key="price-desc">價格：高 → 低</SelectItem>
+    </Select>
+  </div>
+
+  <div className="flex items-end w-full max-w-full sm:max-w-[300px]">
+    <Button variant="flat" size="sm" onClick={handleClearFilters} className="w-full">
+      清除條件
+    </Button>
+  </div>
+</div>
 
           <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10">
             <AnimatePresence>
-              {filtered.map((post) => {
-                const galleryFirstImage = extractFirstGalleryImage(post.content?.rendered);
-                const fallbackImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/images/fallback.jpg";
-                const previewImage = galleryFirstImage || fallbackImage;
+              {sortedPosts.map((post) => {
+  const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+  const galleryImage = extractFirstGalleryImage(post.content?.rendered);
+  const previewImage = featuredImage || galleryImage || "/images/fallback.jpg";
 
-                return (
-                  <motion.div
+  return (
+    <motion.div
                     key={post.id}
                     layout
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -81,33 +172,36 @@ export default function ProjectListClient({ posts, categories }) {
                     transition={{
                       opacity: { duration: 0.4 },
                       layout: { type: "spring", stiffness: 300, damping: 30 },
-                      scale: { type: "spring", stiffness: 300, damping: 30 }
+                      scale: { type: "spring", stiffness: 300, damping: 30 },
                     }}
                   >
-                    <AnimatedLink
-                      href="/KuankoshiProjectInner"
-                      className="group block"
-                    >
-                      <div className="aspect-[4/5] w-full overflow-hidden rounded-md bg-gray-100">
-                        <Image
-                          src={previewImage}
-                          alt={post.title.rendered}
-                          width={400}
-                          height={500}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
+      <AnimatedLink href="/KuankoshiProjectInner" className="group block">
+        <div className="aspect-[4/5] w-full overflow-hidden rounded-md bg-gray-100">
+          <Image
+            src={previewImage}
+            alt={post.title.rendered}
+            width={400}
+            height={500}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+        <h2 className="mt-2 font-bold text-sm group-hover:text-neutral-700 transition">
+          {post.title.rendered.replace(/<[^>]+>/g, "")}
+        </h2>
+        {(post.acf?.size || post.acf?.price) && (
+          <div className="text-xs text-gray-600 mt-1 leading-snug">
+            {post.acf?.size && <div>坪數：{Number(post.acf.size)} 坪</div>}
+            {post.acf?.price && <div>價格：{Number(post.acf.price).toLocaleString()} 元</div>}
+          </div>
+        )}
+        <p className="text-xs text-gray-500">
+          {new Date(post.date).toLocaleDateString("zh-TW")}
+        </p>
+      </AnimatedLink>
+    </motion.div>
+  );
+})}
 
-                      <h2 className="mt-4 font-bold text-sm group-hover:text-neutral-700 transition">
-                        {post.title.rendered.replace(/<[^>]+>/g, "")}
-                      </h2>
-                      <p className="text-xs text-gray-500">
-                        {new Date(post.date).toLocaleDateString("zh-TW")}
-                      </p>
-                    </AnimatedLink>
-                  </motion.div>
-                );
-              })}
             </AnimatePresence>
           </motion.div>
         </div>
@@ -115,13 +209,8 @@ export default function ProjectListClient({ posts, categories }) {
     </div>
   );
 }
-
 function extractFirstGalleryImage(html) {
-  const galleryMatch = html.match(
-    /<figure class="wp-block-gallery[\s\S]*?<\/figure>/i
-  );
-  if (!galleryMatch) return null;
-
-  const firstImgMatch = galleryMatch[0].match(/<img[^>]+src="([^"]+)"/i);
-  return firstImgMatch ? firstImgMatch[1] : null;
+  if (!html) return null;
+  const imgMatch = html.match(/<img[^>]+src="([^">]+)"/i);
+  return imgMatch ? imgMatch[1] : null;
 }

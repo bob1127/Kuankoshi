@@ -1,26 +1,8 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 
-const Filter = ({
-  posts,
-  setFiltered,
-  activeCategory,
-  setActiveCategory,
-  categories,
-}) => {
-  useEffect(() => {
-    if (activeCategory === "all") {
-      setFiltered(posts);
-      return;
-    }
-    const filteredPosts = posts.filter((post) =>
-      post.categories_slug?.includes(activeCategory)
-    );
-    setFiltered(filteredPosts);
-  }, [activeCategory, posts, setFiltered]);
-
+const Filter = ({ activeCategory, setActiveCategory, categories }) => {
   return (
-    <div className="filter-container flex flex-wrap gap-4 my-4">
+    <div className="filter-container flex flex-wrap gap-4 my-4 items-center">
       <motion.button
         whileTap={{ scale: 0.9 }}
         className={`px-4 py-2 border rounded-full ${

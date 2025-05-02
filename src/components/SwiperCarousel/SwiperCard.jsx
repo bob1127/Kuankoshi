@@ -17,7 +17,7 @@ export default function SwiperCardAbout() {
   return (
     <div className="flex flex-col lg:flex-row w-full m-0 p-0 items-start gap-8">
       {/* 左側：文字區 */}
-      <div className="w-full lg:w-[35%] flex flex-col justify-start px-4 lg:px-8">
+      <div className="w-[90%] mx-auto lg:w-[35%] flex flex-col justify-start px-4 lg:px-8">
         <div className="txt flex flex-col">
           <span className="text-[.9rem] text-gray-800">
             用50萬左右就打造出屬於自己的高質感小宅
