@@ -86,10 +86,11 @@ export default function ProjectListClient({ posts, categories }) {
 
   return (
     <div className="pt-[10vh]">
-      <div className="title w-[75%] mx-auto flex flex-col">
-        <h1 className="text-[5rem] font-bold flex items-center justify-between">
+      <div className="mx-auto 2xl:w-[87%] w-[98%]">
+        <div className="title w-[75%] mx-auto flex flex-col">
+        <h1 className="text-[5rem] font-bold flex-col sm:flex-row flex items-center justify-between">
           WORKS.
-          <div className="text-[1.7rem] font-normal">案件實例</div>
+          <div className=" text-[1rem] sm:text-[1.2rem] 2xl:text-[1.7rem] font-normal">案件實例</div>
         </h1>
       </div>
 
@@ -102,6 +103,7 @@ export default function ProjectListClient({ posts, categories }) {
           <Swiper />
         </div>
       </section>
+      </div>
 
       <div className="max-w-[1920px] w-full md:w-[85%] mt-[10vh] px-6 lg:px-0 mx-auto">
         <div className="flex items-center justify-between mb-8">

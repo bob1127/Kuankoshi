@@ -31,7 +31,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu, isDarkBg }) => {
             loading="eager"
             width={50}
             height={50}
-            className="w-[40px] md:w-[50px] h-auto"
+            className="w-[40px] md:w-[70px] h-auto"
           />
           <span className="ml-2 text-base md:text-lg">寬越設計</span>
         </AnimatedLink>
