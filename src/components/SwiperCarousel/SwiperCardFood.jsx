@@ -10,12 +10,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const images = [
-  "0208-05.jpg",
-  "0208-02.jpg",
-  "0208-06.jpg",
+  "冬夏皆宜的設計格局.jpg",
+  "裝潢前該知道的-寬越室內設計.jpg",
+  "預算要如何抓才合理-寬越室內設計.jpg",
   "0317_アートボード-1.jpg",
   "アセット-9-100.jpg",
-].map((img) => `https://www.clasishome.jp/wp-content/uploads/2025/03/${img}`);
+].map((img) => `/images/qa/${img}`);
 
 export default function ProjectSwiper() {
   return (

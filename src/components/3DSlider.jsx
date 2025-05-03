@@ -48,14 +48,14 @@ export default function Swiper3DComponent() {
   return (
     <div className="w-full relative py-10">
       {/* Navigation buttons */}
-      <div
+      {/* <div
         ref={prevRef}
         className="swiper-button-prev !text-black !left-2 md:!left-8 z-10"
       ></div>
       <div
         ref={nextRef}
         className="swiper-button-next !text-black !right-2 md:!right-8 z-10"
-      ></div>
+      ></div> */}
 
       <Swiper
         modules={[EffectCoverflow, Navigation, Pagination, Autoplay]}
@@ -72,11 +72,11 @@ export default function Swiper3DComponent() {
           modifier: 1,
           slideShadows: true,
         }}
-        pagination={{ clickable: true }}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
+        // pagination={{ clickable: true }}
+        // navigation={{
+        //   prevEl: prevRef.current,
+        //   nextEl: nextRef.current,
+        // }}
         onBeforeInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;

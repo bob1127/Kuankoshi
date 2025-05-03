@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import "./globals.css";
@@ -19,6 +20,8 @@ import {
 interface RootLayoutProps {
   children: React.ReactNode;
 }
+
+type BackdropType = "blur" | "opaque";
 
 export default function RootLayout({ children }: RootLayoutProps) {
   const pathname = usePathname();
@@ -61,10 +64,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   }, [lastScrollY, controls]);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [backdrop, setBackdrop] = useState("opaque");
-  const backdrops = ["blur"];
+  const [backdrop, setBackdrop] = useState<BackdropType>("opaque");
 
-  const handleOpen = () => {
+  const handleOpen = (backdrop: BackdropType) => {
     setBackdrop(backdrop);
     onOpen();
   };
@@ -75,28 +77,28 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <body>
           {/* ✅ LINE 按鈕區塊加上動畫效果 */}
           <motion.div
-            className="line-contact-bar fixed bottom-0 left-1/2 -translate-x-1/2 z-10"
+            className="line-contact-bar fixed bottom-0 left-1/2 -translate-x-1/2 z-[999999999]"
             initial={{ y: 0, opacity: 1 }}
             animate={controls}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
           >
             <div className="flex flex-wrap bg-[#35453F] rounded-tl-[25px] rounded-tr-[25px] overflow-hidden gap-3">
-              {backdrops.map((b) => (
+              {(["blur"] as BackdropType[]).map((b) => (
                 <Button
                   key={b}
                   className="capitalize text-white px-10 py-2 w-full h-full border-none !bg-transparent"
                   color="warning"
                   variant="flat"
-                  onPress={() => handleOpen()}
+                  onPress={() => handleOpen(b)}
                 >
                   LINE
                 </Button>
               ))}
             </div>
 
-            <Modal isOpen={isOpen} onClose={onClose}>
+            <Modal backdrop={backdrop} isOpen={isOpen} onClose={onClose}>
               <ModalContent>
-                {(onClose) => (
+                {(onCloseFn) => (
                   <ModalBody>
                     <div className="w-full h-full flex justify-center items-center">
                       <Image

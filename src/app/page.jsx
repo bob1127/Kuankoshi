@@ -639,7 +639,7 @@ export default function About() {
                   <div className="overlay absolute inset-0 bg-black z-10"></div>
                   <div className="image-container overflow-hidden relative w-full h-full">
                     <Image
-                      src="/images/hero-img/img01.png"
+                      src="/images/img01.webp"
                       alt="About Image 1"
                       fill
                       className="object-cover group-hover:scale-110 duration-2000"
@@ -678,7 +678,7 @@ export default function About() {
                   title: "商業空間設計",
                   desc: "從品牌精神出發，創造兼具美感與功能的商業場域，提升品牌形象與消費體驗。",
                   date: "Taichung - 2025.03.23",
-                  img: "https://i0.wp.com/draft.co.jp/wp-content/uploads/2025/01/08cda1286e0f3c4616fbf38cf569aa71.jpg?fit=1920%2C1152&quality=85&strip=all&ssl=1",
+                  img: "/images/taiwan.png",
                   baseHeight: "h-[360px]",
                   hoverHeight: "group-hover:h-[450px]",
                 },

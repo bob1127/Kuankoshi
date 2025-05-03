@@ -167,7 +167,7 @@ export default function Home() {
             >
               <HeroSlider />
             </div>
-            <div className="absolute top-[40%] -translate-x-1/2 -translate-y-1/2 left-1/2 z-50">
+            <div className="absolute top-[50%] -translate-x-1/2 -translate-y-1/2 left-1/2 z-50">
               <div className="line flex flex-col justify-center items-center">
                 <h1 className="text-white text-center text-[2rem] sm:text-[2.5rem]">
                   <span className="text-white">kuankoshi</span>

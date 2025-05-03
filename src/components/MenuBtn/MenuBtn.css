@@ -20,7 +20,7 @@
 
 .menu-copy p#menu-text {
   position: absolute;
-  color: white;
+  color: black;
   transform: translateY(24px);
 }
 
