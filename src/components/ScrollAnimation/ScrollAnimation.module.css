@@ -29,14 +29,12 @@
 }
 
 /* 水平滾動主容器 */
-
 .horizontalScroller {
   display: flex;
-  height: 100vh;
-  width: fit-content;
+  height: 100vh; /* pin 的時候固定住 */
+  width: max-content; /* 寬度由裡面 section 自動撐開 */
+  will-change: transform;
 }
-
-
 
 /* 每一個橫向滾動的頁面 */
 .section {

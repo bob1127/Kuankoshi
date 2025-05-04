@@ -13,7 +13,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu, isDarkBg }) => {
   const navItems = [
     { label: "設計理念", href: "/KuankoshiAbout" },
     { label: "空間案例", href: "/project" },
-    { label: "聯繫我們", href: "/project" },
+    { label: "聯繫我們", href: "/contact" },
     { label: "服務流程", href: "/hot-sale-01" },
     { label: "客戶提問", href: "/qa" },
     { label: "設計誌", href: "/news" },

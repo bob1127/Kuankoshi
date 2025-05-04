@@ -243,9 +243,6 @@ const Photos = () => {
                         QA
                       </div>
                     </div>
-                    <span className="text-gray-500 text-xs hidden md:inline">
-                      Updated 2025-03-05
-                    </span>
                   </div>
                 }
               >
@@ -277,9 +274,6 @@ const Photos = () => {
                         QA
                       </div>
                     </div>
-                    <span className="text-gray-500 text-xs hidden md:inline">
-                      Updated 2025-03-05
-                    </span>
                   </div>
                 }
               >
@@ -306,9 +300,6 @@ const Photos = () => {
                         QA
                       </div>
                     </div>
-                    <span className="text-gray-500 text-xs hidden md:inline">
-                      Updated 2025-03-05
-                    </span>
                   </div>
                 }
               >
