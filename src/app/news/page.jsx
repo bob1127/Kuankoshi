@@ -258,7 +258,7 @@ const Photos = () => {
                       Blog-001
                     </h3>
                     <span className="text-xs font-light mt-2 text-white">
-                      ショップの名前を建物のモチーフに美しく使ったベーカリーの店舗デザイン
+                      關於寬越設計的設計理念
                     </span>
                   </div>
                   <div className="relative w-full h-full min-h-[600px]">
@@ -450,7 +450,7 @@ const Photos = () => {
                     </span>
                   </div>
                   <Image
-                    src="https://kiiro-d.com/asset/uploads/2024/08/f1200ec2f253107006ed6ef9bd16a14f.png"
+                    src="/images/news/468739557_122223967784031935_1974743144536883752_n.jpg"
                     alt="card-img-2"
                     fill
                     className="object-cover group-hover:scale-125 duration-3000"
@@ -508,7 +508,7 @@ const Photos = () => {
                     </span>
                   </div>
                   <Image
-                    src="https://kiiro-d.com/asset/uploads/2025/02/78ae4d9aaf549047b58f3b5bf1896236.jpg"
+                    src="/images/news/469007001_122223969848031935_3674403738594768543_n.jpg"
                     alt="card-img-3"
                     fill
                     className="object-cover group-hover:scale-125 duration-3000"
@@ -568,7 +568,7 @@ const Photos = () => {
                   </div>
                   <div className="relative w-full h-full min-h-[600px]">
                     <Image
-                      src="https://kiiro-d.com/asset/uploads/2024/10/DSC6499-scaled.jpg"
+                      src="/images/news/468999796_122223968204031935_5620093886499773914_n.jpg"
                       alt="card-img"
                       fill
                       className="object-cover group-hover:scale-125 duration-3000"

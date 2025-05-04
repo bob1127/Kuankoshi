@@ -13,8 +13,7 @@ const images = [
   "冬夏皆宜的設計格局.jpg",
   "裝潢前該知道的-寬越室內設計.jpg",
   "預算要如何抓才合理-寬越室內設計.jpg",
-  "0317_アートボード-1.jpg",
-  "アセット-9-100.jpg",
+  "自己來還是交給專業設計.jpg",
 ].map((img) => `/images/qa/${img}`);
 
 export default function ProjectSwiper() {
