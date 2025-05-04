@@ -100,7 +100,7 @@ const InfiniteScroll = () => {
         </section>
 
         {/* Section 2 */}
-        <section className={styles.section}>
+        <section className={`${styles.section} min-w-[4500px]`}>
           <div className="man-01 absolute left-[10%] z-10 bottom-0">
             <div className="relative group">
               <div className="img">
@@ -201,7 +201,7 @@ const InfiniteScroll = () => {
             loading="lazy"
             width={4500}
             height={1000}
-            className="w-full h-full"
+            className="w-auto h-full"
           />
         </section>
       </div>

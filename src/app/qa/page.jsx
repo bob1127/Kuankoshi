@@ -5,6 +5,9 @@ import ScrollAnimate from "../../components/ScrollAnimation/page";
 import SvgImg from "../../components/SVGImage";
 import HeroSlider from "../../components/HeroSliderHome/page";
 import { Accordion, AccordionItem } from "@heroui/react";
+import Character from "../../components/TextOpacityScroll/Character.jsx";
+import GsapText from "../../components/RevealText/index";
+import MotionImage from "../../components/MotionImage.jsx";
 
 import Swiper from "../../components/SwiperCarousel/SwiperCardFood";
 import Image from "next/image";
@@ -55,60 +58,171 @@ const Photos = () => {
       </section>
 
       {/* 室內設計問題 區 */}
-      <section className="section-qa py-12 bg-[#EFEFEF] flex flex-col items-center justify-center">
-        <div className="flex flex-col md:flex-row w-[90%] max-w-[1920px] mx-auto items-start">
-          {/* 左邊字 */}
-          <div className="w-full md:w-1/2 flex justify-start mb-8 md:mb-0">
-            <span className="rotate-0 md:rotate-90 text-[1.2rem] text-gray-800">
+      <section className="section-qa py-12 flex flex-col items-center justify-center">
+        <div className="w-[90%] max-w-[1920px] mx-auto flex flex-col md:flex-row md:items-center gap-8 md:gap-16">
+          {/* 左邊字：標籤 */}
+          <div className="w-full md:w-1/2 flex justify-center md:justify-start">
+            <span className="text-[1rem] md:text-[1.2rem] text-gray-800 rotate-0 md:rotate-90">
               LIFE - DESIGN
             </span>
           </div>
 
-          {/* 右邊標題 */}
-          <div className="w-full md:w-1/2 flex flex-col items-start md:items-end">
-            <h2 className="text-[5vmin] text-gray-900 font-normal leading-tight">
+          {/* 右邊主標 + 說明 */}
+          <div className="w-full md:w-1/2 flex flex-col items-center md:items-end text-center md:text-right">
+            <h2 className="text-[6vw] md:text-[2.4rem] leading-snug text-gray-900 font-normal">
               瞭解更多室內設計
               <br />
               相關問題
             </h2>
-            <div className="line bg-black h-[1px] w-[90px] my-4"></div>
-            <p className="text-gray-800 text-sm md:text-base font-light">
+            <div className="line bg-black h-[1px] w-[80px] my-4"></div>
+            <p className="text-gray-800 text-sm md:text-base font-light max-w-[400px]">
               想知道更多關於室內設計流程或者相關問題
             </p>
           </div>
         </div>
 
-        {/* QA 卡片 */}
-        <div className="flex flex-col md:flex-row gap-6 mt-12 items-center justify-center">
-          {[1, 2, 3].map((item, i) => (
+        {/* QA 卡片區塊 */}
+        <div className="flex flex-col md:flex-row gap-6 mt-12 items-center justify-center w-full max-w-[1280px] px-4">
+          {[
+            {
+              title1: "設計階段有哪些？",
+              title2: "流程說明",
+              tag: "設計流程",
+              desc: "從丈量、平面規劃、3D 模擬到工程監工，各階段職責清楚明確。",
+              img: "/images/taiwan.png",
+            },
+            {
+              title1: "我可以修改設計嗎？",
+              title2: "變更設計",
+              tag: "合約範圍",
+              desc: "在簽約與施工前都有設計修正空間，避免後續爭議與加價。",
+              img: "/images/006-LINE_ALBUM_皇普熊S_250105_1.jpg",
+            },
+            {
+              title1: "施工期要多久？",
+              title2: "時間預估",
+              tag: "工期問題",
+              desc: "小坪數約需 1～2 個月，大坪數或複雜設計視情況而定。",
+              img: "/images/472924349_122231002496031935_632063641721647926_n.jpg",
+            },
+          ].map((item, i) => (
             <div
               key={i}
-              className="group flex flex-col items-center w-[90%] md:w-[320px] overflow-hidden"
+              className="group flex flex-col items-center w-full sm:w-[80%] md:w-[320px] overflow-hidden"
             >
-              <div className="overflow-hidden">
+              <div className="overflow-hidden w-full">
                 <Image
-                  src={`https://www.clasishome.jp/wp-content/themes/clasishome/assets/image/front-page/front-reading-0${item}.jpg`}
-                  alt={`qa-item-${item}`}
+                  src={item.img}
+                  alt={`qa-item-${i}`}
                   width={1000}
                   height={2000}
                   className="w-full h-auto group-hover:scale-110 group-hover:rounded-[40px] transition-all duration-700"
                 />
               </div>
-              <div className="flex flex-col py-4 items-start">
-                <span className="text-gray-600 text-sm">- 關於設計流程</span>
-                <button className="relative h-12 bg-transparent px-2 text-neutral-800">
+              <div className="flex flex-col py-4 items-start w-full px-2">
+                <span className="text-gray-600 text-sm">- {item.tag}</span>
+                <button className="relative h-12 bg-transparent px-2 text-neutral-800 font-semibold">
                   <span className="relative inline-flex overflow-hidden">
                     <div className="translate-y-0 text-[1.1rem] skew-y-0 transition duration-500 group-hover:-translate-y-[119%] group-hover:skew-y-12">
-                      裝潢設計時間
+                      {item.title1}
                     </div>
                     <div className="absolute text-[1.1rem] translate-y-[119%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
-                      設計圖溝通
+                      {item.title2}
                     </div>
                   </span>
                 </button>
+                <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="my-24 px-4">
+        <div className="container mx-auto max-w-screen-xl flex flex-col md:flex-row items-center gap-12">
+          <div className="w-full md:w-1/2 px-4">
+            <div className="max-w-xl mx-auto">
+              <GsapText
+                text="我該什麼時候找設計師？買房前還是裝潢前？"
+                id="gsap-intro"
+                fontSize="20px"
+                fontWeight="500"
+                lineHeight="60px"
+                className="!text-[22px] text-gray-600"
+              />
+              <Character
+                className="text-sm md:text-base text-[#131313] text-left mt-4 leading-relaxed tracking-wide"
+                paragraph="這是許多第一次裝修的人最常問的問題。如果你已經有心儀的房子，越早找設計師越好，最佳時機是看房階段或是簽約前後。"
+              />
+            </div>
+
+            <div className="flex flex-wrap justify-start gap-2 mt-6 px-4">
+              {["TEXT", "TEXT", "TEXT", "TEXT", "TEXT"].map((tag, index) => (
+                <div
+                  key={index}
+                  className="border border-dashed border-black rounded-full px-4 py-1 text-sm hover:bg-black hover:text-white transition"
+                >
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="w-full md:w-1/2 px-4 flex justify-center">
+            <div className="w-full max-w-2xl overflow-hidden rounded-lg">
+              <MotionImage
+                src="/images/news/469002377_122223968186031935_6634981073683725167_n.jpg"
+                alt=""
+                width={800}
+                height={1200}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="container mx-auto max-w-screen-xl flex flex-col-reverse md:flex-row items-center gap-12 mt-24">
+          <div className="w-full md:w-1/2 px-4 flex justify-center">
+            <div className="w-full max-w-2xl overflow-hidden rounded-lg">
+              <MotionImage
+                src="/images/news/468922442_122223968246031935_7782019811319680252_n.jpg"
+                alt=""
+                width={800}
+                height={1200}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="w-full md:w-1/2 px-4">
+            <div className="max-w-xl mx-auto">
+              <GsapText
+                text="什麼是軟裝？"
+                id="gsap-intro-2"
+                fontSize="20px"
+                fontWeight="500"
+                lineHeight="60px"
+                className="!text-[22px] text-gray-600"
+              />
+              <Character
+                className="text-sm md:text-base text-[#131313] text-left mt-4 leading-relaxed tracking-wide"
+                paragraph="軟裝指的是不動產結構之外、可替換的可移動家具與裝飾品，包含：沙發、床、窗簾、地毯、掛畫、燈具、抱枕、植栽等。"
+              />
+            </div>
+
+            <div className="flex flex-wrap justify-start gap-2 mt-6 px-4">
+              {["TEXT", "TEXT", "TEXT", "TEXT", "TEXT"].map((tag, index) => (
+                <div
+                  key={index}
+                  className="border border-dashed border-black rounded-full px-4 py-1 text-sm hover:bg-black hover:text-white transition"
+                >
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

@@ -26,16 +26,16 @@ export default function ProjectSwiper() {
         loop={true}
         autoplay={{ delay: 3500, disableOnInteraction: false }}
         breakpoints={{
-          0: { slidesPerView: 1.2 },
-          480: { slidesPerView: 2 },
-          640: { slidesPerView: 2.5 },
+          0: { slidesPerView: 1 },
+          480: { slidesPerView: 1.2 },
+          640: { slidesPerView: 1.5 },
           768: { slidesPerView: 2.5 },
           1024: { slidesPerView: 2.5 },
           1280: { slidesPerView: 2.5 },
         }}
         navigation
         pagination={{ clickable: false }}
-        className="pl-[8vw]"
+        className="px-4 mx-auto"
       >
         {images.map((imgUrl, idx) => (
           <SwiperSlide
@@ -62,7 +62,7 @@ export default function ProjectSwiper() {
             <AnimatedLink href="/KuankoshiProjectInner">
               <div className="absolute z-50 w-full h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
               <Card
-                className="!rounded-none border-white pb-4 w-full h-[300px] md:h-[320px] lg:h-[370px] 2xl:h-[550px] max-h-[550px] border bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110"
+                className="!rounded-none border-white pb-4 w-full h-[230px] md:h-[280px] lg:h-[320px] 2xl:h-[550px] max-h-[550px] border bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110"
                 style={{
                   backgroundImage: `url('${imgUrl}')`,
                 }}

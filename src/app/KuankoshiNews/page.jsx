@@ -452,19 +452,15 @@ export default function About() {
               <div className="w-1/2 flex items-center">
                 <div className="p-10 txt w-[80%] mx-auto">
                   <b className="text-white text-[2rem]">
-                    古着と物差し展〈TREDICI〉
+                    市政北二路282號21樓之9, Taichung, Taiwan
                   </b>
-                  <p className="text-gray-100">
-                    〈Touareg Silver〉／Second
-                    TouchMARIEOHIR／ひめごとや〈Sasquatchfabrix.〉／in_sight
-                    01〈URU TOKYO〉／Creator First〈Midorikawa〉／KEEP CALM AND
-                    MAKE PEACE〈COGNOMEN〉
-                  </p>
+                  <p className="text-gray-100">0927-886-699</p>
+                  <p className="text-gray-100">kuankoshi@gmail.com</p>
                 </div>
               </div>
               <div className="flex justify-center w-1/2 items-center">
                 <Image
-                  src="https://www.uneven.jp/images/map.svg"
+                  src="/images/about/公司環境01.jpg"
                   alt=""
                   placeholder="empty"
                   loading="lazy"
