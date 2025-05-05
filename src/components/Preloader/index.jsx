@@ -141,7 +141,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="loader z-[9999999]  bg-[#35453F]" >
+      <div className="loader  ">
         <div className="overlay">
           <div className="block"></div>
           <div className="block"></div>

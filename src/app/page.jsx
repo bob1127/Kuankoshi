@@ -138,13 +138,15 @@ export default function About() {
               <GsapText
                 text="一起打造家的每一種可能"
                 id="headline"
-                className="text-[4.5vw] sm:text-[2.3vw] md:text-[1.8vw] lg:text-[1.6vw] leading-snug font-light text-white text-center"
+                className="text-[4.5vw] sm:text-[2.3vw] md:text-[1.8vw] lg:text-[1.6vw] leading-snug font--normal text-white text-center"
               />
 
-              <span className="mt-6 leading-loose font-light text-sm sm:text-base text-center text-gray-500 max-w-3xl">
-                寬越設計專注於小資族、小家庭、小坪數的室內設計，主打50萬左右輕裝潢方案，打造兼具質感與機能的生活空間。
+              <span className="mt-6 leading-loose font--normal text-base sm:text-md text-center text-gray-800 max-w-3xl">
+                寬越設計專注於小資族、小家庭、小坪數的室內設計，<br></br>
+                主打50萬左右輕裝潢方案，打造兼具質感與機能的生活空間。
                 <br />
-                我們也提供中高階全室設計，涵蓋老屋翻新、預售屋客變、新成屋裝潢與系統櫃配置，依據預算與需求量身打造理想居所。
+                我們也提供中高階全室設計，涵蓋老屋翻新、預售屋客變、<br></br>
+                新成屋裝潢與系統櫃配置，依據預算與需求量身打造理想居所。
               </span>
             </div>
             <ThreedSlider />
@@ -181,6 +183,7 @@ export default function About() {
                     </b>
                     <span className="text-sm tracking-wide leading-relaxed text-gray-500 mt-4 font-normal">
                       我們專注於小資族、小家庭、小坪數室內設計，提供輕裝潢、系統櫃設計到完整空間規劃，
+                      <br></br>
                       讓每一個剛起步的新家庭，也能擁有舒適、實用又充滿溫度的生活空間。
                     </span>
                   </div>
