@@ -230,7 +230,7 @@ export default function Home() {
     );
 
     tl.to(
-      ".preloader-block",
+      ".block",
       {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
         duration: 1,
@@ -287,8 +287,8 @@ export default function Home() {
     <>
       <div className="loader  ">
         <div className="overlay">
-          <div className="preloader-block !bg-[#35453F]"></div>
-          <div className="preloader-block !bg-[#35453F]"></div>
+          <div className="block "></div>
+          <div className="block "></div>
         </div>
 
         <div className="intro-logo">
