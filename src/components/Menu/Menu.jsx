@@ -228,12 +228,12 @@ const Menu = ({ isDarkBg }) => {
                     <div className="link-wrapper h-[80px]  overflow-hidden relative">
                       <AnimatedLink
                         href={link.path}
-                        className="block !bg-transparent !border-none p-2"
+                        className=" block  !bg-transparent !border-none p-2"
                       >
-                        <h2 className="text-[clamp(1.6rem,3vw,2rem)] font-normal group-hover:text-white duration-500  text-gray-200 sm:text-[#838383] translate-y-[120px] will-change-transform">
+                        <h2 className="text-[clamp(1.4rem,3vw,2rem)] font-normal group-hover:text-white duration-500  text-gray-200 sm:text-[#838383] translate-y-[120px] will-change-transform">
                           {link.label}
                           <br />
-                          <span className="block !bg-transparent ml-6 text-[clamp(0.7rem,1.8vw,0.9rem)] text-white">
+                          <span className=" block !bg-transparent ml-6 text-[clamp(0.7rem,1.8vw,0.9rem)] text-white">
                             {link.subtext}
                           </span>
                         </h2>

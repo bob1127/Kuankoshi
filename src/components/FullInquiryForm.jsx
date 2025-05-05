@@ -6,8 +6,6 @@ import {
   Form,
   Input,
   Textarea,
-  Select,
-  SelectItem,
   RadioGroup,
   Radio,
 } from "@heroui/react";
@@ -81,126 +79,138 @@ export default function FullInquiryForm() {
   };
 
   return (
-    <Form
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit();
-      }}
-      className="w-full max-w-2xl mx-auto px-4 sm:px-6 md:px-8 space-y-6 py-10"
-    >
-      <Input
-        isRequired
-        type="email"
-        label="Email"
-        name="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="輸入您的 Email"
-        className="w-full"
-      />
-
-      <Input
-        isRequired
-        type="text"
-        label="聯絡姓名"
-        name="name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="輸入您的姓名"
-        className="w-full"
-      />
-
-      <Input
-        isRequired
-        type="tel"
-        label="聯絡電話"
-        name="phone"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        placeholder="輸入您的電話"
-        className="w-full"
-      />
-
-      <RadioGroup
-        label="空間性質"
-        value={spaceType}
-        onValueChange={setSpaceType}
-        isRequired
-        className="w-full"
-        orientation="horizontal"
-        classNames={{
-          wrapper: "flex flex-wrap gap-3 sm:gap-4",
+    <div className="shadow-lg w-[95%] bg-[#E1E3D9] max-w-[800px] mx-auto rounded-[35px] border border-gray-200">
+      <h1 className="text-[2rem] font-normal text-center text-gray-700 mt-10">
+        您的需求
+      </h1>
+      <Form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
         }}
+        className="w-full max-w-2xl mx-auto px-4 sm:px-6 md:px-8 space-y-6 py-10"
       >
-        {[
-          "新屋裝修",
-          "老屋翻修",
-          "預售屋",
-          "商業空間",
-          "辦公空間",
-          "自地自建",
-        ].map((type) => (
-          <Radio key={type} value={type}>
-            {type}
-          </Radio>
-        ))}
-      </RadioGroup>
-
-      <RadioGroup
-        label="空間坪數"
-        value={spaceSize}
-        onValueChange={setSpaceSize}
-        isRequired
-        orientation="horizontal"
-        classNames={{
-          wrapper: "flex flex-wrap gap-3 sm:gap-4",
-        }}
-      >
-        {[
-          "20坪內",
-          "20–40坪",
-          "40–60坪",
-          "60–80坪",
-          "80–100坪",
-          "100坪以上",
-        ].map((size) => (
-          <Radio key={size} value={size}>
-            {size}
-          </Radio>
-        ))}
-      </RadioGroup>
-
-      <div className="w-full">
-        <TaiwanDistrictSelector
-          selectedCity={selectedCity}
-          selectedDistrict={selectedDistrict}
-          onCityChange={setSelectedCity}
-          onDistrictChange={setSelectedDistrict}
+        <Input
+          isRequired
+          type="email"
+          label="Email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="輸入您的 Email"
+          className="w-full"
         />
-      </div>
 
-      <Textarea
-        label="諮詢內容"
-        placeholder="請填寫您的諮詢需求..."
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        className="w-full"
-      />
+        <Input
+          type="text"
+          label="聯絡姓名"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="輸入您的姓名"
+          className="w-full"
+        />
 
-      <div className="text-center pt-4">
-        <Button
-          ref={buttonRef}
-          type="submit"
-          color="primary"
-          className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-xl"
+        <Input
+          isRequired
+          type="tel"
+          label="聯絡電話"
+          name="phone"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="輸入您的電話"
+          className="w-full"
+        />
+
+        <RadioGroup
+          label="空間性質"
+          value={spaceType}
+          onValueChange={setSpaceType}
+          orientation="horizontal"
+          classNames={{
+            wrapper: "flex flex-wrap gap-3 sm:gap-4",
+          }}
         >
-          送出表單
-        </Button>
-      </div>
+          {[
+            "新屋裝修",
+            "老屋翻修",
+            "預售屋",
+            "商業空間",
+            "辦公空間",
+            "自地自建",
+          ].map((type) => (
+            <Radio
+              key={type}
+              value={type}
+              classNames={{
+                control: "border-[#35453F] data-[selected=true]:bg-[#35453F]",
+              }}
+            >
+              {type}
+            </Radio>
+          ))}
+        </RadioGroup>
 
-      {submitMsg && (
-        <p className="text-center mt-4 text-default-600">{submitMsg}</p>
-      )}
-    </Form>
+        <RadioGroup
+          label="空間坪數"
+          value={spaceSize}
+          onValueChange={setSpaceSize}
+          orientation="horizontal"
+          classNames={{
+            wrapper: "flex flex-wrap gap-3 sm:gap-4",
+          }}
+        >
+          {[
+            "20坪內",
+            "20–40坪",
+            "40–60坪",
+            "60–80坪",
+            "80–100坪",
+            "100坪以上",
+          ].map((size) => (
+            <Radio
+              key={size}
+              value={size}
+              classNames={{
+                control: "border-[#35453F] data-[selected=true]:bg-[#35453F]",
+              }}
+            >
+              {size}
+            </Radio>
+          ))}
+        </RadioGroup>
+
+        <div className="w-full">
+          <TaiwanDistrictSelector
+            selectedCity={selectedCity}
+            selectedDistrict={selectedDistrict}
+            onCityChange={setSelectedCity}
+            onDistrictChange={setSelectedDistrict}
+          />
+        </div>
+
+        <Textarea
+          label="諮詢內容"
+          placeholder="請填寫您的諮詢需求..."
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          className="w-full"
+        />
+
+        <div className="text-center pt-4">
+          <Button
+            ref={buttonRef}
+            type="submit"
+            className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-xl bg-[#35453F] text-white"
+          >
+            送出表單
+          </Button>
+        </div>
+
+        {submitMsg && (
+          <p className="text-center mt-4 text-default-600">{submitMsg}</p>
+        )}
+      </Form>
+    </div>
   );
 }

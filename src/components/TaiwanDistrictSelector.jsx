@@ -37,7 +37,6 @@ export default function TaiwanDistrictSelector({
           onCityChange(city);
         }}
         placeholder="請選擇縣市"
-        isRequired
       >
         {cities.map((city) => (
           <SelectItem key={city}>{city}</SelectItem>
@@ -53,7 +52,6 @@ export default function TaiwanDistrictSelector({
           onDistrictChange(district);
         }}
         placeholder="請選擇區域"
-        isRequired
         isDisabled={!selectedCity}
       >
         {districts.map((district) => (

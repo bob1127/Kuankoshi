@@ -1,13 +1,157 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
 import Image from "next/image";
+import GsapText from "../../components/RevealText/index";
+import { motion, AnimatePresence } from "framer-motion";
+
 import { BsCart, BsArrowRight } from "react-icons/bs";
 import HeroSlider from "../HeroSlider/page";
 export default function Home() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(null);
+  const backgroundImages = [
+    "/images/hero-img/img07.png",
+    "/images/小資專案/468762259_122223978674031935_6019549633708583470_n.jpg",
+    "/images/hero-img/img06.png",
+    "/images/小資專案/469720578_122225453222031935_8767653310245579018_n.jpg",
+    "/images/小資專案/469120903_122223965966031935_3027154932930762522_n.jpg",
+  ];
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPrevIndex(currentIndex); // 保留上一張索引
+      setCurrentIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [currentIndex]);
+  const people = [
+    {
+      id: 1,
+      name: "John Doe",
+      designation: "業務人員",
+      qrCodeImage:
+        "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
+      image: "/images/hero-img/img01.png",
+    },
+    {
+      id: 2,
+      name: "John Doe",
+      designation: "買屋看房",
+      qrCodeImage:
+        "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
+      image: "/images/hero-img/img05.png",
+    },
+    {
+      id: 3,
+      name: "John Doe",
+      designation: "詢問價格",
+      qrCodeImage:
+        "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
+      image: "/images/hero-img/img06.png",
+    },
+    {
+      id: 4,
+      name: "John Doe",
+      designation: "詢問價格",
+      qrCodeImage:
+        "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
+      image: "/images/hero-img/img07.png",
+    },
+  ];
+  const initGSAPAnimations = () => {
+    const ctx = gsap.context(() => {
+      const images = document.querySelectorAll(".animate-image-wrapper");
+
+      images.forEach((image, i) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: image,
+            start: "top bottom",
+            end: "top center",
+            toggleActions: "play none none none",
+            id: "imageReveal-" + i,
+          },
+        });
+
+        tl.fromTo(
+          image.querySelector(".overlay"),
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+          },
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 0.7,
+            ease: "power2.inOut",
+          }
+        )
+          .to(image.querySelector(".overlay"), {
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            duration: 0.7,
+            ease: "power2.inOut",
+          })
+          .fromTo(
+            image.querySelector(".image-container"),
+            {
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            },
+            {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              duration: 1.5,
+              ease: "power3.inOut",
+            },
+            "-=0.5"
+          );
+      });
+
+      ScrollTrigger.refresh();
+    }, containerRef);
+
+    return ctx; // return so we can revert later
+  };
+
+  const OPTIONS = {};
+
+  // 這裡定義你的背景圖片
+  const SLIDES = [
+    "/images/hero-img/img05.png",
+    "/images/ph_takahiradai-no-ie.jpg",
+    "/images/ph_esperanza.jpg",
+    "/images/ph_minna-no-ie.jpg",
+    "/images/ph_kumamoto-tasaki-clinic.jpg",
+    "/images/hadashinoie016-2048x1365.jpg.webp",
+  ];
+  const THUMBNAILS = [
+    "/images/hero-img/img05.png",
+    "/images/ph_takahiradai-no-ie.jpg",
+    "/images/ph_esperanza.jpg",
+    "/images/ph_minna-no-ie.jpg",
+    "/images/ph_kumamoto-tasaki-clinic.jpg",
+    "/images/hadashinoie016-2048x1365.jpg.webp",
+  ];
+  const [showNav, setShowNav] = useState(true);
+  let lastScrollY = 0;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (typeof window !== "undefined") {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > lastScrollY) {
+          setShowNav(false); // 向下滾 → 隱藏
+        } else {
+          setShowNav(true); // 向上滾 → 顯示
+        }
+
+        lastScrollY = currentScrollY;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   useEffect(() => {
     gsap.registerPlugin(CustomEase);
     CustomEase.create("hop", "0.9, 0, 0.1, 1");
@@ -86,7 +230,7 @@ export default function Home() {
     );
 
     tl.to(
-      ".block",
+      ".preloader-block",
       {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
         duration: 1,
@@ -143,8 +287,8 @@ export default function Home() {
     <>
       <div className="loader  ">
         <div className="overlay">
-          <div className="block"></div>
-          <div className="block"></div>
+          <div className="preloader-block !bg-[#35453F]"></div>
+          <div className="preloader-block !bg-[#35453F]"></div>
         </div>
 
         <div className="intro-logo">
@@ -236,8 +380,55 @@ export default function Home() {
               id="dark-section"
               className="absolute w-full  top-0 left-0 z-[1]"
             >
-              {" "}
-              <HeroSlider />
+              <section className="section-hero w-full aspect-[500/500] md:aspect-[1024/576] xl:aspect-[1920/1000] overflow-hidden relative">
+                {/* 背景圖片群組 */}
+                {backgroundImages.map((bg, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 1 }}
+                    animate={{
+                      opacity: i === currentIndex ? 1 : 0,
+                      scale: i === currentIndex ? 1.15 : 1, // 放大範圍加大
+                    }}
+                    transition={{
+                      opacity: { duration: 1.5, ease: "easeInOut" }, // 切換用淡入淡出
+                      scale: { duration: 20, ease: "linear" }, // 放大效果持續 20 秒
+                    }}
+                    className="absolute inset-0 bg-cover  bg-center bg-no-repeat z-0"
+                    style={{
+                      backgroundImage: `url(${bg})`,
+                    }}
+                  />
+                ))}
+
+                {/* 黑色遮罩 */}
+                <div className="bg-black opacity-40 w-full h-full absolute top-0 left-0 z-10" />
+
+                {/* 文字區塊 */}
+                {/* <div className="hero-title  w-1/2 absolute left-[4%] top-[90%] z-20">
+                  <div className="text-center px-4">
+                    <GsapText
+                      text="寬越設計."
+                      id="gsap-intro"
+                      fontSize="2.8rem"
+                      fontWeight="200"
+                      color="#fff"
+                      className="text-center tracking-widest !text-white  inline-block mb-0 h-auto"
+                    />
+                  </div>
+                  <div className="text-center px-4">
+                    <GsapText
+                      text="KuanKshi"
+                      id="gsap-intro"
+                      fontSize="1.2rem"
+                      fontWeight="200"
+                      color="#fff"
+                      lineHeight="30px"
+                      className="text-center !text-white tracking-widest inline-block mb-0 h-auto"
+                    />
+                  </div>
+                </div> */}
+              </section>
             </div>
             <div className="absolute top-[40%] -translate-x-1/2 -translate-y-1/2 left-1/2 z-50">
               <div className="line flex flex-col justify-center items-center">

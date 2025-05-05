@@ -19,6 +19,7 @@ import LogoLoader from "../components/Loderanimation.jsx";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
+  
   const imageRefs = useRef([]);
   const containerRef = useRef(null);
   const [loading, setLoading] = useState(true);
@@ -144,9 +145,6 @@ export default function About() {
               <span className="mt-6 leading-loose font--normal text-base sm:text-md text-center text-gray-800 max-w-3xl">
                 寬越設計專注於小資族、小家庭、小坪數的室內設計，<br></br>
                 主打50萬左右輕裝潢方案，打造兼具質感與機能的生活空間。
-                <br />
-                我們也提供中高階全室設計，涵蓋老屋翻新、預售屋客變、<br></br>
-                新成屋裝潢與系統櫃配置，依據預算與需求量身打造理想居所。
               </span>
             </div>
             <ThreedSlider />
@@ -260,8 +258,8 @@ export default function About() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3">
                   <div className="img w-ful  md:mt-0  md:max-w-[380px] mx-auto sm:mx-3 h-[450px] md:h-[500px] xl:h-[600px] flex flex-col mt-4 justify-end items-end  overflow-hidden">
                     <div className="animate-image-wrapper group h-[100%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
-                      <div className="title ">
-                        <AnimatedLink href="/project">
+                      <AnimatedLink href="/project">
+                        <div className="title ">
                           <div className="flex items-center">
                             <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
                               <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
@@ -275,43 +273,44 @@ export default function About() {
                               My Home Project
                             </h3>
                           </div>
-                        </AnimatedLink>
-                        <div className="flex items-center">
-                          {" "}
-                          <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
-                            Home
-                          </span>{" "}
-                          <p className="text-[.78rem] text-white">Dec.2019</p>
+
+                          <div className="flex items-center">
+                            {" "}
+                            <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
+                              Home
+                            </span>{" "}
+                            <p className="text-[.78rem] text-white">Dec.2019</p>
+                          </div>
                         </div>
-                      </div>
 
-                      <div className="overlay absolute inset-0 bg-black z-10"></div>
-                      <div className="relative w-full h-full overflow-hidden group grainy">
-                        {/* 原圖 */}
+                        <div className="overlay absolute inset-0 bg-black z-10"></div>
+                        <div className="relative w-full h-full overflow-hidden group grainy">
+                          {/* 原圖 */}
 
-                        <Image
-                          src="/images/481977410_122241519506031935_5824784297779272863_n.webp"
-                          alt="Image default"
-                          fill
-                          className="object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
+                          <Image
+                            src="/images/481977410_122241519506031935_5824784297779272863_n.webp"
+                            alt="Image default"
+                            fill
+                            className="object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
 
-                        {/* Hover 後顯示的圖 */}
-                        <Image
-                          src="/images/481976200_122241519434031935_4846893215767924547_n.webp"
-                          alt="Image hover"
-                          fill
-                          className="object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
-                      </div>
+                          {/* Hover 後顯示的圖 */}
+                          <Image
+                            src="/images/481976200_122241519434031935_4846893215767924547_n.webp"
+                            alt="Image hover"
+                            fill
+                            className="object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
+                        </div>
+                      </AnimatedLink>
                     </div>
                   </div>
                   <div className="img w-ful mt-4 md:mt-0  md:max-w-[380px] mx-auto sm:mx-3 h-[450px] md:h-[500px] xl:h-[600px] flex flex-col mt-4 justify-end items-end  overflow-hidden">
                     <div className="animate-image-wrapper group h-[100%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
-                      <div className="title ">
-                        <AnimatedLink href="/project">
+                      <AnimatedLink href="/project">
+                        <div className="title ">
                           <div className="flex items-center">
                             <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
                               <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
@@ -325,43 +324,44 @@ export default function About() {
                               My Home Project
                             </h3>
                           </div>
-                        </AnimatedLink>
-                        <div className="flex items-center">
-                          {" "}
-                          <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
-                            Home
-                          </span>{" "}
-                          <p className="text-[.78rem] text-white">Dec.2019</p>
+
+                          <div className="flex items-center">
+                            {" "}
+                            <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
+                              Home
+                            </span>{" "}
+                            <p className="text-[.78rem] text-white">Dec.2019</p>
+                          </div>
                         </div>
-                      </div>
 
-                      <div className="overlay absolute inset-0 bg-black z-10"></div>
-                      <div className="relative w-full h-full overflow-hidden group grainy">
-                        {/* 原圖 */}
+                        <div className="overlay absolute inset-0 bg-black z-10"></div>
+                        <div className="relative w-full h-full overflow-hidden group grainy">
+                          {/* 原圖 */}
 
-                        <Image
-                          src="/images/481976200_122241519434031935_4846893215767924547_n.webp"
-                          alt="Image default"
-                          fill
-                          className="object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
+                          <Image
+                            src="/images/481976200_122241519434031935_4846893215767924547_n.webp"
+                            alt="Image default"
+                            fill
+                            className="object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
 
-                        {/* Hover 後顯示的圖 */}
-                        <Image
-                          src="/images/481977410_122241519506031935_5824784297779272863_n.webp"
-                          alt="Image hover"
-                          fill
-                          className="object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
-                      </div>
+                          {/* Hover 後顯示的圖 */}
+                          <Image
+                            src="/images/481977410_122241519506031935_5824784297779272863_n.webp"
+                            alt="Image hover"
+                            fill
+                            className="object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
+                        </div>
+                      </AnimatedLink>
                     </div>
                   </div>
                   <div className="img w-ful mt-4 md:mt-0  md:max-w-[380px] mx-auto sm:mx-3 h-[450px] md:h-[500px] xl:h-[600px] flex flex-col mt-4 justify-end items-end  overflow-hidden">
                     <div className="animate-image-wrapper group h-[100%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
-                      <div className="title ">
-                        <AnimatedLink href="/project">
+                      <AnimatedLink href="/project">
+                        <div className="title ">
                           <div className="flex items-center">
                             <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
                               <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
@@ -375,43 +375,44 @@ export default function About() {
                               My Home Project
                             </h3>
                           </div>
-                        </AnimatedLink>
-                        <div className="flex items-center">
-                          {" "}
-                          <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
-                            Home
-                          </span>{" "}
-                          <p className="text-[.78rem] text-white">Dec.2019</p>
+
+                          <div className="flex items-center">
+                            {" "}
+                            <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
+                              Home
+                            </span>{" "}
+                            <p className="text-[.78rem] text-white">Dec.2019</p>
+                          </div>
                         </div>
-                      </div>
 
-                      <div className="overlay absolute inset-0 bg-black z-10"></div>
-                      <div className="relative w-full h-full overflow-hidden group grainy">
-                        {/* 原圖 */}
+                        <div className="overlay absolute inset-0 bg-black z-10"></div>
+                        <div className="relative w-full h-full overflow-hidden group grainy">
+                          {/* 原圖 */}
 
-                        <Image
-                          src="/images/486824855_122245695716031935_3372241001376026295_n.webp"
-                          alt="Image default"
-                          fill
-                          className="object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
+                          <Image
+                            src="/images/486824855_122245695716031935_3372241001376026295_n.webp"
+                            alt="Image default"
+                            fill
+                            className="object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
 
-                        {/* Hover 後顯示的圖 */}
-                        <Image
-                          src="/images/486824855_122245695716031935_3372241001376026295_n (1).webp"
-                          alt="Image hover"
-                          fill
-                          className="object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
-                      </div>
+                          {/* Hover 後顯示的圖 */}
+                          <Image
+                            src="/images/486824855_122245695716031935_3372241001376026295_n (1).webp"
+                            alt="Image hover"
+                            fill
+                            className="object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
+                        </div>
+                      </AnimatedLink>
                     </div>
                   </div>
                   <div className="img w-ful mt-4 md:mt-0  md:max-w-[380px] mx-auto sm:mx-3 h-[450px] md:h-[500px] xl:h-[600px] flex flex-col mt-4 justify-end items-end  overflow-hidden">
                     <div className="animate-image-wrapper group h-[100%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
-                      <div className="title ">
-                        <AnimatedLink href="/project">
+                      <AnimatedLink href="/project">
+                        <div className="title ">
                           <div className="flex items-center">
                             <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
                               <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
@@ -425,37 +426,38 @@ export default function About() {
                               My Home Project
                             </h3>
                           </div>
-                        </AnimatedLink>
-                        <div className="flex items-center">
-                          {" "}
-                          <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
-                            Home
-                          </span>{" "}
-                          <p className="text-[.78rem] text-white">Dec.2019</p>
+
+                          <div className="flex items-center">
+                            {" "}
+                            <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
+                              Home
+                            </span>{" "}
+                            <p className="text-[.78rem] text-white">Dec.2019</p>
+                          </div>
                         </div>
-                      </div>
 
-                      <div className="overlay absolute inset-0 bg-black z-10"></div>
-                      <div className="relative w-full h-full overflow-hidden group grainy">
-                        {/* 原圖 */}
+                        <div className="overlay absolute inset-0 bg-black z-10"></div>
+                        <div className="relative w-full h-full overflow-hidden group grainy">
+                          {/* 原圖 */}
 
-                        <Image
-                          src="/images/486824855_122245695716031935_3372241001376026295_n.webp"
-                          alt="Image default"
-                          fill
-                          className="object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
+                          <Image
+                            src="/images/486824855_122245695716031935_3372241001376026295_n.webp"
+                            alt="Image default"
+                            fill
+                            className="object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
 
-                        {/* Hover 後顯示的圖 */}
-                        <Image
-                          src="/images/486824855_122245695716031935_3372241001376026295_n (1).webp"
-                          alt="Image hover"
-                          fill
-                          className="object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100"
-                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                        />
-                      </div>
+                          {/* Hover 後顯示的圖 */}
+                          <Image
+                            src="/images/486824855_122245695716031935_3372241001376026295_n (1).webp"
+                            alt="Image hover"
+                            fill
+                            className="object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
+                        </div>
+                      </AnimatedLink>
                     </div>
                   </div>
                 </div>
