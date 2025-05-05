@@ -143,7 +143,7 @@ export default function FullInquiryForm() {
               key={type}
               value={type}
               classNames={{
-                control: "border-[#35453F] data-[selected=true]:bg-[#35453F]",
+                control: "border-[#375E77] data-[selected=true]:bg-[#375E77]",
               }}
             >
               {type}
@@ -172,7 +172,7 @@ export default function FullInquiryForm() {
               key={size}
               value={size}
               classNames={{
-                control: "border-[#35453F] data-[selected=true]:bg-[#35453F]",
+                control: "border-[#375E77] data-[selected=true]:bg-[#375E77]",
               }}
             >
               {size}
@@ -201,7 +201,7 @@ export default function FullInquiryForm() {
           <Button
             ref={buttonRef}
             type="submit"
-            className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-xl bg-[#35453F] text-white"
+            className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-xl bg-[#375E77] text-white"
           >
             送出表單
           </Button>

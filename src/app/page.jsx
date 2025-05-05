@@ -168,37 +168,8 @@ export default function About() {
                         寬越設計都能根據您的預算、需求，量身打造最適合的居所。
                       </p>
                     </div>
-                    <div className="txt">
-                      <div className="flex mt-6 items-center flex-col">
-                        <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden   px-60 md:px-4 ">
-                          <AnimatedLink href="/project">
-                            <span class="relative inline-flex overflow-hidden">
-                              <div class="absolute origin-bottom transition duration-500 !font-light !text-[1.2rem] [transform:translateX(-150%)_skewX(33deg)] group-hover:[transform:translateX(0)_skewX(0deg)]">
-                                看更多案例 →
-                              </div>
-                              <div class="transition !font-light !text-[1.2rem] duration-500 [transform:translateX(0%)_skewX(0deg)] group-hover:[transform:translateX(150%)_skewX(33deg)]">
-                                看更多案例 →
-                              </div>
-                            </span>
-                          </AnimatedLink>
-                        </button>
-                        <div className="flex flex-wrap">
-                          <div className="tag m-2 bg-gray-700 text-white hover:bg-gray-600 duration-400 px-4 py-1 rounded-full text-[.85rem]">
-                            商辦展示
-                          </div>
-                          <div className="tag m-2 bg-gray-700 text-white hover:bg-gray-600 duration-400 px-4 py-1 rounded-full text-[.85rem]">
-                            房屋改造
-                          </div>
-                          <div className="tag m-2 bg-gray-700 text-white hover:bg-gray-600 duration-400 px-4 py-1 rounded-full text-[.85rem]">
-                            自地自建
-                          </div>
-                          <div className="tag m-2 bg-gray-700 text-white hover:bg-gray-600 duration-400 px-4 py-1 rounded-full text-[.85rem]">
-                            舊屋翻新
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
                     <div className="img w-ful  md:mt-0  md:max-w-[380px] mx-auto sm:mx-3 h-[400px] md:h-[400px] xl:h-[430px] flex flex-col mt-4 justify-end items-end  overflow-hidden">
                       <div className="animate-image-wrapper group h-[100%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
@@ -645,7 +616,36 @@ export default function About() {
                       </div>
                     </div>
                   </div>
-
+                  <div className="txt">
+                    <div className="flex mt-6 items-center flex-col">
+                      <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden   px-60 md:px-4 ">
+                        <AnimatedLink href="/project">
+                          <span class="relative inline-flex overflow-hidden">
+                            <div class="absolute origin-bottom transition duration-500 !font-light !text-[1.2rem] [transform:translateX(-150%)_skewX(33deg)] group-hover:[transform:translateX(0)_skewX(0deg)]">
+                              看更多案例 →
+                            </div>
+                            <div class="transition !font-light !text-[1.2rem] duration-500 [transform:translateX(0%)_skewX(0deg)] group-hover:[transform:translateX(150%)_skewX(33deg)]">
+                              看更多案例 →
+                            </div>
+                          </span>
+                        </AnimatedLink>
+                      </button>
+                      <div className="flex flex-wrap">
+                        <div className="tag m-2 bg-gray-700 text-white hover:bg-gray-600 duration-400 px-4 py-1 rounded-full text-[.85rem]">
+                          商辦展示
+                        </div>
+                        <div className="tag m-2 bg-gray-700 text-white hover:bg-gray-600 duration-400 px-4 py-1 rounded-full text-[.85rem]">
+                          房屋改造
+                        </div>
+                        <div className="tag m-2 bg-gray-700 text-white hover:bg-gray-600 duration-400 px-4 py-1 rounded-full text-[.85rem]">
+                          自地自建
+                        </div>
+                        <div className="tag m-2 bg-gray-700 text-white hover:bg-gray-600 duration-400 px-4 py-1 rounded-full text-[.85rem]">
+                          舊屋翻新
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   {/* <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
             <TextGenerateEffect words="宜居" />
             <p>不與人同的作為</p>
@@ -670,8 +670,8 @@ export default function About() {
                 </div>
 
                 {/* 下面兩側文字按鈕 */}
-                <div className="flex flex-col md:flex-row justify-between mt-8 gap-8 px-3">
-                  {/* 左側文字 */}
+                {/* <div className="flex flex-col md:flex-row justify-between mt-8 gap-8 px-3">
+                  
                   <div className="w-full flex flex-col md:w-1/2">
                     <GsapText
                       text="從日常到夢想，專屬你的理想宅"
@@ -691,7 +691,6 @@ export default function About() {
                     </span>
                   </div>
 
-                  {/* 右側文字與按鈕 */}
                   <div className="w-full md:w-1/2 flex flex-col justify-end items-end text-right">
                     <span className="text-sm tracking-wide leading-relaxed text-gray-500 mb-5">
                       我們提供從新成屋裝潢、老屋翻新、預售屋客變到<br></br>
@@ -703,7 +702,7 @@ export default function About() {
                       </span>
                     </button>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 

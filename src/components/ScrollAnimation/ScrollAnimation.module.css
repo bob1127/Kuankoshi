@@ -120,7 +120,7 @@
 .borderFrame {
   position: fixed;
   inset: 0;
-  border: solid #35453F;
+  border: solid #375E77;
   border-width: 0px;
   opacity: 0;
   pointer-events: none;

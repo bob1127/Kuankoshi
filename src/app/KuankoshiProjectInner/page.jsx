@@ -179,7 +179,7 @@ export default function About() {
               </span>
             </div>
             <div className="sticky  my-4 top-24 ">
-              <div className="flex  px-4 flex-col border border-[#d7d7d7] bg-[#35453F]">
+              <div className="flex  px-4 flex-col border border-[#d7d7d7] bg-[#375E77]">
                 <h2 className="article-side-project-title text-white text-[1rem] font-normal tracking-widest">
                   326新成屋兩房57萬裝潢成家專案
                 </h2>

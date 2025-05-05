@@ -14,11 +14,11 @@ export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(null);
   const backgroundImages = [
-    "/images/hero-img/img07.png",
-    "/images/小資專案/468762259_122223978674031935_6019549633708583470_n.jpg",
-    "/images/hero-img/img06.png",
-    "/images/小資專案/469720578_122225453222031935_8767653310245579018_n.jpg",
-    "/images/小資專案/469120903_122223965966031935_3027154932930762522_n.jpg",
+    "/images/hero-img/006-八展首富_231221_8_0.jpg",
+    "/images/hero-img/007-八展首富_231221_2_0.jpg",
+    "/images/hero-img/002八展首富_231221_3_0.jpg",
+    "/images/hero-img/LINE_ALBUM_八展首富_231221_7_0.jpg",
+    "/images/hero-img/468947784_122223976550031935_8836870033944229922_n_0.jpg",
   ];
   useEffect(() => {
     const timer = setInterval(() => {
@@ -230,7 +230,7 @@ export default function Home() {
     );
 
     tl.to(
-      ".block",
+      ".preloader-block",
       {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
         duration: 1,
@@ -287,18 +287,18 @@ export default function Home() {
     <>
       <div className="loader  ">
         <div className="overlay">
-          <div className="block "></div>
-          <div className="block "></div>
+          <div className="preloader-block "></div>
+          <div className="preloader-block "></div>
         </div>
 
         <div className="intro-logo">
           <div className="word" id="word-1">
             <h1>
-              <span className="text-white">寬越</span>
+              <span className="text-gray-700">寬越</span>
             </h1>
           </div>
           <div className="word" id="word-2">
-            <h1 className="text-white">設計</h1>
+            <h1 className="text-gray-700">設計</h1>
           </div>
         </div>
 
@@ -311,42 +311,42 @@ export default function Home() {
         <div className="counter">
           <div className="count">
             <div className="digit">
-              <h1 className="text-white">0</h1>
+              <h1 className="text-gray-900">0</h1>
             </div>
             <div className="digit">
-              <h1 className="text-white">0</h1>
-            </div>
-          </div>
-          <div className="count">
-            <div className="digit">
-              <h1 className="text-white">2</h1>
-            </div>
-            <div className="digit">
-              <h1 className="text-white">7</h1>
+              <h1 className="text-gray-900">0</h1>
             </div>
           </div>
           <div className="count">
             <div className="digit">
-              <h1 className="text-white">6</h1>
+              <h1 className="text-gray-900">2</h1>
             </div>
             <div className="digit">
-              <h1 className="text-white">5</h1>
-            </div>
-          </div>
-          <div className="count">
-            <div className="digit">
-              <h1 className="text-white">9</h1>
-            </div>
-            <div className="digit">
-              <h1 className="text-white">8</h1>
+              <h1 className="text-gray-900">7</h1>
             </div>
           </div>
           <div className="count">
             <div className="digit">
-              <h1 className="text-white">9</h1>
+              <h1 className="text-gray-900">6</h1>
             </div>
             <div className="digit">
-              <h1 className="text-white">9</h1>
+              <h1 className="text-gray-900">5</h1>
+            </div>
+          </div>
+          <div className="count">
+            <div className="digit">
+              <h1 className="text-gray-900">9</h1>
+            </div>
+            <div className="digit">
+              <h1 className="text-gray-900">8</h1>
+            </div>
+          </div>
+          <div className="count">
+            <div className="digit">
+              <h1 className="text-gray-900">9</h1>
+            </div>
+            <div className="digit">
+              <h1 className="text-gray-900">9</h1>
             </div>
           </div>
         </div>
@@ -413,7 +413,7 @@ export default function Home() {
                       fontSize="2.8rem"
                       fontWeight="200"
                       color="#fff"
-                      className="text-center tracking-widest !text-white  inline-block mb-0 h-auto"
+                      className="text-center tracking-widest !text-gray-900  inline-block mb-0 h-auto"
                     />
                   </div>
                   <div className="text-center px-4">
@@ -424,7 +424,7 @@ export default function Home() {
                       fontWeight="200"
                       color="#fff"
                       lineHeight="30px"
-                      className="text-center !text-white tracking-widest inline-block mb-0 h-auto"
+                      className="text-center !text-gray-900 tracking-widest inline-block mb-0 h-auto"
                     />
                   </div>
                 </div> */}
@@ -432,15 +432,15 @@ export default function Home() {
             </div>
             <div className="absolute top-[40%] -translate-x-1/2 -translate-y-1/2 left-1/2 z-50">
               <div className="line flex flex-col justify-center items-center">
-                <h1 className="text-white text-center text-[2.5rem]">
-                  <span className="text-white">kuankoshi</span>{" "}
-                  <span className="text-white font-normal">
+                <h1 className="text-gray-900 text-center text-[2.5rem]">
+                  <span className="text-gray-50">kuankoshi</span>{" "}
+                  <span className="text-gray-50 font-normal">
                     Interior Design,
                   </span>
                 </h1>
               </div>
               {/* <div className="line flex flex-col justify-center items-center">
-                <h1 className="text-white text-[1.2rem] font-light">
+                <h1 className="text-gray-900 text-[1.2rem] font-light">
                   帶著愉悅的心 <span>圓滿您的居家生活</span>
                 </h1>
               </div> */}

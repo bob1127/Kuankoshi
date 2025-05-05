@@ -178,7 +178,7 @@ const Photos = () => {
           </section>
         </section>
 
-        <section className="flex py-[140px] bg-[#35453F]">
+        <section className="flex py-[140px] bg-[#375E77]">
           <div className="w-[30%]  flex items-center justify-end">
             <div className="card-text flex flex-col justify-center items-center">
               <h2 className="text-[9.5vmin] text-[#F1F1F1] rotate-[90deg] tracking-wide">

@@ -174,7 +174,7 @@ const Menu = ({ isDarkBg }) => {
 
       <div
         ref={menuRef}
-        className="fixed top-0 left-0 w-full h-screen py-20 flex bg-[#35453F] z-[3] overflow-y-auto"
+        className="fixed top-0 left-0 w-full h-screen py-20 flex bg-[#375E77] z-[3] overflow-y-auto"
         style={{ clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" }}
       >
         <div className="w-[90%] max-w-[1400px] mx-auto flex flex-col justify-center items-center menu-content">
