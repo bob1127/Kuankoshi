@@ -35,7 +35,7 @@ const MenuBtn = ({ isOpen, toggleMenu }) => {
       className={`menu-toggle  ${isOpen ? "opened" : "closed"}`}
       onClick={toggleMenu}
     >
-      <div className="menu-copy ">
+      <div className="menu-copy  2xl:mt-1">
         <p id="menu-open" ref={menuBtnOpen}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

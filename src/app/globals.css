@@ -6,9 +6,9 @@
 @font-face {
   font-family: 'PingFang TC';
   src: local('PingFang TC Regular'),
-       local('PingFang TC'),
-       local('PingFang SC Regular'),
-       local('PingFang SC');
+    local('PingFang TC'),
+    local('PingFang SC Regular'),
+    local('PingFang SC');
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +16,7 @@
 @font-face {
   font-family: 'PingFang TC';
   src: local('PingFang TC Medium'),
-       local('PingFang SC Medium');
+    local('PingFang SC Medium');
   font-weight: 200;
   font-style: normal;
 }
@@ -24,7 +24,7 @@
 @font-face {
   font-family: 'PingFang TC';
   src: local('PingFang TC Semibold'),
-       local('PingFang SC Semibold');
+    local('PingFang SC Semibold');
   font-weight: 600;
   font-style: normal;
 }
@@ -32,18 +32,27 @@
 @font-face {
   font-family: 'PingFang TC';
   src: local('PingFang TC Bold'),
-       local('PingFang SC Bold');
+    local('PingFang SC Bold');
   font-weight: bold;
   font-style: normal;
 }
 
 /* 自定義文字 */
-body{
+body {
   @apply bg-[var(--main-beige-color)]
 }
 
 /* 應用 YakuHan JP 和蘋方字體 */
-body, h1, h2, h3, h4, h5, h6, p, span, div {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div {
   font-feature-settings: "palt";
   -webkit-font-feature-settings: "palt";
   -moz-font-feature-settings: "palt";
@@ -55,56 +64,55 @@ body, h1, h2, h3, h4, h5, h6, p, span, div {
 h1 {
   @apply text-[3rem] font-semibold text-gray-800 mt-4 mb-6;
 }
+
 h2 {
-  @apply text-[2.2rem] font-semibold  mt-4 mb-6;
-  color: var( --font-deep-black);
+  @apply text-[2.2rem] font-semibold mt-4 mb-6;
+  color: var(--font-deep-black);
 }
-p{
-  @apply text-[1rem] ;
+
+p {
+  @apply text-[1rem];
   color: var(--dark-light-gray);
 }
+
 :root {
   /* 標題和內文顏色 */
-  --font-deep-black: #1b1b1b;  
-  --font-deep-gray: #1f1f1f; 
-  --dark-light-gray: #3a3a3a;    
-/* 主題色和輔助色 */
-   --main-green-color: #333;
-   --main-beige-color: #f5f1ec;
-   
-/* 第三方插件顏色 */
-  --white-gradient: repeating-linear-gradient(
-    100deg,
-    var(--white) 0%,
-    var(--white) 7%,
-    var(--transparent) 10%,
-    var(--transparent) 12%,
-    var(--white) 16%
-  );
-  --dark-gradient: repeating-linear-gradient(
-    100deg,
-    var(--black) 0%,
-    var(--black) 7%,
-    var(--transparent) 10%,
-    var(--transparent) 12%,
-    var(--black) 16%
-  );
-  --aurora: repeating-linear-gradient(
-    100deg,
-    var(--blue-500) 10%,
-    var(--indigo-300) 15%,
-    var(--blue-300) 10%,
-    var(--violet-200) 15%,
-    var(--blue-400) 10%
-  );
+  --font-deep-black: #1b1b1b;
+  --font-deep-gray: #1f1f1f;
+  --dark-light-gray: #3a3a3a;
+  /* 主題色和輔助色 */
+  --main-green-color: #333;
+  --main-beige-color: #f5f1ec;
+
+  /* 第三方插件顏色 */
+  --white-gradient: repeating-linear-gradient(100deg,
+      var(--white) 0%,
+      var(--white) 7%,
+      var(--transparent) 10%,
+      var(--transparent) 12%,
+      var(--white) 16%);
+  --dark-gradient: repeating-linear-gradient(100deg,
+      var(--black) 0%,
+      var(--black) 7%,
+      var(--transparent) 10%,
+      var(--transparent) 12%,
+      var(--black) 16%);
+  --aurora: repeating-linear-gradient(100deg,
+      var(--blue-500) 10%,
+      var(--indigo-300) 15%,
+      var(--blue-300) 10%,
+      var(--violet-200) 15%,
+      var(--blue-400) 10%);
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -141,6 +149,7 @@ body {
   transform: translateY(40px);
   filter: blur(12px);
 }
+
 .pre-loader {
   position: fixed;
   top: 0;
@@ -198,7 +207,7 @@ body {
   position: relative;
   transform: translateY(70px);
   will-change: transform;
-  color:white;
+  color: white;
 }
 
 @media (max-width: 900px) {
@@ -206,23 +215,17 @@ body {
     width: 90%;
   }
 }
+
 @layer base {
   .wrapper {
     --col-width: 130px;
-
-    @apply grid w-full gap-2 md:gap-4;
+    @apply grid w-full gap-2;
     grid-template-columns:
-      [full-start]
-      minmax(0, 100%)
-      [wide-start]
-      repeat(2, minmax(0, var(--col-width)))
-      [narrow-start]
-      repeat(8, minmax(0, var(--col-width)))
-      [narrow-end]
-      repeat(2, minmax(0, var(--col-width)))
-      [wide-end]
-      minmax(0, 100%)
-      [full-end];
+      [full-start] minmax(0, 100%) [wide-start]
+      repeat(2, minmax(0, var(--col-width))) [narrow-start]
+      repeat(8, minmax(0, var(--col-width))) [narrow-end]
+      repeat(2, minmax(0, var(--col-width))) [wide-end]
+      minmax(0, 100%) [full-end];
   }
 
   .wrapper > * {
@@ -233,7 +236,7 @@ body {
     grid-column: full;
   }
 
-  @media (min-width: theme("screens.md")) {
+  @media (min-width: 768px) {
     .wrapper > * {
       grid-column: narrow;
     }
@@ -251,10 +254,6 @@ body {
     }
   }
 
-  /* The @property tells the browser what type this variable is,
-    a percentage in our case. If we would not add that here, the
-    browser would not be able to animate it from 0% to 100%.
-  */
   @property --progress {
     syntax: "<percentage>";
     inherits: false;
@@ -273,13 +272,11 @@ body {
        makes this so much easier for us now.
     */
     --progress: 0%;
-    background-image: linear-gradient(
-      to right,
-      var(--higlighted-color),
-      var(--higlighted-color) var(--progress),
-      var(--faded-color) var(--progress),
-      var(--faded-color)
-    );
+    background-image: linear-gradient(to right,
+        var(--higlighted-color),
+        var(--higlighted-color) var(--progress),
+        var(--faded-color) var(--progress),
+        var(--faded-color));
     background-clip: text;
     background-repeat: no-repeat;
     color: transparent;
@@ -325,6 +322,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -357,6 +355,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -366,33 +365,41 @@ body {
 [data-aos="fade-up-blur"] {
   opacity: 0.8;
   transform: translateY(20px);
-  filter: blur(50px); /* 初始模糊程度 */
-  transition: 
-    opacity 1.2s ease-out, 
-    transform 1.2s ease-out, 
-    filter 3s cubic-bezier(0.19, 1, 0.22, 1); /* 讓模糊過渡更慢更順暢 */
+  filter: blur(50px);
+  /* 初始模糊程度 */
+  transition:
+    opacity 1.2s ease-out,
+    transform 1.2s ease-out,
+    filter 3s cubic-bezier(0.19, 1, 0.22, 1);
+  /* 讓模糊過渡更慢更順暢 */
 }
 
 [data-aos="fade-up-blur"].aos-animate {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0px); /* 清晰 */
+  filter: blur(0px);
+  /* 清晰 */
 }
+
 .hero-video {
-  position: relative; /* 確保遮罩的 absolute 參考這個區塊 */
+  position: relative;
+  /* 確保遮罩的 absolute 參考這個區塊 */
   width: 100vw;
-  height: 100vh; /* 讓影片佔滿手機螢幕 */
+  height: 100vh;
+  /* 讓影片佔滿手機螢幕 */
   overflow: hidden;
 }
 
 .video-bg {
   width: 100vw;
   height: 100vh;
-  object-fit: cover; /* 讓影片填滿畫面 */
+  object-fit: cover;
+  /* 讓影片填滿畫面 */
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1; /* 影片在最底層 */
+  z-index: -1;
+  /* 影片在最底層 */
 }
 
 /* 黑色遮罩 */
@@ -402,9 +409,12 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5); /* 黑色半透明遮罩 */
-  z-index: 1; /* 讓遮罩覆蓋影片 */
+  background: rgba(0, 0, 0, 0.5);
+  /* 黑色半透明遮罩 */
+  z-index: 1;
+  /* 讓遮罩覆蓋影片 */
 }
+
 .col {
   flex: 1;
 }
@@ -454,7 +464,8 @@ body {
 ::view-transition-old(root) {
   z-index: 1;
   animation: none !important;
-} 
+}
+
 /* public/logo-loader.css */
 .logo-stroke {
   stroke-dasharray: 600;
@@ -467,6 +478,7 @@ body {
     stroke-dashoffset: 0;
   }
 }
+
 /* 
 .container {
   position: relative;
@@ -495,7 +507,7 @@ body {
   will-change: transform;
 }
 
-.nav > div {
+.nav>div {
   flex: 1;
 }
 
@@ -559,6 +571,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .cta-label p {
   color: #000;
 }
@@ -583,7 +596,7 @@ body {
   width: 100vw;
   height: 100svh;
   overflow: hidden;
-  z-index: 2;
+  z-index: 9999999999;
 }
 
 .overlay {
@@ -594,7 +607,12 @@ body {
   display: flex;
 }
 
+.block {
+  width: 100%;
+  height: 100%;
 
+  background: #35453F;
+}
 
 .intro-logo {
   position: absolute;
@@ -693,24 +711,22 @@ body {
 .count .digit {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
-.word{
-  overflow: hidden;
-}
+
 .line h1,
 .line p,
 .cta-label p,
 .count .digit h1 {
   position: relative;
-  transform: translateY(130%);
+  transform: translateY(120%);
   will-change: transform;
 }
 
 #word-1 h1 {
-  transform: translateY(-130%) ;
+  transform: translateY(-130%);
 }
 
 #word-2 h1 {
-  transform: translateY(-130%);
+  transform: translateY(120%);
 }
 
 .block {
@@ -740,6 +756,7 @@ body {
     width: 90%;
   }
 }
+
 .embla {
   max-width: 48rem;
   margin: auto;
@@ -747,20 +764,24 @@ body {
   --slide-spacing: 1rem;
   --slide-size: 65%;
 }
+
 .embla__viewport {
   overflow: hidden;
 }
+
 .embla__container {
   display: flex;
   touch-action: pan-y pinch-zoom;
   margin-left: calc(var(--slide-spacing) * -1);
 }
+
 .embla__slide {
   transform: translate3d(0, 0, 0);
   flex: 0 0 var(--slide-size);
   min-width: 0;
   padding-left: var(--slide-spacing);
 }
+
 .embla__slide__number {
   box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
   border-radius: 1.8rem;
@@ -772,6 +793,7 @@ body {
   height: var(--slide-height);
   user-select: none;
 }
+
 .embla__controls {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -779,12 +801,14 @@ body {
   gap: 1.2rem;
   margin-top: 1.8rem;
 }
+
 .embla__buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.6rem;
   align-items: center;
 }
+
 .embla__button {
   -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
   -webkit-appearance: none;
@@ -807,13 +831,16 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .embla__button:disabled {
   color: var(--detail-high-contrast);
 }
+
 .embla__button__svg {
   width: 35%;
   height: 35%;
 }
+
 .embla__progress {
   border-radius: 1.8rem;
   box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
@@ -826,6 +853,7 @@ body {
   max-width: 90%;
   overflow: hidden;
 }
+
 .embla__progress__bar {
   background-color: var(--text-body);
   position: absolute;
@@ -834,6 +862,7 @@ body {
   bottom: 0;
   left: -100%;
 }
+
 .swiper-style-wrapper {
   --swiper-navigation-color: #fff;
   --swiper-pagination-color: #fff;
