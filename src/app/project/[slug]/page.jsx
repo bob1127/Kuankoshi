@@ -31,16 +31,8 @@ function extractImagesForCarousel(html, count = 5) {
 }
 
 export async function generateStaticParams() {
-  const categoryRes = await fetch(
-    "https://starislandbaby.com/test/wp-json/wp/v2/categories?slug=project"
-  );
-  const categories = await categoryRes.json();
-  const categoryId = categories?.[0]?.id || null;
-
-  if (!categoryId) return [];
-
   const postsRes = await fetch(
-    `https://starislandbaby.com/test/wp-json/wp/v2/posts?categories=${categoryId}&per_page=100`
+    `https://kuankoshi.com/wp-json/wp/v2/posts?per_page=100&_embed`
   );
   const posts = await postsRes.json();
 
@@ -49,7 +41,7 @@ export async function generateStaticParams() {
 
 async function getPost(slug) {
   const res = await fetch(
-    `https://starislandbaby.com/test/wp-json/wp/v2/posts?slug=${slug}&_embed`,
+    `https://kuankoshi.com/wp-json/wp/v2/posts?slug=${slug}&_embed`,
     { next: { revalidate: 5 } }
   );
   const posts = await res.json();
