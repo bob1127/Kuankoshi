@@ -16,6 +16,14 @@ const Photos = () => {
   const previewsRef = useRef(null);
   const sliderRef = useRef(null);
 
+  // ✅ 指定圖片路徑
+  const imagePaths = [
+    "/images/小資專案/468661269_122223979160031935_3338016445612834353_n.jpg",
+    "/images/小資專案/003-烏日透天-魏s_241207_5.jpg",
+    "/images/小資專案/006-20250224-109.jpg",
+    "/images/小資專案/469120903_122223965966031935_3027154932930762522_n.jpg",
+  ];
+
   useGSAP(
     () => {
       gsap.registerPlugin(CustomEase);
@@ -25,7 +33,7 @@ const Photos = () => {
       );
 
       let currentImg = 1;
-      const totalSlides = 4;
+      const totalSlides = imagePaths.length;
       let indicatorRotation = 0;
 
       function updateCounterAndTitlePosition() {
@@ -46,8 +54,8 @@ const Photos = () => {
       }
 
       function updateActiveSlidePreview() {
-        previewsRef.current.forEach((prev) => prev.classList.remove("active"));
-        previewsRef.current[currentImg - 1].classList.add("active");
+        previewsRef.current?.forEach((prev) => prev.classList.remove("active"));
+        previewsRef.current?.[currentImg - 1]?.classList.add("active");
       }
 
       function animateSlide(direction) {
@@ -57,7 +65,7 @@ const Photos = () => {
         slideImg.classList.add("img");
 
         const slideImgElem = document.createElement("img");
-        slideImgElem.src = `/assets/img${currentImg}.jpg`;
+        slideImgElem.src = imagePaths[currentImg - 1];
         gsap.set(slideImgElem, { x: direction === "left" ? -500 : 500 });
 
         slideImg.appendChild(slideImgElem);
@@ -97,7 +105,7 @@ const Photos = () => {
           .call(() => cleanupSlides(), null, 1.5);
 
         indicatorRotation += direction === "left" ? -90 : 90;
-        gsap.to(indicatorsRef.current.children, {
+        gsap.to(indicatorsRef.current?.children, {
           rotate: indicatorRotation,
           duration: 1,
           ease: "hop2",
@@ -124,29 +132,20 @@ const Photos = () => {
         updateCounterAndTitlePosition();
       }
 
-      // 啟用自動輪播
-      const autoSlideInterval = setInterval(nextSlide, 4000); // 每4秒切換一次
+      const autoSlideInterval = setInterval(nextSlide, 4000);
 
-      // 仍保留手動點擊邏輯（可選）
       function handleClick(event) {
         const sliderWidth = sliderRef.current.clientWidth;
         const clickPosition = event.clientX;
 
         if (event.target.closest(".slider-preview")) {
           const clickedPrev = event.target.closest(".preview");
-
           if (clickedPrev) {
             const clickedIndex =
               Array.from(previewsRef.current).indexOf(clickedPrev) + 1;
-
             if (clickedIndex !== currentImg) {
-              if (clickedIndex < currentImg) {
-                currentImg = clickedIndex;
-                animateSlide("left");
-              } else {
-                currentImg = clickedIndex;
-                animateSlide("right");
-              }
+              currentImg = clickedIndex;
+              animateSlide(clickedIndex < currentImg ? "left" : "right");
               updateActiveSlidePreview();
               updateCounterAndTitlePosition();
             }
@@ -172,9 +171,7 @@ const Photos = () => {
       sliderRef.current.addEventListener("click", handleClick);
 
       return () => {
-        if (sliderRef.current) {
-          sliderRef.current.removeEventListener("click", handleClick);
-        }
+        sliderRef.current?.removeEventListener("click", handleClick);
         clearInterval(autoSlideInterval);
       };
     },
@@ -186,7 +183,10 @@ const Photos = () => {
       <div className="slider" ref={sliderRef}>
         <div className="slider-images" ref={sliderImagesRef}>
           <div className="img">
-            <img src="/assets/img1.jpg" alt="" className="" />
+            <img
+              src="/images/小資專案/468661269_122223979160031935_3338016445612834353_n.jpg"
+              alt="slide-1"
+            />
           </div>
         </div>
 

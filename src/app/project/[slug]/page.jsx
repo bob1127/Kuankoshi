@@ -4,7 +4,7 @@ import Head from "next/head";
 import { Suspense } from "react";
 import Categories from "../../../components/categories.jsx";
 
-import EmblaCarouselWrapper from "../../../components/EmblaCarousel07/EmblaCarouselWrapper";
+import HeroSlider from "../../../components/HeroSlideContact/page.jsx";
 import HoverItem from "../../../components/HoverItem.jsx";
 import Marquee from "react-fast-marquee";
 import gsap from "gsap";
@@ -59,22 +59,23 @@ const ProjectPage = async ({ params }) => {
       </Head>
 
       <section className="section-Hero-img w-full">
-        <div className="flex flex-col md:flex-row gap-6">
-          <div className="w-full md:w-1/2">
-            {firstImage && (
+        <div className="w-full">
+          <HeroSlider />
+          {/* {firstImage && (
               <div className="relative w-full aspect-[3/2] min-h-[450px] overflow-hidden">
                 <Image
                   src={firstImage}
-                  alt="封面圖片"
+                  alt="hero-img"
                   fill
                   placeholder="empty"
+                  loading="eager"
                   className="object-cover scale-[1.3] blur-sm opacity-0 animate-heroFadeIn"
                 />
               </div>
-            )}
-          </div>
-
-          <div className="w-full md:w-1/2 bg-white">
+            )} */}
+        </div>
+        <div className="flex w-[90%] mt-20 max-w-[1920px] mx-auto flex-col">
+          <div className="w-full bg-white">
             <div className="p-10">
               <span className="tracking-widest text-gray-500">
                 Case - 00234
@@ -88,7 +89,7 @@ const ProjectPage = async ({ params }) => {
         </div>
       </section>
 
-      <section className="py-[150px] flex flex-col px-20 lg:flex-row pt-8 mt-20 pb-[80px]  border-t-1 border-gray-300 w-full ">
+      <section className="pb-[150px] flex flex-col px-20 lg:flex-row pt-8   border-t-1 border-gray-300 w-full ">
         <div className=" w-full lg:w-[15%]">
           <div className="sticky pl-5 top-24  ">
             <Suspense fallback={<div></div>}>

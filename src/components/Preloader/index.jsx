@@ -11,6 +11,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BsCart, BsArrowRight } from "react-icons/bs";
 import HeroSlider from "../HeroSlider/page";
 export default function Home() {
+  const [showLoader, setShowLoader] = useState(false);
+  // 判斷是否第一次載入網站
+  useEffect(() => {
+    const hasVisited = localStorage.getItem("hasVisited");
+    if (!hasVisited) {
+      setShowLoader(true);
+      localStorage.setItem("hasVisited", "true");
+    } else {
+      setShowLoader(false);
+    }
+  }, []);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(null);
   const backgroundImages = [
@@ -285,73 +296,74 @@ export default function Home() {
 
   return (
     <>
-      <div className="loader  ">
-        <div className="overlay">
-          <div className="preloader-block "></div>
-          <div className="preloader-block "></div>
+      {showLoader && (
+        <div className="loader  ">
+          <div className="overlay">
+            <div className="preloader-block "></div>
+            <div className="preloader-block "></div>
+          </div>
+
+          <div className="intro-logo">
+            <div className="word" id="word-1">
+              <h1>
+                <span className="text-gray-700">寬越</span>
+              </h1>
+            </div>
+            <div className="word" id="word-2">
+              <h1 className="text-gray-700">設計</h1>
+            </div>
+          </div>
+
+          <div className="divider"></div>
+
+          <div className="spinner-container">
+            <div className="spinner"></div>
+          </div>
+
+          <div className="counter">
+            <div className="count">
+              <div className="digit">
+                <h1 className="text-gray-900">0</h1>
+              </div>
+              <div className="digit">
+                <h1 className="text-gray-900">0</h1>
+              </div>
+            </div>
+            <div className="count">
+              <div className="digit">
+                <h1 className="text-gray-900">2</h1>
+              </div>
+              <div className="digit">
+                <h1 className="text-gray-900">7</h1>
+              </div>
+            </div>
+            <div className="count">
+              <div className="digit">
+                <h1 className="text-gray-900">6</h1>
+              </div>
+              <div className="digit">
+                <h1 className="text-gray-900">5</h1>
+              </div>
+            </div>
+            <div className="count">
+              <div className="digit">
+                <h1 className="text-gray-900">9</h1>
+              </div>
+              <div className="digit">
+                <h1 className="text-gray-900">8</h1>
+              </div>
+            </div>
+            <div className="count">
+              <div className="digit">
+                <h1 className="text-gray-900">9</h1>
+              </div>
+              <div className="digit">
+                <h1 className="text-gray-900">9</h1>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div className="intro-logo">
-          <div className="word" id="word-1">
-            <h1>
-              <span className="text-gray-700">寬越</span>
-            </h1>
-          </div>
-          <div className="word" id="word-2">
-            <h1 className="text-gray-700">設計</h1>
-          </div>
-        </div>
-
-        <div className="divider"></div>
-
-        <div className="spinner-container">
-          <div className="spinner"></div>
-        </div>
-
-        <div className="counter">
-          <div className="count">
-            <div className="digit">
-              <h1 className="text-gray-900">0</h1>
-            </div>
-            <div className="digit">
-              <h1 className="text-gray-900">0</h1>
-            </div>
-          </div>
-          <div className="count">
-            <div className="digit">
-              <h1 className="text-gray-900">2</h1>
-            </div>
-            <div className="digit">
-              <h1 className="text-gray-900">7</h1>
-            </div>
-          </div>
-          <div className="count">
-            <div className="digit">
-              <h1 className="text-gray-900">6</h1>
-            </div>
-            <div className="digit">
-              <h1 className="text-gray-900">5</h1>
-            </div>
-          </div>
-          <div className="count">
-            <div className="digit">
-              <h1 className="text-gray-900">9</h1>
-            </div>
-            <div className="digit">
-              <h1 className="text-gray-900">8</h1>
-            </div>
-          </div>
-          <div className="count">
-            <div className="digit">
-              <h1 className="text-gray-900">9</h1>
-            </div>
-            <div className="digit">
-              <h1 className="text-gray-900">9</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      )}
       <div className="container">
         <div className="hero-img">
           <Image src="/hero-img.jpg" alt="KindRoot Hero Image" fill priority />
