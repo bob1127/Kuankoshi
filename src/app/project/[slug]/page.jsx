@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export async function generateStaticParams() {
   const postsRes = await fetch(
-    `https://kuankoshi.com/wp-json/wp/v2/posts?per_page=100&_embed`
+    `https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?per_page=100&_embed`
   );
   const posts = await postsRes.json();
 
@@ -23,7 +23,7 @@ export async function generateStaticParams() {
 
 async function getPost(slug) {
   const res = await fetch(
-    `https://kuankoshi.com/wp-json/wp/v2/posts?slug=${slug}&_embed`,
+    `https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?slug=${slug}&_embed`,
     { next: { revalidate: 5 } }
   );
   const posts = await res.json();

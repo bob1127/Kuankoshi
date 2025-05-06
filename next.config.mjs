@@ -1,10 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-     images: {
+  images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**", // 允許任何來源
+        hostname: "kuankoshi.com",
+      },
+      {
+        protocol: "https",
+        hostname: "api.kuankoshi.com",
+      },
+      {
+        protocol: "https",
+        hostname: "inf.fjg.mybluehost.me", // ← 加入這個
       },
     ],
   },
