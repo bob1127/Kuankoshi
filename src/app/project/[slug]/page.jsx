@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Head from "next/head";
+import { Suspense } from "react";
+import Categories from "../../../components/categories.jsx";
+
 import EmblaCarouselWrapper from "../../../components/EmblaCarousel07/EmblaCarouselWrapper";
 import HoverItem from "../../../components/HoverItem.jsx";
 import Marquee from "react-fast-marquee";
@@ -8,27 +11,6 @@ import gsap from "gsap";
 import Link from "next/link";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-// 抽出前 N 張 <img> 作為輪播，其他圖片保留在內容中
-
-function extractImagesForCarousel(html, count = 5) {
-  const images = [];
-  let imgTagCount = 0;
-
-  const cleanedHTML = html.replace(
-    /<img[^>]+src="([^">]+)"[^>]*>/gi,
-    (match, src) => {
-      if (imgTagCount < count) {
-        images.push(src);
-        imgTagCount++;
-        return ""; // 從內文中移除輪播圖片
-      } else {
-        return match; // 其餘圖片保留
-      }
-    }
-  );
-
-  return { images, cleanedHTML };
-}
 
 export async function generateStaticParams() {
   const postsRes = await fetch(
@@ -62,18 +44,12 @@ const ProjectPage = async ({ params }) => {
   const post = await getPost(params.slug);
   if (!post) return notFound();
 
-  // 這裡設為 5，抽出前 5 張圖進輪播
-  const { images, cleanedHTML } = extractImagesForCarousel(
-    post.content.rendered,
-    5
-  );
-
-  const featuredImage =
-    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-    "/images/fallback.jpg";
+  // 不移除圖片，只抽出第一張顯示在 Hero
+  const match = post.content.rendered.match(/<img[^>]+src="([^">]+)"/i);
+  const firstImage = match?.[1];
 
   return (
-    <div className="px-6 py-12 w-full bg-[#f4f2f1]">
+    <div className=" py-12 w-full ">
       <Head>
         <title>{post.title.rendered}｜寬越設計</title>
         <meta
@@ -82,52 +58,48 @@ const ProjectPage = async ({ params }) => {
         />
       </Head>
 
-      <div className="title mx-auto max-w-[1920px] mt-[100px] w-[70%] flex flex-col">
-        <span className="tracking-widest text-gray-500">Case - 00234</span>
-        <h1
-          className="text-3xl tracking-widest mb-4"
-          dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-        />
-      </div>
+      <section className="section-Hero-img w-full">
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="w-full md:w-1/2">
+            {firstImage && (
+              <div className="relative w-full aspect-[3/2] min-h-[450px] overflow-hidden">
+                <Image
+                  src={firstImage}
+                  alt="封面圖片"
+                  fill
+                  placeholder="empty"
+                  className="object-cover scale-[1.3] blur-sm opacity-0 animate-heroFadeIn"
+                />
+              </div>
+            )}
+          </div>
 
-      {/* 顯示輪播（如果有圖片的話） */}
-      {images.length > 0 && (
-        <EmblaCarouselWrapper slides={images} thumbnails={images} />
-      )}
-
-      <Image
-        src={featuredImage}
-        alt={post.title.rendered}
-        width={800}
-        height={500}
-        className="rounded-lg mb-6"
-      />
+          <div className="w-full md:w-1/2 bg-white">
+            <div className="p-10">
+              <span className="tracking-widest text-gray-500">
+                Case - 00234
+              </span>
+              <h1
+                className="text-3xl tracking-widest mb-4"
+                dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="py-[150px] flex flex-col px-20 lg:flex-row pt-8 mt-20 pb-[80px]  border-t-1 border-gray-300 w-full ">
         <div className=" w-full lg:w-[15%]">
-          <div className="sticky pl-5 top-24 border border-black">
-            <b>categories</b>
-            <p className="text-[.95rem] mt-3 font-bold tracking-wider">All</p>
-            <p className="text-[.95rem] mt-3 font-bold tracking-wider">
-              Project
-            </p>
-            <p className="text-[.95rem] mt-3 font-bold tracking-wider">
-              Project
-            </p>
-            <p className="text-[.95rem] mt-3 font-bold tracking-wider">
-              Project
-            </p>
-            <p className="text-[.95rem] mt-3 font-bold tracking-wider">
-              Project
-            </p>
-            <p className="text-[.95rem] mt-3 font-bold tracking-wider">
-              Project
-            </p>
+          <div className="sticky pl-5 top-24  ">
+            <Suspense fallback={<div></div>}>
+              <Categories />
+            </Suspense>
           </div>
         </div>
+
         <div
-          className="prose prose-neutral w-[60%]"
-          dangerouslySetInnerHTML={{ __html: cleanedHTML }}
+          className="prose prose-neutral w-[60%] 2xl:px-[150px] px-4 md:px-[70px] [&_img]:my-8"
+          dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         />
         <div className=" w-full py-10 px-5 sm:px-0 lg:py-0 sm:w-[60%] mx-auto lg:w-[25%] pr-8  flex flex-col">
           <div className="">
@@ -137,40 +109,46 @@ const ProjectPage = async ({ params }) => {
             </span>
           </div>
           <div className="sticky  my-4 top-24 ">
-            <div className="flex  px-4 flex-col border border-[#d7d7d7] bg-[#fffdfa]">
-              <h2 className="article-side-project-title text-[1rem] font-normal tracking-widest">
+            <div className="flex  px-4 flex-col border border-[#d7d7d7] bg-[#375E77]">
+              <h2 className="article-side-project-title text-white text-[1rem] font-normal tracking-widest">
                 326新成屋兩房57萬裝潢成家專案
               </h2>
               <div className="feature">
                 <div className="border-t-1 py-4 px-1 flex justify-between items-center border-gray-400">
-                  <b className="text-[.9rem] font-normal">裝潢價格：</b>
-                  <span className="text-[.85rem] font-normal text-gray-700">
+                  <b className="text-[.9rem] font-normal text-white">
+                    裝潢價格：
+                  </b>
+                  <span className="text-[.85rem]  font-normal text-white">
                     約新台幣 180 萬元​
                   </span>
                 </div>
                 <div className="border-t-1 py-4 px-1 flex justify-between items-center border-gray-400">
-                  <b className="text-[.9rem] font-normal">裝潢坪數：</b>
-                  <span className="text-[.85rem] font-normal text-gray-700">
+                  <b className="text-[.9rem] font-normal text-white">
+                    裝潢坪數：
+                  </b>
+                  <span className="text-[.85rem] text-white font-normal text-white">
                     25 坪​
                   </span>
                 </div>
                 <div className="border-t-1 py-4 px-1 flex justify-between items-center border-gray-400">
-                  <b className="text-[.9rem] font-normal">施工日期：</b>
-                  <span className="text-[.85rem] font-normal text-gray-700">
+                  <b className="text-[.9rem] font-normal text-white">
+                    施工日期：
+                  </b>
+                  <span className="text-[.85rem] font-normal text-white">
                     2024.05.04
                   </span>
                 </div>
                 <div className="border-t-1 py-4 px-1 flex justify-between items-center border-gray-400">
-                  <b className="text-[.9rem] font-normal">特色：</b>
+                  <b className="text-[.9rem] font-normal text-white">特色：</b>
                   <br></br>
-                  <span className="text-[.85rem] w-3/4  font-normal text-gray-700">
+                  <span className="text-[.85rem] w-3/4 text-white font-normal text-white">
                     ​以白色與灰色為主色調，搭配木質地板，營造出簡約且溫馨的居家氛圍。​
                   </span>
                 </div>
               </div>
             </div>
             <div className="small-viewer-project p-5">
-              <div className="flex flex-row justify-between  my-3">
+              <div className="flex flex-row justify-between my-3 ">
                 <div className="img w-1/2">
                   <Image
                     src="/images/481977410_122241519506031935_5824784297779272863_n.jpg"
@@ -180,7 +158,7 @@ const ProjectPage = async ({ params }) => {
                     width={400}
                     height={30}
                     className="w-full"
-                  ></Image>
+                  />
                 </div>
 
                 <div className="arrow w-1/2 flex flex-col justify-between p-4">
@@ -194,7 +172,7 @@ const ProjectPage = async ({ params }) => {
                   <b className="text-[.95rem] ">Go Project</b>
                 </div>
               </div>
-              <div className="flex flex-row justify-between  my-3">
+              <div className="flex flex-row justify-between my-3 ">
                 <div className="img w-1/2">
                   <Image
                     src="/images/481977410_122241519506031935_5824784297779272863_n.jpg"
@@ -204,7 +182,7 @@ const ProjectPage = async ({ params }) => {
                     width={400}
                     height={30}
                     className="w-full"
-                  ></Image>
+                  />
                 </div>
 
                 <div className="arrow w-1/2 flex flex-col justify-between p-4">
@@ -218,7 +196,7 @@ const ProjectPage = async ({ params }) => {
                   <b className="text-[.95rem] ">Go Project</b>
                 </div>
               </div>
-              <div className="flex flex-row justify-between  my-3">
+              <div className="flex flex-row justify-between my-3 ">
                 <div className="img w-1/2">
                   <Image
                     src="/images/481977410_122241519506031935_5824784297779272863_n.jpg"
@@ -228,7 +206,7 @@ const ProjectPage = async ({ params }) => {
                     width={400}
                     height={30}
                     className="w-full"
-                  ></Image>
+                  />
                 </div>
 
                 <div className="arrow w-1/2 flex flex-col justify-between p-4">
@@ -246,48 +224,8 @@ const ProjectPage = async ({ params }) => {
           </div>
         </div>
       </section>
-      {/* 顯示包含其餘圖片的內文 */}
-
-      <div className="specification border max-w-[1000px]  mx-auto my-20 ">
-        <div className="title border-b-1 py-6 border-gray-300 flex justify-center">
-          設計規格。
-        </div>
-        <div className="content px-10 py-4 ">
-          <div className="flex items-center border-b-1 justify-between px-10 py-6 border-gray-300">
-            {" "}
-            <p className="text-gray-400 ">室內坪數：</p>
-            <span className="text-xl font-bold">20-50</span>
-          </div>
-        </div>
-        <div className="content px-10 py-4 ">
-          <div className="flex items-center border-b-1 justify-between px-10 py-6 border-gray-300">
-            {" "}
-            <p className="text-gray-400 ">施工時間：</p>
-            <span className="text-xl font-bold">20-50</span>
-          </div>
-        </div>
-        <div className="content px-10 py-4 ">
-          <div className="flex items-center  justify-between px-10 py-6 border-gray-300">
-            {" "}
-            <p className="text-gray-400 ">價格：</p>
-            <span className="text-xl font-bold">20-50</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="specification border mt-10 max-w-[1000px]  mx-auto my-20 ">
-        <div className="title border-b-1 py-6 border-gray-300 flex justify-center">
-          設計風格類型。
-        </div>
-        <div className="content p-10 ">
-          <div className="flex items-center border-b-1 py-6 border-gray-300">
-            {" "}
-            <p className="text-gray-700">室內坪數</p>
-          </div>
-        </div>
-      </div>
       <section className="section_navgation flex flex-row">
-        <div className="flex w-[80%] mx-auto">
+        <div className="flex w-full md:w-[80%] mx-auto">
           <div className="Navgation_Prev group hover:scale-[1.02] duration-400 w-1/2 px-8">
             <div className="flex flex-col justify-start items-start">
               <b className="text-[.9rem] tracking-wide w-3/4 text-left font-bold">
@@ -387,9 +325,63 @@ const ProjectPage = async ({ params }) => {
           </div>
         </div>
       </section>
-      <section className="py-[150px] bg-[linear-gradient(to_bottom,white_50%,#36454f_50%)]">
-        <div className="title py-20">
-          <h2 className="text-center text-[4rem] font-bold">#unevensnap</h2>
+      <section className="section-page-navgation w-full max-w-[1100px] mx-auto px-4">
+        <div className="flex flex-col md:flex-row py-6 justify-between items-center">
+          <div className="tag border rounded-full px-4 py-1 text-[.85rem] mb-4 md:mb-0">
+            Categories
+          </div>
+          <span className="text-gray-600">Look More</span>
+        </div>
+
+        <div className="border-t border-gray-600 flex flex-col md:flex-row justify-between py-5 items-start md:items-center gap-6">
+          <span className="text-[.9rem] text-gray-800 leading-relaxed">
+            結合品牌精神與市場洞察，量身打造具吸引力與記憶點的商業空間，
+            <br className="hidden md:block" />
+            助力品牌形象升級與業績成長。
+          </span>
+
+          <button className="group rotate-[-90deg] relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 shrink-0">
+            <div className="translate-x-0 transition group-hover:translate-x-[300%]">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+              >
+                <path
+                  d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                  fill="currentColor"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+            <div className="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+              >
+                <path
+                  d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                  fill="currentColor"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <section className="pb-[100px] ">
+        <div className="title p-10">
+          <h2 className="text-center text-[4vmin] font-bold">#unevensnap</h2>
           <Link
             target="_blank"
             href="https://www.facebook.com/profile.php?id=61550958051323&sk=photos"
@@ -402,7 +394,7 @@ const ProjectPage = async ({ params }) => {
         <Marquee>
           <div className="flex items-center">
             <HoverItem
-              imageUrl="https://scontent.frmq7-1.fna.fbcdn.net/v/t39.30808-6/484998795_122244445484031935_2425130562929710773_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=OiFqhslMemgQ7kNvwEkcG9B&_nc_oc=Adnfxsr0DIao3NHRzP8FmCgT6v7LPZMCCKg8kbXnr_7dFiutR2Adr7DMTF2fPgmndJM&_nc_zt=23&_nc_ht=scontent.frmq7-1.fna&_nc_gid=rNM79x4aGbYij46UWcsneg&oh=00_AfGffcIOQ3BrMS_47kPAwUJqAcljzRFzYJHMiYhco-vJGg&oe=67FD39FF"
+              imageUrl="hhttps://10per-komatsu.com/wp/wp-content/uploads/2024/09/house-in-miiri000-1.jpg"
               text="Built for Living."
               fontSize="2rem"
               fontWeight="300"
@@ -411,7 +403,7 @@ const ProjectPage = async ({ params }) => {
             />
 
             <HoverItem
-              imageUrl="https://scontent.frmq7-1.fna.fbcdn.net/v/t39.30808-6/486824855_122245695716031935_3372241001376026295_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=FV3ny9KMdEIQ7kNvwFrX63k&_nc_oc=AdnZpwA1MHZFWrPzBRK_gXqlflr8fZwNPcm3nqzTlubjmS1ijh7pNC0RaWEj3YObkm0&_nc_zt=23&_nc_ht=scontent.frmq7-1.fna&_nc_gid=qtbrRO4eIPcLtoMHumsqoA&oh=00_AfEmBpLBntpirpGa5aq8qplmD46w9N_hhOIYw-BZ13hH1g&oe=67FD1572"
+              imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2025/02/futabayama0000.jpg"
               text="LIMITED DROP"
               fontSize="1.6rem"
               fontWeight="600"
@@ -419,7 +411,7 @@ const ProjectPage = async ({ params }) => {
               lineHeight="40px"
             />
             <HoverItem
-              imageUrl="https://scontent.frmq7-1.fna.fbcdn.net/v/t39.30808-6/485146224_122244233498031935_8273150089111007875_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Wt_EWOjKlt8Q7kNvwHa4yT8&_nc_oc=AdlpTqa69T7cL940i7mH9FflU7nSCibN3EjcCE5wN7hp4cSuLgYeYXBG6X3UYwcQs1A&_nc_zt=23&_nc_ht=scontent.frmq7-1.fna&_nc_gid=Nx_FPSH-jdQbGZgMsCw1cQ&oh=00_AfGJgpxaG2U_wZ1ZsHpQTt5o5NnqlW157zHcNFyTCxQ8SQ&oe=67FD221D"
+              imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/08/house-in-mochida_00-1.jpg"
               text="Built for Living."
               fontSize="2rem"
               fontWeight="300"
@@ -428,7 +420,7 @@ const ProjectPage = async ({ params }) => {
             />
 
             <HoverItem
-              imageUrl="https://scontent.frmq7-1.fna.fbcdn.net/v/t39.30808-6/485059714_122244233276031935_4983623517156943623_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=eUgXFHuavPIQ7kNvwFZV766&_nc_oc=AdkOMbV2qXEbxhGN6iDiVdbwJ5vnYTiwkW3RdPS-g9OPlyrLBq91oLwTebkFTx6TmSE&_nc_zt=23&_nc_ht=scontent.frmq7-1.fna&_nc_gid=vuAhcpquSB-klaqME8rb2A&oh=00_AfHP4w8BXjHL8yNkfmNRQugB0Bc_BiRfXe7RSy38EewJkQ&oe=67FD0C5B"
+              imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/07/house-s_000-1.jpg"
               text="LIMITED DROP"
               fontSize="1.6rem"
               fontWeight="600"
@@ -436,7 +428,7 @@ const ProjectPage = async ({ params }) => {
               lineHeight="40px"
             />
             <HoverItem
-              imageUrl="https://scontent.frmq7-1.fna.fbcdn.net/v/t39.30808-6/481764862_122241462854031935_2469569084975822180_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=pXdyfboWx8IQ7kNvwEZPt9c&_nc_oc=AdmLIi2BSEcrjft-VRsXPEQ1WxKnfFqubeJP8xVa7LoxKBZI7mCY9kgOHuo5gLeLvTM&_nc_zt=23&_nc_ht=scontent.frmq7-1.fna&_nc_gid=YhlYNgGLdqFOajk9j2ZfxA&oh=00_AfEKf88HEUdU2d4Ps3zlzRwn4SD-5JaKvuZ52cEqgpY_-Q&oe=67FD0E59"
+              imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/06/house-in-mitaki000-2.jpg"
               text="Built for Living."
               fontSize="2rem"
               fontWeight="300"
@@ -445,12 +437,46 @@ const ProjectPage = async ({ params }) => {
             />
 
             <HoverItem
-              imageUrl="https://www.uneven.jp/images/about/shop_7.jpg"
+              imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/02/houseY0000.jpg"
               text="LIMITED DROP"
               fontSize="1.6rem"
               fontWeight="600"
               color="#e6e6e6"
               lineHeight="40px"
+            />
+
+            <HoverItem
+              imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2025/02/futabayama0000.jpg"
+              text="LIMITED DROP"
+              fontSize="1.6rem"
+              fontWeight="600"
+              color="#e6e6e6"
+              lineHeight="40px"
+            />
+            <HoverItem
+              imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/08/house-in-mochida_00-1.jpg"
+              text="Built for Living."
+              fontSize="2rem"
+              fontWeight="300"
+              color="#ffffff"
+              lineHeight="50px"
+            />
+
+            <HoverItem
+              imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/07/house-s_000-1.jpg"
+              text="LIMITED DROP"
+              fontSize="1.6rem"
+              fontWeight="600"
+              color="#e6e6e6"
+              lineHeight="40px"
+            />
+            <HoverItem
+              imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/06/house-in-mitaki000-2.jpg"
+              text="Built for Living."
+              fontSize="2rem"
+              fontWeight="300"
+              color="#ffffff"
+              lineHeight="50px"
             />
           </div>
         </Marquee>

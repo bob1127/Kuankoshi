@@ -1,6 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+  @keyframes heroFadeIn {
+    0% {
+      transform: scale(1.5);
+      filter: blur(10px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-heroFadeIn {
+    animation: heroFadeIn 2.5s ease-out 1s forwards;
+  }
+}
+@layer base {
+  .prose img {
+    margin-top: 2rem; /* 上間距 */
+    margin-bottom: 2rem; /* 下間距 */
+  }
+}
 
 /* 定義蘋方字體 */
 @font-face {

@@ -201,10 +201,11 @@ export default function ProjectListClient({ posts, categories }) {
                       scale: { type: "spring", stiffness: 300, damping: 30 },
                     }}
                   >
-                         <AnimatedLink
-                  href={`/${post.slug}`}
-                  className={`group block ${viewMode === "list" ? "flex gap-6 items-center border-b-1 pb-4 border-gray-800" : ""}`}
-                >
+                       <AnimatedLink
+  href={`/project/${post.slug}`}
+  className={`group block ${viewMode === "list" ? "flex gap-6 items-center border-b-1 pb-4 border-gray-800" : ""}`}
+>
+
                       <div className={`${viewMode === "list" ? "w-[10%] aspect-auto" : "aspect-[4/5] w-full"} overflow-hidden rounded-md bg-gray-100`}>
                         <Image
                           src={previewImage}
@@ -224,9 +225,9 @@ export default function ProjectListClient({ posts, categories }) {
                             {post.acf?.price && <div>價格：{Number(post.acf.price).toLocaleString()} 元</div>}
                           </div>
                         )}
-                        <p className="text-xs text-gray-500">
+                        {/* <p className="text-xs text-gray-500">
                           {new Date(post.date).toLocaleDateString("zh-TW")}
-                        </p>
+                        </p> */}
                       </div>
                     </AnimatedLink>
                   </motion.div>
