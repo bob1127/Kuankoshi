@@ -297,7 +297,7 @@ export default function Home() {
   return (
     <>
       {showLoader && (
-        <div className="loader  ">
+        <div className="loader ">
           <div className="overlay">
             <div className="preloader-block "></div>
             <div className="preloader-block "></div>
@@ -390,9 +390,16 @@ export default function Home() {
           <div className="hero-copy">
             <div
               id="dark-section"
-              className="absolute w-full  top-0 left-0 z-[1]"
+              className="
+    absolute w-full 
+    h-[65vh] 
+    sm:h-auto sm:aspect-[4/3] sm:min-h-[75vh]
+    md:aspect-[16/9] md:min-h-[80vh] 
+    lg:aspect-[2/1] lg:min-h-[85vh] 
+    overflow-hidden 
+    top-0 left-0 z-[1]"
             >
-              <section className="section-hero w-full aspect-[500/500] md:aspect-[1024/576] xl:aspect-[1920/1000] overflow-hidden relative">
+              <section className="section-hero w-full aspect-[500/700] sm:aspect-[500/700]  md:aspect-[1024/920] xl:aspect-[1920/1400] 2xl:aspect-[1920/1080]  overflow-hidden relative">
                 {/* 背景圖片群組 */}
                 {backgroundImages.map((bg, i) => (
                   <motion.div
@@ -442,25 +449,31 @@ export default function Home() {
                 </div> */}
               </section>
             </div>
-            <div className="absolute top-[40%] -translate-x-1/2 -translate-y-1/2 left-1/2 z-50">
-              <div className="line flex flex-col justify-center items-center">
-                <h1 className="text-gray-900 text-center text-[2.5rem]">
-                  <span className="text-gray-50">kuankoshi</span>{" "}
-                  <span className="text-gray-50 font-normal">
-                    Interior Design,
-                  </span>
-                </h1>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full px-4">
+              <div className="flex flex-col items-center justify-center text-center space-y-2">
+                <div className="flex flex-col items-center justify-center text-center space-y-2">
+                  <GsapText
+                    text="kuankoshi"
+                    id="hero-title-1"
+                    className="block !text-white !text-[clamp(1.8rem,5vw,3rem)] font-medium leading-tight"
+                  />
+                  <GsapText
+                    text="Interior Design,"
+                    id="hero-title-2"
+                    className="block !text-white !text-[clamp(.9rem,2vw,1.2rem)] font-light leading-tight"
+                  />
+                </div>
+
+                {/* 可選第二行文字 */}
+                {/* <h2 className="text-white text-[clamp(1rem,2.5vw,1.5rem)] font-light leading-snug">
+      帶著愉悅的心 <span>圓滿您的居家生活</span>
+    </h2> */}
               </div>
-              {/* <div className="line flex flex-col justify-center items-center">
-                <h1 className="text-gray-900 text-[1.2rem] font-light">
-                  帶著愉悅的心 <span>圓滿您的居家生活</span>
-                </h1>
-              </div> */}
             </div>
           </div>
-          <div className="line">
+          {/* <div className="line">
             <p>Skincare that stays true to nature and to you</p>
-          </div>
+          </div> */}
         </div>
         {/* 
         <div className="cta">

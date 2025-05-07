@@ -25,6 +25,11 @@
     margin-bottom: 2rem; /* 下間距 */
   }
 }
+@layer utilities {
+  .section-padding {
+    @apply py-[30px] sm:py-[50px] md:py-[70px] lg:py-[90px] xl:py-[100px];
+  }
+}
 
 /* 定義蘋方字體 */
 @font-face {
@@ -623,13 +628,6 @@ body {
   z-index: 9999999999;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
 
 .preloader-block {
   width: 100%;

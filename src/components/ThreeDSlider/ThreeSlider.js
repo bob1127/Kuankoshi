@@ -260,26 +260,29 @@ export default function ThreeSlider() {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="relative w-full overflow-hidden
-                 h-[56.25vw] sm:h-screen max-h-[100vh]"
+   <div
+  ref={containerRef}
+  className="relative w-full overflow-hidden h-[min(80vh,100vw)] sm:h-[85vh] lg:h-screen max-h-[100vh]"
+>
+  <div
+    className={`absolute inset-0 z-50 flex items-center justify-center transition-opacity duration-500 ease-in-out ${
+      titleVisible ? "opacity-100" : "opacity-0"
+    }`}
+  >
+    <a
+      href={currentUrl}
+      className="hidden sm:block text-center px-4"
+      ref={projectLinkRef}
     >
-      <div
-        className={`absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 text-center transition-opacity duration-500 ease-in-out ${
-          titleVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <a href={currentUrl} className="hidden sm:block" ref={projectLinkRef}>
-          <GsapText
-            key={titleText}
-            id="project-title"
-            text={titleText}
-            fontSize="1rem"
-            className="!text-white !text-[22px] font-normal drop-shadow-lg"
-          />
-        </a>
-      </div>
-    </div>
+      <GsapText
+        key={titleText}
+        id="project-title"
+        text={titleText}
+        className="!text-white text-[clamp(1.25rem,3vw,2.5rem)] font-normal drop-shadow-lg"
+      />
+    </a>
+  </div>
+</div>
+
   );
 }
