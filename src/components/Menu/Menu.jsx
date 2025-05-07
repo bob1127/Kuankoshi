@@ -79,18 +79,21 @@ const Menu = ({ isDarkBg }) => {
       gsap.to(menuContent, {
         y: 0,
         opacity: 1,
-        duration: 1,
+        duration: 0.8, // 原本是 1，改短
         ease: "power4.out",
-        delay: 0.8,
+        delay: 0.4, // 原本 0.8，改早一點進入
       });
-
-      gsap.to(links, {
-        y: -25,
-        stagger: 0.1,
-        delay: 1.0,
-        duration: 1,
-        ease: "power4.out",
-      });
+      if (window.innerWidth >= 768) {
+        gsap.to(links, {
+          y: -25,
+          stagger: 0.05,
+          delay: 0.6,
+          duration: 0.6,
+          ease: "power4.out",
+        });
+      } else {
+        gsap.set(links, { y: 0 });
+      }
 
       socialsCols.forEach((subCol) => {
         const socialCopy = subCol.querySelectorAll(".line p");
@@ -181,14 +184,6 @@ const Menu = ({ isDarkBg }) => {
           {/* Logo */}
           <div className="flex flex-col sm:flex-row sm:mt-[100px] mt-[20px] lg:mt-[130px] items-start md:items-center mb-0 sm:mb-12 px-6 w-full justify-start">
             <div className="flex items-center">
-              <Image
-                src="/images/logo/company-logo.jpg"
-                placeholder="empty"
-                alt=""
-                width={600}
-                height={200}
-                className="w-[40px] md:w-[60px]"
-              />
               <p className="text-white ml-4 text-[clamp(1.5rem,3vw,2.5rem)]">
                 Kuankoshi
               </p>
@@ -246,24 +241,28 @@ const Menu = ({ isDarkBg }) => {
 
             {/* Images */}
             <div className="w-full lg:w-1/2 flex flex-row lg:flex-col justify-end items-end lg:justify-center gap-4 mt-6">
-              <Image
-                src="/images/about/spesial_banner_2-pc.png"
-                alt="menu-img"
-                placeholder="empty"
-                loading="lazy"
-                width={1200}
-                height={700}
-                className="w-[48%] sm:w-[45%] md:w-[48%] lg:w-[60%] hover:scale-95 rounded-2xl hover:shadow-xl duration-700"
-              />
-              <Image
-                src="/images/about/spesial_banner_2-pc.png"
-                alt="menu-img"
-                placeholder="empty"
-                loading="lazy"
-                width={1200}
-                height={700}
-                className="w-[48%] sm:w-[45%] md:w-[48%] lg:w-[60%] hover:scale-95 rounded-2xl hover:shadow-xl duration-700"
-              />
+              <AnimatedLink href="/contact">
+                <Image
+                  src="/images/about/spesial_banner_2-pc.png"
+                  alt="menu-img"
+                  placeholder="empty"
+                  loading="lazy"
+                  width={1200}
+                  height={700}
+                  className="w-[48%] sm:w-[45%] md:w-[48%] lg:w-[60%] hover:scale-95 rounded-2xl hover:shadow-xl  hover:border-2 hover:border-white  duration-700"
+                />
+              </AnimatedLink>
+              <AnimatedLink href="/contact">
+                <Image
+                  src="/images/about/spesial_banner_2-pc.png"
+                  alt="menu-img"
+                  placeholder="empty"
+                  loading="lazy"
+                  width={1200}
+                  height={700}
+                  className="w-[48%] sm:w-[45%] md:w-[48%] lg:w-[60%] hover:scale-95 rounded-2xl hover:shadow-xl hover:border-2 hover:border-white duration-700"
+                />
+              </AnimatedLink>
             </div>
           </div>
 

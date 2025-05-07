@@ -1,327 +1,273 @@
 "use client";
 
-import { Accordion, AccordionItem } from "@heroui/react";
-import AnimatedLink from "../../components/AnimatedLink";
-
-import React, { useRef } from "react";
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { LinkPreview } from "@/components/ui/link-preview";
-import SvgImage from "../../components/SVGImage";
+import ThreeDSlider from "../../components/3DSlider.jsx";
 import ParallaxImage from "../../components/ParallaxImage";
+import InfiniteScroll from "../../components/InfiniteScroll/page.jsx";
+import GsapText from "../../components/RevealText/index";
+import HomeSlider from "../../components/HeroSliderHome/page.jsx";
+import React, { useRef, useEffect } from "react";
+import Image from "next/image";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import ScrollTopCard from "../../components/ScrollTopCard/index.jsx";
+import ScrollTopCard1 from "../../components/ScrollTopCard1/index.jsx";
+import ScrollTopCard2 from "../../components/ScrollTopCard2/index.jsx";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import HeroSlider from "../../components/HeroSlider/page";
+
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import Marquee from "react-fast-marquee";
-import "./about.css";
-import { Carousel } from "../../components/ui/carousel01";
+import Lenis from "@studio-freight/lenis";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function About() {
-  const slideData = [
-    {
-      title: "誠境二期",
+  const imageRefs = useRef([]);
+  const containerRef = useRef(null);
 
-      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery01.jpg",
-    },
-    {
-      title: "誠境二期",
+  useEffect(() => {
+    const initGSAPAnimations = () => {
+      const ctx = gsap.context(() => {
+        const images = document.querySelectorAll(".animate-image-wrapper");
 
-      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery05.jpg",
-    },
-    {
-      title: "誠境二期",
+        images.forEach((image, i) => {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: image,
+              start: "top bottom",
+              end: "top center",
+              toggleActions: "play none none none",
+              id: "imageReveal-" + i,
+            },
+          });
 
-      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery02.jpg",
-    },
-    {
-      title: "誠境二期",
+          tl.fromTo(
+            image.querySelector(".overlay"),
+            {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            },
+            {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              duration: 0.7,
+              ease: "power2.inOut",
+            }
+          )
+            .to(image.querySelector(".overlay"), {
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+              duration: 0.7,
+              ease: "power2.inOut",
+            })
+            .fromTo(
+              image.querySelector(".image-container"),
+              {
+                clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+              },
+              {
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                duration: 1.5,
+                ease: "power3.inOut",
+              },
+              "-=0.5"
+            );
+        });
 
-      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_feature05.jpg",
-    },
-  ];
+        ScrollTrigger.refresh();
+      }, containerRef);
+
+      return ctx; // return so we can revert later
+    };
+
+    let ctx;
+
+    const onTransitionComplete = () => {
+      ctx = initGSAPAnimations();
+    };
+
+    window.addEventListener("pageTransitionComplete", onTransitionComplete);
+
+    // fallback: 若不是從 transition link 進來，直接初始化
+    if (!sessionStorage.getItem("transitioning")) {
+      ctx = initGSAPAnimations();
+    } else {
+      sessionStorage.removeItem("transitioning"); // 清除 flag
+    }
+
+    return () => {
+      if (ctx) ctx.revert();
+      window.removeEventListener(
+        "pageTransitionComplete",
+        onTransitionComplete
+      );
+    };
+
+    return () => ctx.revert(); // 👈 自動 kill 清理範圍內動畫
+  }, []);
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  });
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  });
   return (
     <ReactLenis root>
-      <div className="app">
-        <TextParallaxContent
-          imgUrl="https://niwahouzing.com/wp-content/themes/niwa/assets/images/modelhouse/img-modelhouse-head_pc.avif"
-          heading="關於宜園建設."
-          description="宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。"
-        ></TextParallaxContent>
-
-        <section className="about flex h-[85vh] pb-20 md:h-[80vh] 2xl:h-[90vh] flex-col lg:flex-row section">
-          <div className="col lg:w-1/2 w-full portrait">
-            <div className="portrait-container">
-              <div className="img mt-8">
-                <ParallaxImage
-                  src="https://niwahouzing.com/wp-content/uploads/2024/10/bee585f7a27f9e02a7042435dd3a63ee.jpg"
-                  alt=""
-                />
+      <div className="">
+        <section className=" border w-[100%] mx-auto section-news 2xl:aspect-[1920/800] aspect-[500/500] md:aspect-[1024/576]   lg:aspect-[1920/768]  relative overflow-hidden">
+          <div className="mask bg-[#000] absolute opacity-25 w-full h-full top-0 left-0 z-30"></div>
+          <div className="absolute flex-row inset-0 flex z-50 items-center justify-center ">
+            <div className="txt flex justify-center flex-col items-center">
+              <GsapText
+                text="KUANKOSHI"
+                id="gsap-intro"
+                fontSize="3.3rem"
+                fontWeight="500"
+                color="#fff"
+                lineHeight="60px"
+                className="text-center inline-block mb-0 h-auto "
+              />
+              <div className="news-tag mt-4 flex justify-center">
+                <div className="tag px-3 hover:bg-white hover:text-black duration-500 py-1 rounded-[20px] border border-white text-white flex justify-center items-center mx-2 text-[.8rem]">
+                  新案件賞
+                </div>
+                <div className="tag px-3 py-1 rounded-[20px] hover:bg-white hover:text-black duration-500 border border-white text-white flex justify-center items-center mx-2 text-[.8rem]">
+                  新案件賞
+                </div>
+                <div className="tag px-3 py-1 rounded-[20px] hover:bg-white hover:text-black duration-500 border border-white text-white flex justify-center items-center mx-2 text-[.8rem]">
+                  新案件賞
+                </div>
+                <div className="tag px-3 py-1 rounded-[20px] hover:bg-white hover:text-black duration-500 border border-white text-white flex justify-center items-center mx-2 text-[.8rem]">
+                  新案件賞
+                </div>
               </div>
             </div>
           </div>
-          <div className="col lg:w-1/2 w-full  intro">
-            <h1 className="text-[#333] text-[2rem] xl:text-[2.2rem]">宜家</h1>
-
-            <div className="flex justify-center items-center h-[20rem] flex-col px-4">
-              <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-3xl mx-auto mb-10">
-                <LinkPreview
-                  style="!border-none !underline-none"
-                  url="/project"
-                  className="font-bold no-underline"
-                >
-                  <span className="text-[1.3rem] font-normal"> 實在的構築</span>
-                </LinkPreview>{" "}
-                project{" "}
-                <LinkPreview url="/project" className="font-bold no-underline">
-                  <span className="text-[1.3rem]"> 宜園建設</span>
-                </LinkPreview>{" "}
-                <span className="text-[1.3rem]">
-                  {" "}
-                  宜園建設精心規劃，融合自然綠意與現代設計
-                </span>
-              </p>
+          <div className="portrait-container h-full overflow-hidden">
+            <div className="img h-full mt-8">
+              <ParallaxImage
+                src="/images/hero-img/img04.png"
+                className="h-full"
+                alt=""
+              />
             </div>
           </div>
         </section>
-        {/* 
-        <section className="banner flex justify-center ">
-          <div className="img w-[70vw] mx-auto">
-            <ParallaxImage
-              src="https://niwahouzing.com/wp-content/themes/niwa/assets/images/modelhouse/img-modelhouse-head_pc.avif"
-              alt=""
-              className=""
-            />
+        <section className="">
+          <ScrollTopCard1 />
+          <ScrollTopCard />
+          <ScrollTopCard2 />
+        </section>
+        <section className="bg-[#f1f1f1] relative py-[110px]">
+          <div className="top-tag border border-gray-300 text-[.8rem] bg-white absolute z-10 left-1/2 -translate-x-1/2 text-gray-500 top-[-20px] tracking-widest rounded-full px-6 py-3">
+            Project | Cooperation
           </div>
 
-         
-        </section> */}
-
-        {/* <div className="footer overflow-hidden h-full  lg:flex-row flex-col  flex justify-center items-center mx-auto">
-          <div className="col w-full  lg:w-1/2 flex flex-col justify-center   md:pl-[10%] xl:pl-[150px]">
-            <div className=" mt-8 2xl:p-20">
-              <h1 className="text-[#201815] text-[2.2rem]">宜居</h1>
-              <p className="leading-relaxed font-normal text-[.95rem] text-[#20201f]">
-                宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，<br></br>
-                融合自然綠意與現代設計，營造安心宜居的生活環境。<br></br>
-                便利交通、完善機能，讓您盡享家的溫暖與美好。
-              </p>
-            </div>
-          </div>
-          <div className="w-full lg:w-1/2 pl-2 h-full border-l-1 border-black">
-            <div className="h-[100%] w-[100%] bg-black">
+          <div className="flex flex-col lg:flex-row w-[90%] mx-auto max-w-[1380px] gap-10 sm:gap-16">
+            {/* 第一塊內容 */}
+            <div className="w-full lg:w-1/2 group flex px-4 sm:px-6 flex-col items-center">
               <Image
-                src="/images/ph_gyokuto-town-office.jpg"
-                alt=""
-                width={800}
-                height={1500}
-                placeholder="empty"
-                loading="lazy"
-              ></Image>
-            </div>
-          </div>
-        </div> */}
-        <Marquee>
-          <div className="flex bg-white flex-row py-10 justify-center items-center">
-            <div className="h-[1px] bg-black w-[50vw]"></div>
-            <div className="flex flex-row justify-center items-center">
-              <p className="text-[3rem] text-black mx-4">CONTACT</p>
-              <button class="group relative mr-3 inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950">
-                <div class="transition duration-300 group-hover:rotate-[360deg]">
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 15 15"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 text-neutral-200"
-                  >
-                    <path
-                      d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-              </button>
-            </div>
-            <div className="h-[1px] bg-black w-[50vw]"></div>
-          </div>
-        </Marquee>
-        <div>
-          <div className="overflow-hidden">
-            <SvgImage />
-          </div>
-        </div>
-        <div className="my-[10vh] z-[999999] relative">
-          <div className="title"></div>
-          <div className="max-w-[1000px] mx-auto"></div>
-          <div className="">
-            <AnimatedLink href="/news">
-              <div className="flex group py-10 w-full sm:w-[85%] md:w-[70%] mx-auto justify-center md:justify-end items-center">
-                <span className="text-[2rem] font-bold mr-3">更多消息</span>
-                <button class="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
+                src="https://store-palette.com/assets/img/common/layout/spesial_banner_1-pc.png"
+                alt="map-section"
+                width={1000}
+                height={600}
+                className="w-full max-w-[600px] group-hover:rounded-[40px] duration-700"
+              />
+              <div className="description mt-5 flex flex-col sm:flex-row items-center justify-between sm:pl-5 w-full">
+                <span className="text-[.9rem] leading-loose tracking-widest text-center sm:text-left">
+                  無論是住宅規劃、商業提案或空間優化，歡迎與我們聯繫，
+                  <br />
+                  我們將以專業與誠意回應每一個期待。
+                </span>
+                <button className="mt-4 sm:mt-0 sm:ml-3 relative inline-flex h-12 w-12 items-center justify-center overflow-hidden group-hover:bg-black group-hover:text-white rounded-full border-black border font-medium text-neutral-900">
+                  <div className="translate-x-0 transition group-hover:translate-x-[300%]">
+                    <svg className="h-5 w-5" viewBox="0 0 15 15" fill="none">
                       <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
                         fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
+                        d="M8.15 3.15a.5.5 0 0 1 .7 0l4 4a.5.5 0 0 1 0 .7l-4 4a.5.5 0 1 1-.7-.7L11.3 8H2.5a.5.5 0 0 1 0-1H11.3L8.15 3.85a.5.5 0 0 1 0-.7Z"
+                      />
                     </svg>
                   </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
+                  <div className="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                    <svg className="h-5 w-5" viewBox="0 0 15 15" fill="none">
                       <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
                         fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
+                        d="M8.15 3.15a.5.5 0 0 1 .7 0l4 4a.5.5 0 0 1 0 .7l-4 4a.5.5 0 1 1-.7-.7L11.3 8H2.5a.5.5 0 0 1 0-1H11.3L8.15 3.85a.5.5 0 0 1 0-.7Z"
+                      />
                     </svg>
                   </div>
                 </button>
               </div>
-            </AnimatedLink>
-          </div>
-        </div>
-        <div className="py-8 lg:flex-row bg-white flex-col flex">
-          <div className=" w-full lg:w-1/2 ">
-            <div className="relative h-[400px] sm:h-[50vh] lg:h-[70vh] 2xl:h-[65vh] overflow-hidden w-full">
-              <Carousel slides={slideData} />
             </div>
-          </div>
-          <div className="w-full pl-[5%] lg:w-1/2 flex  pt-0 lg:pt-20  flex-col">
-            <div className="flex flex-col ">
-              <h2 className="text-[2.3rem]">建案基地</h2>
-              <p className="w-[70%] text-gray-800 font-[.9rem] font-normal leading-relaxed">
-                來體驗EDITORA的世界。請注意，展廳僅接受預約開放。<br></br>
-                如果您有興趣，請發電子郵件給我們（ 訊息 ) 進行諮詢。
-              </p>
-            </div>
-            <div className="flex flex-col mt-8 lg:mt-20">
-              <b className="text-[.95rem]">◼︎ THE BUILDING PLACE</b>
-              <span className="text-[.95rem] font-normal">台中市南屯區</span>
-            </div>
-            <div className="btn-wrap flex mt-10 lg:mt-20">
-              <button class="group relative mr-5 inline-flex h-10 items-center justify-center overflow-hidden rounded-full border !bg-gray-800 border-neutral-200 bg-transparent px-4 text-neutral-100">
-                <span class="relative inline-flex overflow-hidden">
-                  <div class="absolute origin-bottom transition duration-500 [transform:translateX(-150%)_skewX(33deg)] group-hover:[transform:translateX(0)_skewX(0deg)]">
-                    聯繫宜園
-                  </div>
-                  <div class="transition duration-500 [transform:translateX(0%)_skewX(0deg)] group-hover:[transform:translateX(150%)_skewX(33deg)]">
-                    GOOGLE MAPS
-                  </div>
+
+            {/* 第二塊內容 */}
+            <div className="w-full lg:w-1/2 group flex px-4 sm:px-6 flex-col items-center">
+              <Image
+                src="/images/about/spesial_banner_2-pc.png"
+                alt="map-section"
+                width={1000}
+                height={600}
+                className="w-full max-w-[600px] group-hover:rounded-[40px] duration-700"
+              />
+              <div className="description mt-5 flex flex-col sm:flex-row items-center justify-between sm:pl-5 w-full">
+                <span className="text-[.9rem] leading-loose tracking-widest text-center sm:text-left">
+                  寬越設計擁有跨領域合作經驗，歡迎品牌、建築師、開發商與我們洽談設計、
+                  <br />
+                  整合施工或空間創作項目，共同完成具備深度與美感的場域作品。
                 </span>
-              </button>
-              <button class="group relative  inline-flex h-10 items-center justify-center overflow-hidden rounded-full border !bg-gray-800 border-neutral-200 bg-transparent px-4 text-neutral-100">
-                <span class="relative inline-flex overflow-hidden">
-                  <div class="absolute origin-bottom transition duration-500 [transform:translateX(-150%)_skewX(33deg)] group-hover:[transform:translateX(0)_skewX(0deg)]">
-                    您的需求
+                <button className="mt-4 sm:mt-0 sm:ml-3 relative inline-flex h-12 w-12 items-center justify-center overflow-hidden group-hover:bg-black group-hover:text-white rounded-full border-black border font-medium text-neutral-900">
+                  <div className="translate-x-0 transition group-hover:translate-x-[300%]">
+                    <svg className="h-5 w-5" viewBox="0 0 15 15" fill="none">
+                      <path
+                        fill="currentColor"
+                        d="M8.15 3.15a.5.5 0 0 1 .7 0l4 4a.5.5 0 0 1 0 .7l-4 4a.5.5 0 1 1-.7-.7L11.3 8H2.5a.5.5 0 0 1 0-1H11.3L8.15 3.85a.5.5 0 0 1 0-.7Z"
+                      />
+                    </svg>
                   </div>
-                  <div class="transition duration-500 [transform:translateX(0%)_skewX(0deg)] group-hover:[transform:translateX(150%)_skewX(33deg)]">
-                    {" "}
-                    Mail to Us
+                  <div className="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                    <svg className="h-5 w-5" viewBox="0 0 15 15" fill="none">
+                      <path
+                        fill="currentColor"
+                        d="M8.15 3.15a.5.5 0 0 1 .7 0l4 4a.5.5 0 0 1 0 .7l-4 4a.5.5 0 1 1-.7-.7L11.3 8H2.5a.5.5 0 0 1 0-1H11.3L8.15 3.85a.5.5 0 0 1 0-.7Z"
+                      />
+                    </svg>
                   </div>
-                </span>
-              </button>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
+      {/* <TextParallaxContent
+        imgUrl="https://aitohus.com/assets/images/top/quality.avif"
+        heading="關於宜園建設."
+        description="宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。"
+      ></TextParallaxContent>
+      <TextParallaxContent
+        imgUrl="https://aitohus.com/assets/images/top/quality.avif"
+        heading="關於宜園建設."
+        description="宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。"
+      ></TextParallaxContent>
+      <TextParallaxContent
+        imgUrl="https://aitohus.com/assets/images/top/quality.avif"
+        heading="關於宜園建設."
+        description="宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。"
+      ></TextParallaxContent> */}
+
+      {/* <div className="w-full h-full py-20">
+        <Carousel items={cards} />
+      </div> */}
     </ReactLenis>
   );
 }
-const NavLeft = () => {
-  return (
-    <div className="flex items-center gap-6">
-      <AnimatedLink href="/about">
-        <h1>About</h1>
-      </AnimatedLink>
-      <AnimatedLink href="/community">Community</AnimatedLink>
-      <AnimatedLink href="/pricing">Pricing</AnimatedLink>
-      <AnimatedLink href="/company">Company</AnimatedLink>
-    </div>
-  );
-};
-const DURATION = 0.25;
-const STAGGER = 0.025;
-
-const FlipLink = ({ children, href }) => {
-  return (
-    <motion.a
-      initial="initial"
-      whileHover="hovered"
-      href={href}
-      className="relative block my-4 w-[240px] h-[43px] pt-1 overflow-hidden whitespace-nowrap text-[2.5rem] font-normal uppercase "
-      style={{
-        lineHeight: 0.75,
-      }}
-    >
-      <div>
-        {children.split("").map((l, i) => (
-          <motion.span
-            variants={{
-              initial: {
-                y: 0,
-              },
-              hovered: {
-                y: "-190%",
-              },
-            }}
-            transition={{
-              duration: DURATION,
-              ease: "easeInOut",
-              delay: STAGGER * i,
-            }}
-            className="inline-block "
-            key={i}
-          >
-            {l}
-          </motion.span>
-        ))}
-      </div>
-      <div className="absolute top-1 inset-0">
-        {children.split("").map((l, i) => (
-          <motion.span
-            variants={{
-              initial: {
-                y: "200%",
-              },
-              hovered: {
-                y: 0,
-              },
-            }}
-            transition={{
-              duration: DURATION,
-              ease: "easeInOut",
-              delay: STAGGER * i,
-            }}
-            className="inline-block"
-            key={i}
-          >
-            {l}
-          </motion.span>
-        ))}
-      </div>
-    </motion.a>
-  );
-};
 const IMG_PADDING = 12;
-
 const TextParallaxContent = ({
   imgUrl,
   description,
@@ -394,17 +340,24 @@ const OverlayCopy = ({ subheading, heading, description }) => {
         opacity,
       }}
       ref={targetRef}
-      className="absolute left-0 top-0 flex h-[200vh] px-[5%] sm:px-[8%] lg:px-[10%] 2xl:px-[15%]  flex-col pb-[50vh] items-start justify-center text-white"
+      className="absolute right-0 border border-white  inline-flex top-0  h-[200vh] px-[5%] sm:px-[8%] lg:px-[10%] 2xl:px-[15%]  flex-row pb-[50vh] items-center justify-center text-white"
     >
-      <p className="mb-2 text-center text-xl md:mb-4 text-white md:text-3xl">
-        {subheading}
-      </p>
-      <p className="text-left  w-2/3 leading-relaxed text-white font-bold text-[2rem]">
-        {heading}
-      </p>
-      <p className="w-2/3 xl:w-1/2  text-[1rem] text-white leading-loose mt-5">
-        {description}
-      </p>
+      <div className="flex flex-col justify-center w-1/2">
+        <h2 className="text-[5rem] text-white font-light mt-[-100px]">
+          QUILITY
+        </h2>
+      </div>
+      <div className="flex flex-col w-1/2">
+        <p className="mb-2 text-center text-xl md:mb-4 text-white md:text-3xl">
+          {subheading}
+        </p>
+        <p className="text-left  w-full !font-light leading-relaxed text-white text-[2rem]">
+          {heading}
+        </p>
+        <p className="w-full !font-light text-[.9rem] text-white leading-loose mt-5">
+          {description}
+        </p>
+      </div>
     </motion.div>
   );
 };

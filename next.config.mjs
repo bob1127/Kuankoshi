@@ -4,15 +4,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "kuankoshi.com",
+        hostname: "**",
       },
       {
-        protocol: "https",
-        hostname: "api.kuankoshi.com",
-      },
-      {
-        protocol: "https",
-        hostname: "inf.fjg.mybluehost.me", // ← 加入這個
+        protocol: "http",
+        hostname: "**",
       },
     ],
   },

@@ -18,13 +18,25 @@ const images = [
 
 export default function ProjectSwiper() {
   return (
-    <div className="py-[100px] m-0 p-0">
+    <div className="relative">
+      {/* Custom Arrows */}
+      <div className="custom-prev absolute top-[45%] left-2 z-10 w-10 h-10 border border-black rounded-full flex items-center justify-center cursor-pointer bg-white">
+        <span className="text-black text-xl">←</span>
+      </div>
+      <div className="custom-next absolute top-[45%] right-2 z-10 w-10 h-10 border border-black rounded-full flex items-center justify-center cursor-pointer bg-white">
+        <span className="text-black text-xl">→</span>
+      </div>
+
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={16}
-        centeredSlides={true}
-        loop={true}
+        navigation={{
+          nextEl: ".custom-next",
+          prevEl: ".custom-prev",
+        }}
         autoplay={{ delay: 3500, disableOnInteraction: false }}
+        loop={true}
+        centeredSlides={true}
+        spaceBetween={16}
         breakpoints={{
           0: { slidesPerView: 1 },
           480: { slidesPerView: 1.2 },
@@ -33,14 +45,16 @@ export default function ProjectSwiper() {
           1024: { slidesPerView: 2.5 },
           1280: { slidesPerView: 2.5 },
         }}
-        navigation
-        pagination={{ clickable: false }}
+        onSwiper={(swiper) => {
+          swiper.navigation.init();
+          swiper.navigation.update();
+        }}
         className="px-4 mx-auto"
       >
         {images.map((imgUrl, idx) => (
           <SwiperSlide
             key={idx}
-            className="mx-2 overflow-hidden group relative duration-1000"
+            className=" overflow-hidden group relative duration-1000"
           >
             <div className="title absolute top-5 left-5 z-[999]">
               <span className="text-white text-[.9rem]">
@@ -63,9 +77,7 @@ export default function ProjectSwiper() {
               <div className="absolute z-50 w-full h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
               <Card
                 className="!rounded-none border-white pb-4 w-full h-[230px] md:h-[280px] lg:h-[320px] 2xl:h-[550px] max-h-[550px] border bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110"
-                style={{
-                  backgroundImage: `url('${imgUrl}')`,
-                }}
+                style={{ backgroundImage: `url('${imgUrl}')` }}
               >
                 <CardBody className="flex relative flex-col h-full w-full px-0" />
               </Card>
@@ -73,6 +85,9 @@ export default function ProjectSwiper() {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Custom Pagination */}
+      <div className="custom-pagination mt-6 flex justify-center gap-2"></div>
     </div>
   );
 }

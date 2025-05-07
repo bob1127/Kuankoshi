@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import ScrollAnimate from "../../components/ScrollAnimation/page";
 import SvgImg from "../../components/SVGImage";
-import HeroSlider from "../../components/HeroSliderHome/page";
+// import HeroSlider from "../../components/HeroSlideContact/page";
 import { Accordion, AccordionItem } from "@heroui/react";
 import Character from "../../components/TextOpacityScroll/Character.jsx";
 import GsapText from "../../components/RevealText/index";
@@ -41,25 +41,24 @@ const Photos = () => {
   return (
     <>
       {/* Hero 區塊 */}
-      <section className="section_hero">
+      {/* <section className="section_hero">
         <HeroSlider />
-      </section>
-
-      {/* 輪播區 */}
-      <section>
-        <Swiper />
-      </section>
-
-      {/* 動畫區 */}
+      </section> */}
       <section>
         <div>
           <ScrollAnimate />
         </div>
       </section>
+      {/* 輪播區 */}
+      <section className="section-padding">
+        <Swiper />
+      </section>
+
+      {/* 動畫區 */}
 
       {/* 室內設計問題 區 */}
-      <section className="section-qa py-12 flex flex-col items-center justify-center">
-        <div className="w-[90%] max-w-[1920px] mx-auto flex flex-col md:flex-row md:items-center gap-8 md:gap-16">
+      <section className="section-qa section-padding flex flex-col items-center justify-center">
+        <div className="w-[90%] max-w-[1920px] mx-auto flex flex-col md:flex-row md:items-center ">
           {/* 左邊字：標籤 */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-start">
             <span className="text-[1rem] md:text-[1.2rem] text-gray-800 rotate-0 md:rotate-90">
@@ -140,7 +139,7 @@ const Photos = () => {
         </div>
       </section>
 
-      <section className="my-24 px-4">
+      <section className="section-padding px-4">
         <div className="container mx-auto max-w-screen-xl flex flex-col md:flex-row items-center gap-12">
           <div className="w-full md:w-1/2 px-4">
             <div className="max-w-xl mx-auto">
@@ -320,13 +319,13 @@ const Photos = () => {
 
           {/* 圖片右邊 */}
           <div className="w-full md:w-1/2 flex justify-center items-center p-8">
-            <Image
+            {/* <Image
               src="https://www.clasishome.jp/wp-content/themes/clasishome/assets/image/front-page/front-contact.jpg"
               alt="contact-img"
               width={800}
               height={1000}
               className="rounded-2xl"
-            />
+            /> */}
           </div>
         </div>
       </section>

@@ -162,109 +162,78 @@ export default function About() {
           <ScrollTopCard />
           <ScrollTopCard2 />
         </section>
-        <section className="bg-[#f1f1f1] relative py-[110px] ">
+        <section className="bg-[#f1f1f1] relative py-[110px]">
           <div className="top-tag border border-gray-300 text-[.8rem] bg-white absolute z-10 left-1/2 -translate-x-1/2 text-gray-500 top-[-20px] tracking-widest rounded-full px-6 py-3">
             Project | Cooperation
           </div>
-          <div className="flex flex-col lg:flex-row w-[90%] mx-auto max-w-[1380px]">
-            <div className="w-full lg:w-1/2 group flex px-3 justify-start flex-col items-center">
+
+          <div className="flex flex-col lg:flex-row w-[90%] mx-auto max-w-[1380px] gap-10 sm:gap-16">
+            {/* 第一塊內容 */}
+            <div className="w-full lg:w-1/2 group flex px-4 sm:px-6 flex-col items-center">
               <Image
                 src="https://store-palette.com/assets/img/common/layout/spesial_banner_1-pc.png"
                 alt="map-section"
                 width={1000}
                 height={600}
-                className="w-full group-hover:rounded-[40px] duration-700 max-w-[600px]"
-              ></Image>
-              <div className="description mt-5 flex items-center justify-between pl-5">
-                <span className="text-[.9rem] leading-loose tracking-widest">
-                  無論是住宅規劃、商業提案或空間優化，歡迎與我們聯繫，<br></br>
+                className="w-full max-w-[600px] group-hover:rounded-[40px] duration-700"
+              />
+              <div className="description mt-5 flex flex-col sm:flex-row items-center justify-between sm:pl-5 w-full">
+                <span className="text-[.9rem] leading-loose tracking-widest text-center sm:text-left">
+                  無論是住宅規劃、商業提案或空間優化，歡迎與我們聯繫，
+                  <br />
                   我們將以專業與誠意回應每一個期待。
                 </span>
-                <button class="ml-3 relative inline-flex h-12 w-12 items-center justify-center overflow-hidden group-hover:bg-black group-hover:text-white rounded-full border-black border  font-medium text-neutral-900">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
+                <button className="mt-4 sm:mt-0 sm:ml-3 relative inline-flex h-12 w-12 items-center justify-center overflow-hidden group-hover:bg-black group-hover:text-white rounded-full border-black border font-medium text-neutral-900">
+                  <div className="translate-x-0 transition group-hover:translate-x-[300%]">
+                    <svg className="h-5 w-5" viewBox="0 0 15 15" fill="none">
                       <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
                         fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
+                        d="M8.15 3.15a.5.5 0 0 1 .7 0l4 4a.5.5 0 0 1 0 .7l-4 4a.5.5 0 1 1-.7-.7L11.3 8H2.5a.5.5 0 0 1 0-1H11.3L8.15 3.85a.5.5 0 0 1 0-.7Z"
+                      />
                     </svg>
                   </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
+                  <div className="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                    <svg className="h-5 w-5" viewBox="0 0 15 15" fill="none">
                       <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
                         fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
+                        d="M8.15 3.15a.5.5 0 0 1 .7 0l4 4a.5.5 0 0 1 0 .7l-4 4a.5.5 0 1 1-.7-.7L11.3 8H2.5a.5.5 0 0 1 0-1H11.3L8.15 3.85a.5.5 0 0 1 0-.7Z"
+                      />
                     </svg>
                   </div>
                 </button>
               </div>
             </div>
-            <div className="w-full lg:w-1/2 group flex px-3 justify-start flex-col items-center">
+
+            {/* 第二塊內容 */}
+            <div className="w-full lg:w-1/2 group flex px-4 sm:px-6 flex-col items-center">
               <Image
                 src="/images/about/spesial_banner_2-pc.png"
                 alt="map-section"
                 width={1000}
                 height={600}
-                className="w-full group-hover:rounded-[40px] duration-700 max-w-[600px]"
-              ></Image>
-              <div className="description mt-5 flex items-center justify-between pl-5">
-                <span className="text-[.9rem] leading-loose tracking-widest">
+                className="w-full max-w-[600px] group-hover:rounded-[40px] duration-700"
+              />
+              <div className="description mt-5 flex flex-col sm:flex-row items-center justify-between sm:pl-5 w-full">
+                <span className="text-[.9rem] leading-loose tracking-widest text-center sm:text-left">
                   寬越設計擁有跨領域合作經驗，歡迎品牌、建築師、開發商與我們洽談設計、
-                  <br></br>
+                  <br />
                   整合施工或空間創作項目，共同完成具備深度與美感的場域作品。
                 </span>
-                <button class="ml-3 relative inline-flex h-12 w-12 items-center justify-center overflow-hidden group-hover:bg-black group-hover:text-white rounded-full border-black border  font-medium text-neutral-900">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
+                <button className="mt-4 sm:mt-0 sm:ml-3 relative inline-flex h-12 w-12 items-center justify-center overflow-hidden group-hover:bg-black group-hover:text-white rounded-full border-black border font-medium text-neutral-900">
+                  <div className="translate-x-0 transition group-hover:translate-x-[300%]">
+                    <svg className="h-5 w-5" viewBox="0 0 15 15" fill="none">
                       <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
                         fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
+                        d="M8.15 3.15a.5.5 0 0 1 .7 0l4 4a.5.5 0 0 1 0 .7l-4 4a.5.5 0 1 1-.7-.7L11.3 8H2.5a.5.5 0 0 1 0-1H11.3L8.15 3.85a.5.5 0 0 1 0-.7Z"
+                      />
                     </svg>
                   </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
+                  <div className="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                    <svg className="h-5 w-5" viewBox="0 0 15 15" fill="none">
                       <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
                         fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
+                        d="M8.15 3.15a.5.5 0 0 1 .7 0l4 4a.5.5 0 0 1 0 .7l-4 4a.5.5 0 1 1-.7-.7L11.3 8H2.5a.5.5 0 0 1 0-1H11.3L8.15 3.85a.5.5 0 0 1 0-.7Z"
+                      />
                     </svg>
                   </div>
                 </button>
