@@ -31,10 +31,9 @@ async function getPost(slug) {
 
   if (!post) return null;
 
-  // Replace resized image URLs with original
   post.content.rendered = post.content.rendered.replace(
-    /(<img[^>]+src=")(.*?)-\d+x\d+(\.[a-z]{3,4})"/g,
-    "$1$2$3"
+    /(<img[^>]+src="[^">]*?)(-\d{2,4}x\d{2,4})(\.[a-z]{3,4}")/g,
+    "$1$3"
   );
 
   return post;
