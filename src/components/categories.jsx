@@ -75,7 +75,7 @@ export default function About() {
 
   return (
     <ReactLenis root>
-      <div className="bg-transparent md:bg-[#E1E3D9]" ref={containerRef}>
+      <div className="bg-transparent " ref={containerRef}>
         <section className="max-w-[1920px] mx-auto w-full px-4 sm:px-6 xl:px-12 pt-0 md:pt-[100px]  pb-0 md:pb-[80px] border-t   md:border-gray-300">
           <div className="lg:flex lg:gap-16">
             {/* 手機版分類選單 */}

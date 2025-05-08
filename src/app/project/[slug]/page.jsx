@@ -3,7 +3,7 @@ import Image from "next/image";
 import Head from "next/head";
 import { Suspense } from "react";
 import Categories from "../../../components/categories.jsx";
-
+import AnimatedLink from "../../../components/AnimatedLink";
 import HeroSlider from "../../../components/HeroSlideContact/page.jsx";
 import HoverItem from "../../../components/HoverItem.jsx";
 import Marquee from "react-fast-marquee";
@@ -11,16 +11,6 @@ import gsap from "gsap";
 import Link from "next/link";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-
-export async function generateStaticParams() {
-  const postsRes = await fetch(
-    `https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?per_page=100&_embed`
-  );
-  const posts = await postsRes.json();
-
-  return posts.map((post) => ({ slug: post.slug }));
-}
-
 async function getPost(slug) {
   const res = await fetch(
     `https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?slug=${slug}&_embed`,
@@ -39,22 +29,34 @@ async function getPost(slug) {
   return post;
 }
 
-export async function generateMetadata({ params }) {
-  const post = await getPost(params.slug);
-  if (!post) return {};
+async function getRandomAdjacentPosts(currentSlug) {
+  const res = await fetch(
+    `https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?per_page=100&_embed`
+  );
+  const posts = await res.json();
+
+  const others = posts.filter((p) => p.slug !== currentSlug);
+  const shuffled = others.sort(() => 0.5 - Math.random());
 
   return {
-    title: `${post.title.rendered}｜寬越設計`,
-    description: post.excerpt.rendered.replace(/<[^>]+>/g, ""),
+    prev: shuffled[0] || null,
+    next: shuffled[1] || null,
   };
 }
 
+export async function generateMetadata({ params }) {
+  const post = await getPost(params.slug);
+  if (!post) return {};
+  return {
+    title: `${post.title.rendered}｜寬越設計`,
+    description: post.excerpt?.rendered.replace(/<[^>]+>/g, "") || "",
+  };
+}
 const ProjectPage = async ({ params }) => {
   const post = await getPost(params.slug);
   if (!post) return notFound();
 
-  const match = post.content.rendered.match(/<img[^>]+src=\"([^\">]+)\"/i);
-  const firstImage = match?.[1];
+  const { prev, next } = await getRandomAdjacentPosts(params.slug);
 
   return (
     <div className="py-12 w-full">
@@ -67,17 +69,14 @@ const ProjectPage = async ({ params }) => {
       </Head> */}
 
       <section className="section-Hero-img w-full">
-        {/* <div className="w-full">
-          <HeroSlider />
-        </div> */}
-        <div className="flex w-[90%] mt-20 max-w-[1920px] mx-auto flex-col">
-          <div className="w-full bg-white">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-0">
+          <div className="bg-white w-full mt-20">
             <div className="p-4 md:p-10">
               <span className="tracking-widest text-gray-500">
                 Case - 00234
               </span>
               <h1
-                className=" text-xl sm:text-3xl tracking-widest mb-4"
+                className="text-xl sm:text-3xl tracking-widest mb-4"
                 dangerouslySetInnerHTML={{ __html: post.title.rendered }}
               />
             </div>
@@ -85,26 +84,28 @@ const ProjectPage = async ({ params }) => {
         </div>
       </section>
 
-      <section className="pb-0 md:pb-[80px] xl:pb-[150px] flex flex-col-reverse lg:flex-row pt-8 border-t-1 border-gray-300 w-full ">
-        <div className="w-full lg:w-[15%]">
-          <div className="sticky pl-0 md:pl-5 top-0 md:top-24">
-            <Suspense fallback={<div></div>}>
-              <Categories />
-            </Suspense>
-          </div>
+      <section className="pb-0 md:pb-[80px] xl:pb-[150px] flex flex-col lg:flex-row pt-8 border-t-1 border-gray-300 w-full">
+        {/* 手機版：內容-資訊-分類(下拉) 排序 */}
+        <div className="lg:hidden block order-1">
+          <Suspense fallback={<div></div>}>
+            <Categories />
+          </Suspense>
         </div>
 
-        <div className="w-full py-10 px-5 sm:px-0 lg:py-0 sm:w-[60%] mx-auto lg:w-[25%] pr-8 flex flex-col">
-          <div className="">
+        <div className="w-full lg:w-[60%] order-1 lg:order-2 prose prose-neutral 2xl:px-[150px] px-4 md:px-[70px] [&_img]:my-8">
+          <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+        </div>
+
+        <div className="w-full py-10 px-5 sm:px-0 lg:py-0 sm:w-[60%] mx-auto lg:w-[25%] pr-8 flex flex-col order-2 lg:order-3">
+          <div>
             <span className="text-[.8rem]">
-              以瑞典為基地的TUF設計了可供所有年齡層日常使用的系列。這款設計關注於尺寸與用途的關係，讓孩子的大盤子可以成為成年人的小菜盤，並不拘泥於單一的使用方式，而是通過使用者的想像力來適應各種功能。這是一系列源於融化冰淇淋主題和印章等充滿趣味的創意。
-              Designer
+              以瑞典為基地的TUF設計了可供所有年齡層日常使用的系列... Designer
             </span>
           </div>
           <div className="sticky my-4 top-24">
             <div className="flex px-4 flex-col border border-[#d7d7d7] bg-[#375E77]">
               <h2 className="article-side-project-title text-white text-[1rem] font-normal tracking-widest">
-                326新成屋兩房57萬裝潢成家專案
+                {post.title?.rendered?.replace(/<[^>]+>/g, "") || ""}
               </h2>
               <div className="feature">
                 <div className="border-t-1 py-4 px-1 flex justify-between items-center border-gray-400">
@@ -112,15 +113,17 @@ const ProjectPage = async ({ params }) => {
                     裝潢價格：
                   </b>
                   <span className="text-[.85rem] font-normal text-white">
-                    約新台幣 180 萬元​
+                    {post.acf?.price
+                      ? `約新台幣 ${Number(post.acf.price).toLocaleString()} 元`
+                      : ""}
                   </span>
                 </div>
                 <div className="border-t-1 py-4 px-1 flex justify-between items-center border-gray-400">
                   <b className="text-[.9rem] font-normal text-white">
                     裝潢坪數：
                   </b>
-                  <span className="text-[.85rem] text-white font-normal text-white">
-                    25 坪​
+                  <span className="text-[.85rem] font-normal text-white">
+                    {post.acf?.size || ""}
                   </span>
                 </div>
                 <div className="border-t-1 py-4 px-1 flex justify-between items-center border-gray-400">
@@ -128,131 +131,61 @@ const ProjectPage = async ({ params }) => {
                     施工日期：
                   </b>
                   <span className="text-[.85rem] font-normal text-white">
-                    2024.05.04
+                    {post.acf?.date || ""}
                   </span>
                 </div>
-                <div className="border-t-1 py-4 px-1 flex justify-between items-center border-gray-400">
+                <div className="border-t-1 py-4 px-1 flex justify-between items-start border-gray-400">
                   <b className="text-[.9rem] font-normal text-white">特色：</b>
-                  <br />
-                  <span className="text-[.85rem] w-3/4 text-white font-normal text-white">
-                    ​以白色與灰色為主色調，搭配木質地板，營造出簡約且溫馨的居家氛圍。​
+                  <span className="text-[.85rem] w-3/4 text-white font-normal">
+                    {post.acf?.feature || ""}
                   </span>
                 </div>
               </div>
             </div>
+
             <div className="small-viewer-project p-0 md:p-5">
-              {/* 此處保留小圖區塊不變 */}
+              {/* 小圖保留 */}
             </div>
           </div>
         </div>
 
-        <div className="prose prose-neutral w-full lg:w-[60%] 2xl:px-[150px] px-4 md:px-[70px] [&_img]:my-8">
-          <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
-        </div>
-      </section>
-
-      <section className="section_navgation flex flex-row">
-        <div className="flex w-full md:w-[80%] mx-auto">
-          <div className="Navgation_Prev group hover:scale-[1.02] duration-400 w-1/2 px-8">
-            <div className="flex flex-col justify-start items-start">
-              <b className="text-[.9rem] tracking-wide w-3/4 text-left font-bold">
-                〈COGNOMEN〉 25AW “WORKER-MAN
-                ATHLETE”的預購活動將於下週末為期三天舉辦！！
-              </b>
-              <span className="text-[.8rem] mt-3">
-                Categories: 小資50萬裝潢方案
-              </span>
-              <button class="mt-4  relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
-                <div class="relative inline-flex -translate-x-0 items-center transition group-hover:-translate-x-6">
-                  <div class="absolute translate-x-0 opacity-0 transition group-hover:-translate-x-6 group-hover:opacity-100 rotate-180">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-
-                  <span class="pl-6">Hover</span>
-                  <div class=" absolute  right-0 translate-x-12 opacity-100 transition group-hover:translate-x-6 group-hover:opacity-0">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M7.22303 0.665992C7.32551 0.419604 7.67454 0.419604 7.77702 0.665992L9.41343 4.60039C9.45663 4.70426 9.55432 4.77523 9.66645 4.78422L13.914 5.12475C14.18 5.14607 14.2878 5.47802 14.0852 5.65162L10.849 8.42374C10.7636 8.49692 10.7263 8.61176 10.7524 8.72118L11.7411 12.866C11.803 13.1256 11.5206 13.3308 11.2929 13.1917L7.6564 10.9705C7.5604 10.9119 7.43965 10.9119 7.34365 10.9705L3.70718 13.1917C3.47945 13.3308 3.19708 13.1256 3.25899 12.866L4.24769 8.72118C4.2738 8.61176 4.23648 8.49692 4.15105 8.42374L0.914889 5.65162C0.712228 5.47802 0.820086 5.14607 1.08608 5.12475L5.3336 4.78422C5.44573 4.77523 5.54342 4.70426 5.58662 4.60039L7.22303 0.665992Z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-              </button>
-            </div>
-          </div>
-          <div className="Navgation_Next hover:scale-[1.02] duration-400 w-1/2 group px-8">
-            <div className="flex flex-col justify-end items-end">
-              <b className="text-[.9rem]  w-3/4 text-right tracking-wide font-bold">
-                〈COGNOMEN〉 25AW “WORKER-MAN
-                ATHLETE”的預購活動將於下週末為期三天舉辦！！
-              </b>
-              <span className="text-[.8rem] mt-3">
-                Categories: 小資50萬裝潢方案
-              </span>
-              <button class="mt-4 relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
-                <div class="relative inline-flex -translate-x-0 items-center transition group-hover:-translate-x-6">
-                  <div class="absolute translate-x-0 opacity-100 transition group-hover:-translate-x-6 group-hover:opacity-0">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M7.22303 0.665992C7.32551 0.419604 7.67454 0.419604 7.77702 0.665992L9.41343 4.60039C9.45663 4.70426 9.55432 4.77523 9.66645 4.78422L13.914 5.12475C14.18 5.14607 14.2878 5.47802 14.0852 5.65162L10.849 8.42374C10.7636 8.49692 10.7263 8.61176 10.7524 8.72118L11.7411 12.866C11.803 13.1256 11.5206 13.3308 11.2929 13.1917L7.6564 10.9705C7.5604 10.9119 7.43965 10.9119 7.34365 10.9705L3.70718 13.1917C3.47945 13.3308 3.19708 13.1256 3.25899 12.866L4.24769 8.72118C4.2738 8.61176 4.23648 8.49692 4.15105 8.42374L0.914889 5.65162C0.712228 5.47802 0.820086 5.14607 1.08608 5.12475L5.3336 4.78422C5.44573 4.77523 5.54342 4.70426 5.58662 4.60039L7.22303 0.665992Z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
-                  </div>
-                  <span class="pl-6">Hover</span>
-                  <div class="absolute right-0 translate-x-12 opacity-0 transition group-hover:translate-x-6 group-hover:opacity-100">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-              </button>
-            </div>
+        {/* 桌機版分類側邊欄 */}
+        <div className="hidden lg:block w-full lg:w-[15%] order-0">
+          <div className="sticky pl-0 md:pl-5 top-0 md:top-24">
+            <Suspense fallback={<div></div>}>
+              <Categories />
+            </Suspense>
           </div>
         </div>
       </section>
-      <section className="section-page-navgation w-full max-w-[1100px] mx-auto px-4">
+
+      <section className="mt-16 max-w-[1200px] mx-auto px-6 md:px-0">
+        <div className="flex flex-col md:flex-row justify-between gap-6 border-t pt-8">
+          {prev && (
+            <div className="w-full md:w-1/2">
+              <h3 className="text-sm text-gray-500">上一篇</h3>
+              <AnimatedLink
+                href={`/project/${prev.slug}`}
+                className="text-lg font-bold block mt-2"
+              >
+                {prev.title.rendered.replace(/<[^>]+>/g, "")}
+              </AnimatedLink>
+            </div>
+          )}
+          {next && (
+            <div className="w-full md:w-1/2 text-right">
+              <h3 className="text-sm text-gray-500">下一篇</h3>
+              <AnimatedLink
+                href={`/project/${next.slug}`}
+                className="text-lg font-bold block mt-2"
+              >
+                {next.title.rendered.replace(/<[^>]+>/g, "")}
+              </AnimatedLink>
+            </div>
+          )}
+        </div>
+      </section>
+      <section className="section-page-navgation w-full md:mt-14 max-w-[1200px] mx-auto px-4">
         <div className="flex flex-col md:flex-row py-6 justify-between items-center">
           <div className="tag border rounded-full px-4 py-1 text-[.85rem] mb-4 md:mb-0">
             Categories
