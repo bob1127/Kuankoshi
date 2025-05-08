@@ -114,7 +114,7 @@ const Nav = () => {
     <div className="flex shrink-0 gap-20">
       <div className="flex flex-col gap-2">
         <h3 className="mb-2 uppercase text-gray-200">ABOUT</h3>
-        <AnimatedLink href="/KuankoshiAbout">
+        <AnimatedLink href="/about">
           <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
             設計理念
           </p>
@@ -137,24 +137,19 @@ const Nav = () => {
       </div>
       <div className="flex flex-col gap-2">
         <h3 className="mb-2 uppercase text-gray-200">PROJECT</h3>
-        <AnimatedLink href="/KuankoshiAbout">
+        <AnimatedLink href="https://www.kuankoshi.com/project?cat=renovation-restoration">
           <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
             老屋翻新
           </p>
         </AnimatedLink>
-        <AnimatedLink href="/ServiceProcess">
+        <AnimatedLink href="https://www.kuankoshi.com/project?cat=special-offers">
           <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
             小資專案
           </p>
         </AnimatedLink>
-        <AnimatedLink href="/qa">
+        <AnimatedLink href="https://www.kuankoshi.com/project?cat=commercial-public">
           <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
             商業空間
-          </p>
-        </AnimatedLink>
-        <AnimatedLink href="/news">
-          <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
-            設計誌
           </p>
         </AnimatedLink>
       </div>

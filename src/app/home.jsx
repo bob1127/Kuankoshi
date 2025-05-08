@@ -250,7 +250,7 @@ export default function About() {
             <div className="flex flex-col sm:flex-row section-padding items-end">
               {/* 第一張圖 */}
               <div className="img group w-[95%] sm:w-[32.5%] mx-auto sm:mx-3 h-auto overflow-hidden">
-                <AnimatedLink href="/project">
+                <AnimatedLink href="https://www.kuankoshi.com/project?cat=commercial-public">
                   <div className="flex flex-col pl-4 py-4">
                     <div className="inline-block pb-4">
                       <button className="relative !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
@@ -288,7 +288,7 @@ export default function About() {
 
               {/* 第二張圖 */}
               <div className="img group w-[95%] sm:w-[32.5%] mx-auto sm:mx-3 h-auto overflow-hidden">
-                <AnimatedLink href="/project">
+                <AnimatedLink href="https://www.kuankoshi.com/project?cat=commercial-public">
                   <div className="flex flex-col pl-4 py-4">
                     <div className="inline-block pb-4">
                       <button className="relative !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
@@ -326,7 +326,7 @@ export default function About() {
 
               {/* 第三張圖 */}
               <div className="img group w-[95%] sm:w-[32.5%] mx-auto sm:mx-3 h-auto overflow-hidden">
-                <AnimatedLink href="/project">
+                <AnimatedLink href="https://www.kuankoshi.com/project?cat=residential-luxury">
                   <div className="flex flex-col pl-4 py-4">
                     <div className="inline-block pb-4">
                       <button className="relative !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
@@ -369,7 +369,7 @@ export default function About() {
           </section> */}
           <section className="section-padding">
             <div className="img group w-[98%]    ">
-              <AnimatedLink href="/project">
+              <AnimatedLink href="https://www.kuankoshi.com/project?cat=renovation-restoration">
                 <div className="flex flex-col pl-4 py-4">
                   <div className="inline-block pb-4">
                     <button

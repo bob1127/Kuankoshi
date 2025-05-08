@@ -249,7 +249,7 @@ const Menu = ({ isDarkBg }) => {
                   loading="lazy"
                   width={1200}
                   height={700}
-                  className="w-[48%] sm:w-[45%] md:w-[48%] lg:w-[60%] hover:scale-95 rounded-2xl hover:shadow-xl  hover:border-2 hover:border-white  duration-700"
+                  className="w-full sm:w-[45%] md:w-[48%] lg:w-[60%] hover:scale-95 rounded-md xl:rounded-2xl hover:shadow-xl  hover:border-2 hover:border-white  duration-700"
                 />
               </AnimatedLink>
               <AnimatedLink href="/contact">
@@ -260,7 +260,7 @@ const Menu = ({ isDarkBg }) => {
                   loading="lazy"
                   width={1200}
                   height={700}
-                  className="w-[48%] sm:w-[45%] md:w-[48%] lg:w-[60%] hover:scale-95 rounded-2xl hover:shadow-xl hover:border-2 hover:border-white duration-700"
+                  className="w-full sm:w-[45%] md:w-[48%] lg:w-[60%] hover:scale-95 rounded-md xl:rounded-2xl hover:shadow-xl hover:border-2 hover:border-white duration-700"
                 />
               </AnimatedLink>
             </div>
