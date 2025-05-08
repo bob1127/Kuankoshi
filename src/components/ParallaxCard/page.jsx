@@ -45,7 +45,7 @@ const Card = ({
 
   return (
     <div ref={container} className={styles.cardContainer}>
-      <AnimatedLink className="!w-[100vw]" href="/hot-sale-01">
+      <AnimatedLink className="!w-[100vw]" href="/ServiceProcess">
         <motion.div
           style={{
             backgroundImage: `url(${backgroundImage})`,

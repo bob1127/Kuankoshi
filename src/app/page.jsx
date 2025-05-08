@@ -1,20 +1,21 @@
 import Client from "./home";
 
-// /app/photos/metadata.js
-// /app/news/metadata.js
 export const metadata = {
-  title: "寬越設計專欄｜設計案例與空間靈感分享",
+  title:
+    "寬越設計｜小宅美學與風格空間提案｜50萬輕裝潢提案・小資族與新婚家庭的理想選擇",
   description:
-    "從老屋翻新到商業空間，寬越設計分享最新設計專案與空間美學觀察，提供專業見解與風格靈感，打造更貼近生活的室內設計。",
+    "專為小資家庭與小坪數空間量身打造的室內設計，寬越設計提供輕裝潢、預算客製化與風格提案，打造實用與美感兼具的理想居所。",
   keywords: [
-    "室內設計新聞",
-    "裝潢案例",
-    "設計專欄",
+    "50萬裝潢",
+    "小資族設計",
+    "新婚家庭裝潢",
+    "小坪數室內設計",
+    "輕裝潢方案",
+    "寬越設計",
     "老屋翻新",
-    "店面設計靈感",
-    "空間美學",
-    "住宅設計案例",
-    "寬越設計文章",
+    "預算裝潢推薦",
+    "室內設計提案",
+    "空間風格規劃",
   ],
   icons: {
     icon: "/images/logo/company-logo.ico",
@@ -22,22 +23,23 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "zh_TW",
-    url: "https://www.kuankoshi.com/news",
+    url: "https://www.kuankoshi.com",
     siteName: "寬越設計 Kuankoshi Design",
-    title: "寬越設計專欄｜設計案例與空間靈感分享",
+    title:
+      "寬越設計｜小宅美學與風格空間提案｜50萬輕裝潢提案・小資族與新婚家庭的理想選擇",
     description:
-      "深入解析室內設計實例與靈感來源，寬越設計帶您探索空間規劃背後的美學與實用平衡。",
+      "從初步規劃到完工交付，寬越設計結合生活機能與風格美學，為您打造舒適、實用又有品味的居家空間。",
     images: [
       {
-        url: "https://www.kuankoshi.com/images/og/news-cover.jpg",
+        url: "https://www.kuankoshi.com/images/舊屋翻新/004-AB3C5203321B.jpg",
         width: 1200,
         height: 630,
-        alt: "寬越設計新聞與案例圖庫",
+        alt: "寬越設計室內空間封面",
       },
     ],
   },
   alternates: {
-    canonical: "https://www.kuankoshi.com/news",
+    canonical: "https://www.kuankoshi.com",
   },
 };
 

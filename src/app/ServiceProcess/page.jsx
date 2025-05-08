@@ -371,10 +371,9 @@ export default function About() {
               <GsapText
                 text="[專業詮釋空間可能：寬越室內設計 平面規劃]"
                 id="gsap-intro"
-                fontSize="1.8rem"
-                fontWeight="200"
+                fontWeight="600"
                 color="#000"
-                className="text-center  tracking-widest inline-block mb-0 h-auto"
+                className="text-left !text-[1.8rem]  tracking-widest inline-block mb-0 h-auto"
               />
             </div>
 

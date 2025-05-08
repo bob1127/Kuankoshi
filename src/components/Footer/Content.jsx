@@ -119,7 +119,7 @@ const Nav = () => {
             設計理念
           </p>
         </AnimatedLink>
-        <AnimatedLink href="/hot-sale-01">
+        <AnimatedLink href="/ServiceProcess">
           <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
             服務流程
           </p>
@@ -142,7 +142,7 @@ const Nav = () => {
             老屋翻新
           </p>
         </AnimatedLink>
-        <AnimatedLink href="/hot-sale-01">
+        <AnimatedLink href="/ServiceProcess">
           <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
             小資專案
           </p>
