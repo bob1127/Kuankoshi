@@ -56,44 +56,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <ViewTransitions>
       <html lang="en">
-        <head>
-          <title>寬越設計 Kuankoshi | 室內設計・住宅規劃・空間合作</title>
-          <meta
-            name="description"
-            content="寬越設計專注於住宅、商空與跨界合作項目，提供小坪數規劃、老屋翻新、預售客變與品牌空間設計服務。"
-          />
-          <meta
-            name="keywords"
-            content="寬越設計, 室內設計, 小坪數裝潢, 預售屋客變, 商空設計, 台灣室內設計"
-          />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta charSet="utf-8" />
-
-          {/* Favicon */}
-          <link rel="icon" href="/images/logo/company-logo.ico" />
-
-          {/* Facebook Open Graph 分享預覽 */}
-          <meta
-            property="og:title"
-            content="寬越設計 Kuankoshi | 室內設計・住宅規劃"
-          />
-          <meta
-            property="og:description"
-            content="專注小資族、小家庭、商空與老屋翻新空間的室內設計團隊。"
-          />
-          <meta
-            property="og:image"
-            content="https://www.你的網站網址.com/images/logo/og-cover.jpg"
-          />
-          <meta property="og:url" content="https://www.你的網站網址.com" />
-          <meta property="og:type" content="website" />
-          <meta property="og:site_name" content="寬越設計 Kuankoshi" />
-          <meta
-            property="article:author"
-            content="https://www.facebook.com/people/寬越室內設計/61550958051323/"
-          />
-        </head>
-
         <body>
           {/* ✅ LINE 按鈕區塊加上動畫效果 */}
           <motion.div className="line-contact-bar fixed bottom-10 right-5  z-[999999999]">

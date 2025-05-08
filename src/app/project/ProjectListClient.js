@@ -88,21 +88,19 @@ export default function ProjectListClient({ posts, categories }) {
     <div className="pt-[10vh]">
       <div className="mx-auto 2xl:w-[87%] w-[98%]">
         <div className="title w-[75%] mx-auto flex flex-col">
-        <h1 className="text-[5rem] font-bold flex-col sm:flex-row flex items-center justify-between">
-          WORKS.
-          <div className=" text-[1rem] sm:text-[1.2rem] 2xl:text-[1.7rem] font-normal">案件實例</div>
-        </h1>
-      </div>
-
-      <div className="mb-[100px]">
-        <SwiperSingle />
-      </div>
-
-      <section className="categories-01 mx-auto">
-        <div className="w-full px-0 mx-0 overflow-hidden">
-          <Swiper />
+          <h1 className="text-[5rem] font-bold flex-col sm:flex-row flex items-center justify-between">
+            WORKS.
+            <div className=" text-[1rem] sm:text-[1.2rem] 2xl:text-[1.7rem] font-normal">案件實例</div>
+          </h1>
         </div>
-      </section>
+        <div className="mb-[100px]">
+          <SwiperSingle />
+        </div>
+        <section className="categories-01 mx-auto">
+          <div className="w-full px-0 mx-0 overflow-hidden">
+            <Swiper />
+          </div>
+        </section>
       </div>
 
       <div className="max-w-[1920px] w-full md:w-[85%] mt-[10vh] px-6 lg:px-0 mx-auto">
@@ -114,7 +112,7 @@ export default function ProjectListClient({ posts, categories }) {
               <button onClick={() => setColumns(2)} className={`p-2 rounded-md ${columns === 2 ? "bg-gray-300" : "bg-gray-100"}`}><Grid2X2 size={18} /></button>
             </div>
             <div className="hidden sm:flex gap-2">
-              <button onClick={() => setViewMode("list")} className={`p-2 rounded-md ${viewMode === "list" ? "bg-gray-300" : "bg-gray-100"}`}><Grid size={18} /></button>
+              <button onClick={() => setViewMode("list") } className={`p-2 rounded-md ${viewMode === "list" ? "bg-gray-300" : "bg-gray-100"}`}><Grid size={18} /></button>
               <button onClick={() => setViewMode("gallery")} className={`p-2 rounded-md ${viewMode === "gallery" ? "bg-gray-300" : "bg-gray-100"}`}><Grid2X2 size={18} /></button>
             </div>
           </div>
@@ -184,9 +182,8 @@ export default function ProjectListClient({ posts, categories }) {
           >
             <AnimatePresence>
               {sortedPosts.map((post) => {
-                const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
-                const galleryImage = extractFirstGalleryImage(post.content?.rendered);
-                const previewImage = featuredImage || galleryImage || "/images/fallback.jpg";
+                const rawImage = post.clean_featured_image || extractFirstGalleryImage(post.content?.rendered);
+                const previewImage = rawImage || "/images/fallback.jpg";
 
                 return (
                   <motion.div
@@ -201,11 +198,10 @@ export default function ProjectListClient({ posts, categories }) {
                       scale: { type: "spring", stiffness: 300, damping: 30 },
                     }}
                   >
-                       <AnimatedLink
-  href={`/project/${post.slug}`}
-  className={`group block ${viewMode === "list" ? "flex gap-6 items-center border-b-1 pb-4 border-gray-800" : ""}`}
->
-
+                    <AnimatedLink
+                      href={`/project/${post.slug}`}
+                      className={`group block ${viewMode === "list" ? "flex gap-6 items-center border-b-1 pb-4 border-gray-800" : ""}`}
+                    >
                       <div className={`${viewMode === "list" ? "w-[10%] aspect-auto" : "aspect-[4/5] w-full"} overflow-hidden rounded-md bg-gray-100`}>
                         <Image
                           src={previewImage}
@@ -225,9 +221,6 @@ export default function ProjectListClient({ posts, categories }) {
                             {post.acf?.price && <div>價格：{Number(post.acf.price).toLocaleString()} 元</div>}
                           </div>
                         )}
-                        {/* <p className="text-xs text-gray-500">
-                          {new Date(post.date).toLocaleDateString("zh-TW")}
-                        </p> */}
                       </div>
                     </AnimatedLink>
                   </motion.div>
@@ -244,5 +237,6 @@ export default function ProjectListClient({ posts, categories }) {
 function extractFirstGalleryImage(html) {
   if (!html) return null;
   const imgMatch = html.match(/<img[^>]+src=\"([^\">]+)\"/i);
-  return imgMatch ? imgMatch[1] : null;
+  if (!imgMatch) return null;
+  return imgMatch[1].replace(/-\d+x\d+(?=\.[a-z]{3,4}$)/, "");
 }
