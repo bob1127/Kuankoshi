@@ -15,7 +15,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
 
-const Menu = () => {
+const Menu = ({ isDarkBg }) => {
   const init = useRef(false);
   const container = useRef();
   const menuRef = useRef(null);
@@ -79,11 +79,10 @@ const Menu = () => {
       gsap.to(menuContent, {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.8, // 原本是 1，改短
         ease: "power4.out",
-        delay: 0.4,
+        delay: 0.4, // 原本 0.8，改早一點進入
       });
-
       if (window.innerWidth >= 768) {
         gsap.to(links, {
           y: -25,
@@ -155,19 +154,146 @@ const Menu = () => {
     }
   }, [isAnimating, isOpen]);
 
+  // ✅ 控制 pointerEvents，確保可以捲動
   useEffect(() => {
     const menuEl = menuRef.current;
     if (!menuEl) return;
-    menuEl.style.pointerEvents = isOpen ? "auto" : "none";
+
+    if (isOpen) {
+      menuEl.style.pointerEvents = "auto";
+    } else {
+      menuEl.style.pointerEvents = "none";
+    }
   }, [isOpen]);
 
   return (
     <div ref={container}>
-      <MenuBar isOpen={isOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
+      <MenuBar
+        isOpen={isOpen}
+        toggleMenu={toggleMenu}
+        closeMenu={closeMenu}
+        isDarkBg={isDarkBg}
+      />
 
-      {/* 以下保留完整內容不變 */}
-      {/* menuRef, 內容區塊、社群區、圖片連結等 */}
-      {/* ... */}
+      <div
+        ref={menuRef}
+        className="fixed top-0 left-0 w-full h-screen py-20 flex bg-[#375E77] z-[3] overflow-y-auto"
+        style={{ clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" }}
+      >
+        <div className="w-[90%] max-w-[1400px] mx-auto flex flex-col justify-center items-center menu-content">
+          {/* Logo */}
+          <div className="flex flex-col sm:flex-row sm:mt-[100px] mt-[20px] lg:mt-[130px] items-start md:items-center mb-0 sm:mb-12 px-6 w-full justify-start">
+            <div className="flex items-center">
+              <p className="text-white ml-4 text-[clamp(1.5rem,3vw,2.5rem)]">
+                Kuankoshi
+              </p>
+            </div>
+            <span className="text-[#d8d8d8] ml-0 mt-3 sm:mt-0 sm:ml-3 text-[clamp(0.7rem,2vw,1rem)] font-light">
+              讓生活，在空間裡展開
+            </span>
+          </div>
+
+          {/* Main Content */}
+          <div className="flex flex-col lg:flex-row  w-full py-2 sm:py-10 gap-y-0 sm:gap-y-8 px-6">
+            {/* Links */}
+            <div className="w-full lg:w-1/2">
+              <div className="flex items-center mb-6">
+                <svg
+                  className="w-5 h-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 9h4m0 0V5m0 4L4 4m15 5h-4m0 0V5m0 4 5-5M5 15h4m0 0v4m0-4-5 5m15-5h-4m0 0v4m0-4 5 5"
+                  />
+                </svg>
+                <span className="text-white ml-3 text-[clamp(0.9rem,2vw,1.1rem)] tracking-wider">
+                  CONTENT
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-x-6 gap-y-6">
+                {links.map((link, index) => (
+                  <div className="link group text-left" key={index}>
+                    <div className="link-wrapper h-[80px]  overflow-hidden relative">
+                      <AnimatedLink
+                        href={link.path}
+                        className=" block  !bg-transparent !border-none p-2"
+                      >
+                        <h2 className="text-[clamp(1.4rem,3vw,2rem)] font-normal group-hover:text-white duration-500  text-gray-200 sm:text-[#838383] translate-y-[120px] will-change-transform">
+                          {link.label}
+                          <br />
+                          <span className=" block !bg-transparent ml-6 text-[clamp(0.7rem,1.8vw,0.9rem)] text-white">
+                            {link.subtext}
+                          </span>
+                        </h2>
+                      </AnimatedLink>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Images */}
+            <div className="w-full lg:w-1/2 flex flex-row lg:flex-col justify-end items-end lg:justify-center gap-4 mt-6">
+              <AnimatedLink href="/contact">
+                <Image
+                  src="/images/about/spesial_banner_2-pc.png"
+                  alt="menu-img"
+                  placeholder="empty"
+                  loading="lazy"
+                  width={1200}
+                  height={700}
+                  className="w-[48%] sm:w-[45%] md:w-[48%] lg:w-[60%] hover:scale-95 rounded-2xl hover:shadow-xl  hover:border-2 hover:border-white  duration-700"
+                />
+              </AnimatedLink>
+              <AnimatedLink href="/contact">
+                <Image
+                  src="/images/about/spesial_banner_2-pc.png"
+                  alt="menu-img"
+                  placeholder="empty"
+                  loading="lazy"
+                  width={1200}
+                  height={700}
+                  className="w-[48%] sm:w-[45%] md:w-[48%] lg:w-[60%] hover:scale-95 rounded-2xl hover:shadow-xl hover:border-2 hover:border-white duration-700"
+                />
+              </AnimatedLink>
+            </div>
+          </div>
+
+          {/* Socials */}
+          <div className="w-full mt-10 px-6">
+            <div className="socials flex sm:flex-row flex-col justify-between pb-8 footer   gap-6 w-full">
+              <div className="flex  sub-col gap-4">
+                {socials.map((social, index) => (
+                  <div className="line" key={index}>
+                    <p className="text-[clamp(1rem,1.8vw,1.2rem)] text-[var(--text-secondary)] translate-y-[80px] will-change-transform">
+                      <a
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 text-[.9rem] hover:text-white duration-400"
+                      >
+                        {social.label}
+                      </a>
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <div>
+                <span className="text-[#fafafa] text-[.9rem]">
+                  © 2025 Kuankoshi DESIGN co., ltd.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
