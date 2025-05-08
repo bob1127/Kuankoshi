@@ -97,9 +97,6 @@ const ProjectPage = async ({ params }) => {
           <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-0">
             <div className="bg-white w-full mt-20">
               <div className="p-4 md:p-10">
-                <span className="tracking-widest text-gray-500">
-                  Case - 00234
-                </span>
                 <h1
                   className="text-xl sm:text-3xl tracking-widest mb-4"
                   dangerouslySetInnerHTML={{ __html: post.title.rendered }}
@@ -124,7 +121,8 @@ const ProjectPage = async ({ params }) => {
           <div className="w-full py-10 px-5 sm:px-0 lg:py-0 sm:w-[60%] mx-auto lg:w-[25%] pr-8 flex flex-col order-2 lg:order-3">
             <div>
               <span className="text-[.8rem]">
-                以瑞典為基地的TUF設計了可供所有年齡層日常使用的系列... Designer
+                寬越設計推出【小資專案】，主打
+                50萬左右輕裝潢方案，由專業設計團隊為你量身打造專屬風格，從格局優化、收納規劃到氛圍營造，讓你的「家」既實用又有品味
               </span>
             </div>
             <div className="sticky my-4 top-24">
@@ -214,63 +212,10 @@ const ProjectPage = async ({ params }) => {
             )}
           </div>
         </section>
-        <section className="section-page-navgation w-full md:mt-14 max-w-[1200px] mx-auto px-4">
-          <div className="flex flex-col md:flex-row py-6 justify-between items-center">
-            <div className="tag border rounded-full px-4 py-1 text-[.85rem] mb-4 md:mb-0">
-              Categories
-            </div>
-            <span className="text-gray-600">Look More</span>
-          </div>
-
-          <div className="border-t border-gray-600 flex flex-col md:flex-row justify-between py-5 items-start md:items-center gap-6">
-            <span className="text-[.9rem] text-gray-800 leading-relaxed">
-              結合品牌精神與市場洞察，量身打造具吸引力與記憶點的商業空間，
-              <br className="hidden md:block" />
-              助力品牌形象升級與業績成長。
-            </span>
-
-            <button className="group rotate-[-90deg] relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 shrink-0">
-              <div className="translate-x-0 transition group-hover:translate-x-[300%]">
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                >
-                  <path
-                    d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <div className="absolute -translate-x-[300%] transition group-hover:translate-x-0">
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                >
-                  <path
-                    d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-            </button>
-          </div>
-        </section>
 
         <section className="pb-[100px] ">
           <div className="title p-10">
-            <h2 className="text-center text-[4vmin] font-bold">#unevensnap</h2>
+            <h2 className="text-center text-[4vmin] font-bold">#SocialMedia</h2>
             <Link
               target="_blank"
               href="https://www.facebook.com/profile.php?id=61550958051323&sk=photos"
@@ -369,6 +314,59 @@ const ProjectPage = async ({ params }) => {
               />
             </div>
           </Marquee>
+        </section>
+        <section className="section-page-navgation w-full md:mt-14 max-w-[1200px] mx-auto px-4">
+          <div className="flex flex-col md:flex-row py-6 justify-between items-center">
+            <div className="tag border rounded-full px-4 py-1 text-[.85rem] mb-4 md:mb-0">
+              Categories
+            </div>
+            <span className="text-gray-600">Look More</span>
+          </div>
+
+          <div className="border-t border-gray-600 flex flex-col md:flex-row justify-between py-5 items-start md:items-center gap-6">
+            <span className="text-[.9rem] text-gray-800 leading-relaxed">
+              對許多小家庭、新婚夫妻或首次置產者來說，裝潢預算總是緊繃。但我們相信，美好的居住空間，不該被預算限制。
+              <br className="hidden md:block" />
+              助力品牌形象升級與業績成長。
+            </span>
+
+            <button className="group rotate-[-90deg] relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 shrink-0">
+              <div className="translate-x-0 transition group-hover:translate-x-[300%]">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                >
+                  <path
+                    d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                    fill="currentColor"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div className="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                >
+                  <path
+                    d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                    fill="currentColor"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
         </section>
       </div>
     </div>
