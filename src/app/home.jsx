@@ -149,7 +149,7 @@ export default function About() {
               />
 
               <span className="mt-6 leading-loose font--normal text-base sm:text-md text-center text-gray-800 max-w-3xl">
-                寬越設計專注於小資族、小家庭、小坪數的室內設計，<br></br>
+                寬越設計專注於小資族、小家庭、小坪數的室內設計，
                 主打50萬左右輕裝潢方案，打造兼具質感與機能的生活空間。
               </span>
             </div>
