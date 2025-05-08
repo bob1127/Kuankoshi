@@ -24,6 +24,8 @@ export default function ProjectListClient({ posts, categories }) {
   const [maxPrice, setMaxPrice] = useState("");
   const [columns, setColumns] = useState(2);
   const [viewMode, setViewMode] = useState("gallery");
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 12;
 
   useEffect(() => {
     const transformed = posts.map((post) => {
@@ -46,6 +48,7 @@ export default function ProjectListClient({ posts, categories }) {
     setMinPrice("");
     setMaxPrice("");
     setSortOption("default");
+    setCurrentPage(1);
   };
 
   const sortedPosts = useMemo(() => {
@@ -81,6 +84,12 @@ export default function ProjectListClient({ posts, categories }) {
 
     return result;
   }, [postsWithSlug, activeCategory, minSize, maxSize, minPrice, maxPrice, sortOption]);
+
+  const paginatedPosts = useMemo(() => {
+    const start = (currentPage - 1) * postsPerPage;
+    const end = start + postsPerPage;
+    return sortedPosts.slice(start, end);
+  }, [sortedPosts, currentPage]);
 
   if (!postsWithSlug.length) return <div className="text-center py-20">載入中...</div>;
 
@@ -126,6 +135,7 @@ export default function ProjectListClient({ posts, categories }) {
             onClearFilters={handleClearFilters}
           />
 
+          {/* 篩選表單 */}
           <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 mb-6 text-sm">
             <div className="flex flex-col gap-2 w-full max-w-full sm:max-w-[300px]">
               <label className="text-sm font-medium text-gray-700">坪數區間</label>
@@ -170,6 +180,7 @@ export default function ProjectListClient({ posts, categories }) {
             </div>
           </div>
 
+          {/* 案例列表 */}
           <motion.div
             layout
             className={`grid gap-8 mt-10 ${
@@ -181,7 +192,7 @@ export default function ProjectListClient({ posts, categories }) {
             }`}
           >
             <AnimatePresence>
-              {sortedPosts.map((post) => {
+              {paginatedPosts.map((post) => {
                 const rawImage = post.clean_featured_image || extractFirstGalleryImage(post.content?.rendered);
                 const previewImage = rawImage || "/images/fallback.jpg";
 
@@ -228,6 +239,21 @@ export default function ProjectListClient({ posts, categories }) {
               })}
             </AnimatePresence>
           </motion.div>
+
+          {/* 分頁按鈕 */}
+          <div className="flex justify-center gap-2 mt-10">
+            {Array.from({ length: Math.ceil(sortedPosts.length / postsPerPage) }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPage(index + 1)}
+                className={`px-3 py-1 rounded-md border ${
+                  currentPage === index + 1 ? "bg-black text-white" : "bg-white text-black"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>
